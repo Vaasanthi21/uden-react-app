@@ -2,13 +2,22 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { css } from '@emotion/react'
+import Header from './modules/components/layout/header/Header';
+import Footer from './modules/components/layout/footer/Footer';
+
 
 function App() {
+  
   return (
     <div className="App">
+      <Header></Header>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+      
         <Counter />
+        <p>test Size</p>
+        <p >test Size</p>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -51,6 +60,7 @@ function App() {
           </a>
         </span>
       </header>
+      <Footer/>
     </div>
   );
 }
