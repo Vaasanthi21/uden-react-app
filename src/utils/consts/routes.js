@@ -9,6 +9,9 @@ const BLOGS = "/blogs";
 const ABOUT_US = "/about";
 const COTACT_US = "/cotact";
 
+
+const APP = "/app";
+
 export const AppRoutes = {
     HOME,
     COMPANIES,
@@ -17,5 +20,6 @@ export const AppRoutes = {
     BLOGS,
     ABOUT_US,
     COTACT_US,
+    APP
 
 }

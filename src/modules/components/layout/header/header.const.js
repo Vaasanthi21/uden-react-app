@@ -1,5 +1,5 @@
-import { AppRoutes } from "../../../../../utils/consts/routes";
-import { AppStrigs } from "../../../../../utils/consts/strings";
+import { AppRoutes } from "../../../../utils/consts/routes";
+import { AppStrigs } from "../../../../utils/consts/strings";
 import { Home,CorporateFare,Work,Upgrade,Groups } from '@mui/icons-material';
 
 

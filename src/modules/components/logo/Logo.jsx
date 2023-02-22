@@ -1,8 +1,8 @@
 
 import { Link } from '@mui/material'
 import React from 'react'
-import LOGO from '../../assets/images/header-logo.png'
-import { AppRoutes } from '../../utils/consts/routes'
+import LOGO from '../../../assets/images/header-logo.png'
+import { AppRoutes } from '../../../utils/consts/routes'
 
 
 

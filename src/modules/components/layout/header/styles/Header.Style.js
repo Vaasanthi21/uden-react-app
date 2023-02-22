@@ -4,22 +4,25 @@ import {css} from '@emotion/react';
 import {AppColors} from '../../../../../utils/consts/app_colors'
 import { resposiveFont } from '../../../../../utils/responsive_text';
 
-const font = {fontSize:"400px"};
-
 
 export const HeaderStyles = {
+    
     appBar:({...props})=>css({
         backgroundColor: (props?.isPrimary??false)?'white':'black',
         height:"100px",
         justifyContent: 'center',
     }),
+
     logoDesktop: css({
     }),
+
     logoMobile: css({
         paddingRight:"10%"
     }),
+    
     logoDrawer: css({
     }),
+
     tabsDesktop:({...props})=> css({
         margin:"0.2vw",
         ...resposiveFont(0.8),
@@ -30,6 +33,7 @@ export const HeaderStyles = {
             color: "white"
         }
     }),
+
     tabsMobile:({...props})=> css({
         color: 'black',
         backgroundColor: (props?.isCurrent??false)?AppColors.PRIMARY_ORANGE:'none',
@@ -41,6 +45,7 @@ export const HeaderStyles = {
         }
         
     }),
+
     drawer:css({
         '& .MuiDrawer-paper': { 
             boxSizing: 'border-box',
@@ -53,23 +58,18 @@ export const HeaderStyles = {
             },
             
         },
-        
-        
     }),
+
     signupButtonDesktop: css({
         textTransform:'none',
         ...resposiveFont(),
         fontWeight:'bold',
     }),
+
     signupButtonMobile: css({
         textTransform:'none',
         fontWeight:'bold',
         width:'90%',
-    }),
-    tabsMobileText:css(
-        {
-        
-
     }),
 }
 

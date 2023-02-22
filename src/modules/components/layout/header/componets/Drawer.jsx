@@ -1,7 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
+
+// eslint-disable-next-line
 import React from 'react'
+
+import {jsx} from '@emotion/react';
 import MUIDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -14,18 +17,19 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
-import Logo from '../../../Logo';
-import { HeaderStyles } from './Header.Style';
-import { HeaderConst } from './header.const';
+import Logo from '../../../logo/Logo';
+import { HeaderConst } from '../header.const';
+import { HeaderStyles as styles } from '../styles/Header.Style';
 import { Button, ListItemIcon } from '@mui/material';
 import { AppStrigs } from '../../../../../utils/consts/strings';
+import { AppRoutes } from '../../../../../utils/consts/routes';
 
-const tabs = HeaderConst.Tabs;
+
 
 const Drawer = ({props}) => {
     const container = window !== undefined ? () => window.document.body : undefined;
-    var route = window.location.href.split(window.location.host)[1];
-    route = route.split("/")[1];
+    var route = props.hooks.route;
+    const tabs = HeaderConst.Tabs;
   return (
     <Box component="nav">
         <MUIDrawer
@@ -33,7 +37,7 @@ const Drawer = ({props}) => {
           variant="temporary"
           open={props.isDrawer}
           onClose={props.handleDrawerToggle}
-          css={HeaderStyles.drawer} 
+          css={styles.drawer} 
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
@@ -41,7 +45,7 @@ const Drawer = ({props}) => {
         >
             <Box onClick={props.handleDrawerToggle} sx={{ textAlign: 'center' }}>
                 <Box display="flex" justifyContent="space-between">
-                    <Logo css={HeaderStyles.logoDrawer} sx={{py:'8px',px:'5%'}} />
+                    <Logo css={styles.logoDrawer} sx={{py:'8px',px:'5%'}} />
                     <IconButton
                         size="large"
                         aria-label="account of current user"
@@ -61,19 +65,19 @@ const Drawer = ({props}) => {
                             key={name} 
                             disablePadding>
                             <ListItemButton 
-                                css={HeaderStyles.tabsMobile({isCurrent:(!route&&index===0)?true:((!route&&index!==0)?false:tabs.Routes[index].includes(route))})}
+                                css={styles.tabsMobile({isCurrent:(!route&&index===0)?true:((!route&&index!==0)?false:tabs.Routes[index].includes(route))})}
                                 href={tabs.Routes[index]} 
                                 alignItems='center'
                                 sx={{ textAlign: 'center' }}>
                                 <ListItemIcon>
                                     {tabs.Icons[index]}
                                 </ListItemIcon>
-                                <ListItemText primary={name} css={HeaderStyles.tabsMobileText} />
+                                <ListItemText primary={name} css={styles.tabsMobileText} />
                             </ListItemButton>
                         </ListItem>
                     ))},
                 </List>
-                <Button variant="contained" css={HeaderStyles.signupButtonMobile} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
+                <Button  href={AppRoutes.APP}  variant="contained" css={styles.signupButtonMobile} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
             </Box>
         </MUIDrawer>
     </Box>
