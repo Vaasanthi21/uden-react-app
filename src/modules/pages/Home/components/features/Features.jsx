@@ -1,9 +1,9 @@
-import { Box, Card, Divider, Grid, Paper, Typography } from '@mui/material';
+import { Divider, Grid, Paper, Typography } from '@mui/material';
 import React from 'react'
-import { AppAssets } from '../../../../../utils/consts/app_assets';
 import Spacer from '../../../../components/Spacer';
 import { HomeConst } from '../../Home.Const';
 import FeatureItems from './FeatureItems';
+import IndemandSkills from './IndemandSkills';
 
 const Features = (props) => {
     const data = HomeConst.Features;
@@ -18,21 +18,7 @@ const Features = (props) => {
             </Grid>
         </Grid>
         {data.features.map((feature,i)=><FeatureItems key={i} {...props} data={feature} display={(i%2).toString()==="1"} />)}
-        <Paper>
-        <Grid  container direction='column' height={"100%"}  justifyContent='center'>
-                <Grid item xs={2} >
-                    <Typography className='feature-title' variant='h6'>{data?.bottom.title}</Typography>
-                </Grid>
-                <Grid item xs={6} >
-                    <Box className='feature-description-container'>
-                        <Typography className='feature-description' fontSize={{xs:'10px'}} variant='caption'>{data?.bottom.description}</Typography>
-                    </Box>
-                </Grid>
-                <Grid item xs={3} >
-                    <Box component='img' src={data?.bottom.image}/>
-                </Grid>
-            </Grid>
-        </Paper>
+        <IndemandSkills data={data.bottom}/>
       </Paper>
     )
 }

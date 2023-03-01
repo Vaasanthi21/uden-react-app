@@ -12,6 +12,7 @@ import { HomeStyles as styles } from './styles/Home.Styles'
 import Spacer from '../../components/Spacer'
 import WorkFlow from './components/WorkFlow';
 import Features from './components/features/Features';
+import TrustedBy from './components/TrustedBy';
 
 
 
@@ -27,6 +28,7 @@ const Home = () => {
         <Spacer height multiplier={4}/>
         <Features css={styles.features}/>
         <Spacer height multiplier={2}/>
+        <TrustedBy css={styles.trustedBy}/>
 
     </div>
   )

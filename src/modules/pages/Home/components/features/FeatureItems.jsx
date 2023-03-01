@@ -6,9 +6,9 @@ const FeatureItems = (props) => {
     const data = props.data;
     const display = props.display;
   return (
-    <Grid container className='main-grid' direction={display===false?"row":"row-reverse"}>
+    <Grid container className='feature-main-grid' direction={display===false?"row":"row-reverse"}>
         <Grid {...props}  item  xs={8} sm={7} md={5} sx={{height:"450px",}}>
-        <Card className='card' sx={{height:'100%'}}>
+        <Card className='feature-card' sx={{height:'100%'}}>
             <Grid  container direction='column' height={"100%"}  justifyContent='center'>
                 <Grid item xs={3} >
                     <Box component='img' src={data?.image}/>

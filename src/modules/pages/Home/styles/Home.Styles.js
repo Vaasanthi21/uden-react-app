@@ -91,13 +91,18 @@ export const HomeStyles = {
             borderRadius:"5px",
 
         },
-        ".main-grid":{
+        ".feature-main-grid":{
             justifyContent:'center',
             paddingBottom:'10px',
             paddingTop:"10px",
         },
-        ".item-grid2":{
-            height:"450px"
+        ".feature-card":{
+            borderRadius:'20px',
+            boxShadow:`10px 10px ${AppColors.PRIMARY_MAIN}`,
+            ":hover":{
+                transform:"translateX(+2px) scale(1.1)",
+                boxShadow:`10px 10px ${AppColors.PRIMARY_ORANGE}`,
+            }
         },
         ".feature-title":{
             color:AppColors.PRIMARY_MAIN,
@@ -119,17 +124,27 @@ export const HomeStyles = {
             fontWeight:'bold',
             color:AppColors.FOOTER_COLOR,
         },
-        ".card":{
+        ".indemand-card":{
             borderRadius:'20px',
-            boxShadow:`10px 10px ${AppColors.PRIMARY_MAIN}`,
-            ":hover":{
-                transform:"translateX(+2px) scale(1.1)",
-                boxShadow:`10px 10px ${AppColors.PRIMARY_ORANGE}`,
-            }
-        }
-        
+            boxShadow:`0px 10px ${AppColors.PRIMARY_MAIN}`
+        },
+        ".indemand-title":{
+            color:AppColors.PRIMARY_MAIN,
+            fontWeight:'bolder',
+        },
+        ".indemand-description-container":{
+            fontWeight:'bolder',
+            textAlign:"center",
+            paddingLeft:"10%",
+            paddingRight:"10%",
+        },
+        ".indemand-description":{
+            fontWeight:'bold',
+            color:AppColors.FOOTER_COLOR,
+        },
+    }),
 
-    })
+    trustedBy:css({})
 }
 
 

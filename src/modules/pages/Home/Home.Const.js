@@ -88,10 +88,16 @@ const Features = {
     
 }
 
+const TrustedBy = {
+    certificate:AppAssets.HomeAssets.HOME_TRUSTED_BY.CERTIFICATE,
+    aws:AppAssets.HomeAssets.HOME_TRUSTED_BY.AWS
+}
+
 export const HomeConst = {
     SliderItems,
     TrustedBrand,
     WorkFlow,
-    Features
+    Features,
+    TrustedBy
 
 }
