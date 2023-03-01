@@ -27,7 +27,7 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
-    <div>
+    <div style={{height:"1000px"}}>
       <div className={styles.row}>
         <button
           className={styles.button}

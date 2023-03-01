@@ -2,6 +2,7 @@
 
 const PRIMARY_RED = "#f36f3e";
 const PRIMARY_ORANGE = "#fbaa42";
+const PRIMARY_YELLOW = "#F6BC06";
 const PRIMARY_MAIN = "#F15A24";
 const PRIMARY_GRAY = "#e6e6e5";
 
@@ -10,6 +11,7 @@ const FOOTER_COLOR= "#2D2221";
 
 const SECONDARY_GREEN = "#7dc243";
 const SECONDARY_RED = "#f16b68";
+const SECONDARY_YELLOW = "#FEF5D8";
 const SECONDARY_BLUE = "#267dc0";
 const SECONDARY_GREY= "#a8a8a8";
 
@@ -17,12 +19,14 @@ export const AppColors = {
     PRIMARY_MAIN,
     PRIMARY_RED,
     PRIMARY_ORANGE,
+    PRIMARY_YELLOW,
     PRIMARY_GRAY,
     BACKGROUND_COLOR,
     SECONDARY_GREEN,
     SECONDARY_RED,
     SECONDARY_BLUE,
     SECONDARY_GREY,
-    FOOTER_COLOR
+    FOOTER_COLOR,
+    SECONDARY_YELLOW
 }
 

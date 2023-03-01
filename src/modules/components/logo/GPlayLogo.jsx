@@ -1,15 +1,15 @@
-import { Link } from '@mui/material'
-import React from 'react'
+import { Box, Link } from '@mui/material'
 import GPLogo from '../../../assets/images/g-play.png'
 import { AppStrigs } from '../../../utils/consts/strings'
 
-const GPlayLogo = (props) => {
+const GPlayLogo = props => {
     return (
-        <Link href={AppStrigs.Liks.PLAY_STORE_APP} target="_blank" {...props}>
-            <img src={GPLogo} alt="logo" />
-        </Link>
-        
-      )
+        <Box {...props}>
+            <Link href={AppStrigs.Liks.PLAY_STORE_APP} target="_blank" >
+                <img className='child' src={GPLogo} alt="logo" />
+            </Link>
+        </Box>
+        )
 }
 
 export default GPlayLogo

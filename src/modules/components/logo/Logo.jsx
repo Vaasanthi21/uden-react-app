@@ -1,16 +1,15 @@
 
-import { Link } from '@mui/material'
-import React from 'react'
+import { Box, Link } from '@mui/material'
 import LOGO from '../../../assets/images/header-logo.png'
 import { AppRoutes } from '../../../utils/consts/routes'
 
-
-
-const Logo = (props) => {
+const Logo = props => {
   return (
-    <Link href={AppRoutes.HOME} {...props}>
-        <img src={LOGO} alt="logo" />
-    </Link>
+    <Box  {...props}>
+      <Link href={AppRoutes.HOME}>
+          <img className='child' src={LOGO} alt="logo" />
+      </Link>
+    </Box>
     
   )
 }

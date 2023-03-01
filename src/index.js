@@ -2,10 +2,13 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import { BrowserRouter } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { createTheme, ThemeProvider } from '@mui/material';
+
 import { AppColors } from './utils/consts/app_colors';
 
 const container = document.getElementById('root');
@@ -22,7 +25,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
