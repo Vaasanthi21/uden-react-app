@@ -5,24 +5,7 @@ import { AppColors } from '../../../../utils/consts/app_colors';
 export const HomeStyles = {
     
     slider: css({
-        ".slider-items":{
-            ".main-grid":{alignItems:'center'},
-                ".text-grid":{justifyContent:'center',textAlign:'start'},
-                ".text-box":{textAlign:'start'},
-                ".title":{color:AppColors.PRIMARY_MAIN,fontWeight:'bold'},
-                ".sub-title":{color:AppColors.PRIMARY_MAIN,fontWeight:'w600'},
-                ".chip":{backgroundColor:'transparent'},
-                ".avatar":{backgroundColor:AppColors.PRIMARY_ORANGE},
-                ".points":{color:AppColors.FOOTER_COLOR,fontWeight:"bold"},
-                ".button":{fontWeight:'bold',textTransform:'none'},
-            ".image-grid":{justifyContent:"center"},
-                ".image-box":{
-                    display:"flex",
-                    flexDirection:"column",
-                    justifyContent:'center',
-                    height:'380px',
-                },
-        }
+        
     }),
 
     trustedBrand: css({
@@ -144,7 +127,52 @@ export const HomeStyles = {
         },
     }),
 
-    trustedBy:css({})
+    trustedBy:css({
+        ".trustedby-title":{
+            color:AppColors.PRIMARY_MAIN,
+            fontWeight:'bolder',
+        }
+    }),
+
+    testimonial:css({
+        ".testimonial-item-name":{fontWeight:'bolder',color:AppColors.FOOTER_COLOR,opacity:'0.8'},
+        ".testimonial-item-message-container":{textAlign:'center',},
+        ".testimonial-item-message":{fontWeight:'bold'}
+
+    }),
+
+    studentPlaced:css({
+        height:'200px',
+        borderRadius:'0',
+        backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JhZHVhdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        position:'relative',
+        color: 'white',
+        ".dark-bg":{
+            borderRadius:'0',
+            backgroundColor:AppColors.FOOTER_COLOR,
+            opacity: '0.9',
+            height:'100%',
+            width:'100%',
+            position: 'absolute',
+
+        },
+        ".student-placed-content":{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom:'0'
+        },
+        ".student-placed-number-box":{padding: '20px', backgroundColor:AppColors.FOOTER_COLOR },
+        ".student-placed-number":{
+            fontWeight: 'bold',
+        }
+        
+
+    })
 }
 
 

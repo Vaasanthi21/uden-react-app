@@ -3,7 +3,8 @@ import React from 'react'
 
 const Spacer = (props) => {
     const baseSize = 10;
-    const size = (props?.multiplier??1)*baseSize;
+    const multiplier = props.multiplier??1;
+    const size = (multiplier)*baseSize;
   return (
     <Box sx={{height:props?.height===true?{
             xs:`${size}px`,

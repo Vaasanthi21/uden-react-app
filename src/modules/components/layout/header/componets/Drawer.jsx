@@ -75,7 +75,7 @@ const Drawer = ({props}) => {
                                 <ListItemText primary={name} css={styles.tabsMobileText} />
                             </ListItemButton>
                         </ListItem>
-                    ))},
+                    ))}
                 </List>
                 <Button  href={AppRoutes.APP}  variant="contained" css={styles.signupButtonMobile} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
             </Box>

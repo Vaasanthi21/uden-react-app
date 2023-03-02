@@ -2,11 +2,12 @@
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
 import {Swiper,SwiperSlide} from 'swiper/react'
-import {  Pagination,Autoplay,EffectCreative } from 'swiper';
+import {  Pagination,Autoplay,EffectCreative,Navigation } from 'swiper';
 
 import 'swiper/css';
 import "swiper/css/effect-creative";
 import 'swiper/css/pagination';
+import "swiper/css/navigation";
 
 import { CarouselStyles } from './styles/carousel.styles';
 
@@ -26,8 +27,9 @@ const Carousel = (props) => {
       }}
       rewind
       autoplay={props?.autoplay??{delay:5000}}
-      pagination={{clickable:true,dynamicBullets: true}}
-      modules={[Pagination,Autoplay,EffectCreative]}
+      pagination={props.pagination??{clickable:true,dynamicBullets: true}}
+      navigation={props?.navigation}
+      modules={[Pagination,Autoplay,EffectCreative,Navigation]}
       css={CarouselStyles.carousel}
     >
       {props.children.map((item,index)=><SwiperSlide key={index}>{item}</SwiperSlide> )}
