@@ -7,7 +7,7 @@ import { SliderItemStyles as styles } from './SliderItem.Styles'
 const SliderItem = (props) => {
   const darksubtitle = props.darksubtitle;
   return (
-    <Paper {...props} css={styles}  style={{alignItems:'center'}} >
+    <Paper {...props} css={styles}  style={{alignItems:'center'}} elevation={0} >
       <Grid className='main-grid' container direction={{xs:"column-reverse",sm:"column-reverse",md:"row-reverse",lg:"row"}} height={{xs:'600px',md:'400px'}}>
         <Grid container item xs={0} md={1}/>
         <Grid  container direction='row' item xs={5} alignContent='center' justifyContent='center'>

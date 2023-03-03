@@ -47,14 +47,14 @@ const TrustedBrand = {
 
 const WorkFlow = {
     Company:{
-        Desktop:AppAssets.HomeAssets.WORKFLOW.COMPANY.DESKTOP,
-        Tablet:AppAssets.HomeAssets.WORKFLOW.COMPANY.TABLET,
-        Mobile:AppAssets.HomeAssets.WORKFLOW.COMPANY.MOBILE,
+        desktop:AppAssets.HomeAssets.WORKFLOW.COMPANY.DESKTOP,
+        tablet:AppAssets.HomeAssets.WORKFLOW.COMPANY.TABLET,
+        mobile:AppAssets.HomeAssets.WORKFLOW.COMPANY.MOBILE,
     },
     JobSeeker:{
-        Desktop:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.DESKTOP,
-        Tablet:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.TABLET.DESKTOP,
-        Mobile:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.MOBILE,
+        desktop:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.DESKTOP,
+        tablet:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.TABLET,
+        mobile:AppAssets.HomeAssets.WORKFLOW.JOB_SEEKER.MOBILE,
     },
     title:"How it works",
     JobSeekersButtonText:"Job Seekers",

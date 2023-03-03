@@ -1,11 +1,10 @@
-import { Box, Grid, Paper, Typography} from '@mui/material'
+import { Box, Grid, Paper, Typography } from '@mui/material'
 import React from 'react'
-import Carousel from '../../../../components/carousel/Carousel'
-import { HomeConst } from '../../Home.Const'
-import TestimonialItems from './TestimonialItems'
+import TestimonialItems from '../../pages/Home/components/testimonial/TestimonialItems';
+import Carousel from '../carousel/Carousel'
 
-const HomeTestimonial = (props) => {
-    const data = HomeConst.Testimonial;
+const Testimonial = (props) => {
+    const data = props?.data;
   return (
     <Paper {...props} elevation={0}>
         <Typography className='title' variant='h4'>{data.title}</Typography>
@@ -22,4 +21,4 @@ const HomeTestimonial = (props) => {
   )
 }
 
-export default HomeTestimonial
+export default Testimonial

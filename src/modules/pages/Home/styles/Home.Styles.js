@@ -75,9 +75,10 @@ export const HomeStyles = {
 
         },
         ".feature-main-grid":{
-            justifyContent:'center',
+            justifyContent:'space-evenly',
             paddingBottom:'10px',
             paddingTop:"10px",
+
         },
         ".feature-card":{
             borderRadius:'20px',
@@ -86,26 +87,6 @@ export const HomeStyles = {
                 transform:"translateX(+2px) scale(1.1)",
                 boxShadow:`10px 10px ${AppColors.PRIMARY_ORANGE}`,
             }
-        },
-        ".feature-title":{
-            color:AppColors.PRIMARY_MAIN,
-            fontWeight:'bolder',
-            paddingLeft:"10%",
-            paddingRight:"10%",
-            "@media screen and (max-width:600px)":{
-                paddingLeft:"10%",
-                paddingRight:"10%",
-            }
-        },
-        ".feature-description-container":{
-            fontWeight:'bold',
-            textAlign:"justify",
-            paddingLeft:"10%",
-            paddingRight:"10%",
-        },
-        ".feature-description":{
-            fontWeight:'bold',
-            color:AppColors.FOOTER_COLOR,
         },
         ".indemand-card":{
             borderRadius:'20px',
@@ -135,6 +116,16 @@ export const HomeStyles = {
     }),
 
     testimonial:css({
+        ".title":{
+            color:AppColors.PRIMARY_MAIN,
+            fontWeight:'bolder',
+            paddingLeft:"20%",
+            paddingRight:"20%",
+            "@media screen and (max-width:600px)":{
+                paddingLeft:"10%",
+                paddingRight:"10%",
+            }
+        },
         ".testimonial-item-name":{fontWeight:'bolder',color:AppColors.FOOTER_COLOR,opacity:'0.8'},
         ".testimonial-item-message-container":{textAlign:'center',},
         ".testimonial-item-message":{fontWeight:'bold'}

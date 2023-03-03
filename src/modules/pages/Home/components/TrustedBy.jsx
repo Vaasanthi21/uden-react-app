@@ -5,7 +5,7 @@ import { HomeConst } from '../Home.Const'
 const TrustedBy = (props) => {
     const data = HomeConst.TrustedBy
   return (
-    <Paper {...props}>
+    <Paper {...props} elevation={0}>
         <Typography className='trustedby-title' variant='h4'>Trusted By</Typography>
         <Grid container justifyContent='space-evenly' alignItems='center'>
             <Grid item xs={5}  >

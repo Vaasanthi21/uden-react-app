@@ -1,11 +1,11 @@
 import { Divider, Grid, Paper, Typography } from '@mui/material';
 import React from 'react'
-import Spacer from '../../../../components/Spacer';
-import { HomeConst } from '../../Home.Const';
-import FeatureItems from './FeatureItems';
-import IndemandSkills from './IndemandSkills';
+import FeatureAlternating from '../../../components/feature/FeatureAlternating';
+import Spacer from '../../../components/Spacer'
+import { HomeConst }from '../Home.Const'
+import IndemandSkills from './features/IndemandSkills';
 
-const Features = (props) => {
+const HomeFeatures = (props) => {
     const data = HomeConst.Features;
     return (
       <Paper {...props} elevation={0}>
@@ -17,13 +17,13 @@ const Features = (props) => {
                 <Divider className='divider'/>
             </Grid>
         </Grid>
-        {data.features.map((feature,i)=><FeatureItems key={i} {...props} data={feature} display={(i%2).toString()==="1"} />)}
+        {data.features.map((feature,i)=><FeatureAlternating key={i} {...props} data={feature} right={(i%2).toString()==="1"?'false':'true'} />)}
         <IndemandSkills data={data.bottom}/>
       </Paper>
     )
 }
 
-export default Features
+export default HomeFeatures
 
 
 
