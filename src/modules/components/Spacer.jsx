@@ -7,7 +7,7 @@ const Spacer = (props) => {
     const size = (multiplier)*baseSize;
   return (
     <Box sx={{height:props?.height===true?{
-            xs:`${size}px`,
+            xs:`${size+baseSize}px`,
             sm:`${size+baseSize}px`,
             md:`${size+(baseSize*2)}px`,
             lg:`${size+(baseSize*3)}px`,

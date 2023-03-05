@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { AppColors } from './utils/consts/app_colors';
+import { getTypography } from './utils/helper';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -19,6 +20,7 @@ const theme = createTheme({
       main: AppColors.PRIMARY_MAIN,
     },
   },
+  typography:getTypography()
 });
 
 root.render(
@@ -37,3 +39,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+

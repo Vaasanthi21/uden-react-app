@@ -1,9 +1,9 @@
 import { Divider, Grid, Paper, Typography } from '@mui/material';
 import React from 'react'
-import FeatureAlternating from '../../../components/feature/FeatureAlternating';
-import Spacer from '../../../components/Spacer'
-import { HomeConst }from '../Home.Const'
-import IndemandSkills from './features/IndemandSkills';
+import FeatureAlternating from '../../../../components/feature/FeatureAlternating';
+import Spacer from '../../../../components/Spacer'
+import { HomeConst }from '../../Home.Const'
+import IndemandSkills from './IndemandSkills';
 
 const HomeFeatures = (props) => {
     const data = HomeConst.Features;

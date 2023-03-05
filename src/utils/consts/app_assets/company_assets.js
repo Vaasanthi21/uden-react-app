@@ -9,6 +9,8 @@ import PRE_ASSESSED_TALENT from '../../../assets/images/company-icon-1.png'
 import GLOBAL_TALENT_POOL from '../../../assets/images/company-icon2.png'
 import CURATED_PROGRAM from '../../../assets/images/company-icon3.png'
 import INDEMAND_SKILL from '../../../assets/images/company-icon4.png'
+import TESTIMONIAL_TINA_SINGH from '../../../assets/testimonial/tina_singh.png'
+import TESTIMONIAL_POONAM_DEVI from '../../../assets/testimonial/poonam_devi.png'
 
 
 
@@ -31,6 +33,10 @@ const CompanyAssets = {
         CuratedProgram:CURATED_PROGRAM,
         IndemandSkill:INDEMAND_SKILL,
 
+    },
+    Testimonial:{
+        TinaSingh:TESTIMONIAL_TINA_SINGH,
+        PoonamDevi:TESTIMONIAL_POONAM_DEVI,
     }
 
 }

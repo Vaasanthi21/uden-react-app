@@ -8,7 +8,7 @@ const FeatureAlternating = (props) => {
     const stacked = props.stacked==='true'?true:false;
     const expanded = props.expanded==='true'?true:false;
   return (
-    <Grid {...props} container className='feature-main-grid' direction={"row"} >
+    <Grid {...props} container className='feature-main-grid' paddingY='16px' justifyContent='space-evenly' direction={"row"} >
         <FeatureCard data={data} visible={visible?'true':'false'} stacked={stacked?'true':'false'} expanded={expanded?'true':'false'} />
         <FeatureCard data={data} visible={visible?'false':'true'} stacked={stacked?'true':'false'} expanded={expanded?'true':'false'} />
     </Grid>

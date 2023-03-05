@@ -9,10 +9,10 @@ const FeatureCard = (props) => {
     const data = props.data;
     const stacked = props?.stacked==='true'?true:false
     const visible = props?.visible==='false'?false:true
-    const expanded = props?.expanded==='true'?null:{sm:7,md:5,lg:4,xl:4}
+    const expanded = props?.expanded==='true'?null:{xs:8,sm:7,md:5,lg:4,xl:4}
   return (
     <Grid {...props} css={styles.featureCard({stacked})} className='feature-main-grid' item  {...expanded}>
-        <Box display={visible?'block':'none'} sx={{height:{xs:"450px",md:"500px"},position:'relative'}}>
+        <Box display={visible?'block':'none'} sx={{height:'550px',position:'relative'}}>
             {stacked && <Box className='stack-image' component='img'  src={data?.image}/>}
             <Card className='card' sx={{height:'100%'}} >
                 <Grid  container direction='column' height={"100%"}  justifyContent='center'>
@@ -25,7 +25,7 @@ const FeatureCard = (props) => {
                     </Grid>
                     <Grid item xs={6} >
                         <Box className='description-container'>
-                            <Typography className='description' fontSize={{xs:'10px'}} variant='caption'>{data?.description}</Typography>
+                            <Typography className='description' variant='subtitle1'>{data?.description}</Typography>
                         </Box>
                     </Grid>
                 </Grid>

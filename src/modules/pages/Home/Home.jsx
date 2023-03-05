@@ -9,9 +9,9 @@ import HomeTrustedBrand from './components/TrustedBrand';
 import { HomeStyles as styles } from './styles/Home.Styles'
 import Spacer from '../../components/Spacer'
 import HomeWorkFlow from './components/WorkFlow';
-import HomeFeatures from './components/Features';
+import HomeFeatures from './components/features/Features';
 import TrustedBy from './components/TrustedBy';
-import HomeTestimonial from './components/testimonial/Testimonial';
+import HomeTestimonial from './components/Testimonial';
 import StudentPlaced from './components/StudentPlaced';
 
 

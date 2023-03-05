@@ -74,20 +74,6 @@ export const HomeStyles = {
             borderRadius:"5px",
 
         },
-        ".feature-main-grid":{
-            justifyContent:'space-evenly',
-            paddingBottom:'10px',
-            paddingTop:"10px",
-
-        },
-        ".feature-card":{
-            borderRadius:'20px',
-            boxShadow:`10px 10px ${AppColors.PRIMARY_MAIN}`,
-            ":hover":{
-                transform:"translateX(+2px) scale(1.1)",
-                boxShadow:`10px 10px ${AppColors.PRIMARY_ORANGE}`,
-            }
-        },
         ".indemand-card":{
             borderRadius:'20px',
             boxShadow:`0px 10px ${AppColors.PRIMARY_MAIN}`

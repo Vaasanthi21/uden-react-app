@@ -1,4 +1,6 @@
+import { MoreHoriz } from "@mui/icons-material";
 import { AppAssets } from "../../../utils/consts/app_assets";
+import { AppRoutes } from "../../../utils/consts/routes";
 
 
 
@@ -45,6 +47,33 @@ const CompaniesConst = {
                 image:AppAssets.CompanyAssets.Features.IndemandSkill
             }
         ]
+    },
+    Testimonials:{
+        title: "Testimonials",
+        testimonials:[
+            {
+                id: 1,
+                image: AppAssets.CompanyAssets.Testimonial.TinaSingh,
+                message: 'We have been working closely with the team at UDEN for many years now. From the scoping of our requirements to the completion of hiring, the team has consistently provided prompt and quality services. UDEN takes care of the small, but important details including candidate vetting, interview documents and then the offer itself. I look forward to work with their team immensely for many years to follow.',
+                name: 'Tina Singh',
+                designation:'Admin Manager',
+                company: 'Bravvura Digital Pvt. Ltd.'
+            },
+            {
+                id: 2,
+                image: AppAssets.CompanyAssets.Testimonial.PoonamDevi,
+                message: 'Working with UDEN and the entire team has been a journey which is smooth and professional. They have always helped us find right resources for our team in all right manner. Thank you team for all the support always.',
+                name: 'Poonam Devi',
+                designation:'Senior HR Recruiter',
+                company: 'bluCognition Pvt Ltd'
+            }
+        ]   
+    },
+    KnowMore:{
+        title: "To create an AI/ML powered ecosystem where the right talent gets guidance to access World's best opportunities.",
+        buttonText: "Know More",
+        href: AppRoutes.FIND_TALENT,
+        icon: <MoreHoriz/>
     }
 }
 
