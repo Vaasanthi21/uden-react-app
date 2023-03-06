@@ -3,14 +3,13 @@
 import {jsx} from '@emotion/react';
 import { Divider} from '@mui/material'
 
-
+import { HomeStyles as styles } from './styles/Home.Styles'
 import Slider from './components/Slider'
 import HomeTrustedBrand from './components/TrustedBrand';
-import { HomeStyles as styles } from './styles/Home.Styles'
 import Spacer from '../../components/Spacer'
 import HomeWorkFlow from './components/WorkFlow';
 import HomeFeatures from './components/features/Features';
-import TrustedBy from './components/TrustedBy';
+import HomeTrustedBy from './components/TrustedBy';
 import HomeTestimonial from './components/Testimonial';
 import StudentPlaced from './components/StudentPlaced';
 
@@ -30,7 +29,7 @@ const Home = () => {
         <HomeFeatures css={styles.features}/>
         <Divider/>
         <Spacer height/>
-        <TrustedBy css={styles.trustedBy}/>
+        <HomeTrustedBy/>
         <Divider/>
         <Spacer height/>
         <HomeTestimonial css={styles.testimonial} />

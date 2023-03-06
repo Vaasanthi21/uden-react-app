@@ -18,7 +18,7 @@ export const TestimonialStyles = css({
             justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'column',alignContent:'space-evenly',
             ".name":{fontWeight:'bolder',color:AppColors.FOOTER_COLOR,opacity:'0.8'},
             ".designation":{fontWeight:'bolder',color:AppColors.FOOTER_COLOR,opacity:'0.8',marginLeft:'10px'},
-            ".company":{fontWeight:'bolder',color:AppColors.PRIMARY_MAIN},
+            ".company":{fontWeight:'bolder',color:AppColors.PRIMARY_MAIN,textTransform:'none'},
             ".message-container":{textAlign:'center',},
             ".message":{fontWeight:'bold'},
         },

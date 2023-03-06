@@ -34,7 +34,7 @@ const UpskillingPartnersConst = {
     testimonials:[
         {
             id: 1,
-            image: AppAssets.JobSeekersAssets.Testimonial.PalakJain,
+            image: AppAssets.UpskillingPartnersAssets.Testimonial.NohubAcademy,
             message: "NoHub Academy is a platform that provides live training on Full Stack Development (MERN). It is started by industry mentors. The curriculum is industry vetted in order to provide the relevant content to the students so that they are able to implement that knowledge into real-life projects/interviews. The trainers are really experienced and have been working in top product-based companies like AMAZON, Cure.fit, Innovaccer, Zeta, etc.",
             name: 'Nohub Academy',
             company: 'Nohub Academy',

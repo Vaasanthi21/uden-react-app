@@ -95,10 +95,6 @@ export const HomeStyles = {
     }),
 
     trustedBy:css({
-        ".trustedby-title":{
-            color:AppColors.PRIMARY_MAIN,
-            fontWeight:'bolder',
-        }
     }),
 
     testimonial:css({

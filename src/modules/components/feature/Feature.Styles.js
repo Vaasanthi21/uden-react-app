@@ -53,9 +53,9 @@ export const FeatureStyles = {
     alternatingImage:(props)=>css({
         ".main-grid":{alignItems:'center'},
             ".text-grid":{justifyContent:'center',textAlign:'start'},
-            ".text-box":{textAlign:'start'},
-            ".title":{color:AppColors.PRIMARY_MAIN,fontWeight:'bold',textAlign:props?.reverse?'left':'right',"@media (max-width:600px)":{textAlign:'center'}},
-            ".description":{color:AppColors.FOOTER_COLOR,fontWeight:'600',textAlign:props?.reverse?'left':'right',"@media (max-width:600px)":{textAlign:'justify'}},
+            // ".text-box":{textAlign:'start'},
+            ".feature-title":{color:AppColors.PRIMARY_MAIN,fontWeight:'bold',textAlign:props?.reverse?'left':'right',"@media (max-width:900px)":{textAlign:'center'}},
+            ".feature-description":{color:AppColors.FOOTER_COLOR,fontWeight:'600',textAlign:'justify'},
             ".image-grid":{justifyContent:"center"},
         })
 }

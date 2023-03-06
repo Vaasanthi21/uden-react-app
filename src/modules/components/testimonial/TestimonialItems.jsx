@@ -1,6 +1,5 @@
-import { Avatar, Box, Paper, Typography } from '@mui/material'
+import { Avatar, Box, Button, Paper, Typography } from '@mui/material'
 import { Container } from '@mui/system'
-import React from 'react'
 
 const TestimonialItems = (props) => {
     const data = props?.data;
@@ -15,8 +14,13 @@ const TestimonialItems = (props) => {
                 {data.designation && <Typography className='name' variant='subtitle1'>,</Typography>}
                 {data.designation && <Typography className='designation' variant='subtitle1'>{data.designation}</Typography>}
             </Box>
-            <Box  display='flex' justifyContent='center' alignItems='center'>
-                {data.company && <Typography className='company' variant='subtitle2'>{data.company}</Typography>}
+            <Box display='flex' justifyContent='center' alignItems='center'>
+                {/* {data.company && !data.link && <Typography className='company' variant='subtitle2'>{data.company}</Typography>} */}
+                {data.company && data.link
+                    ?<Button disableFocusRipple disableRipple  className='company' variant='text' href={data.link} target='_blank' >{data.company}</Button>
+                    :data.company && <Typography className='company' variant='subtitle2'>{data.company}</Typography>
+                }
+
             </Box>
         </Box>
             <Box width='80%' display='flex' justifyContent='center' alignItems='center' marginTop='16px'>

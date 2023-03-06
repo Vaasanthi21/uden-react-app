@@ -1,22 +1,12 @@
-import { Box, Grid, Paper, Typography } from '@mui/material'
 import React from 'react'
+import TrustedBy from '../../../components/trustedBy/TrustedBy'
 import { HomeConst } from '../Home.Const'
 
-const TrustedBy = (props) => {
+const HomeTrustedBy = (props) => {
     const data = HomeConst.TrustedBy
   return (
-    <Paper {...props} elevation={0}>
-        <Typography className='trustedby-title' variant='h4'>Trusted By</Typography>
-        <Grid container justifyContent='space-evenly' alignItems='center'>
-            <Grid item xs={5}  >
-                <Box width='100%' component='img' src={data?.certificate}/>
-            </Grid>
-            <Grid item xs={5}>
-                <Box width='100%' component='img' src={data?.aws}/>
-            </Grid>
-        </Grid>
-    </Paper>
+    <TrustedBy {...props} data={data}/>
   )
 }
 
-export default TrustedBy
+export default HomeTrustedBy

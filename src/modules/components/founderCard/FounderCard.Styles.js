@@ -1,0 +1,32 @@
+import { css } from "@emotion/react";
+
+const AboutUsStyles = css({
+    display: 'flex',
+    flexDirection: 'column',
+    height: 300,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius:'16px',
+  ".founder-card-image": {
+    height: '100px',
+    width: '100px',
+    borderRadius:'50%' // 16:9
+  },
+  ".founder-card-name": {
+    fontWeight: 'bold',
+  },
+  ".founder-card-designation": {
+    marginBottom: 8,
+    fontWeight: 'bold',
+  },
+  ".founder-card-message": {
+    fontStyle: 'italic',
+    marginTop: 2,
+  },
+  ".founder-card-linkedin": {
+    marginLeft: 'auto',
+    color: '#0A66C2'
+  },
+    })
+
+export default AboutUsStyles

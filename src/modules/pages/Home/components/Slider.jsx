@@ -7,7 +7,7 @@ const Slider = (props) => {
   const items = HomeConst.SliderItems;
   return (
     <Carousel {...props} >
-        {items.map((item,i)=><SliderItem  key={i} {...item}/>)}
+        {items.map((item,i)=><SliderItem  key={i} {...item} iscarousel='true'/>)}
     </Carousel>
   )
 }
