@@ -10,7 +10,7 @@ import AboutUsBanner from './components/Banner';
 import AboutUsLeadershipTeam from './components/LeadershipTeam';
 import AboutUsAdvisoryBoard from './components/AdvisoryBoard';
 import UpskillingPartnersTrustedBrand from './components/TrustedBy';
-import UpskillingPartnersKnowMore from './components/KnowMore';
+// import UpskillingPartnersKnowMore from './components/KnowMore';
 import Spacer from '../../components/Spacer';
 
 
