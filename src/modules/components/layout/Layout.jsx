@@ -5,7 +5,7 @@ import {Outlet } from "react-router-dom";
 
 // import { Footer } from './footer/Footer.jsx';
 import Header from './header/Header';
-import Footer from './footer/Footer';
+import AppFooter from './footer/AppFooter';
 
 
 const Layout = () => {
@@ -14,7 +14,7 @@ const Layout = () => {
         <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent="space-between">
             <Header/>
             <Outlet/>
-            <Footer/>
+            <AppFooter/>
         </Box>
     </div>
   )
