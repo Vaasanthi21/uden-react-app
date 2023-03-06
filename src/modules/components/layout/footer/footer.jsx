@@ -14,7 +14,7 @@ import { FooterStyles as styles} from './styles/footer.styles'
 import FooterMenuItems from './components/FooterMenuItems';
 import { AppStrigs } from '../../../../utils/consts/strings';
 
-export const Footer = () => {
+const Footer = () => {
   const route =  window.location.href.split(window.location.host)[1].split("/")[1];
   const FooterStrings = {...AppStrigs.FooterStrings};
   return (
@@ -60,4 +60,4 @@ export const Footer = () => {
   )
 }
 
-
+export default Footer
