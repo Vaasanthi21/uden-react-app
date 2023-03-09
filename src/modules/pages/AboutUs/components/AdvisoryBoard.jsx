@@ -10,7 +10,7 @@ const AboutUsAdvisoryBoard = (props) => {
   return (
     <Paper {...props} elevation={0}>
       <Spacer height multiplier={2}/>
-        <Typography className='advisory-board-title' variant='h4'>{data.title}</Typography>
+        <Typography className='advisory-board-title' variant='h3'>{data.title}</Typography>
         <Typography className='advisory-board-subtitle' variant='subtitle1'>{data.subtitle}</Typography>
         <Spacer height multiplier={2}/>
         <Grid container  spacing={2} justifyContent='center' >

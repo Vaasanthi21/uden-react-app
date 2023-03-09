@@ -1,16 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
 import { BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material';
+import { SnackbarProvider} from 'notistack';
 
 import App from './App';
+import { store } from './app/store';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-
 import { AppColors } from './utils/consts/app_colors';
 import { getTypography } from './utils/helper';
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -28,12 +29,15 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <App />
+          <SnackbarProvider maxSnack={4} autoHideDuration={3000}>
+            <App />
+          </SnackbarProvider>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

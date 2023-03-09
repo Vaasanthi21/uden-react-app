@@ -99,6 +99,7 @@ const Features = {
 }
 
 const TrustedBy = {
+    title:'Trusted By',
     certificate:AppAssets.HomeAssets.TRUSTED_BY.CERTIFICATE,
     aws:AppAssets.HomeAssets.TRUSTED_BY.AWS
 }

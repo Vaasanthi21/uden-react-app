@@ -13,6 +13,7 @@ const FeatureAlternatingImage = (props) => {
     const smimage = props.smimage;
     const xstext = props.xstext;
     const smtext = props.smtext;
+    const titlevarient = props.titlevarient;
   return (
     <Box {...props} css={styles.alternatingImage({reverse})}  style={{alignItems:'center'}} elevation={0} >
       <Grid className='main-grid' container direction={{xs:'column-reverse',md:reverse===true?'row-reverse':'row'}} height={{xs:'650px',md:'400px'}}>
@@ -20,7 +21,7 @@ const FeatureAlternatingImage = (props) => {
         <Grid  container direction='row' item xs={xstext??5} sm={smtext??5} md={5.5} lg={5} alignContent='center' justifyContent='center'>
             <Grid className='text-grid' container item xs={10} md={12} alignContent='center'>
                 <Box className='text-box'>
-                    {data.title && <Typography variant='h5' className='feature-title'>{data.title}</Typography>}
+                    {data.title && <Typography variant={titlevarient??'h5'} className='feature-title'>{data.title}</Typography>}
                     {data.description && <Typography   variant={data.description?'subtitle1':'h6'} className={'feature-description'}>{data?.description}</Typography>}
                 </Box>
             </Grid>

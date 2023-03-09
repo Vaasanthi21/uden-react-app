@@ -8,7 +8,7 @@ const TrustedBy = (props) => {
     const data = props?.data;
   return (
     <Paper {...props} css={TrustedByStyles} elevation={0}>
-        <Typography className='trustedby-title' variant='h4'>{data?.title}</Typography>
+        <Typography className='trustedby-title' variant='h3'>{data?.title}</Typography>
         <Grid container justifyContent='space-evenly' alignItems='center'>
             <Grid item xs={5}  >
                 <Box width='100%' component='img' src={data?.certificate}/>

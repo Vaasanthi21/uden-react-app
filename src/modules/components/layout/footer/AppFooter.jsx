@@ -13,15 +13,15 @@ import FooterMenu from './components/FooterMenu';
 import { FooterStyles as styles} from './styles/footer.styles'
 import FooterMenuItems from './components/FooterMenuItems';
 import { AppStrigs } from '../../../../utils/consts/strings';
+import Spacer from '../../Spacer';
 
 const AppFooter = () => {
   const route =  window.location.href.split(window.location.host)[1].split("/")[1];
   const FooterStrings = {...AppStrigs.FooterStrings};
   return (
     <Container maxWidth='auto' css={styles.mainContainer}>
-      <Box height={{xs:'10px',sm:"20px",md:"30px",lg:"40px",xl:"50px"}} />
+      <Spacer height/>
       <FooterContentWrapper >
-
         <FooterLogoContainer css={styles.logoContainer} >
           <Logo css={styles.logo} />
           <GPlayLogo css={styles.logoGP}></GPlayLogo>

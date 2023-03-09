@@ -9,18 +9,21 @@ export const HeaderStyles = {
     
     appBar:({...props})=>css({
         backgroundColor: (props?.isPrimary??false)?'white':'black',
-        height:"100px",
         justifyContent: 'center',
     }),
 
     logoDesktop: css({
+        height:"40px",
+        paddingRight:"10px",
     }),
 
     logoMobile: css({
-        paddingRight:"10%"
+        paddingRight:"10%",
+        height:"30px"
     }),
     
     logoDrawer: css({
+        height:"30px"
     }),
 
     tabsDesktop:({...props})=> css({

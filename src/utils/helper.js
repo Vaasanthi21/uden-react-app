@@ -30,3 +30,51 @@ const getResponsiveFontSizes = (maxSize, variation) => {
   
     return typography;
   }
+
+
+  export const getValidator ={
+    withMinLength:(length,message)=> { return {minLength:length,message:message??"Field is required"}; },
+    withPattern:(pattern,message)=>{return {pattern:pattern,message:message??"Field is required"}
+    }
+  }
+
+  export const ValidateField = (field) => {
+    var isError = false;
+      if(field.validator) {
+        if(field?.validator?.pattern){
+          if(!field?.validator?.pattern?.test(field?.value)){
+            field.error = true;
+            field.helperText = field?.validator?.message
+            isError = true
+          }else{
+            field.error = false;
+            field.helperText = ""
+            field.color = 'success'
+          };
+        }  
+        else{
+          if(field.value.length > field.validator.minLength){
+            field.error = false;
+            field.helperText = ""
+            field.color = 'success'
+          }else{
+            field.error = true;
+            field.helperText = field?.validator?.message
+            isError = true
+          };
+      }
+    }
+  return {field,isError};
+  }
+
+  export const ValidateFields = (fields) => {
+    var isError = false;
+    fields.forEach((field) => {
+      const data = ValidateField(field)
+      field = data.field
+      if(data.isError) {
+        isError = true
+      }
+  });
+  return {fields,isError};
+}

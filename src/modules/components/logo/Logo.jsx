@@ -7,7 +7,7 @@ const Logo = props => {
   return (
     <Box  {...props}>
       <Link href={AppRoutes.HOME}>
-          <img className='child' src={LOGO} alt="logo" />
+          <Box width="100%" height="100%"  component='img' className='child' src={LOGO} alt="logo" />
       </Link>
     </Box>
     

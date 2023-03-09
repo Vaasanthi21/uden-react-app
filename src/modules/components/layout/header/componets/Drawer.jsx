@@ -23,6 +23,7 @@ import { HeaderStyles as styles } from '../styles/Header.Style';
 import { Button, ListItemIcon } from '@mui/material';
 import { AppStrigs } from '../../../../../utils/consts/strings';
 import { AppRoutes } from '../../../../../utils/consts/routes';
+import Spacer from '../../../Spacer';
 
 
 
@@ -77,6 +78,7 @@ const Drawer = ({props}) => {
                         </ListItem>
                     ))}
                 </List>
+                <Spacer height/>
                 <Button  href={AppRoutes.APP}  variant="contained" css={styles.signupButtonMobile} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
             </Box>
         </MUIDrawer>

@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Divider } from '@mui/material';
 // eslint-disable-next-line
 import React from 'react'
 
@@ -18,9 +17,8 @@ const UpskillingPartners = () => {
   return (
     <>
       <UpskillingPartnersBanner/>
-      <Divider/>
       <UpskillingPartnersTrustedBrand />
-      <Divider/>
+      <Spacer height/>
       <UpskillingPartnersFeatures css={styles.features}/>
       <Spacer height/>
       <UpskillingPartnersTestimonial/>

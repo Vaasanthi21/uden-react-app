@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Divider} from '@mui/material'
 
 import { HomeStyles as styles } from './styles/Home.Styles'
 import Slider from './components/Slider'
@@ -20,21 +19,16 @@ const Home = () => {
   return (
     <div>
         <Slider autoplay={false} css={styles.slider}/>
-        <Divider/>
         <HomeTrustedBrand css={styles.trustedBrand} />
-        <Divider/>
         <Spacer height multiplier={2}/>
         <HomeWorkFlow css={styles.workFlow}/>
         <Spacer height multiplier={4}/>
         <HomeFeatures css={styles.features}/>
-        <Divider/>
         <Spacer height/>
         <HomeTrustedBy/>
-        <Divider/>
         <Spacer height/>
         <HomeTestimonial css={styles.testimonial} />
         <Spacer height/>
-        <Divider/>
         <StudentPlaced css={styles.studentPlaced} />
     </div>
   )

@@ -9,9 +9,7 @@ export const HomeStyles = {
     }),
 
     trustedBrand: css({
-        ".desktop":{userDrag: 'none',MozUserSelect: 'none',WebkitUserDrag: 'none',},
-        ".mobile":{paddingLeft:"20%",paddingRight:"20%",userDrag: 'none',MozUserSelect: 'none',WebkitUserDrag: 'none',},
-
+       
     }),
 
     workFlow: css({

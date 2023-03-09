@@ -18,11 +18,9 @@ export const AboutUsStyles = {
             "@media (min-width:1200px)":{
                 height: "650px",
             },
-
-        }
+        },
     }),
     leadershipTeam: css({
-        backgroundColor:AppColors.SECONDARY_YELLOW,
         ".leadership-team-title":{
             color:AppColors.PRIMARY_MAIN,
             fontWeight:'bolder',

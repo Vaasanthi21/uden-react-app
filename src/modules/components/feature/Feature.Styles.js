@@ -24,10 +24,6 @@ export const FeatureStyles = {
             ".card":{
                 borderRadius:'20px',
                 boxShadow:props?.stacked===true?null:`10px 10px ${AppColors.PRIMARY_MAIN}`,
-                ":hover":props?.stacked===true?null:{
-                    transform:"translateX(+2px) scale(1.1)",
-                    boxShadow:`10px 10px ${AppColors.PRIMARY_ORANGE}`,
-                }
             },
             ".title":{
                 color:AppColors.PRIMARY_MAIN,

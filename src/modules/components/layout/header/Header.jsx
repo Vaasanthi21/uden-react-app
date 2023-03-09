@@ -11,10 +11,10 @@ import MobileHeader from './componets/MobileHeader';
 import { useHeaderHooks } from './hooks/header.hooks';
 
 
-function Header(props) {
+function AppHeader(props) {
   const headerHooks = useHeaderHooks;
   return (
-    <AppBar position="sticky"  css={styles.appBar({isPrimary:true})} sx={{px:{ xs: '0', md: '0' }}} component="nav">
+    <AppBar position="sticky"  css={styles.appBar({isPrimary:true})} sx={{px:{ xs: '0', md: '0' },height:{xs:"50px", md:"100px",}}} component="nav">
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
           <DesktopHeader hooks={headerHooks}/>
@@ -24,7 +24,7 @@ function Header(props) {
     </AppBar>
   );
 }
-export default Header;
+export default AppHeader;
 
 
 

@@ -6,7 +6,7 @@ import AboutUsConst from '../AboutUs.Const'
 const AboutUsBanner = (props) => {
     const data = AboutUsConst.Banner
   return (
-    <FeatureAlternatingImage {...props} sx={{display:'felx'}} data={data}  reverse='true' xstext={7} xsimage={5} />
+    <FeatureAlternatingImage {...props} sx={{display:'felx'}} data={data}  reverse='true' xstext={7} xsimage={5} titlevarient='h3' />
     
   )
 }

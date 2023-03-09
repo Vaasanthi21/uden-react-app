@@ -2,24 +2,23 @@ import { Grid, Paper, Typography } from '@mui/material'
 
 import FounderCard from '../../../components/founderCard/FounderCard';
 import Spacer from '../../../components/Spacer'
-import AboutUsConst from '../AboutUs.Const'
+import ContactUsConst from '../ContactUs.Const'
 
-const AboutUsLeadershipTeam = (props) => {
-    const data = AboutUsConst.LeadershipTeam
+const ContactUsGlobalOffices = (props) => {
+    const data = ContactUsConst.GlobalOffices
   return (
     <Paper {...props} elevation={0}>
       <Spacer height multiplier={2}/>
-        <Typography className='leadership-team-title' variant='h3'>{data.title}</Typography>
-        <Typography className='leadership-team-subtitle' variant='subtitle1'>{data.subtitle}</Typography>
+        <Typography className='global-offices-title' variant='h3'>{data.title}</Typography>
         <Spacer height multiplier={2}/>
         <Grid container  spacing={2} justifyContent='center' >
           <Grid item xs={11}>
             <Grid container justifyContent="center" spacing={2}>
-              {data.leaders.map((value) => (
+              {/* {data?.leaders.map((value) => (
                 <Grid key={value} item xs={11} sm={6} md={4} lg={3} >
                   <FounderCard data={value}/>
                 </Grid>
-              ))}
+              ))} */}
             </Grid>
           </Grid>
         </Grid>
@@ -28,4 +27,4 @@ const AboutUsLeadershipTeam = (props) => {
   )
 }
 
-export default AboutUsLeadershipTeam
+export default ContactUsGlobalOffices

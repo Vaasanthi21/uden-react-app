@@ -13,7 +13,7 @@ const Testimonial = (props) => {
     <Paper {...props}  css={styles} elevation={0}>
         <Typography className='title' variant='h4'>{data.title}</Typography>
         <Grid container justifyContent='center' height={{xs:'400px',md:"350px"}} alignContent='center'>
-            <Grid item xs={10} md={8} lg={6}>
+            <Grid item xs={11.5} md={10} lg={8}>
                 <Box flex>
                 <Carousel pagination={false} navigation>
                     {data.testimonials.map((testimonial,i)=><TestimonialItems key={i} {...props} data={testimonial}/>)}

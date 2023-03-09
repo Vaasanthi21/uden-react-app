@@ -10,6 +10,7 @@ import Companies from './modules/pages/Companies/Companies';
 import JobSeekers from './modules/pages/JobSeekers/JobSeekers';
 import UpskillingPartners from './modules/pages/UpskillingPartners/UpskillingPartners';
 import AboutUs from './modules/pages/AboutUs/AboutUs';
+import ContactUs from './modules/pages/ContactUs/ContactUs';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Route path={AppRoutes.UPSKILLING_PARTNERS} element={<UpskillingPartners />} />
 
           <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
+          <Route path={AppRoutes.COTACT_US} element={<ContactUs />} />
           {/* <Route path="about" element={<About />} />
           <Route path="dashboard" element={<Dashboard />} /> */}
 

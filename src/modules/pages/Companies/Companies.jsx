@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Divider } from '@mui/material';
 // eslint-disable-next-line 
 import React from 'react';
 
@@ -20,9 +19,7 @@ const Companies = () => {
   return (
     <>
         <CompaniesBanner/>
-        <Divider/>
         <CompaniesTrustedBrand/>
-        <Divider/>
         <Spacer height/>
         <CompaniesWorkFlow css={styles.workFlow}/>
         <Spacer height/>

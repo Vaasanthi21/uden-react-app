@@ -75,7 +75,7 @@ export const FooterStyles = {
             ":hover":{
                 transform:"translateY(-2px) scale(1.1)", 
             }
-        }
+        },
     }),
 
     logoGP: css({

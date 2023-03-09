@@ -3,7 +3,6 @@
 import {jsx} from '@emotion/react';
 // eslint-disable-next-line
 import React from 'react';
-import { Divider } from '@mui/material'
 
 import {JobSeekersStyles as styles} from './styles/JobSeekers.Styles'
 import JobSeekerBanner from './components/Banner'
@@ -18,7 +17,6 @@ const JobSeekers = () => {
   return (
     <>
       <JobSeekerBanner/>
-      <Divider/>
       <JobSeekerTrustedBrand/>
       <Spacer height/>
       <JobSeekerWorkFlow css={styles.workFlow}/>
