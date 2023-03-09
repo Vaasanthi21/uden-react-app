@@ -6,7 +6,10 @@ import { ValidateField, ValidateFields } from "../../../../utils/helper";
 
 const useFormHooks = (props) =>{
     const data = props.data;
-    const [fields, setValues] = useState(data.form.fields);
+    const type = props.type;
+    const form = type==="company"?data.form.company:type==="educator"?data.form.educator:data.form.student
+    const [fields, setValues] = useState(form);
+    const [checkbox, setChecked] = useState(data.checkBoxFields);
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const handleInputChange = (e) => {
@@ -26,18 +29,50 @@ const useFormHooks = (props) =>{
         setValues([...validatedData.fields]);
         enqueueSnackbar(data.errorMessage,{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
       }else{
+        if(validateCheckBox()){
+          enqueueSnackbar(data.errorMessageTC,{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
+          return
+        }
         enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
         handleClear();
       }
     }
+
     const handleClear = () => {
       fields.forEach((field) => {
         field.value = "";
         field.error = false;
       });
+      checkbox.forEach((box) => {
+          box.checked=false;
+    });
       setValues([...fields]);
+      setChecked(...[checkbox]);
     }
-    return {fields,handleInputChange,validate}
+
+    
+ 
+  const handleCheckboxChange = (e) => {
+    const { id, checked } = e.target;
+    checkbox.forEach((box) => {
+          if(box.id === id) {
+            box.checked=checked;
+          }
+      });
+    setChecked(...[checkbox]);
+  };
+
+  const validateCheckBox = () => {
+    var error = false;
+    checkbox.forEach((box) => {
+      if(box.checked === false){
+        error = true;
+      }
+    });
+    return error;
+  }
+
+    return {fields,checkbox,handleInputChange,handleCheckboxChange,validate}
 }
 
 const useGlobalOfficesHooks = () => {
@@ -48,7 +83,7 @@ const useGlobalOfficesHooks = () => {
     };
     return {handleChange,value};
 }
-export const ContactUsHooks = {
+export const KnowMoreFormHooks = {
     useFormHooks,
     useGlobalOfficesHooks
 

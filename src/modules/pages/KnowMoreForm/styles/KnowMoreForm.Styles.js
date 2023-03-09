@@ -1,11 +1,10 @@
 import { css } from "@emotion/react";
 import { AppColors } from "../../../../utils/consts/app_colors";
 
-export const AboutUsStyles = {
-    banner: css({
-        
-    }),
+export const PrivacyPolicyStyles = {
     form:css({
+        paddingTop:'30px',
+        paddingBottom:'30px',
         ".form-title":{
             fontWeight: "bold",
             color: AppColors.PRIMARY_MAIN,
@@ -21,15 +20,5 @@ export const AboutUsStyles = {
         }
 
 
-    }),
-    globalOffices: css({
-        backgroundColor: AppColors.SECONDARY_YELLOW,
-        ".global-offices-title":{
-            fontWeight: "bold",
-            color: AppColors.PRIMARY_MAIN,
-        },
-        ".css-heg063-MuiTabs-flexContainer":{
-            justifyContent:'center'
-        },
     }),
 }

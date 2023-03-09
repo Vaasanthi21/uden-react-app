@@ -1,4 +1,4 @@
-import { Email, Message, Person, Phone } from "@mui/icons-material";
+import { Email, Person, Phone } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
 import { AppAssets } from "../../../utils/consts/app_assets";
 import { AppRoutes } from "../../../utils/consts/routes";
@@ -34,7 +34,7 @@ const ContactUsConst = {
               fullWidth:true,
               InputProps:{startAdornment:<InputAdornment position='start'><Person/></InputAdornment>},
               hint:"",
-              validator:getValidator.withMinLength(3,"Name should contain atleast 3 characters")
+              validator:getValidator.withMinLength(2,"Name should contain atleast 3 characters")
             },
             {
               id:"email",
