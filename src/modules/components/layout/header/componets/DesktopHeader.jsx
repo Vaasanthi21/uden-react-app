@@ -1,39 +1,38 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-
+import {jsx} from '@emotion/react';
 // eslint-disable-next-line
 import React from 'react';
-
-import {jsx} from '@emotion/react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 import Logo from '../../../logo/Logo';
 import {HeaderStyles as styles} from '../styles/Header.Style';
-import { AppStrigs } from '../../../../../utils/consts/strings';
 import { HeaderConst } from '../header.const';
 import { AppRoutes } from '../../../../../utils/consts/routes';
+import { Badge } from '@mui/material';
 
 
 const DesktopHeader = ({...props}) => {
   const hooks = props?.hooks??null;
-  const tabs = HeaderConst.Tabs;
+  const data = HeaderConst;
   return (
     <>
-          <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }}/>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {tabs.Names.map((names,index) => (
-                <Button
-                  startIcon={tabs.Icons[index]}
-                  css={styles.tabsDesktop({isCurrent:(!hooks.route&&index===0)?true:((!hooks.route&&index!==0)?false:tabs.Routes[index].includes(hooks.route))})}
-                  key={names}
-                  href={tabs.Routes[index]}
-                >
+      <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }}/>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          {data.Tabs.Names.map((names,index) => (
+              <Badge key={index}  invisible={data?.Tabs?.Badge[index]?false:true} badgeContent={data?.Tabs?.Badge[index]}  color="primary">
+              <Button
+                startIcon={data.Tabs.Icons[index]}
+                css={styles.tabsDesktop({isCurrent:((!hooks.route)?false:data.Tabs.Routes[index].includes(hooks.route))})}
+                href={data.Tabs.Routes[index]}
+              >
                   {names}
-                </Button>
-              ))}
-            </Box>
-            <Button sx={{ display: { xs: 'none', md: 'flex' } }} href={AppRoutes.APP} variant="contained" css={styles.signupButtonDesktop} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
+              </Button>
+              </Badge>
+          ))}
+      </Box>
+      <Button sx={{ display: { xs: 'none', md: 'flex' } }} href={AppRoutes.APP} variant="contained" css={styles.signupButtonDesktop} size='small' >{data.ButtonStrings.SIGNUP_SIGNIN}</Button>
     </>
   )
 }

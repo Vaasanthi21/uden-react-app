@@ -5,6 +5,7 @@ const HOME = "/";
 const COMPANIES = "/companies";
 const JOB_SEEKERS = "/job-seekers";
 const UPSKILLING_PARTNERS = "/upskillig-partners";
+const HR_SERVICES = "/hr-services";
 const BLOGS = "/blogs";
 const ABOUT_US = "/about-us";
 const COTACT_US = "/cotact-us";
@@ -21,6 +22,7 @@ const FIND_OPPORTUNITY = "/find-opportunity";
 const BECOME_PARTNER = "/become-partner";
 
 
+
 const APP = "/app";
 
 export const AppRoutes = {
@@ -28,6 +30,7 @@ export const AppRoutes = {
     COMPANIES,
     JOB_SEEKERS,
     UPSKILLING_PARTNERS,
+    HR_SERVICES,
     BLOGS,
     ABOUT_US,
     COTACT_US,

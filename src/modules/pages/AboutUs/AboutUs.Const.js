@@ -43,21 +43,21 @@ const AboutUsConst = {
               },
               {
                 id: 4,
-                name: "Dr.Azmathulla khan",
-                designation: "Chief Customer Engagement Officer",
+                name: "Vivek Vinayak Purekar",
+                designation: "Chief Customer success Officer and Co-Founder",
                 image: AppAssets.AboutUsAssets.LEADERSHIP_TEAM.CCO,
-                linkedinUrl: "https://www.linkedin.com/in/drazmath/",
+                linkedinUrl: "https://www.linkedin.com/in/vivekpurekar/",
                 message:undefined,
               },
         ]
     },
     AdvisoryBoard:{
-        title: "Advisory Board",
+        title: "Advisor &  Angel Investor",
         advisor:[
             {
                 id: 1,
                 name: "TR Anand",
-                designation:undefined,
+                designation:"Advisor and Angel Investor",
                 image: AppAssets.AboutUsAssets.ADVISORY_BOARD.TR_ANAND,
                 linkedinUrl: "https://www.linkedin.com/in/t-r-anand-565a1816/",
             },

@@ -5,7 +5,7 @@ import FounderCard from '../../../components/founderCard/FounderCard'
 import Spacer from '../../../components/Spacer'
 import AboutUsConst from '../AboutUs.Const'
 
-const AboutUsAdvisoryBoard = (props) => {
+const AboutUsAdvisor = (props) => {
     const data = AboutUsConst.AdvisoryBoard
   return (
     <Paper {...props} elevation={0}>
@@ -29,4 +29,4 @@ const AboutUsAdvisoryBoard = (props) => {
   )
 }
 
-export default AboutUsAdvisoryBoard
+export default AboutUsAdvisor

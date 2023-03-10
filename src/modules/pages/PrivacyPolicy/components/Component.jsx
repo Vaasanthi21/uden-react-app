@@ -11,10 +11,14 @@ const PrivacyPolicyComponent = (props) => {
       <Grid item xs={11} md={10} lg={8}>
         <Typography variant='h4' className='privacy-title' >{data.title}</Typography>
         <Spacer height/>
-        {data.items.map((item, i) =>
-        <Box>
-          <Typography variant='h5' className='privacy-paragraph-title' >{item.title}</Typography>
-          {item.paragraphs.map((para, i) =><Typography variant='body1' className='privacy-paragraph' >{para}</Typography>)}
+        {data.items.map((item, itemIndex) =>
+        <Box key={itemIndex}>
+          <Typography variant='h6' className='privacy-paragraph-title' >{item.title}</Typography>
+          {item.paragraphs.map((para, paraIndex) =>
+          <Box key={paraIndex} mb={4}>
+            <Typography variant='body1' className='privacy-paragraph' >{para}</Typography>
+          </Box>
+          )}
           <Spacer height/>
         </Box>
         )}

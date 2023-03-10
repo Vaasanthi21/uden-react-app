@@ -21,7 +21,6 @@ import Logo from '../../../logo/Logo';
 import { HeaderConst } from '../header.const';
 import { HeaderStyles as styles } from '../styles/Header.Style';
 import { Button, ListItemIcon } from '@mui/material';
-import { AppStrigs } from '../../../../../utils/consts/strings';
 import { AppRoutes } from '../../../../../utils/consts/routes';
 import Spacer from '../../../Spacer';
 
@@ -30,7 +29,7 @@ import Spacer from '../../../Spacer';
 const Drawer = ({props}) => {
     const container = window !== undefined ? () => window.document.body : undefined;
     var route = props.hooks.route;
-    const tabs = HeaderConst.Tabs;
+    const data = HeaderConst;
   return (
     <Box component="nav">
         <MUIDrawer
@@ -61,17 +60,17 @@ const Drawer = ({props}) => {
 
                 <Divider />
                 <List>
-                    {tabs.Names.map((name,index) => (
+                    {data.Tabs.Names.map((name,index) => (
                         <ListItem 
-                            key={name} 
+                            key={index} 
                             disablePadding>
                             <ListItemButton 
-                                css={styles.tabsMobile({isCurrent:(!route&&index===0)?true:((!route&&index!==0)?false:tabs.Routes[index].includes(route))})}
-                                href={tabs.Routes[index]} 
+                                css={styles.tabsMobile({isCurrent:((!route)?false:data.Tabs.Routes[index].includes(route))})}
+                                href={data.Tabs.Routes[index]} 
                                 alignItems='center'
                                 sx={{ textAlign: 'center' }}>
                                 <ListItemIcon>
-                                    {tabs.Icons[index]}
+                                    {data.Tabs.Icons[index]}
                                 </ListItemIcon>
                                 <ListItemText primary={name} css={styles.tabsMobileText} />
                             </ListItemButton>
@@ -79,7 +78,7 @@ const Drawer = ({props}) => {
                     ))}
                 </List>
                 <Spacer height/>
-                <Button  href={AppRoutes.APP}  variant="contained" css={styles.signupButtonMobile} size="large">{AppStrigs.ButtonStrings.SIGNUP_SIGNIN}</Button>
+                <Button  href={AppRoutes.APP}  variant="contained" css={styles.signupButtonMobile} size="large">{data.ButtonStrings.SIGNUP_SIGNIN}</Button>
             </Box>
         </MUIDrawer>
     </Box>

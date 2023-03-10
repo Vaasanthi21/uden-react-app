@@ -15,6 +15,9 @@ export const HeaderStyles = {
     logoDesktop: css({
         height:"40px",
         paddingRight:"10px",
+        "@media screen and (max-width:1200px)":{
+            height:"25px"
+        },
     }),
 
     logoMobile: css({

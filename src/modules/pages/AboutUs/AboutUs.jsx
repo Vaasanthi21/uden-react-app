@@ -7,9 +7,9 @@ import React from 'react'
 import { AboutUsStyles as styles } from './styles/AboutUs.Styles';
 import AboutUsBanner from './components/Banner';
 import AboutUsLeadershipTeam from './components/LeadershipTeam';
-import AboutUsAdvisoryBoard from './components/AdvisoryBoard';
 import AboutUsTrustedBrand from './components/TrustedBy';
 import Spacer from '../../components/Spacer';
+import AboutUsAdvisor from './components/Advisor';
 
 
 const AboutUs = () => {
@@ -20,7 +20,7 @@ const AboutUs = () => {
       <AboutUsTrustedBrand />
       <Spacer height/>
       <AboutUsLeadershipTeam css={styles.leadershipTeam}/>
-      <AboutUsAdvisoryBoard css={styles.advisoryBoard}/>
+      <AboutUsAdvisor css={styles.advisoryBoard}/>
     </>
   )
 }

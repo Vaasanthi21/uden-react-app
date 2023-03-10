@@ -12,12 +12,12 @@ import FooterMenuContaier from './components/FooterMenuContainer';
 import FooterMenu from './components/FooterMenu';
 import { FooterStyles as styles} from './styles/footer.styles'
 import FooterMenuItems from './components/FooterMenuItems';
-import { AppStrigs } from '../../../../utils/consts/strings';
 import Spacer from '../../Spacer';
+import { FooterConst } from './footer.const';
 
 const AppFooter = () => {
   const route =  window.location.href.split(window.location.host)[1].split("/")[1];
-  const FooterStrings = {...AppStrigs.FooterStrings};
+  const data = FooterConst;
   return (
     <Container maxWidth='auto' css={styles.mainContainer}>
       <Spacer height/>
@@ -31,25 +31,24 @@ const AppFooter = () => {
         <Box height='2vw' display={{lg:"none",xs:"block"}} />
 
         <FooterMenuContaier>
-          {FooterStrings.LINKS.map((items,itemIndex)=>
+          {data.LINKS.map((items,itemIndex)=>
               <FooterMenu css={styles.footerMenu} key={`footerMenu${itemIndex}`}> 
-                {items?.map((item,itemIndex)=><FooterMenuItems key={item.NAME} css={styles.footerMenuItems({isCurrent:(route==="/"||route==="")?false:item.LINK.includes(`/${route}`)})} title={item.NAME} href={item.LINK} disabled={item.isDisabled}/>)}
+                {items?.map((item,itemIndex)=><FooterMenuItems key={item.NAME} css={styles.footerMenuItems({isCurrent:item.LINK.includes(`/${route}`)})} title={item.NAME} href={item.LINK} disabled={item.isDisabled}/>)}
               </FooterMenu>)}
         </FooterMenuContaier>
         
       </FooterContentWrapper>
-
 
       <Box height='10px' />
       <Divider style={{backgroundColor:"white",margin:'0'}} />
       <Box height='30px' />
         <Grid container  direction="row" justifyContent="space-between">
           <Typography css={styles.copyrightText} color="textSecondary" variant="subtitle1" style={{color:'white'}}>
-            {FooterStrings.FOOTER_COPYRIGHT}
+            {data.FOOTER_COPYRIGHT}
           </Typography>
           <Grid item style={{borderBlockColor:'white',borderColor:"white"}}>
             <ButtonGroup  css={styles.bottomLink} variant="text" aria-label="text button group" >
-              {FooterStrings.BOTTOM_LINKS.map((item)=> <Button key={`${item.NAME}`} disableFocusRipple disableRipple  className='button' href={item.LINK}>{item.NAME}</Button>)}
+              {data.BOTTOM_LINKS.map((item)=> <Button key={`${item.NAME}`} disableFocusRipple disableRipple  className='button' href={item.LINK}>{item.NAME}</Button>)}
             </ButtonGroup>
           </Grid>
          

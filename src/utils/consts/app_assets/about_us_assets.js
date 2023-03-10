@@ -1,11 +1,11 @@
 import BANNER from  '../../../assets/images/talent-banner.png'
 import CERTIFICATE from  '../../../assets/images/certificate.png'
 import AWS from  '../../../assets/images/aws.png'
-import CEO from  '../../../assets/images/jay-bhaskar.png'
-import COO from  '../../../assets/images/PrathamJain.png'
-import CSO from  '../../../assets/images/RanjanTayal.png'
-import CCO from  '../../../assets/images/Azmat_DP.jpeg'
-import TR_ANAND from  '../../../assets/images/TRAnand.png'
+import CEO from  '../../../assets/images/leaders/jay-bhaskar.png'
+import COO from  '../../../assets/images/leaders/PrathamJain.png'
+import CSO from  '../../../assets/images/leaders/RanjanTayal.png'
+import CCO from  '../../../assets/images/leaders/Vivek-Vinayak-Purekar.jpeg'
+import TR_ANAND from  '../../../assets/images/leaders/TRAnand.png'
 
 
 const AboutUsAssets = {

@@ -15,8 +15,8 @@ const AboutUsLeadershipTeam = (props) => {
         <Grid container  spacing={2} justifyContent='center' >
           <Grid item xs={11}>
             <Grid container justifyContent="center" spacing={2}>
-              {data.leaders.map((value) => (
-                <Grid key={value} item xs={11} sm={6} md={4} lg={3} >
+              {data.leaders.map((value,i) => (
+                <Grid key={i} item xs={11} sm={6} md={4} lg={3} >
                   <FounderCard data={value}/>
                 </Grid>
               ))}

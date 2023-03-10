@@ -33,41 +33,48 @@ const TermsAndConditionsConst = {
     {
       title:"THE USER REPRESENTS, WARRANTS AND COVENANTS THAT ITS USE OF UDEN.TECH SHALL NOT BE DONE IN A MANNER SO AS TO",
       paragraphs:[
-        'Violate any applicable local, provincial, state, national or international law, statute, ordinance, rule or regulation.',
-        'Interfere with or disrupt computer networks connected to Uden.tech.',
-        'Impersonate any other person or entity, or make any misrepresentation as to your employment by or affiliation with any other person or entity.',
-        'Forge headers or in any manner manipulate identifiers in order to disguise the origin of any user information.',
-        'Interfere with or disrupt the use of Uden.tech by any other user, nor "stalk", threaten, or in any manner harass another user.',
-        'Reproduce, copy, modify, sell, store, distribute or otherwise exploit for any commercial purposes Uden.tech, or any component thereof (including, but not limited to any materials or information accessible through Uden.tech).',
-        'Use content from the Site for derivative works with a commercial motive without prior written consent of the DSPL.',
-        'Use any device, software or routine to interfere or attempt to interfere with the proper working of Uden.tech; or',
-        'Impose an unreasonable or disproportionately large load on Uden.tech infrastructure.',
-        'Spam Uden.tech/DSPL by indiscriminately and repeatedly posting content or forwarding mail that may be considered spam etc.',
-        'Access data not intended for you or log into server or account that you are not authorized to access.',
-        'Constitute an act of reverse engineering, decompiling, disassembling, deciphering or otherwise attempting to derive the source code for the Site or any related technology or any part thereof',
-        'Engage in "framing," "mirroring," or otherwise simulating the appearance or function of the Site',
-        'Attempt to probe, scan or test the vulnerability of a system or network',
-        'Use automated means to crawl and/or scrape content from Uden.tech and to manually scrape content from Uden.tech.',
-        'The Site uses technological means to exclude Robots etc. from crawling it and scraping content. You undertake not to circumvent these methods.',
-        'Access the Site except through the interfaces expressly provided by DSPL',
-        'Attempt or breach security or authentication measures without proper authorization.',
-        'Providing deeplinks into Uden.tech without prior permission of DSPL is prohibited. Extracting data from Uden.tech using any automated process such as spiders, crawlers etc. or through any manual process for a purpose which has not been authorised in writing.',
-        'Upload, post, email, transmit or otherwise make available either directly or indirectly, any unsolicited bulk e-mail or unsolicited commercial e-mail.',
-        'Subscribers shall under no circumstance sublicense, assign, or transfer the License, and any attempt at such sublicense, assignment or transfer is void.',
         {
-          title:"Constitute hosting, modifying, uploading, posting, transmitting, publishing, or distributing any material or information",
-          paragraph:[
-            'For which you do not have all necessary rights and licenses.',
-            'Which infringes, violates, breaches or otherwise contravenes the rights of any third party, including any copyright, trademark, patent, rights of privacy or publicity or any other proprietary right.',
-            'Which contains a computer virus, or other code, files or programs intending in any manner to disrupt or interfere with the functioning of Uden.tech, or that of other computer systems.',
-            'That is grossly harmful, harassing, invasive of another\'s privacy, hateful, disparaging, relating to money laundering or unlawful, or which may potentially be perceived as being harmful, threatening, abusive, harassing, defamatory, libelous/blasphemous, vulgar, obscene, or racially, ethnically, or otherwise unlawful in any manner whatsoever',
-            'Which constitutes or encourages conduct that would constitute a criminal offence, give rise to other liability, or otherwise violate applicable law',
-            'That deceives or misleads the addressee about the origin of such messages or communicates any information which is grossly offensive or menacing in nature.',
-            'That belongs to another person and to which the user does not have any right to',
-            'That harm minors in any way',
-            'That threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting any other nation.',
-          ]
+          bullets:{
+            paragraphs:[
+              'Violate any applicable local, provincial, state, national or international law, statute, ordinance, rule or regulation.',
+              'Interfere with or disrupt computer networks connected to Uden.tech.',
+              'Impersonate any other person or entity, or make any misrepresentation as to your employment by or affiliation with any other person or entity.',
+              'Forge headers or in any manner manipulate identifiers in order to disguise the origin of any user information.',
+              'Interfere with or disrupt the use of Uden.tech by any other user, nor "stalk", threaten, or in any manner harass another user.',
+              'Use Uden.tech in such a manner as to gain unauthorized entry or access to the computer systems of others.',
+              'Reproduce, copy, modify, sell, store, distribute or otherwise exploit for any commercial purposes Uden.tech, or any component thereof (including, but not limited to any materials or information accessible through Uden.tech).',
+              'Use content from the Site for derivative works with a commercial motive without prior written consent of the DSPL.',
+              'Use any device, software or routine to interfere or attempt to interfere with the proper working of Uden.tech; or',
+              'Impose an unreasonable or disproportionately large load on Uden.tech infrastructure.',
+              'Spam Uden.tech/DSPL by indiscriminately and repeatedly posting content or forwarding mail that may be considered spam etc.',
+              'Access data not intended for you or log into server or account that you are not authorized to access.',
+              'Constitute an act of reverse engineering, decompiling, disassembling, deciphering or otherwise attempting to derive the source code for the Site or any related technology or any part thereof',
+              'Engage in "framing," "mirroring," or otherwise simulating the appearance or function of the Site',
+              'Attempt to probe, scan or test the vulnerability of a system or network',
+              'Use automated means to crawl and/or scrape content from Uden.tech and to manually scrape content from Uden.tech.',
+              'The Site uses technological means to exclude Robots etc. from crawling it and scraping content. You undertake not to circumvent these methods.',
+              'Access the Site except through the interfaces expressly provided by DSPL',
+              'Attempt or breach security or authentication measures without proper authorization.',
+              'Providing deeplinks into Uden.tech without prior permission of DSPL is prohibited. Extracting data from Uden.tech using any automated process such as spiders, crawlers etc. or through any manual process for a purpose which has not been authorised in writing.',
+              'Upload, post, email, transmit or otherwise make available either directly or indirectly, any unsolicited bulk e-mail or unsolicited commercial e-mail.',
+              'Subscribers shall under no circumstance sublicense, assign, or transfer the License, and any attempt at such sublicense, assignment or transfer is void.',
+              'Constitute hosting, modifying, uploading, posting, transmitting, publishing, or distributing any material or information',
+            {
+              paragraphs:[
+                'For which you do not have all necessary rights and licenses.',
+                'Which infringes, violates, breaches or otherwise contravenes the rights of any third party, including any copyright, trademark, patent, rights of privacy or publicity or any other proprietary right.',
+                'Which contains a computer virus, or other code, files or programs intending in any manner to disrupt or interfere with the functioning of Uden.tech, or that of other computer systems.',
+                'That is grossly harmful, harassing, invasive of another\'s privacy, hateful, disparaging, relating to money laundering or unlawful, or which may potentially be perceived as being harmful, threatening, abusive, harassing, defamatory, libelous/blasphemous, vulgar, obscene, or racially, ethnically, or otherwise unlawful in any manner whatsoever',
+                'Which constitutes or encourages conduct that would constitute a criminal offence, give rise to other liability, or otherwise violate applicable law',
+                'That deceives or misleads the addressee about the origin of such messages or communicates any information which is grossly offensive or menacing in nature.',
+                'That belongs to another person and to which the user does not have any right to',
+                'That harm minors in any way',
+                'That threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting any other nation.',
+              ]
+            },
+          ]}
         },
+        
         'The user shall not infringe on any intellectual property rights of any person / entity or retain information / download any information from any computer system or otherwise with an intention to do so.',
         'Digverve Solutions Pvt. Ltd. will make best efforts to do so but does not warrant that any of the web sites or any affiliate site(s) or network system linked to it is free of any operational errors nor does it warrant that it will be free of any virus, computer contaminant, worm, or other harmful components. The subscription of a user shall be subject to Quotas as applicable and as advised. E-Mails provided as part of contact details are expected to be genuine and access to such email accounts is available to authorised personnel only.',
         'Digverve Solutions Pvt. Ltd. shall not be liable for any loss or damage sustained by reason of any disclosure (inadvertent or otherwise) of any information concerning the user\'s account and / or information relating to or regarding online transactions using credit cards / debit cards and / or their verification process and particulars nor for any error, omission or inaccuracy with respect to any information so disclosed and used whether or not in pursuance of a legal process or otherwise.',
@@ -87,11 +94,441 @@ const TermsAndConditionsConst = {
         'These Terms and Conditions shall be governed by the laws of Republic of India. The exclusive forum for any disputes arising out of or relating to these Terms of Use shall be a court of law located in New Delhi, India.',
         'Digverve, Digverve India, DSPL and Digverve Solutions Pvt. Ltd. are used interchangeably and are synonymous.',
         {
-          link:<Typography>The user of Uden.tech is subject to the  <Link href={AppRoutes.PRIVACY}>Privacy Policy</Link> available through this link.</Typography>
-        }
-
-
-
+          link:<Typography variant='inherit'>The user of Uden.tech is subject to the  <Link underline="none" target='_blank' href={AppRoutes.PRIVACY}>Privacy Policy</Link> available through this link.</Typography>
+        },
+        'In case of non compliance of these Terms and Conditions or Privacy Policy DSPL may terminate usage rights and take down any offending information that might might have been upoloaded by such subscriber/user'
+      ]
+    },
+    {
+      title:"ADDITIONALLY, BASIS SERVICES CHOSEN, CERTAIN PRODUCT/SERVICE SPECIFIC CONDITIONS MAY APPLY.",
+      paragraphs:[
+        {
+          subtitle:{
+            title:"Job Seekers",
+            bullets:true,
+            paragraphs:[
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-0'>Digverve Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-1'>Resume Display</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-2'>Job Messages & Priority Applicant</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-3'>Interview Assistance program (IAP)</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-4'>Applications by Non Registered Users</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-5'>Job Search and Resume Services on SMS</Link></Typography>
+              },
+              {
+                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-6'>Uden.tech Security Center</Link></Typography>
+              },
+            ]}
+          },
+          {
+            subtitle:{
+              title:"Recruiters",
+              bullets:true,
+              paragraphs:[
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-0'>Classified Job listing (single)</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-1'>Classified Subscriptions for various period</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-2'>Hot Vacancies (single)</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-3'>Hot Vacancies Subscriptions</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-4'>Job Gallery</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-5'>Best Places to Work</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-6'>Manual Shortlisting</Link></Typography>
+                },
+                {
+                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-7'>Display of Banners</Link></Typography>
+                },
+              ]}
+            },
+            {
+              bullets:{
+                title:'Job Seekers',
+                id:'job-seekers',
+                paragraphs:[
+                  {
+                    title:"Digverve Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager By registering your resume on Uden.tech, you agree to the following terms",
+                    paragraphs:[
+                      'The resume/ insertion or information/data fed by the user can be updated by the user alone, free of cost.',
+                      'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the resume/ insertion or information/data is fed by the user.',
+                      'Digverve neither guarantees nor offers any warranty about the credentials bonafides, status or otherwise of the prospective employer/organization which downloads the resume/ insertion or information/data and uses it to contact the user.',
+                      'Digverve would not be held liable for loss of any data technical or otherwise, or of the resume/ insertion or information/data or particulars supplied by user due to acts of god as well as reasons beyond its control like corruption of data or delay or failure to perform as a result of any cause(s) or conditions that are beyond Digverve\'s reasonable control including but not limited to strikes, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, distributed denial of service attacks, virus attacks, war and natural calamities.',
+                      'It shall be sole prerogative and responsibility of the user to check the authenticity of all or any response received pursuant to the resume/ insertion or information/data being fed into the network system of Digverve by the user, for going out of station or in station for any job or interview. Digverve assumes no responsibility in respect thereof and expressly disclaims any liability for any act, deed or thing which the user may so do, pursuant to the receipt of the response, if any, to the resume/ insertion or information/ date being fed into the network system of Digverve.',
+                      'Uploading of multiple resumes beyond a reasonable limit by the same individual, using the same or different accounts shall entitle Digverve to remove the Resumes without notice to the subscriber. 6.a This service is only meant for candidates looking for suitable jobs. Any usage with commercial intent is prohibited.',
+                      'Digverve reserves its right to reject and delete any resume/ insertion or information/data fed in by the user without assigning any reason.',
+                      'This free service entitles the user alone i.e the same person, to add modify or change the data/information fed in by him but does not entitle him to use the free service to feed fresh insertion or information/data /resume of another person in place of the insertion or information/data already fed in by such user.',
+                      'Digverve has the right to make all such modifications/editing of resume in order to fit resume in its database.',
+                      'The subscriber shall be assigned a password (s) by Digverve to enable the subscriber to access all the information received through Uden.tech, but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber. When you indicate your interest in a Job Listing on Uden.tech, you are sending your CV and application information including relevant documents to Uden.tech, and you are requesting and authorizing Uden.tech to make available such application information to the applicable Employer(s) for such Job Listing(s).',
+                      'In addition, by using Uden.tech, you agree that Uden.tech is not responsible for the content of the Employer\'s application form, messages, screener questions, testing assessments; required documents, or their format or method of delivery.',
+                      'You consent to your application, documents and any responses sent to you by the Employer or vice versa through Uden.tech being processed and analysed by Uden.tech according to these terms of use and Uden.tech\'s Privacy Policy. Uden.tech shall store and process such information regardless of whether a job vacancy has been filled. Uden.tech may use your application materials (including public CVs and responses to employer\'s questions) to determine whether you may be interested in a Job Listing, and Uden.tech may reach out to you about such Job Listing.',
+                      'Information you post in public areas of Naukri sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.',
+                      'In order to use Uden.tech, you may sign in using your Facebook/Google login. If you do so, you authorize us to access and use certain Facebook/Google account information, including but not limited to your public Facebook profile and posts. For more details regarding the information we collect from you and how we use it, please visit our Privacy Policy.',
+                      'It shall be the sole responsibility of the user to ensure that it uses the privacy setting options as it deems fit to debar / refuse access of the data fed by it, to such corporate entities individuals or consultants. Digverve shall not be responsible for such insertions / data being accessed by its subscribers or users whose access has not been specifically blocked /debarred by the user while using the privacy settings.',
+                      'Even though you may have marked your profile as unsearchable, on viewing a NaukriRecruiter profile when you are logged into your Uden.tech account, a snapshot of your profile maybe made visible to the recruiter.',
+                      'Although Digverve will make all possible efforts to adhere to these privacy settings, it will not be responsible for a resume being seen by a blocked user for any reason. For best privacy settings it is recommended that you do not allow your resume to be searched at all.',
+                      'The user represents that he/she is not a minor and is not under any legal or other disability which limits his/her ability to comply with these Terms or to install and use the services subscribed and purchased with minimal risk of harm to you or others. You further represent that you are not purchasing the products/services for resale to others and will not do so without Digverve (India) Limited\'s prior written consent.',
+                      'All changes / modifications made by the user to the data / information shall be effected and will come into operation only after 24-48 hours of such changes / modifications being made.',
+                      'On registration you agree to: a) Making your resume searchable to clients of DSPL who subscribe to RESDEX (Resume Database Access). You may be contacted by subscribers of RESDEX via email, telephone (even though you may have registered with NDNC) and/or post. If you wish to modify this setting and make yourself non-searchable, you may reset this in the Privacy Setting section of your resume. We recommend that you read the privacy settings carefully and DSPL will not be held responsible for contacts/mails received by you. b) Receive job alerts (mails detailing jobs that match your profile as entered on Uden.tech) via email. You may remove yourself from the job alert email database by resetting this option in the Privacy Setting section of your resume c) Receive promotional mailers/ special offers. You may remove yourself from the promotional mailer email database by resetting this option on the Privacy Setting section of your resume.',
+                      'The user agreement between a user/subscriber and DSPL will be treated as having been terminated in the following events: ( i ) On completion of the term for which the user/subscriber engages the services of the website; or ( ii ) In case the user/subscriber violates any of the conditions of this agreement or any other agreement entered into by him with DSPL, however, such termination will be at the option and discretion of DSPL; or ( iii )On writing and on such terms as agreed to by the parties mutually.',
+                      'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.'
+                    ]
+                  },
+                  {
+                    title:"Resume Display",
+                    paragraphs:[
+                      'In case necessary inputs required by us for commencing the services are not received by us within 30 days of the payment, the order shall stand cancelled and the any amounts paid shall be appropriated.',
+                      'The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
+                      'The amount paid entitles the subscriber alone to the service by Digverve for a period of subscription opted for from the date of up-linking of the resume on the website Uden.tech or such other mirror or parallel site(s) as Digverve may deem fit and proper but such web host shall be without any extra cost to the subscriber / user.',
+                      'The resume displayed can be updated by the subscriber alone free of cost.',
+                      'Notwithstanding anything contained herein, through Resume Display service your resume is made available from the home page of Uden.tech and can be by freely accessed by anyone.',
+                      'Additionally, through this service your resume is also made a part of Uden.tech\'s proprietary database, accessed only by companies/recruiter registered with us. Please log into your account and set the visibility of the resume as desired by you, here you can selectively block a company/recruiter from accessing your resume. (Please note that the confidentiality settings of the resume which has been made part of the exclusive database is independent of the confidentiality settings of the resume made part of the free search service)',
+                      'Digverve offers neither guarantee nor warranties that there would be a satisfactory response or any response at all once the resume is put on display.',
+                      'Digverve neither guarantees nor offers any warranty about the credentials of the prospective employer/organization which down loads the information and uses it to contact the prospective employee / visitor / user / subscriber.',
+                      'Digverve would not be held liable for loss of any data technical or otherwise, and particulars supplied by subscribers due to reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strikes, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                      'It shall be the sole prerogative and responsibility of the individual to check the authenticity of all or any response received pursuant to the resume being displayed by Digverve for going out of station or in station for any job / interview and Digverve assumes no responsibility in respect thereof.',
+                      'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, refund if any shall be on a pro-rata basis at the sole discretion of Digverve.',
+                      'Digverve will commence providing services only upon receipt of amount/charges upfront either from subscriber or from a third party on behalf of the subscriber.',
+                      'This subscription is not transferable i.e. it is for the same person throughout the period of subscription.',
+                      'Digverve has the right to make all such modifications/editing of resume in order to fit the resume in its database.',
+                      'The liability, if any, of Digverve is limited to the extent of the amount paid by the subscriber.',
+                      'The subscriber shall be assigned password(s) by Digverve to enable the subscriber to access all the information received through its site Uden.tech, but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft or data/corruption or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber',
+                      'The subscriber undertakes that the data/information provided by him is true and correct in all respects.',
+                      'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website'
+                    ]
+                  },
+                  {
+                    title:"Job Messages & Priority Applicant",
+                    paragraphs:[
+                      'The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
+                      'The amount paid entitles the subscriber alone to the service by Digverve for a period of subscription opted for from the date of sending the first job SMS.',
+                      'Digverve uses an automated algorithm to match jobs against the keywords/attributes present in the profile submitted by the user, and hence offers no guarantee nor warranties that the jobs sent in the job SMS will be relevant to the profile.',
+                      'Digverve neither guarantees nor offers any warranty about the credentials of the prospective employer/organization whose details are sent in the Job SMS.',
+                      'By opting for this service you are agreeing to receive details of Jobs from Uden.tech, on your mobile, till the tenure of the service.',
+                      'Digverve will try its utmost best to try and deliver all SMS sent, however, it does not take any responsibility for SMSes not delivered (which may be on account of phones being out of order, operator network problems, SIM not being used anymore etcetera). It does take the responsibility of the SMSes leaving its vendor SMS gateway.',
+                      'Digverve will not be responsible in any way for failure of any backend technology of SMS applications at the Operators end and resultant inability of a user to receive SMS.',
+                      'Digverve reserves the right to regulate number of SMSes sent out to a particular user in a single day.',
+                      'The service will be delivered on the mobile number provided at the time of purchase of the service, and will continue on the new number if changed by the user.',
+                      'If there are no jobs found matching the user\'s profile, an intimation SMS & email is sent to the user, on the 7th day and the user is asked for changing/editing his profile.',
+                      'Digverve would not be held liable for loss of any data technical or otherwise, and particulars supplied by subscribers due to reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strikes, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                      'It shall be the sole prerogative and responsibility of the individual to check the authenticity of all or any response received pursuant to the resume being displayed by Digverve for going out of station or in station for any job / interview and Digverve assumes no responsibility in respect thereof.',
+                      'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, refund if any shall be on a pro-rata basis at the sole discretion of Digverve.',
+                      'Digverve will commence providing services only upon receipt of amount/charges upfront either from subscriber or from a third party on behalf of the subscriber.',
+                      'This subscription is not transferable i.e. it is for the same person throughout the period of subscription.',
+                      'The liability, if any, of Digverve is limited to the extent of the amount paid by the subscriber.',
+                      'The subscriber shall be assigned password (s) by Digverve to enable the subscriber to access all the information received through its site Uden.tech, but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft or data/corruption or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                      'The subscriber undertakes that the data/information provided by him is true and correct in all respects.The subscriber undertakes that the data/information provided by him is true and correct in all respects.',
+                      'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.',
+                      {
+                        link:(index)=><Typography variant='inherit'>{`${index}. `}If you would like to stop the service before the due date, please write an email to  <Link underline="none" target='_blank' href='mailto:service@Uden.tech'>service@Uden.tech</Link></Typography>
+                      },
+                    ]
+                  },
+                  {
+                    title:"Interview Assistance program (IAP)",
+                    paragraphs:[
+                      'The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
+                      'The user understands that, Services once subscribed can only be activated post the subscriber having uploaded his/her updated profile. The Industry expert who conducts the interview can only do so once, service has been activated and the resume of the user/subscriber has been shared by the user/subscriber The user understands that this is a time based product to be utilized within a specified period of time. Once subscribed therefore the IAP product must be activated and utilized by him/her within a reasonable period of time of the same being subscribed.',
+                      'Digverve Solutions Pvt. Ltd. does not share personally identifiable data of any individual with other companies/entities without obtaining permission. Digverve Solutions Pvt. Ltd. may share all such information that it has in its possession for its own purposes including sending promotional mailers etc and in response to legal process, such as a court order or subpoena.',
+                      'The user undertakes that he/she will not disseminate false/objectionable/offensive material using these services.',
+                      'Digverve would not be held liable for loss of any data technical or otherwise, and particulars supplied by subscribers due to reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strikes, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities. Digverve will commence providing services only upon receipt of amount/charges upfront either from subscriber or from a third party on behalf of the subscriber.',
+                      'This subscription is not transferable i.e. it is for the same person throughout the period of subscription.',
+                      'The liability, if any, of Digverve is limited to the extent of the amount paid by the subscriber.',
+                      'The subscriber shall be assigned password (s) by Digverve to enable the subscriber to access all the information received through its site Uden.tech, but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft or data/corruption or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                      'The subscriber undertakes that the data/information provided by him is true and correct in all respects.'
+                    ]
+                  },
+                  {
+                    title:"Applications by Non Registered Users",
+                    paragraphs:[
+                      'The user undertakes that the data/information being provided by him/her in the resume is true and correct in all respects.',
+                      'Digverve Solutions Pvt. Ltd. does not share personally identifiable data of any individual with other companies/entities without obtaining permission. Digverve Solutions Pvt. Ltd. may share all such information that it has in its possession for its own purposes including sending promotional mailers etc and in response to legal process, such as a court order or subpoena.',
+                      'The user undertakes that he/she will not disseminate false/objectionable/offensive material using these services.',
+                      'This interface shall be exclusively for the purposes of bona fide job applications; usage of the interface in any other fashion is strictly prohibited.',
+                      'Digverve neither guarantees nor offers any warranty about the credentials bonafides, status or otherwise of the prospective employer/organization which downloads the resume/ insertion or information/data and uses it to contact the user.',
+                      'The user shall not infringe on any intellectual property rights of any person/entity or retain information/download any information from any computer system or otherwise with an intention to do so.',
+                      'The User/subscriber/visitor to Uden.tech or affiliated site(s) is prohibited from introducing/posting or transmitting information or software, which contains a computer virus, or a contaminant, worm or other harmful components on the internet or on Uden.tech site or sub-domains or on any affiliate sites or any other network system',
+                      'Digverve Solutions Pvt. Ltd. will not be party to any legal proceedings between a user (e.g. a subscriber) and a party contracted through the site. In case Digverve Solutions Pvt. Ltd. is implicated in any legal proceedings, costs will be recovered from the party that names Digverve Solutions Pvt. Ltd. Digverve however will abide with any court order served on it through due process.',
+                      'When you indicate your interest in a Job Listing on Uden.tech, you are sending your CV and application information including relevant documents to Uden.tech, and you are requesting and authorizing Uden.tech to make available such application information to the applicable Employer(s) for such Job Listing(s).',
+                      'In addition, by using Uden.tech, you agree that Uden.tech is not responsible for the content of the Employer\'s application form, messages, screener questions, testing assessments; required documents, or their format or method of delivery.',
+                      'You consent to your application, documents and any responses sent to you by the Employer or vice versa through Uden.tech being processed and analysed by Uden.tech according to these terms of use and Uden.tech\'s Privacy Policy. Uden.tech shall store and process such information regardless of whether a job vacancy has been filled. Uden.tech may use your application materials (including public CVs and responses to employer\'s questions) to determine whether you may be interested in a Job Listing, and Uden.tech may reach out to you about such Job Listing.',
+                      'Information you post in public areas of Naukri sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.'
+                    ]
+                  },
+                  {
+                    title:"Job Search & Resume Services on SMS",
+                    paragraphs:[
+                      'The subscriber availing this service shall be deemed to have consented to be bound by all the applicable terms and conditions of this service.',
+                      'Decision of Digverve regarding all transactions under this service shall be final and binding and no correspondence shall be entertained in this regard.',
+                      'Digverve reserves the right to extend, cancel, discontinue, prematurely withdraw, change, alter or modify this service or any part thereof including charges, at its sole discretion at anytime as may be required in view of business exigencies and/or regulatory or statutory changes.',
+                      'Your mobile phone number (MSISDN) will be used during the transmission of text messages through the mobile service provider\'s server for SMS Service.',
+                      'The membership is for your personal use only. You cannot transfer, assign or authorize your membership to any other person.',
+                      'The subscriber understands that he/she can avail SMS Services at his/her discretion and the said service shall be availed in such options as are made available by Digverve from time to time.',
+                      'This service is subject to guidelines/directions issued by Telecom Regulatory Authority of India or any other statutory authority from time to time.',
+                      'The SMS or its contents once sent for availing the SMS services shall be treated as final and the same cannot be withdrawn, changed or retrieved subsequently under any circumstances.',
+                      'WAP Services enable you to access our Services and to submit and/or receive Content through your wireless Device. Your access to our WAP Services may be dependent on the wireless Device you use to access the applicable WAP services.',
+                      'Subscription Services provide you with access to certain Content for a selected period of time, which will be as indicated and chosen by you prior to purchase. The frequency with which you will receive the relevant Content will be notified to you at the time you subscribe for the service.',
+                      'You will not post or transmit any content that is abusive, obscene, sexually oriented or against national interest. Digverve reserves the right to suspend your profile if any prohibitive or objectionable content is found and may further initiate appropriate legal proceedings against you.',
+                      'The Service is an additional service offered by Digverve. The functions of the Service are dependent on the Operator owning the network to facilitate this service (Operator), for which Digverve does not undertake any responsibility for failure of this network transmission or failure of message transmission for any reasons whatsoever. From time to time, Digverve may include additional features and services.',
+                      'Digverve reserves the right to modify/delete the profile contents at its own discretion without prior notice if the contents of profile are deemed unfit for broadcast.',
+                      'Digverve is not responsible for authenticity of the content arising thereto.',
+                      'The subscriber must maintain such minimum balance in his/her prepaid account as is specified by Digverve for availing the particular option offered under these services. All incidental costs/taxes/levies, if any, related to the VAS shall be entirely borne by the customer.',
+                      'The users specifically note and agree that the content and service or part thereof may be varied, added, withdrawn, withheld or suspended by Digverve at its sole discretion without prior notice to the users.',
+                      'Digverve shall not be liable for any costs, loss or damage (whether direct or indirect), or for loss of revenue, loss of profits or any consequential loss whatsoever as a result of the user using the Service.',
+                      'No reversal of deducted charges shall be allowed under any circumstances.',
+                      'The users shall remain solely responsible for all content, information, data originated from the users and transmitted via the Service (content), and the users shall accordingly indemnify Digverve and / or the Operator, against all third party claims relating to the users content or due to the users act, negligence or omission.',
+                      'You are bound by the terms and conditions as mentioned herein and as stated on the site.',
+                      'Message delivery is conditional to Mobile operator\'s technical infrastructure and its network uptime.',
+                      'By using various SMS based services from Digverve like Job Search, Job Alert, Naukri forum Chat, Career services etc , you agree to receive phone calls, messages etc. from Digverve and/or its associates tailored to provide with better job opportunities.',
+                      'Subscribing or using various paid/free services of Digverve on SMS/Voice/WAP either directly or indirectly doesn\'t in any manner guarantee the user a job.',
+                      'Digverve and/or its respective suppliers make no representations about the suitability, reliability, availability, timeliness, lack of viruses or other harmful components and accuracy of the information, software, products, services and related graphics contained within the, Digverve sites/services for any purpose. All such information, software, products, services and related graphics are provided "as is" without warranty of any kind. Digverve and/or its respective suppliers hereby disclaim all warranties and conditions with regard to this information, software, products, services and related graphics, including all implied warranties and conditions of merchantability, fitness for a particular purpose, workmanlike effort, title and non-infringement. Digverve shall not be responsible or liable for any consequential damages arising thereto.',
+                      'By agreeing to register at Uden.tech, a user allows Digverve to get in touch with him/her from time to time on events or offers regarding jobs and ancillary services on mobile. This can include exciting offers, information, as well as promotions.',
+                      'The subscriber shall comply with all directions/instructions etc. issued by the Company relating to the network, the services and any/all matters connected therewith and provide the Company all other and further information and co-operation as the Company may require from time to time.',
+                      'Registration presumes that the users have read, understood and accepted the terms and conditions.',
+                      'This service is live in India only.'
+                    ]
+                  }
+                ]}
+              },
+              {
+                bullets:{
+                  id:'recruiter',
+                  title:'Recruiter',
+                  paragraphs:[
+                    {
+                      title:'Additional Terms applicable to Recruiters "You" accessing any portion of the website Uden.tech',
+                      paragraphs:[
+                        'You will comply with all applicable data protection laws in relation to the processing of personal data; and not process personal data in an unlawful manner and excessive with regard to agreed purposes as defined in the privacy policy and this terms and conditions.',
+                        'You shall implement adequate technical and organizational controls to protect the shared personal data obtained from the Company against unauthorised or unlawful processing and against accidental loss, destruction, damage, alteration or disclosure.',
+                        'You agree to provide reasonable assistance as is necessary to facilitate the handling of any Data Security Breach (as relevant under privacy laws applicable) in an expeditious and compliant manner.',
+                        'You agree that the responsibility for complying with a data subject /data principal request lies with the Party which holds/processes the Personal Data collected/shared',
+                        'You warrant and represent that the institution shall not disclose or transfer Personal Data obtained from the Company to any sub-processors without ensuring that adequate and equivalent safeguards to the Personal Data.',
+                        'You shall retain or process shared Personal Data for no longer than is necessary to carry out the agreed purposes.',
+                        'You shall act as an independent Data Controller in respect of shared personal data obtained from the Company once the data is collected by You and You shall be responsible for its secure use at all times.'
+                      ]
+                    },
+                    {
+                      title:'Classified Job listing (single)',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'The insertion so displayed in the classified section of Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without notice. Every instance of refreshing and existing listing entitles you to and additional fixed period (currently 30 days) starting from the date on which the listing is refreshed and shall be counted as fresh posting.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve.',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database.',
+                        'The Subscriber/Recruiter will provide up to a maximum of 2 email id\'s for vacancies posted on Uden.tech in the Classified section to collect response(s) if any. The contact information given by the subscriber for all listing should be the same and the subscriber cannot give multiple contact information/data for the purpose of listing.',
+                        'All information intimated by the subscriber / recruiter and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a subscriber for display on Uden.tech in any other media including the print media at no extra costs to the subscriber and Digverve shall not be held liable for usage/publicity of such information.',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any at all response once the job is put on display.',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve would not be held liable for any loss of data, technical or otherwise, information, particulars supplied by the subscriber, due the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber.',
+                        'The subscriber/Recruiter shall be deemed to give an undertaking to Digverve that the jobs sought to be advertised on the classified section of Uden.tech are in existence, are genuine and that the subscriber / recruiter has the authority to advertise for such jobs.',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on the classified section of Uden.tech for processing of applications / responses from such person.',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of the classified section of Uden.tech at any time without assigning any reason and without giving any notice.',
+                        'The subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual. Usage from third party premises/networks without prior written permission of DSPL is not permitted.',
+                        'The subscriber shall be assigned password (s) by Digverve to enable the subscriber to post vacancies on the site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website'
+                      ]
+                    },
+                    {
+                      title:'Classified Subscriptions for various period',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'Each insertion so displayed in the classified section of Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without notice. Every instance of refreshing and existing listing entitles you to and additional fixed period (currently 30 days) starting from the date on which the listing is refreshed and shall be counted as a fresh posting.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve.',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database.',
+                        'The Subscriber/Recruiter will provide up to a maximum of 2 email id\'s for vacancies posted on Uden.tech in the Classified section to collect response(s) if any. The contact information given by the subscriber for all listing should be the same and the subscriber cannot give multiple contact information/data for the purpose of listing.',
+                        'All information intimated by the client and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a client for display on Uden.tech in any other media including the print media at no extra costs to the client and Digverve cannot be held liable for usage/publicity of such information.',
+                        'Digverve offers no guarantee or warranties that there would be a satisfactory response or any response at all once the job is put on display.',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve would not be held liable for loss of any data whether of technical nature or otherwise or all or any , information or particulars supplied by the customers due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber.',
+                        'The subscriber/Recruiter shall give an undertaking to Digverve that the jobs sought to be advertised on the classified section of Uden.tech are in existence, are genuine and that the subscriber has the authority to advertise the jobs',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on the classified section of Uden.tech for processing of such person',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of the classified section of Uden.tech at any time without assigning any reason and without giving any notice',
+                        'The subscriber to this service shall be entitled to such number of listings during the period of subscription as may be agreed upon',
+                        'The subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual',
+                        'Only one office of one corporate entity / firm will be entitled to use this service and in case other offices of the same company/ associated companies, want to use the said service, then, they shall have to pay additional subscription charges for the service',
+                        'The subscriber shall be assigned password (s) by Digverve to enable the subscriber to post vacancies on the site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data or corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber',
+                        'Only insertions with contact information registered with Digverve will be displayed on the site',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.',
+                        'All disputes arising out of the transactions between a user and Digverve will be resolved in accordance with the laws of India as applicable.'
+                      ]
+                    },
+                    {
+                      title:'Hot Vacancies (single)',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'Each insertion so displayed in the classified and hot vacancies and section of Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without notice.Every instance of refreshing and existing listing entitles you to and additional fixed period (currently 30 days) starting from the date on which the listing is refreshed and shall be counted as fresh posting.',
+                        'The Subscriber / Recruiter can select up to a maximum of 2 email id\'s per job, out of unlimited email id\'s configured for the account, to receive applications on email.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve.',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database.',
+                        'All information intimated by the subscriber and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a client for display on Uden.tech in any other media including the print media at no extra costs to the client and Digverve shall not be held liable for usage/publicity of such information / data.',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the job vacancy is put on display.',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve would not be held liable for any loss of data whether technical or otherwise or for loss of information or particulars supplied by the subscriber due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                        'The subscriber/Recruiter shall give an undertaking to Digverve that the jobs sought to be advertised on the \'Hot Vacancies\' and \'Classified\' sections of Uden.tech are in existence, genuine and the subscriber has the authority to advertise the said jobs vacancies.',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber.',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs / vacancies advertised on the \'Hot Vacancy\' and \'Classified\' sections of Uden.tech for processing of such person.',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of the `Hot Vacancies\' and `Classified\' sections of Uden.tech at any time without assigning any reason and without giving any prior notice.',
+                        'The subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual. Usage from third party premises/networks without prior written permission of DSPL is not permitted.',
+                        'The subscriber shall be assigned password (s) by Digverve to enable the subscriber to post vacancies on Uden.tech site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website'
+                      ]
+                    },
+                    {
+                      title:'Hot Vacancies Subscriptions',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'Each insertion so displayed in the hot vacancies and classified vacancy section of the site Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without prior notice.',
+                        'The Subscriber / Recruiter can select up to a maximum of 2 email id\'s per job, out of unlimited email id\'s configured for the account, to receive applications on email.',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve.',
+                        'All information intimated by the client and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a client for display on Uden.tech in any other media including the print media at no extra costs to the client and Digverve cannot be held liable for usage/publicity of such information.',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the job vacancy is put on display.',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve would not be held liable for any loss of data technical or otherwise, information, particulars supplied by the customers due to reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                        'The subscriber/Recruiter shall give an undertaking to Digverve that the jobs sought to be advertised on the `Hot Vacancies\' and `Classified\' sections of Uden.tech are in existence, genuine and the subscriber has the authority to advertise the jobs.',
+                        'Digverve will commence providing the services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber.',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on the \'Hot Vacancy\' and \'Classified\' sections of Uden.tech for processing of such person.',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of the classified and/or Hot Vacancies section of Uden.tech at any time without assigning any reason and without giving any notice.',
+                        'The subscriber to this service shall be entitled to such number of listings during the period of subscription as may be agreed upon.',
+                        'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual.',
+                        'The subscriber shall be assigned a password (s) by Digverve to enable the subscriber to post vacancies on the site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website'
+                      ]
+                    },
+                    {
+                      title:'Job Gallery',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'Each insertion so displayed in the classified and hot vacancies section of Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without notice.',
+                        'The Subscriber/Recruiter will provide up to a maximum of 2 email id\'s for vacancies posted on Uden.tech either in the classified and hot vacancies section to collect response(s) if any. In the case of Hot Vacancies, these 2 email id\'s can be selected from out of the unlimited email id\'s that may be configured for the account. However in the case of a classified listing, the contact information given by the subscriber for all listing should be the same and the subscriber cannot give multiple contact information/data for the purpose of listing.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve.',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the job vacancy is put on display.',
+                        'All information intimated by the client and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a client for display on Uden.tech in any other media including the print media at no extra costs to the client and Digverve cannot be held liable for usage/publicity of such information.',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve would not be held liable for any loss of data technical or otherwise, information, particulars supplied by the customers due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities.',
+                        'The subscriber/Recruiter shall give an undertaking to Digverve that the jobs sought to be advertised on the \'Job Gallery\' \'Hot Vacancies\' and `Classified\' sections of Uden.tech are in existence, genuine and the subscriber has the authority to advertise the jobs.',
+                        'Digverve will commence providing the services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber.',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on the \'Job Gallery\' \'Hot Vacancy\' and \'Classified\' sections of Uden.tech for processing of such person.',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of any section of Uden.tech at any time without assigning any reason and without giving any notice.',
+                        'The subscriber to this service shall be entitled to such number of listings during the period of subscription as may be agreed upon.',
+                        'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual.',
+                        'This service entitles one company/entity alone to put up a Micro site within the domain of Uden.tech having a maximum size of 10 K during the validity period of subscription.',
+                        'The subscriber shall be assigned a password (s) by Digverve to enable the subscriber to post vacancies on the site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website'
+                      ]
+                    },
+                    {
+                      title:'Best Places to Work',
+                      paragraphs:[
+                        'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
+                        'Each insertion so displayed in the classified hot vacancies and other section(s) of Uden.tech shall be for a fixed period (currently 30 days), which period is subject to change without notice',
+                        'The Subscriber/Recruiter will provide up to a maximum of 2 email id\'s for vacancies posted on Uden.tech either in the classified and hot vacancies section to collect response(s) if any. In the case of Hot Vacancies, these 2 email id\'s can be selected from out of the unlimited email id\'s that may be configured for the account. However in the case of a classified listing, the contact information given by the subscriber for all listing should be the same and the subscriber cannot give multiple contact information/data for the purpose of listing.',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason either before uploading or after uploading the vacancy details, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve',
+                        'By posting/uploading a job posting on the website you confirm that you have obtained all licenses/permits as are necessary for recruitment and to indemnify DSPL against all claims, damages arising out of actions/claims that may be made in relation to the same.',
+                        'Digverve has the right to make all such modifications/editing of the vacancy details in order to fit its database',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the job vacancy is put on display',
+                        'All information intimated by the client and displayed by Digverve on Uden.tech becomes public knowledge and Digverve may at its sole discretion include the vacancy intimated by a client for display on Uden.tech in any other media including the print media at no extra costs to the client and Digverve cannot be held liable for usage/publicity of such information',
+                        'Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense',
+                        'The subscriber may also be offered other services, including use of the e-Apps, access to Resdex (Resume Database) for the period of subscription and banners on a "run of the website" basis as agreed with Digverve',
+                        'Digverve would not be held liable for any loss of data technical or otherwise, information, particulars supplied by the customers due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber',
+                        'The subscriber/Recruiter shall give an undertaking to Digverve that the jobs sought to be advertised on the \'Best Places to Work\' `Hot Vacancies\' and `Classified\' sections of Uden.tech are in existence, genuine and the subscriber has the authority to advertise the jobs.',
+                        'The subscriber/Recruiter must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on the \'Best Places to Work\' \'Hot Vacancy\' and \'Classified\' sections of Uden.tech for processing of such person',
+                        'Digverve reserves its right to change the look, feel, design, prominence, depiction, classification of any section of Uden.tech at any time without assigning any reason and without giving any notice',
+                        'The subscriber to this service shall be entitled to such number of listings during the period of subscription as may be agreed upon',
+                        'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual',
+                        'This service entitles one company/entity alone to put up a Micro site within the domain of Uden.tech having a maximum size of 50 K during the validity period of subscription',
+                        'The subscriber shall be assigned a password (s) by Digverve to enable the subscriber to post vacancies on the site in agreed upon section(s), but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber.',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her or on his behalf on the website'
+                      ]
+                    },
+                    {
+                      title:'Manual Shortlisting',
+                      paragraphs:[
+                        'Digverve agrees to provide the service to the subscriber only for the duration and the number of vacancies contracted for, to the best of its ability and Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
+                        'Digverve will make best efforts to use the parameters provided by the subscriber to short list, but takes no responsibility for the accuracy of the short listing based on the parameters for selection as specified by the subscriber',
+                        'Digverve would not be held liable for any loss of data technical or otherwise, information, particulars supplied by the customers due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber. The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
+                        'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual',
+                        'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website',
+                        'It is the responsibility of Job Seekers to verify the correctness and authenticity of the claims made by recruiters. We merely act as facilitators and do not as agents for any recruiter.',
+                        'Payments to recruiters are not advised and shall be at your own risk.'
+                      ]
+                    },
+                    {
+                      title:'Display of Banners',
+                      paragraphs:[
+                        'Digverve agrees to provide the service to the subscriber only for the duration or the number of impressions contracted for, to the best of its ability.',
+                        'Digverve will display the banners on all the relevant/specified sections of the site on a rotation basis',
+                        'Digverve reserves its right to reject any insertion or information/data provided by the subscriber without assigning any reason, but in such an eventuality, any amount so paid for, may be refunded to the subscriber on a pro-rata basis at the sole discretion of Digverve',
+                        'Digverve offers no guarantee nor warranties that there would be a satisfactory response or any response at all once the banners are put on display',
+                        'Digverve would not be held liable for any loss of data technical or otherwise, information, particulars supplied by the customers due to the reasons beyond its control like corruption of data or delay or failure to perform as a result of any causes or conditions that are beyond Digverve\'s reasonable control including but not limited to strike, riots, civil unrest, Govt. policies, tampering of data by unauthorized persons like hackers, war and natural calamities',
+                        'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber',
+                        'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual',
+                        'The subscriber/Recruiter/Advertiser must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on Uden.tech for processing of applications / responses from such person',
+                        'The User of these services does not claim any copyright, Trade Mark or other Intellectual Property Right over the data uploaded by him/her on the website. The Banners displayed on naukri shall be prepared as per the instructions received from the users, Digverve shall not be responsible for the users misappropriation of the Trade Mark/ Copyright or any other Intellectual Property Right sought to be passed of as that of the user.'
+                      ]
+                    },
+                    
+                    
+                   
+                    
+                    
+                  ]}
+                },
+        ]
+    },
+    {
+      title:"ANTI SPAM POLICY",
+      paragraphs:[
+        'The services provided to you are aimed at providing recruitment solutions and should be restricted to contacting suitable candidates for genuine jobs in existence.',
+        'Mailing practices such as transmitting marketing and promotional mailers/ Offensive messages/ messages with misleading subject lines in order to intentionally obfuscate the original message, are strictly prohibited.',
+        'We reserve the right to terminate services, without prior notice, to the originator of Spam. No refund shall be admissible under such circumstances.',
+        {
+          title:"Following is an illustrative (not exhaustive) list of the kinds of messages which can be classified as spam:",
+          paragraph:[
+            'Unsolicited Bulk Messages/Unsolicited Commercial Communications.',
+            'Voice Calls/SMS to telephone numbers registered on the National Consumer Preference Register.',
+            'Non Job related mails.',
+            'Messages with misleading subject lines.',
+            'Blank Messages.',
+            'Extra ordinary High Number of mails.',
+            'Mails soliciting payments.',
+            'Misleading/Fraudulent mails.'
+          ]
+        },
+        'Users agree to indemnify and hold harmless Digverve (India) Limited from any damages or claims arising out of usage of their RESDEX accounts for transmitting spam',
+        'Users are advised to change their passwords frequently in order to reduce the possibility of misuse of their accounts.',
+        {
+          link:<Typography variant='inherit'>To seek more information and to report Spam. Please mail us at:  <Link underline="none" target='_blank' href='mailto:abuse@uden.tech'>abuse@Uden.tech</Link></Typography>
+        },
+        'Note: The terms in this agreement may be changed by Digverve at any time. Digverve is free to offer its services to any client/prospective client without restriction.'
       ]
     }
   ]
