@@ -8,15 +8,15 @@ const HRServicesConst = {
     Banner:{
         title:"HR Solutions that Drive Your Business Forward",
         subtitle:"Partner with UDEN to Unleash the Full Potential of Your People and Drive Your Business to Greater Heights",
-        image:AppAssets.CompanyAssets.Banner,
+        image:AppAssets.HRServicesAssets.Banner,
         action:{
             name:"Get Started Now",
             href:AppRoutes.HR_SERVICE_JOIN
         },
     },
     TrustedBrand:{
-        desktop:AppAssets.CompanyAssets.TrustedBrand.Desktop,
-        mobile:AppAssets.CompanyAssets.TrustedBrand.Mobile,
+        desktop:AppAssets.HRServicesAssets.TrustedBrand.Desktop,
+        mobile:AppAssets.HRServicesAssets.TrustedBrand.Mobile,
     },
     WorkFlow:{
         title:"HR Services Offerings of UDEN",
