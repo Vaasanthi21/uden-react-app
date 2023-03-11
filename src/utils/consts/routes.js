@@ -20,6 +20,7 @@ const LEARNING_LAB = "#";
 const FIND_TALENT = "/find-talent";
 const FIND_OPPORTUNITY = "/find-opportunity";
 const BECOME_PARTNER = "/become-partner";
+const HR_SERVICE_JOIN = "/hr-service-join";
 
 
 
@@ -44,6 +45,7 @@ export const AppRoutes = {
 
     FIND_TALENT,
     FIND_OPPORTUNITY,
-    BECOME_PARTNER
+    BECOME_PARTNER,
+    HR_SERVICE_JOIN
 
 }

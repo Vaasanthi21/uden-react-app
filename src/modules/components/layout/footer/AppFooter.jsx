@@ -33,7 +33,7 @@ const AppFooter = () => {
         <FooterMenuContaier>
           {data.LINKS.map((items,itemIndex)=>
               <FooterMenu css={styles.footerMenu} key={`footerMenu${itemIndex}`}> 
-                {items?.map((item,itemIndex)=><FooterMenuItems key={item.NAME} css={styles.footerMenuItems({isCurrent:item.LINK.includes(`/${route}`)})} title={item.NAME} href={item.LINK} disabled={item.isDisabled}/>)}
+                {items?.map((item,itemIndex)=><FooterMenuItems key={item.NAME} css={styles.footerMenuItems({isCurrent:route?item.LINK.includes(`${route}`):false})} title={item.NAME} href={item.LINK} disabled={item.isDisabled}/>)}
               </FooterMenu>)}
         </FooterMenuContaier>
         

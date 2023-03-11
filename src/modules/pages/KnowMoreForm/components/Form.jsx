@@ -9,7 +9,7 @@ import { AppRoutes } from '../../../../utils/consts/routes'
 const KnowMoreFormComponent = (props) => {
   const data = KnowMoreFormConst.KnowMoreForm;
   const currentRoute =  window.location.href.split(window.location.host)[1].split("/")[1];
-    const type = currentRoute.includes(AppRoutes.FIND_TALENT.split('/')[1])?"company":currentRoute.includes(AppRoutes.BECOME_PARTNER.split('/')[1])?"educator":"student"
+  const type = currentRoute.includes(AppRoutes.FIND_TALENT.split('/')[1])?"company":currentRoute.includes(AppRoutes.BECOME_PARTNER.split('/')[1])?"educator":"student"
   const hooks = KnowMoreFormHooks.useFormHooks({data: data,type:type});
   const {fields,handleInputChange,validate} = hooks
   const {checkbox,handleCheckboxChange} = hooks

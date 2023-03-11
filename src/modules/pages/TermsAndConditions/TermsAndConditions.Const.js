@@ -90,11 +90,11 @@ const TermsAndConditionsConst = {
         'DSPL has no agents and does not operate through any agents save for those specifically mentioned on the home page of the website.',
         'The Terms and conditions mentioned above regulate the usage of Uden.tech. Any person using Uden.tech in violation of the stipulations contained in the Terms and Conditions of Uden.tech shall render himself/herself liable to appropriate action in a court of law both civil and criminal.',
         'BY ACCEPTING THESE TERMS AND CONDITIONS, YOU AGREE TO INDEMNIFY AND OTHERWISE HOLD HARMLESS DSPL, ITS DIRECTORS, OFFICERS, EMPLOYERS, AGENTS, SUBSIDIARIES, AFFILIATES AND OTHER PARTNERS FROM ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES ARISING OUT OF, RELATING TO, OR RESULTING FROM YOUR USE OF THE SERVICES OBTAINED THROUGH UDEN.TECHINCLUDING BUT NOT LIMITED TO INFORMATION PROVIDED BY YOU OR ANY OTHER MATTER RELATING TO UDEN.IN. ANY REFERENCE TO DUTIES AND TAXES ETC IN THESE TERMS OF USE SHALL INCLUDE GOODS AND SERVICES TAX (HEREIN REFERRED AS GST) FROM THE DATE GST LAW IS IMPLEMENTED IN INDIA. ANY ADDITIONAL TAX LIABILITY ARISING ON ACCOUNT OF INTRODUCTION OF GST (WHETHER ON ACCOUNT OF INCREASE IN RATE OR ANY CHANGE BROUGHT IN BY THE NEW TAX REGIME) WOULD BE RECOVERED OVER AND ABOVE THE AGREED CONTRACT PRICE / SERVICE FEE.',
-        'If any dispute arises between a user/users and DSPL arising out of use of Uden.tech or thereafter, in connection with the validity, interpretation, implementation or alleged breach of any provision of these Terms and Conditions, the dispute shall be referred to a sole arbitrator who shall be an independent and neutral third party identified by the Company. Decision of the arbitrator shall be final and binding on both the parties to the dispute. The place of arbitration shall be New Delhi, India. The Arbitration & Conciliation Act, 1996 as amended, shall govern the arbitration proceedings.',
-        'These Terms and Conditions shall be governed by the laws of Republic of India. The exclusive forum for any disputes arising out of or relating to these Terms of Use shall be a court of law located in New Delhi, India.',
+        'If any dispute arises between a user/users and DSPL arising out of use of Uden.tech or thereafter, in connection with the validity, interpretation, implementation or alleged breach of any provision of these Terms and Conditions, the dispute shall be referred to a sole arbitrator who shall be an independent and neutral third party identified by the Company. Decision of the arbitrator shall be final and binding on both the parties to the dispute. The place of arbitration shall be Bengaluru, India. The Arbitration & Conciliation Act, 1996 as amended, shall govern the arbitration proceedings.',
+        'These Terms and Conditions shall be governed by the laws of Republic of India. The exclusive forum for any disputes arising out of or relating to these Terms of Use shall be a court of law located in Bengaluru, India.',
         'Digverve, Digverve India, DSPL and Digverve Solutions Pvt. Ltd. are used interchangeably and are synonymous.',
         {
-          link:<Typography variant='inherit'>The user of Uden.tech is subject to the  <Link underline="none" target='_blank' href={AppRoutes.PRIVACY}>Privacy Policy</Link> available through this link.</Typography>
+          link:(props)=><Typography component='span' variant='inherit'>The user of Uden.tech is subject to the  <Link underline="none" target='_blank' href={AppRoutes.PRIVACY}>Privacy Policy</Link> available through this link.</Typography>
         },
         'In case of non compliance of these Terms and Conditions or Privacy Policy DSPL may terminate usage rights and take down any offending information that might might have been upoloaded by such subscriber/user'
       ]
@@ -108,25 +108,25 @@ const TermsAndConditionsConst = {
             bullets:true,
             paragraphs:[
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-0'>Digverve Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers0'>Digverve Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-1'>Resume Display</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers1'>Resume Display</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-2'>Job Messages & Priority Applicant</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers2'>Job Messages & Priority Applicant</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-3'>Interview Assistance program (IAP)</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers3'>Interview Assistance program (IAP)</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-4'>Applications by Non Registered Users</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers4'>Applications by Non Registered Users</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-5'>Job Search and Resume Services on SMS</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers5'>Job Search and Resume Services on SMS</Link></Typography>
               },
               {
-                link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#job-seekers-6'>Uden.tech Security Center</Link></Typography>
+                link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#jobseekers6'>Uden.tech Security Center</Link></Typography>
               },
             ]}
           },
@@ -136,37 +136,40 @@ const TermsAndConditionsConst = {
               bullets:true,
               paragraphs:[
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-0'>Classified Job listing (single)</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter0'>Classified Job listing (single)</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-1'>Classified Subscriptions for various period</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter1'>Classified Subscriptions for various period</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-2'>Hot Vacancies (single)</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter2'>Hot Vacancies (single)</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-3'>Hot Vacancies Subscriptions</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter3'>Hot Vacancies Subscriptions</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-4'>Job Gallery</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter4'>Job Gallery</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-5'>Best Places to Work</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter5'>Best Places to Work</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-6'>Manual Shortlisting</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter6'>Manual Shortlisting</Link></Typography>
                 },
                 {
-                  link:(index)=><Typography variant='inherit'>{`${index}. `}<Link underline="none"  href='#recruiter-7'>Display of Banners</Link></Typography>
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter7'>Display of Banners</Link></Typography>
+                },
+                {
+                  link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}<Link underline="none"  href='#recruiter8'>Additional Terms applicable to Recruiters "You" accessing any portion of the website Uden.tech</Link></Typography>
                 },
               ]}
             },
             {
               bullets:{
                 title:'Job Seekers',
-                id:'job-seekers',
                 paragraphs:[
                   {
+                    id:'jobseekers0',
                     title:"Digverve Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager By registering your resume on Uden.tech, you agree to the following terms",
                     paragraphs:[
                       'The resume/ insertion or information/data fed by the user can be updated by the user alone, free of cost.',
@@ -181,10 +184,10 @@ const TermsAndConditionsConst = {
                       'The subscriber shall be assigned a password (s) by Digverve to enable the subscriber to access all the information received through Uden.tech, but the sole responsibility of the safe custody of the password shall be that of the subscriber and Digverve shall not be responsible for data loss/theft of data/corruption of data or the wrong usage/misuse of the password and any damage or leak of information and its consequential usage by a third party. Digverve undertakes to take all reasonable precautions at its end to ensure that there is no leakage/misuse of the password granted to the subscriber. When you indicate your interest in a Job Listing on Uden.tech, you are sending your CV and application information including relevant documents to Uden.tech, and you are requesting and authorizing Uden.tech to make available such application information to the applicable Employer(s) for such Job Listing(s).',
                       'In addition, by using Uden.tech, you agree that Uden.tech is not responsible for the content of the Employer\'s application form, messages, screener questions, testing assessments; required documents, or their format or method of delivery.',
                       'You consent to your application, documents and any responses sent to you by the Employer or vice versa through Uden.tech being processed and analysed by Uden.tech according to these terms of use and Uden.tech\'s Privacy Policy. Uden.tech shall store and process such information regardless of whether a job vacancy has been filled. Uden.tech may use your application materials (including public CVs and responses to employer\'s questions) to determine whether you may be interested in a Job Listing, and Uden.tech may reach out to you about such Job Listing.',
-                      'Information you post in public areas of Naukri sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.',
+                      'Information you post in public areas of UDEN sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.',
                       'In order to use Uden.tech, you may sign in using your Facebook/Google login. If you do so, you authorize us to access and use certain Facebook/Google account information, including but not limited to your public Facebook profile and posts. For more details regarding the information we collect from you and how we use it, please visit our Privacy Policy.',
                       'It shall be the sole responsibility of the user to ensure that it uses the privacy setting options as it deems fit to debar / refuse access of the data fed by it, to such corporate entities individuals or consultants. Digverve shall not be responsible for such insertions / data being accessed by its subscribers or users whose access has not been specifically blocked /debarred by the user while using the privacy settings.',
-                      'Even though you may have marked your profile as unsearchable, on viewing a NaukriRecruiter profile when you are logged into your Uden.tech account, a snapshot of your profile maybe made visible to the recruiter.',
+                      'Even though you may have marked your profile as unsearchable, on viewing a UDEN Recruiter profile when you are logged into your Uden.tech account, a snapshot of your profile maybe made visible to the recruiter.',
                       'Although Digverve will make all possible efforts to adhere to these privacy settings, it will not be responsible for a resume being seen by a blocked user for any reason. For best privacy settings it is recommended that you do not allow your resume to be searched at all.',
                       'The user represents that he/she is not a minor and is not under any legal or other disability which limits his/her ability to comply with these Terms or to install and use the services subscribed and purchased with minimal risk of harm to you or others. You further represent that you are not purchasing the products/services for resale to others and will not do so without Digverve (India) Limited\'s prior written consent.',
                       'All changes / modifications made by the user to the data / information shall be effected and will come into operation only after 24-48 hours of such changes / modifications being made.',
@@ -194,6 +197,7 @@ const TermsAndConditionsConst = {
                     ]
                   },
                   {
+                    id:'jobseekers1',
                     title:"Resume Display",
                     paragraphs:[
                       'In case necessary inputs required by us for commencing the services are not received by us within 30 days of the payment, the order shall stand cancelled and the any amounts paid shall be appropriated.',
@@ -217,6 +221,7 @@ const TermsAndConditionsConst = {
                     ]
                   },
                   {
+                    id:'jobseekers2',
                     title:"Job Messages & Priority Applicant",
                     paragraphs:[
                       'The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
@@ -239,11 +244,12 @@ const TermsAndConditionsConst = {
                       'The subscriber undertakes that the data/information provided by him is true and correct in all respects.The subscriber undertakes that the data/information provided by him is true and correct in all respects.',
                       'The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.The User of these services does not claim any copyright or other Intellectual Property Right over the data uploaded by him/her on the website.',
                       {
-                        link:(index)=><Typography variant='inherit'>{`${index}. `}If you would like to stop the service before the due date, please write an email to  <Link underline="none" target='_blank' href='mailto:service@Uden.tech'>service@Uden.tech</Link></Typography>
+                        link:(props)=><Typography component='span' variant='inherit'>{`${props}. `}If you would like to stop the service before the due date, please write an email to  <Link underline="none" target='_blank' href='mailto:service@Uden.tech'>service@Uden.tech</Link></Typography>
                       },
                     ]
                   },
                   {
+                    id:'jobseekers3',
                     title:"Interview Assistance program (IAP)",
                     paragraphs:[
                       'The payment for service once subscribed to by the subscriber is not refundable and any amount paid shall stand appropriated.',
@@ -258,6 +264,7 @@ const TermsAndConditionsConst = {
                     ]
                   },
                   {
+                    id:'jobseekers4',
                     title:"Applications by Non Registered Users",
                     paragraphs:[
                       'The user undertakes that the data/information being provided by him/her in the resume is true and correct in all respects.',
@@ -271,10 +278,11 @@ const TermsAndConditionsConst = {
                       'When you indicate your interest in a Job Listing on Uden.tech, you are sending your CV and application information including relevant documents to Uden.tech, and you are requesting and authorizing Uden.tech to make available such application information to the applicable Employer(s) for such Job Listing(s).',
                       'In addition, by using Uden.tech, you agree that Uden.tech is not responsible for the content of the Employer\'s application form, messages, screener questions, testing assessments; required documents, or their format or method of delivery.',
                       'You consent to your application, documents and any responses sent to you by the Employer or vice versa through Uden.tech being processed and analysed by Uden.tech according to these terms of use and Uden.tech\'s Privacy Policy. Uden.tech shall store and process such information regardless of whether a job vacancy has been filled. Uden.tech may use your application materials (including public CVs and responses to employer\'s questions) to determine whether you may be interested in a Job Listing, and Uden.tech may reach out to you about such Job Listing.',
-                      'Information you post in public areas of Naukri sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.'
+                      'Information you post in public areas of UDEN sites or applications or make visible in the resume and profile database may be accessed, used, and stored by others around the world, including those in countries that might not have legislation that guarantees adequate protection of personal information as defined by your country of residence. While Uden.tech takes measures to safeguard your information from unauthorized access or inappropriate use, Uden.tech does not control these third parties and we are not responsible for their use of information you give to us. Accordingly, you should not post sensitive information or any other information you would not want made public, to any portion of Uden.tech or application or to a public website.'
                     ]
                   },
                   {
+                    id:'jobseekers5',
                     title:"Job Search & Resume Services on SMS",
                     paragraphs:[
                       'The subscriber availing this service shall be deemed to have consented to be bound by all the applicable terms and conditions of this service.',
@@ -298,7 +306,7 @@ const TermsAndConditionsConst = {
                       'The users shall remain solely responsible for all content, information, data originated from the users and transmitted via the Service (content), and the users shall accordingly indemnify Digverve and / or the Operator, against all third party claims relating to the users content or due to the users act, negligence or omission.',
                       'You are bound by the terms and conditions as mentioned herein and as stated on the site.',
                       'Message delivery is conditional to Mobile operator\'s technical infrastructure and its network uptime.',
-                      'By using various SMS based services from Digverve like Job Search, Job Alert, Naukri forum Chat, Career services etc , you agree to receive phone calls, messages etc. from Digverve and/or its associates tailored to provide with better job opportunities.',
+                      'By using various SMS based services from Digverve like Job Search, Job Alert, UDEN forum Chat, Career services etc , you agree to receive phone calls, messages etc. from Digverve and/or its associates tailored to provide with better job opportunities.',
                       'Subscribing or using various paid/free services of Digverve on SMS/Voice/WAP either directly or indirectly doesn\'t in any manner guarantee the user a job.',
                       'Digverve and/or its respective suppliers make no representations about the suitability, reliability, availability, timeliness, lack of viruses or other harmful components and accuracy of the information, software, products, services and related graphics contained within the, Digverve sites/services for any purpose. All such information, software, products, services and related graphics are provided "as is" without warranty of any kind. Digverve and/or its respective suppliers hereby disclaim all warranties and conditions with regard to this information, software, products, services and related graphics, including all implied warranties and conditions of merchantability, fitness for a particular purpose, workmanlike effort, title and non-infringement. Digverve shall not be responsible or liable for any consequential damages arising thereto.',
                       'By agreeing to register at Uden.tech, a user allows Digverve to get in touch with him/her from time to time on events or offers regarding jobs and ancillary services on mobile. This can include exciting offers, information, as well as promotions.',
@@ -306,27 +314,27 @@ const TermsAndConditionsConst = {
                       'Registration presumes that the users have read, understood and accepted the terms and conditions.',
                       'This service is live in India only.'
                     ]
+                  },
+                  {
+                    id:'jobseekers6',
+                    title:"Uden.tech Security Center",
+                    paragraphs:[
+                      'The security center may outline the security measures it has in place to protect user data and prevent unauthorized access or breaches, such as firewalls, encryption, and access controls.',
+                      'You agree to provide reasonable assistance as is necessary to facilitate the handling of any Data Security Breach (as relevant under privacy laws applicable) in an expeditious and compliant manner.',
+                      'Users may be required to report any security incidents or suspected breaches to the security center promptly.',
+                      'Users may be responsible for maintaining the security of their own devices and networks, as well as complying with any additional security requirements outlined by the security center.',
+                      'Users may be required to comply with all applicable laws and regulations related to data privacy and security, including those related to the collection, storage, and use of personal information.',
+                      'The security center may reserve the right to audit and monitor user activity on the system to ensure compliance with its policies and detect potential security incidents.' 
+                    ]
                   }
                 ]}
               },
               {
                 bullets:{
-                  id:'recruiter',
                   title:'Recruiter',
                   paragraphs:[
                     {
-                      title:'Additional Terms applicable to Recruiters "You" accessing any portion of the website Uden.tech',
-                      paragraphs:[
-                        'You will comply with all applicable data protection laws in relation to the processing of personal data; and not process personal data in an unlawful manner and excessive with regard to agreed purposes as defined in the privacy policy and this terms and conditions.',
-                        'You shall implement adequate technical and organizational controls to protect the shared personal data obtained from the Company against unauthorised or unlawful processing and against accidental loss, destruction, damage, alteration or disclosure.',
-                        'You agree to provide reasonable assistance as is necessary to facilitate the handling of any Data Security Breach (as relevant under privacy laws applicable) in an expeditious and compliant manner.',
-                        'You agree that the responsibility for complying with a data subject /data principal request lies with the Party which holds/processes the Personal Data collected/shared',
-                        'You warrant and represent that the institution shall not disclose or transfer Personal Data obtained from the Company to any sub-processors without ensuring that adequate and equivalent safeguards to the Personal Data.',
-                        'You shall retain or process shared Personal Data for no longer than is necessary to carry out the agreed purposes.',
-                        'You shall act as an independent Data Controller in respect of shared personal data obtained from the Company once the data is collected by You and You shall be responsible for its secure use at all times.'
-                      ]
-                    },
-                    {
+                      id:'recruiter0',
                       title:'Classified Job listing (single)',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -349,6 +357,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter1',
                       title:'Classified Subscriptions for various period',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -375,6 +384,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter2',
                       title:'Hot Vacancies (single)',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -397,6 +407,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter3',
                       title:'Hot Vacancies Subscriptions',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -420,6 +431,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter4',
                       title:'Job Gallery',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -444,6 +456,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter5',
                       title:'Best Places to Work',
                       paragraphs:[
                         'Digverve shall place the information relating to vacancies in the Hot Vacancies & such other Classified sections on the website Uden.tech or such other mirror or parallel site(s) or in allied publications as Digverve may deem fit and proper but such additional web hosting shall be without any extra cost to the subscriber / user.',
@@ -469,6 +482,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter6',
                       title:'Manual Shortlisting',
                       paragraphs:[
                         'Digverve agrees to provide the service to the subscriber only for the duration and the number of vacancies contracted for, to the best of its ability and Digverve shall in no way be held liable for any information received by the subscriber and it shall be the sole responsibility of the subscriber to check, authenticate and verify the information/response received at its own cost and expense.',
@@ -482,6 +496,7 @@ const TermsAndConditionsConst = {
                       ]
                     },
                     {
+                      id:'recruiter7',
                       title:'Display of Banners',
                       paragraphs:[
                         'Digverve agrees to provide the service to the subscriber only for the duration or the number of impressions contracted for, to the best of its ability.',
@@ -492,14 +507,22 @@ const TermsAndConditionsConst = {
                         'Digverve will commence providing services only upon receipt of amount/charges upfront either from the subscriber or from a third party on behalf of the subscriber',
                         'This subscription is neither re-saleable nor transferable by the subscriber to any other person, corporate body, firm or individual',
                         'The subscriber/Recruiter/Advertiser must give an undertaking to Digverve that there will be no fee charged from any person who responds to jobs advertised on Uden.tech for processing of applications / responses from such person',
-                        'The User of these services does not claim any copyright, Trade Mark or other Intellectual Property Right over the data uploaded by him/her on the website. The Banners displayed on naukri shall be prepared as per the instructions received from the users, Digverve shall not be responsible for the users misappropriation of the Trade Mark/ Copyright or any other Intellectual Property Right sought to be passed of as that of the user.'
+                        'The User of these services does not claim any copyright, Trade Mark or other Intellectual Property Right over the data uploaded by him/her on the website. The Banners displayed on UDEN shall be prepared as per the instructions received from the users, Digverve shall not be responsible for the users misappropriation of the Trade Mark/ Copyright or any other Intellectual Property Right sought to be passed of as that of the user.'
                       ]
                     },
-                    
-                    
-                   
-                    
-                    
+                    {
+                      id:'recruiter8',
+                      title:'Additional Terms applicable to Recruiters "You" accessing any portion of the website Uden.tech',
+                      paragraphs:[
+                        'You will comply with all applicable data protection laws in relation to the processing of personal data; and not process personal data in an unlawful manner and excessive with regard to agreed purposes as defined in the privacy policy and this terms and conditions.',
+                        'You shall implement adequate technical and organizational controls to protect the shared personal data obtained from the Company against unauthorised or unlawful processing and against accidental loss, destruction, damage, alteration or disclosure.',
+                        'You agree to provide reasonable assistance as is necessary to facilitate the handling of any Data Security Breach (as relevant under privacy laws applicable) in an expeditious and compliant manner.',
+                        'You agree that the responsibility for complying with a data subject /data principal request lies with the Party which holds/processes the Personal Data collected/shared',
+                        'You warrant and represent that the institution shall not disclose or transfer Personal Data obtained from the Company to any sub-processors without ensuring that adequate and equivalent safeguards to the Personal Data.',
+                        'You shall retain or process shared Personal Data for no longer than is necessary to carry out the agreed purposes.',
+                        'You shall act as an independent Data Controller in respect of shared personal data obtained from the Company once the data is collected by You and You shall be responsible for its secure use at all times.'
+                      ]
+                    },
                   ]}
                 },
         ]
@@ -526,7 +549,7 @@ const TermsAndConditionsConst = {
         'Users agree to indemnify and hold harmless Digverve (India) Limited from any damages or claims arising out of usage of their RESDEX accounts for transmitting spam',
         'Users are advised to change their passwords frequently in order to reduce the possibility of misuse of their accounts.',
         {
-          link:<Typography variant='inherit'>To seek more information and to report Spam. Please mail us at:  <Link underline="none" target='_blank' href='mailto:abuse@uden.tech'>abuse@Uden.tech</Link></Typography>
+          link:(props)=><Typography component='span' variant='inherit'>To seek more information and to report Spam. Please mail us at:  <Link underline="none" target='_blank' href='mailto:abuse@uden.tech'>abuse@Uden.tech</Link></Typography>
         },
         'Note: The terms in this agreement may be changed by Digverve at any time. Digverve is free to offer its services to any client/prospective client without restriction.'
       ]
