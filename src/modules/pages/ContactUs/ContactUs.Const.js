@@ -24,7 +24,8 @@ const ContactUsConst = {
           action:"Submit",
           fields:[
             {
-              id:"name",
+              id:"form-name",
+              key:"name",
               label:"Full Name",
               value:"",
               error:false,
@@ -37,7 +38,8 @@ const ContactUsConst = {
               validator:getValidator.withMinLength(2,"Name should contain atleast 3 characters")
             },
             {
-              id:"email",
+              id:"form-email",
+              key:"email",
               label:"Work Email",
               value:"",
               error:false,
@@ -50,7 +52,8 @@ const ContactUsConst = {
               validator:getValidator.withPattern(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,"Please enter a valid email address")
             },
             {
-              id:"contact",
+              id:"form-phone",
+              key:"phone",
               label:"Contact Number",
               value:"",
               error:false,
@@ -63,7 +66,8 @@ const ContactUsConst = {
               validator:getValidator.withPattern(/^\d{10,15}$/i,"Please enter valid contact number")
             },
             {
-              id:"message",
+              id:"form-comment",
+              key:"comment",
               label:"Your Message",
               value:"",
               error:false,
@@ -101,6 +105,11 @@ const ContactUsConst = {
           image:AppAssets.ContactUsAssets.GLOBAL_OFFFICES.AMERICA
         }
       ]
+    },
+    getJson:(data)=>{
+      var temp = {}
+      data.forEach((field)=>temp[field.key] = field.value)
+    return temp;
     }
 }
 

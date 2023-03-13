@@ -37,6 +37,17 @@ const SliderItems = [
             href:AppRoutes.BECOME_PARTNER
         },
         image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_UPSKILL
+    },
+    {
+        id: 4,
+        title:"Get HR Service",
+        subtitle:"Make your Company best place to work",
+        points:["Customized solutions","Expert guidance","Comprehensive services"],
+        action:{
+            name:"Join HR Services",
+            href:AppRoutes.HR_SERVICE_JOIN
+        },
+        image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_HR_SERVICE
     }
 ];
 

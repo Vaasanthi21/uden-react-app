@@ -3,8 +3,6 @@ import {  Box, Button, Checkbox, CircularProgress, FormControlLabel, Grid, TextF
 import Spacer from '../../../components/Spacer'
 import KnowMoreFormConst from '../KnowMoreForm.Const'
 import { KnowMoreFormHooks } from '../hooks/KnowMoreForm.Hooks'
-import { AppRoutes } from '../../../../utils/consts/routes'
-import { usePostAssociationRequestMutation } from '../../../../services/contactFormServices/contactFormServices'
 
 
 const KnowMoreFormComponent = (props) => {
@@ -12,7 +10,7 @@ const KnowMoreFormComponent = (props) => {
   const hooks = KnowMoreFormHooks.useFormHooks({data: data});
   const {fields,type,handleInputChange,validate,formResult} = hooks
   const {checkbox,handleCheckboxChange} = hooks
-  
+
     return (
       <Grid {...props} container direction={{xs:'column',md:'row'}} height={{xs:'auto'}} justifyContent='center'>
         <Grid container item  xs={4} md={6} justifyContent='center' alignContent='center'>

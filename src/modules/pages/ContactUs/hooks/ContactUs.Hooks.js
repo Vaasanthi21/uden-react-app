@@ -1,6 +1,8 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
+import { usePostContactRequestMutation } from "../../../../services/contactFormServices/contactFormServices";
 import { ValidateField, ValidateFields } from "../../../../utils/helper";
+import ContactUsConst from "../ContactUs.Const";
 
 
 
@@ -8,6 +10,7 @@ const useFormHooks = (props) =>{
     const data = props.data;
     const [fields, setValues] = useState(data.form.fields);
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const [contact,formResult] = usePostContactRequestMutation()
 
     const handleInputChange = (e) => {
       const { id, value } = e.target;
@@ -19,15 +22,23 @@ const useFormHooks = (props) =>{
       });
       setValues([...fields]);
     };
-    const validate = (e) =>{
+    const validate = async(e) =>{
       e.preventDefault();
       const validatedData = ValidateFields(fields);
       if(validatedData.isError){
         setValues([...validatedData.fields]);
         enqueueSnackbar(data.errorMessage,{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
       }else{
-        enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
-        handleClear();
+        await contact(ContactUsConst.getJson(fields)).then((res)=>{
+          if(!res.error){
+            enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
+            handleClear();
+          }else{
+            if(formResult.isError){
+              enqueueSnackbar(formResult?.error?.message??"Something went wrong please try again later",{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
+            }
+          }
+        })
       }
     }
     const handleClear = () => {
@@ -37,7 +48,7 @@ const useFormHooks = (props) =>{
       });
       setValues([...fields]);
     }
-    return {fields,handleInputChange,validate}
+    return {fields,formResult,handleInputChange,validate}
 }
 
 const useGlobalOfficesHooks = () => {

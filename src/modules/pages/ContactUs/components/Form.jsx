@@ -8,7 +8,7 @@ import { ContactUsHooks } from '../hooks/ContactUs.Hooks'
 const ContactUsForm = (props) => {
   const data = ContactUsConst.ContactForm;
   const hooks = ContactUsHooks.useFormHooks({data: data});
-  const {fields,handleInputChange,validate} = hooks
+  const {fields,formResult,handleInputChange,validate} = hooks
 
     return (
       <Grid {...props} container direction={{xs:'column',md:'row'}} height={{xs:550,md:500}} justifyContent='center'>
@@ -30,7 +30,7 @@ const ContactUsForm = (props) => {
               <Grid container item xs={10} height='100%' direction='column' justifyContent='space-evenly' >
                 {fields?.map((value,i)=><TextField key={i} {...value} onChange={handleInputChange} />)}
               </Grid>
-              <Button disabled={data.loading} variant='contained' fullWidth type='submit'>{data?.form?.action}{data.loading && <CircularProgress size={20} thickness={6} sx={{ml:1,color:'gray'}} />}</Button>
+              <Button disabled={formResult.isLoading} variant='contained' fullWidth type='submit'>{data?.form?.action}{formResult.isLoading && <CircularProgress size={20} thickness={6} sx={{ml:1,color:'gray'}} />}</Button>
             </Grid>
         </Grid>
       </Grid>

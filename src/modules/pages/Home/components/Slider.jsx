@@ -6,7 +6,7 @@ import { HomeConst } from '../Home.Const'
 const Slider = (props) => {
   const items = HomeConst.SliderItems;
   return (
-    <Carousel {...props} >
+    <Carousel {...props} autoplay={true} >
         {items.map((item,i)=><SliderItem  key={i} {...item} iscarousel='true'/>)}
     </Carousel>
   )

@@ -149,7 +149,7 @@ const fields = {
     size:'small',
     fullWidth:true,
     InputProps:{startAdornment:<InputAdornment position='start'><Work/></InputAdornment>},
-    validator:getValidator.withMinLength(1,"Please enter your experience year")
+    validator:getValidator.withMinLength(0,"Please enter your experience year")
   },
   source_of_info:{
     id:"form-source_of_info",

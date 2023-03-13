@@ -1,6 +1,7 @@
 import HOMESLIDER_FIND_TALENT from  '../../../assets/images/home_first.png'
 import HOMESLIDER_GET_ACCESS from  '../../../assets/images/home_second.png'
 import HOMESLIDER_UPSKILL from  '../../../assets/images/home_third.png'
+import HOMESLIDER_HR_SERVICE from  '../../../assets/images/hr-services/hr_banner.png'
 import TRUSTED_BRAND from  '../../../assets/images/trust-banner.png'
 import TRUSTED_BRAND_MOBILE from  '../../../assets/images/trust-banner-mobile.png'
 import JOB_SEEKER_WORKFLOW from  '../../../assets/images/partner-work.png'
@@ -25,6 +26,7 @@ const HomeAssets = {
         HOMESLIDER_FIND_TALENT,
         HOMESLIDER_GET_ACCESS,
         HOMESLIDER_UPSKILL,
+        HOMESLIDER_HR_SERVICE
     },
     TRUSTED_BRAND:{
         DESKTOP: TRUSTED_BRAND,

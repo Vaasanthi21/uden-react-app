@@ -1,9 +1,9 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { usePostAssociationRequestMutation } from "../../../../services/contactFormServices/contactFormServices";
 import { AppRoutes } from "../../../../utils/consts/routes";
 import { ValidateField, ValidateFields } from "../../../../utils/helper";
-import ContactUsGlobalOffices from "../../ContactUs/components/GlobalOffices";
 import KnowMoreFormConst from "../KnowMoreForm.Const";
 
 
@@ -11,6 +11,8 @@ import KnowMoreFormConst from "../KnowMoreForm.Const";
 const useFormHooks = (props) =>{
   const data = props.data;
   const currentRoute = window.location.href.split(window.location.host)[1].split("/")[1];
+  const csrfToken = useSelector(state => state?.csrf?.value['csrfToken'])
+  console.log(csrfToken)
   const type = currentRoute.includes(AppRoutes.FIND_TALENT.split('/')[1])
     ?KnowMoreFormConst.FormTypes.company
     :currentRoute.includes(AppRoutes.BECOME_PARTNER.split('/')[1])
@@ -52,15 +54,17 @@ const useFormHooks = (props) =>{
           enqueueSnackbar(data.errorMessageTC,{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
           return
         }
-        await association(KnowMoreFormConst.getJson(fields,type.description))
-        if(formResult.isSuccess){
-          enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
-          handleClear();
-        }else{
-          if(formResult.isError){
-            enqueueSnackbar(formResult?.error?.message??"Something went wrong please try again later",{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
+        await association(KnowMoreFormConst.getJson(fields,type.description)).then((res)=>{
+          if(!res.error){
+            enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
+            handleClear();
+          }else{
+            if(formResult.isError){
+              enqueueSnackbar(formResult?.error?.message??"Something went wrong please try again later",{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
+            }
           }
-        }
+        })
+        
       }
     }
 

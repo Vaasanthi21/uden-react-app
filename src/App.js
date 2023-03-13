@@ -16,8 +16,10 @@ import PrivacyPolicy from './modules/pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndConditions';
 import HRServices from './modules/pages/HRServices/HRServices';
 
+
+
 function App() {
-  
+ 
   return (
     <div className="App">
       <Routes>

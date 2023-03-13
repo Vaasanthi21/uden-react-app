@@ -26,7 +26,7 @@ const Carousel = (props) => {
         },
       }}
       rewind
-      autoplay={props?.autoplay??{delay:5000}}
+      autoplay
       pagination={props.pagination??{clickable:true,dynamicBullets: true}}
       navigation={props?.navigation}
       modules={[Pagination,Autoplay,EffectCreative,Navigation]}
