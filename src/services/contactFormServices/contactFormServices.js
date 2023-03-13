@@ -10,7 +10,6 @@ export const assocoationRequest = api.injectEndpoints({
                 method:'POST',
                 url:ASSOCOATION,
                 body:data,
-                mode:'cors'
             }), 
         })
     })
