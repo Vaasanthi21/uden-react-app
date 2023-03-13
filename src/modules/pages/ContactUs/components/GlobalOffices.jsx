@@ -18,7 +18,7 @@ const ContactUsGlobalOffices = (props) => {
       <Spacer height multiplier={2}/>
       <Box sx={{ width: '100%' }} justifyContent='center'>
         <Box sx={{ borderBottom: 1, borderColor: 'divider'}} justifyContent='center' >
-          <Tabs value={value} onChange={handleChange} sx={{justifyContent:'center' }} >
+          <Tabs value={value} onChange={handleChange} centered>
             {data.offices.map((office,i) => <Tab key={i} label={office.country} />)}
           </Tabs>
         </Box>
