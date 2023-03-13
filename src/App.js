@@ -15,6 +15,8 @@ import KnowMoreForm from './modules/pages/KnowMoreForm/KnowMoreForm';
 import PrivacyPolicy from './modules/pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndConditions';
 import HRServices from './modules/pages/HRServices/HRServices';
+import Blogs from './modules/pages/Blogs/Blogs';
+import { Blog } from './modules/pages/Blogs/childrens/[EXAMPLE]/Blog';
 
 
 
@@ -29,6 +31,9 @@ function App() {
           <Route path={AppRoutes.JOB_SEEKERS} element={<JobSeekers />} />
           <Route path={AppRoutes.UPSKILLING_PARTNERS} element={<UpskillingPartners />} />
           <Route path={AppRoutes.HR_SERVICES} element={<HRServices />} />
+
+            <Route path={AppRoutes.BLOGS} element={<Blogs/>}/>
+            <Route path={AppRoutes.BLOGS+"/:id"}  element={<Blog/>} />
 
           <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
           <Route path={AppRoutes.COTACT_US} element={<ContactUs />} />
