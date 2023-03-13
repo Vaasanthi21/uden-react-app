@@ -17,8 +17,8 @@ const ContactUsGlobalOffices = (props) => {
       <Typography className='global-offices-title' variant='h3'>{data.title}</Typography>
       <Spacer height multiplier={2}/>
       <Box sx={{ width: '100%' }} justifyContent='center'>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider'}} >
-          <Tabs value={value} onChange={handleChange} >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider'}} justifyContent='center' >
+          <Tabs value={value} onChange={handleChange} sx={{justifyContent:'center' }} >
             {data.offices.map((office,i) => <Tab key={i} label={office.country} />)}
           </Tabs>
         </Box>
