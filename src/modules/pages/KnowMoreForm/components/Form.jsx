@@ -4,16 +4,15 @@ import Spacer from '../../../components/Spacer'
 import KnowMoreFormConst from '../KnowMoreForm.Const'
 import { KnowMoreFormHooks } from '../hooks/KnowMoreForm.Hooks'
 import { AppRoutes } from '../../../../utils/consts/routes'
+import { usePostAssociationRequestMutation } from '../../../../services/contactFormServices/contactFormServices'
 
 
 const KnowMoreFormComponent = (props) => {
   const data = KnowMoreFormConst.KnowMoreForm;
-  // const currentRoute =  window.location.href.split(window.location.host)[1].split("/")[1];
-  // const type = currentRoute.includes(AppRoutes.FIND_TALENT.split('/')[1])?"company":currentRoute.includes(AppRoutes.BECOME_PARTNER.split('/')[1])?"educator":"student"
   const hooks = KnowMoreFormHooks.useFormHooks({data: data});
-  const {fields,type,handleInputChange,validate} = hooks
+  const {fields,type,handleInputChange,validate,formResult} = hooks
   const {checkbox,handleCheckboxChange} = hooks
-
+  
     return (
       <Grid {...props} container direction={{xs:'column',md:'row'}} height={{xs:'auto'}} justifyContent='center'>
         <Grid container item  xs={4} md={6} justifyContent='center' alignContent='center'>
@@ -37,7 +36,7 @@ const KnowMoreFormComponent = (props) => {
                     <FormControlLabel key={i} label={value.label} control={<Checkbox  onChange={handleCheckboxChange} id={value.id} sx={{pb:2}} />}/>
                   )}
               </Grid>
-              <Button sx={{mt:2}}  disabled={data.loading} variant='contained' fullWidth type='submit'>{data?.form?.action}{data.loading && <CircularProgress size={20} thickness={6} sx={{ml:1,color:'gray'}} />}</Button>
+              <Button sx={{mt:2}}  disabled={formResult.isLoading} variant='contained' fullWidth type='submit'>{data?.form?.action}{formResult.isLoading && <CircularProgress size={20} thickness={6} sx={{ml:1,color:'gray'}} />}</Button>
             </Grid>
         </Grid>
       </Grid>

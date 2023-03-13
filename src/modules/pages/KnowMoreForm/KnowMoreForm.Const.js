@@ -7,7 +7,8 @@ import { getValidator } from "../../../utils/helper";
 
 const fields = {
   name:{
-    id:"name",
+    id:"form-name",
+    key:"name",
     label:"Full Name",
     value:"",
     error:false,
@@ -18,8 +19,9 @@ const fields = {
     InputProps:{startAdornment:<InputAdornment position='start'><Person/></InputAdornment>},
     validator:getValidator.withMinLength(2,"Name should contain atleast 3 characters")
   },
-  job:{
-    id:"job",
+  title:{
+    id:"form-job-title",
+    key:"title",
     label:"Job Title",
     value:"",
     error:false,
@@ -31,7 +33,8 @@ const fields = {
     validator:getValidator.withMinLength(1,"Job Title is required")
   },
   email:{
-    id:"email",
+    id:"form-email",
+    key:"email",
     label:"Work Email",
     value:"",
     error:false,
@@ -43,8 +46,9 @@ const fields = {
     hint:"Work Email",
     validator:getValidator.withPattern(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,"Please enter a valid email address")
   },
-  contact:{
-    id:"contact",
+  phone:{
+    id:"form-phone",
+    key:"phone",
     label:"Contact Number",
     value:"",
     error:false,
@@ -56,8 +60,9 @@ const fields = {
     hint:"Contact Number",
     validator:getValidator.withPattern(/^\d{10,15}$/i,"Please enter valid contact number")
   },
-  companyInstitute:{
-    id:"company/institute",
+  company:{
+    id:"form-company",
+    key:"company",
     label:"Company/Institute",
     value:"",
     error:false,
@@ -69,7 +74,8 @@ const fields = {
     validator:getValidator.withMinLength(1,"Company/Institute field is required")
   },
   country:{
-    id:"country",
+    id:"form-country",
+    key:"country",
     label:"Country",
     value:"",
     error:false,
@@ -81,7 +87,8 @@ const fields = {
     validator:getValidator.withMinLength(1,"Please enter your country name")
   },
   state:{
-    id:"state",
+    id:"formstate",
+    key:"state",
     label:"State",
     value:"",
     error:false,
@@ -93,7 +100,8 @@ const fields = {
     validator:getValidator.withMinLength(1,"Please enter your state name")
   },
   city:{
-    id:"city",
+    id:"form-city",
+    key:"city",
     label:"City",
     value:"",
     error:false,
@@ -104,8 +112,9 @@ const fields = {
     InputProps:{startAdornment:<InputAdornment position='start'><Place/></InputAdornment>},
     validator:getValidator.withMinLength(1,"Please enter your city name")
   },
-  zip:{
-    id:"zip",
+  zipcode:{
+    id:"form-zipcode",
+    key:"zipcode",
     label:"Zip Code",
     value:"",
     error:false,
@@ -116,8 +125,9 @@ const fields = {
     InputProps:{startAdornment:<InputAdornment position='start'><Approval/></InputAdornment>},
     validator:getValidator.withMinLength(1,"Please enter zip code")
   },
-  skill:{
-    id:"skill",
+  primary_skill:{
+    id:"form-primary_skill",
+    key:"primary_skill",
     label:"Primary Skill",
     value:"",
     error:false,
@@ -128,8 +138,9 @@ const fields = {
     InputProps:{startAdornment:<InputAdornment position='start'><Engineering/></InputAdornment>},
     validator:getValidator.withMinLength(1,"Please enter your skills")
   },
-  experience:{
-    id:"experience",
+  total_exp:{
+    id:"form-total_exp",
+    key:"total_exp",
     label:"Total Experience in Year",
     value:"",
     error:false,
@@ -140,8 +151,9 @@ const fields = {
     InputProps:{startAdornment:<InputAdornment position='start'><Work/></InputAdornment>},
     validator:getValidator.withMinLength(1,"Please enter your experience year")
   },
-  aboutUden:{
-    id:"about uden",
+  source_of_info:{
+    id:"form-source_of_info",
+    key:"source_of_info",
     label:"How did you learn about UDEN",
     value:"",
     error:false,
@@ -176,48 +188,48 @@ const KnowMoreFormConst = {
           action:"Submit",
           company:[
             fields.name,
-            fields.job,
+            fields.title,
             fields.email,
-            fields.contact,
-            fields.companyInstitute,
+            fields.phone,
+            fields.company,
             fields.country,
             fields.state,
             fields.city,
-            fields.zip
+            fields.zipcode
           ],
           educator:[
             fields.name,
-            fields.job,
+            fields.title,
             fields.email,
-            fields.contact,
-            fields.companyInstitute,
+            fields.phone,
+            fields.company,
             fields.country,
             fields.state,
             fields.city,
-            fields.zip
+            fields.zipcode
           ],
           student:[
             fields.name,
             fields.email,
-            fields.contact,
+            fields.phone,
             fields.country,
             fields.state,
             fields.city,
-            fields.zip,
-            fields.skill,
-            fields.experience,
-            fields.aboutUden
+            fields.zipcode,
+            fields.primary_skill,
+            fields.total_exp,
+            fields.source_of_info
           ],
           hr:[
             fields.name,
-            fields.job,
+            fields.title,
             fields.email,
-            fields.contact,
-            fields.companyInstitute,
+            fields.phone,
+            fields.company,
             fields.country,
             fields.state,
             fields.city,
-            fields.zip
+            fields.zipcode
           ],
         },
         checkBoxFields:[
@@ -243,6 +255,23 @@ const KnowMoreFormConst = {
       educator:Symbol("educator"),
       student:Symbol("student"),
       hr:Symbol("hr"),
+    },
+    getJson:(data,type)=>{
+      var temp = {}
+      switch(type){
+        case "educator":temp['request_type'] = 'become-partner'
+        break;
+        case "student":temp['request_type'] = 'find-opportunity'
+        break;
+        case "company":temp['request_type'] = 'find-talent-form'
+        break;
+        case "hr":temp['request_type'] = 'hr-services'
+        break;
+        default:temp['request_type'] = ''
+        break;
+      }
+      data.forEach((field)=>temp[field.key] = field.value)
+    return temp;
     }
 }
 

@@ -1,7 +1,9 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
+import { usePostAssociationRequestMutation } from "../../../../services/contactFormServices/contactFormServices";
 import { AppRoutes } from "../../../../utils/consts/routes";
 import { ValidateField, ValidateFields } from "../../../../utils/helper";
+import ContactUsGlobalOffices from "../../ContactUs/components/GlobalOffices";
 import KnowMoreFormConst from "../KnowMoreForm.Const";
 
 
@@ -24,6 +26,9 @@ const useFormHooks = (props) =>{
     const [fields, setValues] = useState(form);
     const [checkbox, setChecked] = useState(data.checkBoxFields);
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const [association,formResult] = usePostAssociationRequestMutation()
+
+    
 
     const handleInputChange = (e) => {
       const { id, value } = e.target;
@@ -35,8 +40,9 @@ const useFormHooks = (props) =>{
       });
       setValues([...fields]);
     };
-    const validate = (e) =>{
+    const validate =async (e) =>{
       e.preventDefault();
+      console.log(fields)
       const validatedData = ValidateFields(fields);
       if(validatedData.isError){
         setValues([...validatedData.fields]);
@@ -46,8 +52,15 @@ const useFormHooks = (props) =>{
           enqueueSnackbar(data.errorMessageTC,{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
           return
         }
-        enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
-        handleClear();
+        await association(KnowMoreFormConst.getJson(fields,type.description))
+        if(formResult.isSuccess){
+          enqueueSnackbar(data.successMessage,{variant: 'success',onClose:closeSnackbar,preventDuplicate:'true'})
+          handleClear();
+        }else{
+          if(formResult.isError){
+            enqueueSnackbar(formResult?.error?.message??"Something went wrong please try again later",{variant: 'error',onClose:closeSnackbar,preventDuplicate:'true'})
+          }
+        }
       }
     }
 
@@ -85,7 +98,7 @@ const useFormHooks = (props) =>{
     return error;
   }
 
-    return {fields,type,checkbox,handleInputChange,handleCheckboxChange,validate}
+    return {fields,type,formResult,checkbox,handleInputChange,handleCheckboxChange,validate}
 }
 
 const useGlobalOfficesHooks = () => {
