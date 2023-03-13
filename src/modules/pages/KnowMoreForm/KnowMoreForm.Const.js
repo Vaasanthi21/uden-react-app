@@ -157,17 +157,20 @@ const KnowMoreFormConst = {
         title:{
           company:"Find Talent",
           educator:"Become a Partner",
-          student:"Find Opportunity"
+          student:"Find Opportunity",
+          hr:"Transform Your HR Strategy with UDEN's Expertise"
         },
         subtitle:{
           company:"Get access to pre-assessed Talent",
           educator:"Help Talent meet their aspiration by upskilling and connecting them with global companies",
           student:"Get access to global companies for opportunities and get upskilled to stay relevant",
+          hr:"Partner with us to unlock the full potential of your people and drive your business to greater success",
         },
         image:{
           company:AppAssets.KnowMoreFromAssets.FIND_TALENT,
           educator:AppAssets.KnowMoreFromAssets.BECOME_PARTNER,
           student:AppAssets.KnowMoreFromAssets.FIND_OPPORTUNITY,
+          hr:AppAssets.KnowMoreFromAssets.TRANSFORM_YOUR_HR,
         },
         form:{
           action:"Submit",
@@ -205,6 +208,17 @@ const KnowMoreFormConst = {
             fields.experience,
             fields.aboutUden
           ],
+          hr:[
+            fields.name,
+            fields.job,
+            fields.email,
+            fields.contact,
+            fields.companyInstitute,
+            fields.country,
+            fields.state,
+            fields.city,
+            fields.zip
+          ],
         },
         checkBoxFields:[
           {
@@ -224,6 +238,12 @@ const KnowMoreFormConst = {
         successMessage:"Successfully submitted your information, we'll get back to you",
         loading:false
     },
+    FormTypes:{
+      company:Symbol("company"),
+      educator:Symbol("educator"),
+      student:Symbol("student"),
+      hr:Symbol("hr"),
+    }
 }
 
 export default KnowMoreFormConst

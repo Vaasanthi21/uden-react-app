@@ -1,13 +1,26 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
+import { AppRoutes } from "../../../../utils/consts/routes";
 import { ValidateField, ValidateFields } from "../../../../utils/helper";
+import KnowMoreFormConst from "../KnowMoreForm.Const";
 
 
 
 const useFormHooks = (props) =>{
-    const data = props.data;
-    const type = props.type;
-    const form = type==="company"?data.form.company:type==="educator"?data.form.educator:data.form.student
+  const data = props.data;
+  const currentRoute = window.location.href.split(window.location.host)[1].split("/")[1];
+  const type = currentRoute.includes(AppRoutes.FIND_TALENT.split('/')[1])
+    ?KnowMoreFormConst.FormTypes.company
+    :currentRoute.includes(AppRoutes.BECOME_PARTNER.split('/')[1])
+    ?KnowMoreFormConst.FormTypes.educator
+    :currentRoute.includes(AppRoutes.HR_SERVICE_JOIN.split('/')[1])
+    ?KnowMoreFormConst.FormTypes.hr
+    :KnowMoreFormConst.FormTypes.student
+    
+    const form = type===KnowMoreFormConst.FormTypes.company?data.form.company
+      :type===KnowMoreFormConst.FormTypes.educator?data.form.educator
+      :type===KnowMoreFormConst.FormTypes.hr?data.form.hr:data.form.student
+
     const [fields, setValues] = useState(form);
     const [checkbox, setChecked] = useState(data.checkBoxFields);
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -72,7 +85,7 @@ const useFormHooks = (props) =>{
     return error;
   }
 
-    return {fields,checkbox,handleInputChange,handleCheckboxChange,validate}
+    return {fields,type,checkbox,handleInputChange,handleCheckboxChange,validate}
 }
 
 const useGlobalOfficesHooks = () => {
