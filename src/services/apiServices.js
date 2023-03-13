@@ -6,7 +6,9 @@ const DEVAPI_BASE_URL = 'https://devapi.uden.tech';
 
 export const api = createApi({
 //   reducerPath: 'udenApi',
-  baseQuery: fetchBaseQuery({ baseUrl: window.location.host==="uden.tech" || window.location.host==="www.uden.tech"?API_BASE_URL:DEVAPI_BASE_URL ,credentials:'include'}),
+  baseQuery: fetchBaseQuery({
+     baseUrl: window.location.host==="uden.tech" || window.location.host==="www.uden.tech"?API_BASE_URL:DEVAPI_BASE_URL ,
+  }),
   endpoints: () => ({}),
 })
 
