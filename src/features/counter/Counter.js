@@ -9,16 +9,25 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import { api } from '../../services/apiServices';
+import { apiEndpoints } from '../../services/apiEndpoints';
 
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
+  // const {data} = useGetJobByIdQuery("20");
+  const {data} = apiEndpoints.job.useGetJobByIdQuery("20");
+  const {data2} = apiEndpoints.course.useGetCourseByIdQuery("20");
+  console.log(data,data2);
+  console.log("afgain");
+
+
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
-    <div>
+    <div style={{height:"1000px"}}>
       <div className={styles.row}>
         <button
           className={styles.button}

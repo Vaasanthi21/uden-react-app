@@ -1,0 +1,31 @@
+import {userModel} from './uderModel'
+
+export const employerModel = {
+    id: null,
+    user: userModel,
+    bio_data: null,
+    industry: null,
+    name: null,
+    gst: null,
+    cin: null,
+    pan: null,
+    contact: null,
+    pin: null,
+    website_link: null,
+    firm_size: null,
+    turn_over: null,
+    logo: null,
+    cover_image: null,
+    published_jobs_count: null,
+    applicants_count: null,
+    draft_jobs_count: null,
+    pending_jobs_count: null,
+    rejected_jobs_count: null,
+    details_filled: null,
+    city: null,
+    state: null,
+    country: null,
+    notify: null,
+    department: null,
+    is_approved: null
+  }
