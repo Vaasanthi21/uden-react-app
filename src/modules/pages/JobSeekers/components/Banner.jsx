@@ -5,7 +5,7 @@ import JobSeekersConst from '../JobSeekers.Const'
 const JobSeekerBanner = (props) => {
     const data = JobSeekersConst.Banner
   return (
-    <SliderItem {...props} {...data} darksubtitle={+true}></SliderItem>
+    <SliderItem {...props} {...data} darksubtitle={+true} iscarousel='true'></SliderItem>
   )
 }
 

@@ -6,7 +6,7 @@ import SliderItem from '../../../components/sliderItem/SliderItem'
 const UpskillingPartnersBanner = (props) => {
     const data = UpskillingPartnersConst.Banner
   return (
-    <SliderItem {...props} {...data} darksubtitle={+true}></SliderItem>
+    <SliderItem {...props} {...data} darksubtitle={+true} iscarousel='true'></SliderItem>
   )
 }
 
