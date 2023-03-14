@@ -1,15 +1,24 @@
 import React from 'react'
-import Carousel from '../../../components/carousel/Carousel'
+import { AppRoutes } from '../../../../utils/consts/routes';
 import SliderItem from '../../../components/sliderItem/SliderItem';
 import { BlogsConst } from '../Blogs.Const'
 
-const Slider = (props) => {
-  const items = BlogsConst.SliderItems;
+const BlogsBanner = (props) => {
+  const items = BlogsConst.Blogs;
+  const randIndex = Math.floor(Math.random() * items.length);
+  const data={
+    title:items[randIndex].title,
+    subtitle:items[randIndex].body[0].paragraphs[0].substring(0,80)+"...",
+    image:BlogsConst.Banner,
+    action:{
+        name:"Read More",
+        href: AppRoutes.BLOG(items[randIndex].id),
+    },
+  }
+
   return (
-    <Carousel {...props} autoplay={true} >
-        {items.map((item,i)=><SliderItem  key={i} {...item} iscarousel='true'/>)}
-    </Carousel>
+    <SliderItem {...props} {...data} darksubtitle={+true} iscarousel='true'></SliderItem>
   )
 }
 
-export default Slider
+export default BlogsBanner

@@ -18,7 +18,8 @@ const ContactUsConst = {
         actions:[
           {title:"explore a career opportunity with UDEN,",action:"Click here",link:AppRoutes.FIND_OPPORTUNITY},
           {title:"partner with UDEN,",action:"Click here",link:AppRoutes.BECOME_PARTNER},
-          {title:"explore and hire Talent,",action:"Click here",link:AppRoutes.FIND_TALENT}
+          {title:"explore and hire Talent,",action:"Click here",link:AppRoutes.FIND_TALENT},
+          {title:"Get Started with HR Services,",action:"Click here",link:AppRoutes.HR_SERVICE_JOIN}
         ],
         form:{
           action:"Submit",
