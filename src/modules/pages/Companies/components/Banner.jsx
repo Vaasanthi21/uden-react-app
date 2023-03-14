@@ -5,7 +5,7 @@ import CompaniesConst from '../Companies.Const'
 const CompaniesBanner = (props) => {
     const data = CompaniesConst.Banner
   return (
-    <SliderItem {...props} {...data} darksubtitle={+true}></SliderItem>
+    <SliderItem {...props} {...data} darksubtitle={+true} iscarousel='true'></SliderItem>
   )
 }
 
