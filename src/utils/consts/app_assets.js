@@ -1,4 +1,4 @@
-
+import Error from '../../assets/images/oops.png'
 
 import HomeAssets from './app_assets/home_assets'
 import CompanyAssets from './app_assets/company_assets'
@@ -12,6 +12,14 @@ import HRServicesAssets from './app_assets/hr_services_assets'
 
 
 
+const Error404={
+    Error
+
+}
+
+
+
+
 export const AppAssets = {
     HomeAssets,
     CompanyAssets,
@@ -20,6 +28,7 @@ export const AppAssets = {
     AboutUsAssets,
     ContactUsAssets,
     KnowMoreFromAssets,
-    HRServicesAssets
+    HRServicesAssets,
+    Error404
 
 }

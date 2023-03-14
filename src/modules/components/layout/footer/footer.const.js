@@ -6,11 +6,6 @@ export const FooterConst = {
     LINKS:[
         [
             {
-                NAME:"Blogs",
-                LINK:AppRoutes.BLOGS,
-                isDisabled:false,
-            },
-            {
                 NAME:"For Companies",
                 LINK:AppRoutes.COMPANIES,
                 isDisabled:false,
@@ -24,6 +19,11 @@ export const FooterConst = {
                 NAME:"For Parters",
                 LINK:AppRoutes.UPSKILLING_PARTNERS,
                 isDisabled:false,
+            },
+            {
+                NAME:"Blogs",
+                LINK:AppRoutes.BLOGS,
+                isDisabled:true,
             }
         ],
         [

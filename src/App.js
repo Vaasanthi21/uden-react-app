@@ -17,6 +17,8 @@ import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndCondi
 import HRServices from './modules/pages/HRServices/HRServices';
 import Blogs from './modules/pages/Blogs/Blogs';
 import { Blog } from './modules/pages/Blogs/childrens/[EXAMPLE]/Blog';
+import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
+import Error404 from './modules/pages/404/404';
 
 
 
@@ -27,6 +29,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home />} />
+
+          <Route path={AppRoutes.APP+"/*"} element={<FlutterApp />} />
+
           <Route path={AppRoutes.COMPANIES} element={<Companies />} />
           <Route path={AppRoutes.JOB_SEEKERS} element={<JobSeekers />} />
           <Route path={AppRoutes.UPSKILLING_PARTNERS} element={<UpskillingPartners />} />
@@ -44,10 +49,8 @@ function App() {
           <Route path={AppRoutes.BECOME_PARTNER} element={<KnowMoreForm />} />
           <Route path={AppRoutes.FIND_OPPORTUNITY} element={<KnowMoreForm />} />
           <Route path={AppRoutes.HR_SERVICE_JOIN} element={<KnowMoreForm />} />
-          {/* <Route path="about" element={<About />} />
-          <Route path="dashboard" element={<Dashboard />} /> */}
 
-          {/* <Route path="*" element={<NoMatch />} /> */}
+          <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
     </div>
