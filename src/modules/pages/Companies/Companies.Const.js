@@ -8,7 +8,11 @@ const CompaniesConst = {
     Banner:{
         title:"Get Access to The Pool",
         subtitle:"To, find the Talent you need, when you need and at the cost you desire",
-        image:AppAssets.CompanyAssets.Banner
+        image:AppAssets.CompanyAssets.Banner,
+        action:{
+            name:"Get Started",
+            href: AppRoutes.FIND_TALENT,
+        },
     },
     TrustedBrand:{
         desktop:AppAssets.CompanyAssets.TrustedBrand.Desktop,
@@ -70,8 +74,8 @@ const CompaniesConst = {
         ]   
     },
     KnowMore:{
-        title: "To create an AI/ML powered ecosystem where the right talent gets guidance to access World's best opportunities.",
-        buttonText: "Know More",
+        title: "Access Top Talent and Build Your Dream Team with Ease - Let Us Help You Find the Right Fit for Your Company!",
+        buttonText: "Get Started",
         href: AppRoutes.FIND_TALENT,
         icon: <MoreHoriz/>
     }

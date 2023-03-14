@@ -92,7 +92,7 @@ const HRServicesConst = {
         ]   
     },
     KnowMore:{
-        title: "Join the HR Revolution with UDEN - Elevate Your People and Your Business",
+        title: "Join the HR Revolution with UDEN - Elevate Your People , Elevate Your Business",
         buttonText: "Get Started Now",
         href: AppRoutes.HR_SERVICE_JOIN,
         icon: <MoreHoriz/>

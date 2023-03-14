@@ -8,7 +8,11 @@ const UpskillingPartnersConst = {
     Banner:{    
         title:"Become an upskilling",
         subtitle:"and training provider of choice. Bring to your students opportunies with global Companies",
-        image:AppAssets.UpskillingPartnersAssets.Banner
+        image:AppAssets.UpskillingPartnersAssets.Banner,
+        action:{
+            name:"Partner with Us",
+            href:AppRoutes.BECOME_PARTNER
+        },
     },
     TrustedBrand:{
         desktop:AppAssets.JobSeekersAssets.TrustedBrand.Desktop,
@@ -44,8 +48,8 @@ const UpskillingPartnersConst = {
  
     },
     KnowMore:{
-        title: "To create an AI/ML powered ecosystem where the right talent gets guidance to access World's best opportunities",
-        buttonText: "Know More",
+        title: "Transform Your skills and Take Charges of your Future Career Growth",
+        buttonText: "Partner with Us",
         href: AppRoutes.BECOME_PARTNER,
         icon: <MoreHoriz/>
     }

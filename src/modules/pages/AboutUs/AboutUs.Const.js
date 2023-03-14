@@ -44,7 +44,7 @@ const AboutUsConst = {
               {
                 id: 4,
                 name: "Vivek Vinayak Purekar",
-                designation: "Chief Customer success Officer and Co-Founder",
+                designation: "Chief Customer Success Officer and Co-Founder",
                 image: AppAssets.AboutUsAssets.LEADERSHIP_TEAM.CCO,
                 linkedinUrl: "https://www.linkedin.com/in/vivekpurekar/",
                 message:undefined,

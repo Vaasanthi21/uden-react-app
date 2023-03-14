@@ -8,7 +8,11 @@ const JobSeekersConst = {
     Banner:{
         title:"Work with Global Companies",
         subtitle:"Upskill to stay ahead and increase your chances",
-        image:AppAssets.JobSeekersAssets.Banner
+        image:AppAssets.JobSeekersAssets.Banner,
+        action:{
+            name: "Join Now",
+            href: AppRoutes.FIND_OPPORTUNITY,
+        },
     },
     TrustedBrand:{
         desktop:AppAssets.JobSeekersAssets.TrustedBrand.Desktop,
@@ -63,8 +67,8 @@ const JobSeekersConst = {
  
     },
     KnowMore:{
-        title: "To create an AI/ML powered ecosystem where the right talent gets guidance to access World's best opportunities.",
-        buttonText: "Know More",
+        title: "Discover a World of Opportunities and Find Your Dream Job Today. With Our Expert Guidance, Take Your Career to New Heights and Achieve Your Full Potential.",
+        buttonText: "Join Now",
         href: AppRoutes.FIND_OPPORTUNITY,
         icon: <MoreHoriz/>
     }
