@@ -13,7 +13,6 @@ export const Blog = () => {
           <Spacer height/>
           <Divider/>
           <BlogBody/>
-
         </Grid>
       </Grid>
     </>
