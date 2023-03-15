@@ -6,7 +6,7 @@ const BlogBody = (props) => {
     const data = props.data
   return (
     <>
-    <Paragraph data={data.body}/>
+      <Paragraph data={data.body}/>
     </>
   )
 }

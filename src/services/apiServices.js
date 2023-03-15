@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { useSelector } from 'react-redux';
+
 
 
 
@@ -14,26 +14,3 @@ export const api = createApi({
   
   endpoints: () => ({}),
 })
-
-// export const apiEndpoints = {
-//     useGetJobByIdQuery
-// }
-
-// export const jobsApi = createApi({
-//     reducerPath: 'jobsApi',
-//     baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL+JOBS }),
-//     endpoints: (builder) => ({
-//       getJob: builder.query({
-//         query: (id) => `/${id}/`,
-//       }),
-//       postJob: builder.mutation({
-//         query: ({id,...patch }) => ({url:`/${id}/`,method: 'POST',body: patch}),
-//       }),
-//       getComments: builder.query({
-//         query: () => '/comments',
-//       }),
-//     }),
-//   })
-
-
-  
