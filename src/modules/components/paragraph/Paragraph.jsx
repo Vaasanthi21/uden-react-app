@@ -21,6 +21,7 @@ const Paragraph = (props) => {
             {typeof para==='string'?
             <Typography key={paraIndex} variant='body1' className='paragraph' >{para}</Typography>
             :para?.link && <Typography key={"paraLink"+paraIndex.toString()} variant='body1' className='paragraph' >{para?.link()}</Typography>}
+            {para?.image && <Box component='img' maxHeight='400px' width='100%'  src={para.image} alt={para.image}/>}
             {para?.bullets && <Box>
               {para?.bullets?.title && <Typography variant='body1' className='sub-paragraph-title' >{para?.bullets?.title}</Typography>}
               {para?.bullets?.paragraphs && para?.bullets?.paragraphs.map((bulletPara,bulletParaIndex) => 
@@ -28,6 +29,7 @@ const Paragraph = (props) => {
                 {typeof bulletPara==='string'
                 ?<Typography variant='body1' className='sub-paragraph' >{`${bulletParaIndex+1}. ${bulletPara}`}</Typography>
                 :bulletPara?.link && <Typography key={paraIndex} variant='body1' className='sub-paragraph-items' >{bulletPara?.link(bulletParaIndex+1)}</Typography>}
+                {bulletPara?.image && <Box component='img' maxHeight='400px' width='100%' className='sub-paragraph-items' src={para.image} alt={para.image}/>}
                 {bulletPara?.title && <Typography key={paraIndex} id={bulletPara?.id} variant='body1' className='sub-paragraph-title' >{`${bulletParaIndex+1}. ${bulletPara.title}`}</Typography>}
                 {bulletPara?.paragraphs && bulletPara?.paragraphs.map((subBulletPara,subBulletParaIndex) =>
                 <Box key={"subBulletPara"+subBulletParaIndex.toString()} ml={4}>
@@ -47,6 +49,7 @@ const Paragraph = (props) => {
                 {typeof subTitlePara==='string'
                 ?<Typography variant='body1' className='sub-paragraph' >{para?.subtitle?.bullets?`${subTitleIndex+1}. ${subTitlePara}`:subTitlePara}</Typography>
                 :subTitlePara.link && <Typography variant='body1' className='sub-paragraph' >{para?.subtitle?.bullets?subTitlePara.link(subTitleIndex+1):subTitlePara.link()}</Typography>}
+                {subTitlePara?.image && <Box component='img' maxHeight='400px' width='100%' className='sub-paragraph' src={para.image} alt={para.image}/>}
                 {subTitlePara?.title && <Typography key={paraIndex} variant='body1' className='sub-paragraph-title' >{para?.subtitle?.bullets?`${subTitleIndex+1}. ${subTitlePara?.title}`:subTitlePara?.title}</Typography>}
                 {subTitlePara?.paragraphs && subTitlePara?.paragraphs.map((subTitleSubPara,subTitleSubParaIndex) =>
                 <Box key={"subTitleSubPara"+subTitleSubParaIndex.toString()} ml={4}>

@@ -10,6 +10,8 @@ const Blogs = [
         id:'managing-delayed-onboarding-strategies-for-students-704dbab5f0eb',
         title:'Managing Delayed Onboarding – Strategies for Students',
         image:Assets.MANAGING_DELAYED_ONBOARDING,
+        published:'Mar 3, 2023',
+        keywords:['student','managing','management','strategies','motivation','prepare'],
         body:[
             {
                 paragraphs:[
@@ -46,6 +48,8 @@ const Blogs = [
         id:'build-a-career-in-cloud-computing-5943d2beb4ef',
         image:Assets.BUILD_A_CAREER_IN_CLOUD_COMUTING,
         title:'Build a Career in Cloud Computing',
+        published:'Aug 23, 2022',
+        keywords:['cloud','cloud computing','development','saas','csps','aws','gcp','paas','iaas','deployment','hosting','web','development','devops','infrastructure'],
         body:[
             {
                 paragraphs:[
@@ -68,7 +72,7 @@ const Blogs = [
                 paragraphs:[
                     'Currently, there are more than 1 lac open jobs related to Cloud operations and computing in India. MyGov Saathi, Curfew ePass, the Covid-19 repository, Aarogya Setu, and CoWIN are just a few of the cloud-based projects whose timely launches had increased cloud usage throughout the pandemic. According to NASSCOM, it has the potential to boost the nation\'s GDP by $380 billion and significantly enhance citizen services in the fields of healthcare, financial access, and democratizing education for all. Although it is still in its infancy, its market has grown faster than the mature market by growing at a CAGR of 40%. The report also warns that India might lose $118 billion in GDP contribution and five million job chances by 2026 if firms and governments are hesitant to adopt cloud computing.',
                     {
-                        image:Assets.CLOUD_COMUTING
+                        image:Assets.DEMAND_FOR_CLOUD_COMUTING
                     },
                 ]
             },
@@ -94,9 +98,11 @@ const Blogs = [
 
     },
     {
-        id:'upskilling-and-eskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1',
+        id:'upskilling-and-reskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1',
         image:Assets.UPSKILLING_AND_RESKILLING,
         title:'Upskilling and Reskilling- The Essentials for a thriving DeepTech ecosystem',
+        published:'Jul 26, 2022',
+        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
         body:[
             {
                 paragraphs:[
@@ -125,11 +131,15 @@ const Blogs = [
     
 ];
 
+const ViewMoreButton = "View More Blogs..."
+
+
 
 
 
 export const BlogsConst = {
     Banner,
     Blogs,
+    ViewMoreButton
 
 }
