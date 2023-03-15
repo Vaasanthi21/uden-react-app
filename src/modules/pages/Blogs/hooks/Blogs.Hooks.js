@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { AppRoutes } from "../../../../utils/consts/routes";
+import { BlogsConst } from "../Blogs.Const";
 
 
-const useToogleWorkFlow = ()=>{
-    const [isCompany, setCompany] = useState(true);
-    const displayCompany = ()=> setCompany(true);
-    const displayJobSeeker = ()=> setCompany(false);
-    
-    return {displayCompany,displayJobSeeker,isCompany}
+const useBannerHooks = ()=>{
+    const items = BlogsConst.Blogs;
+    const randIndex = Math.floor(Math.random() * items.length);
+    const data={
+      title:items[randIndex].title,
+      subtitle:items[randIndex].body[0].paragraphs[0].substring(0,80)+"...",
+      image:BlogsConst.Banner,
+      action:{
+          name:"Read More",
+          href: AppRoutes.BLOG(items[randIndex].id),
+      },
+    }
+    return{data}
 }
 
-const WorkFlow = {
-    useToogleWorkFlow
-}
+
 
 export const BlogsHooks = {
-    WorkFlow
+    useBannerHooks
 }

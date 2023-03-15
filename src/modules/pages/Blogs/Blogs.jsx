@@ -14,10 +14,10 @@ import { Divider } from '@mui/material';
 const Blogs = () => {
   return (
     <div>
-        <BlogsBanner />
+        <BlogsBanner css={styles.banner} />
         <Divider/>
         <Spacer height/>  
-        <BlogList  />
+        <BlogList  css={styles.list} />
         <Spacer height/> 
     </div>
   )

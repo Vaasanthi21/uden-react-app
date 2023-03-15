@@ -1,5 +1,6 @@
+import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { AppAssets } from "../../../utils/consts/app_assets"
-import { AppRoutes } from "../../../utils/consts/routes"
 
 const Assets = AppAssets.BlogAssets;
 
@@ -11,6 +12,7 @@ const Blogs = [
         title:'Managing Delayed Onboarding – Strategies for Students',
         image:Assets.MANAGING_DELAYED_ONBOARDING,
         published:'Mar 3, 2023',
+        publisher:'UDEN',
         keywords:['student','managing','management','strategies','motivation','prepare'],
         body:[
             {
@@ -49,6 +51,7 @@ const Blogs = [
         image:Assets.BUILD_A_CAREER_IN_CLOUD_COMUTING,
         title:'Build a Career in Cloud Computing',
         published:'Aug 23, 2022',
+        publisher:'UDEN',
         keywords:['cloud','cloud computing','development','saas','csps','aws','gcp','paas','iaas','deployment','hosting','web','development','devops','infrastructure'],
         body:[
             {
@@ -102,6 +105,7 @@ const Blogs = [
         image:Assets.UPSKILLING_AND_RESKILLING,
         title:'Upskilling and Reskilling- The Essentials for a thriving DeepTech ecosystem',
         published:'Jul 26, 2022',
+        publisher:'UDEN',
         keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
         body:[
             {
@@ -127,6 +131,162 @@ const Blogs = [
             }
         ]
 
+    },
+    {
+        id:'indian-it-sector-facilitates-jobs-in-funding-winter-3845113ef856',
+        image:Assets.Indian_IT_Sector_Facilitates_3845113ef856,
+        title:'Indian IT Sector Facilitates jobs in Funding Winter',
+        published:'Jun 02, 2022',
+        publisher:'UDEN',
+        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
+        body:[
+            {
+                paragraphs:[
+                    'The startup environment that has seen the highest growth in the last two years is now experiencing some attrition and layoffs. After the pandemic has passed, the global scenario is picking up speed in terms of growth, and typical industrial operations are moving along at a good clip. Other factors, such as stock market influences, could also be at play.',
+                    'The current financial year is not progressing at the same rate as it was in the last two years for small and middle-level startups. While unicorns are experiencing a correction, small or average firms have begun to experience a shortage of financing. The new situation has pushed them into a challenging time, and their battle for talent acquisition is becoming increasingly difficult in the face of established competitors.',
+                    'Last year, startup unicorns hired a large number of professionals and paid them big fat salaries, but this is changing as layoffs are occurring in a number of unicorns, including many other startups. According to estimates, many tech startups, including a few unicorns like Cars24, Vedantu, Mfine, Meesho, Unacademy, and others, have fired nearly 6,000 people due to poor performance or cost-cutting measures, and there have been over 8,000 layoffs in the last few months.',
+                    {
+                        image:Assets.Indian_IT_Sector_Facilitates_3845113ef856_2
+                    },
+                    'The reason for this is a lack of inflows amid global stock market crashes and rising talent acquisition costs. Now they have to compete with IT companies. Even these IT companies are observing the talent that is coming out of the startup ecosystem.',
+                    'Although, the Indian IT sector has reported record attrition in the previous quarter, with TCS’ rate at 17.4%, Infosys at 27.7%, HCL Technologies NSE 2.37 % at 21.9%, Wipro at 23.8%, and Tech Mahindra NSE 4.14 % at 24%, it is gaining pace in hiring with better compensation and hikes, improved hiring and work-life balance measures with picking up the market after ending of pandemic effect.',
+                    'According to Han Digital, a consulting firm, 40-50% of employees leaving startups are absorbed by IT companies, consulting and product companies, and global captive centers (GCCs). These days full-stack engineers, data engineers, product management, and DevOps are in demand at IT companies, GCCs, and Software as a Service (SaaS) startups. India’s overall IT business process management headcount currently stands at about 5.1 million, of which around 420,000 are employed by startups.',
+                    'Pratham Jain, Chief Operating Officer at UDEN opines, "Currently there is a consolidation in the industry activities across the sectors. Especially the lack of direction among startups see high rate of attrition in challenging time as well as traction if they get right direction and support system. This is a short phase of correction in the tech hiring industry. In the coming six months the things should be settled with the economy coming to normal position."',
+                    {
+                        link:(props)=><Typography component='span' variant='inherit'>Uden.tech, a leading hiring assistance company based at Bangalore is helping jobseekers find their dream jobs in the uncertain market. For more details visit <Link underline="none" target='_blank' href='https://uden.tech'>https://uden.tech</Link></Typography>
+                    },
+                ]
+            },
+        ]
+
+    },
+    {
+        id:'upskilling-the-new-age-growth-hack-a8bbdb8ccc86',
+        image:Assets.Upskilling_The_New_Age_a8bbdb8ccc86,
+        title:'Upskilling - The new age growth hackr',
+        published:'May 20, 2022',
+        publisher:'UDEN',
+        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
+        body:[
+            {
+                paragraphs:[
+                    'In this day and age when technology is changing every other day both Freshers and working professionals alike must continue to develop in order to stay up-to-date with the quickly changing market. Even highly trained individuals must adapt to industry changes in order to compete with others for greater pay and promotions. This is due to the fact that industries are always changing, necessitating ongoing adaption to new market trends.',
+                    'People who wish to advance in their careers must stay current and comprehend the changes in the industrial area in which they work. A same logic applies to businesses, since if a business wants to expand, it needs keep its personnel up to date, which is why upskilling is the best option. Upskilling is a method of acquiring the skills necessary to stay up with change. Companies that used to invest in upskilling new hires are now looking for candidates who are already trained and ready to be deployed.',
+                    {
+                        image:Assets.Upskilling_The_New_Age_a8bbdb8ccc86_2
+                    }
+                ]
+            },
+            {
+                title:'Why is it important to improve skills?',
+                paragraphs:[
+                    'When it comes to the job market, relevant skills pertaining to the job are the most important thing to have. Money, it is stated, does not open many doors; but, talent and skill are significant assets that may lead to success. As a result, it is critical to broaden one\'s skills. A PWC survey done in several countries indicates that 53% of employees believe that automation will dramatically transform their work or make it obsolete in the next decade. While 61% of employees were optimistic about the impact of technology on their work, 77% said they were willing to learn new skills to secure a bright future in their careers. So, whether one is looking to make a career change, or they are new to the workforce, or wish to progress in the current role, salary, gain a hike, or grow a business, upskilling can add value to all of them.'
+                ]
+            },
+            {
+                title:'Upskilling helps in getting better jobs and salary hikes.',
+                paragraphs:[
+                    'Working professionals believe upskilling helps in getting better jobs and salary hikes. Many of them say they have shifted to better job roles because of upskilling.',
+                    'The job market scenario has gone through a profound change post pandemic. A survey conducted by Team Lease Edtech with over 1,039 employees from across 11 sectors last year revealed that about 53% of the employees said upskilling has influenced their salary hike. Around 84% observed that upskilling helped them get better jobs or upgrade positions. 54.3% opted for upskilling courses of their own according to industry trends, reducing the dependency on employers. It indicates a shift towards continuous upskilling is the need of the hour. It has been influenced by the employee\'s aspirations to get better opportunities (23.8 %), shift to new job roles (19.3%), improve technical and soft skills (28.2%), and fear of job loss (20%).',
+                    'Further, the survey showed that over 73% of the respondents believe that upskilling leads to better roles. It was noted that of the 48% of respondents who shifted to a new job role, 83.6% attribute the move to a better opportunity to their upskilling efforts.',
+                    {
+                        image:Assets.Upskilling_The_New_Age_a8bbdb8ccc86_3
+                    }
+                ]
+            },
+            {
+                title:'Choosing Right Platform/Courses',
+                paragraphs:[
+                    'After analyzing and identifying skills, job seekers need to make sure to choose the right platforms or training courses for training. There are many upskilling institutions out there which provide great learning paths to the skill training of choice but it is very difficult to find the true reviews of such institutes. Here Uden.tech (a professional courses platform aggregator) can be the right choice to move ahead. They consider the learner background along with the future market prospects of a skill and ensure that the learner joins the course which is best suited to their profile and which has a good scope in the market. They provide an immersive experience to the learners through their partner institutes and ensure continuous placement assistance throughout their learning phase with the help of their Corporate partners.',
+                ]
+            },
+            {
+                title:'From the company\'s prospective',
+                paragraphs:[
+                    'As mentioned before employers are now preferring to hire trained candidates rather than spending time and resources on training new hires. A well trained and upskilled candidate is in high demand in the Corporate market as they are the most up-to-date about current trends and are mostly the most enthusiastic about showcasing their talent.',
+                    'Most employers urge their workers to learn and grow on the job. It can be accomplished by allowing employees to work flexible hours or lowering their burden. Provide accessible training with the appropriate platform for learning at any time and from any location. Managers must take on the role of trainers, cultivating an engaging learning culture and providing a platform for upskilled employees to demonstrate their newly acquired skills.',
+                    'Employee retention is improved by upskilling since employees do not want to work for a firm that does invest sufficiently in professional development. They want to learn, and they need the organization\'s help to do so. Upskilling employees reduces duplicate skills and increases motivation. Employees are more comfortable in their work environment and optimistic about their future prospects as a result of these learning chances. Training permits them to concentrate on their chosen profession. It may assist in keeping an employee engaged and productive, which benefits business growth.',
+                    {
+                        image:Assets.Upskilling_The_New_Age_a8bbdb8ccc86_4
+                    }
+
+                ]
+            },
+            {
+                title:'Conclusion',
+                paragraphs:[
+                    'Upskilling gives job seekers a leg up on their competition and keeps them current in their sector. It not only improves a person\'s professional performance, but also their personal qualities. A constant learner will be better equipped to deal with life\'s uncertainties since they will be more informed in a fast changing digital environment. A robust platform like Uden.tech, an AI-based skill development and hiring platform, is the best corporate training platform and talent acquisition center that enables employees as well as employers of all sizes to offer placement and hiring solutions with more flexibility, amazing features, valuable integration, and an easy-to-use interface.',
+                    {
+                        link:(props)=><Typography component='span' variant='inherit'>Looking to upskill? Get in touch with UDEN at<Link underline="none" target='_blank' href='https://uden.tech'>https://uden.tech</Link></Typography>
+                    },
+                ]
+            },
+        ]
+
+    },
+    {
+        id:'startup-hiring-trend-in-2022-175664951461',
+        image:Assets.Startup_Hiring_Trend_In_2022_175664951461,
+        title:'Startup Hiring Trend in 2022',
+        published:'May 13, 2022',
+        publisher:'UDEN',
+        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
+        body:[
+            {
+                paragraphs:[
+                    'With the ease of the pandemic and the world returning to the pre-COVID situation, there is a profound change across the industry sectors. Last month, the country achieved a new milestone of creating 100 unicorns which have created an ample opportunity for hiring. In terms of investment among the Indian startups, last year witnessed the highest emergence as the Indian startups raised over $42 Billion, compared to $37 Billion raised by them in the previous three years combined. With the positive outlook across the industries, this year is being considered to observe the highest growth for the startup ecosystem. The faster growth of Fintech, Edtech, and D2C brands is opening avenues for newer jobs that previously didn’t exist, so the demand for skills and up-skilling is also on the rise. Now that technology has enabled innovation across sectors, there will be a demand for tech roles.',
+                    {
+                        image:Assets.Startup_Hiring_Trend_In_2022_175664951461_2
+                    },
+                    'According to estimates, government-registered startups have created nearly 7 lakh jobs in the country till now. Department for Promotion of Industry and Internal Trade (DPIIT) is focused on creating 20 lakh new jobs in the sector by officially registering 50,000 new startups, over the next 4 years. Tier II and Tier III cities account for 45 percent of all registered startups. Out of the 736 districts in the country, registered startups are present in 630 districts, and are present in every state and union territory. According to a Genius Consultants survey, over 77% of people agree that the startup space has played a considerable role in changing the employment scenario in India.',
+                    'India’s industry sectors, including banking, financial services, insurance, retail, manufacturing, import & export, real estate, travel & tourism, have all experienced good hiring growth, except media & entertainment. Due to positive business plans, they have registered an overall growth of 15% year-on-year and 4% month-on-month in hiring, says MEI research. According to reports in the media Meesho, an e-commerce startup, has grown 10 times by now. They are going to add 2000 employees; Spinny, a used car buy-and-sell platform, is to add 2000 headcounts this year, reaching 6000. Besides these, Mamaearth, which became a unicorn in January 2022, is going to hire 300 people for technology, data, marketing, and sales. The recruitment platform Apna is going to add 400 professionals; digital adoption platform Whatfix is going to add 350; and Payphone is also considering mass scale hiring.',
+                    {
+                        image:Assets.Startup_Hiring_Trend_In_2022_175664951461_3
+                    },
+                    'Also, the adoption of technology across sectors has witnessed a rise in demand as more and more companies are transforming their organizational strategies and goals into technology, enabling organizations to take up the challenge coming up. Like, financial technology-enabled companies (Fintech) have seen rapid growth and are estimated to become the third-largest market in the world by 2025. India’s overall fintech market opportunity is estimated to be $1.3 Trillion, growing at a CAGR of 34% for this year, in which lending, insurance, and digital payment play an important role. With a positive outlook, demand for talent is increasing in the sector. For Fintech professionals, the most in-demand skills required are expertise in mobile and web engineering; APIs; blockchain & distributed ledger expertise (Python, Java), machine learning, knowledge of artificial intelligence (AI), DevOps (handles both operations and development concurrently), risk analytics, and the drive for automation; data science; cybersecurity expertise; top-notch programming skills and soft skills.',
+                    {
+                        link:(props)=><Typography component='span' variant='inherit'>Similarly, the other sectors are also bullish in their search for talent. Startup platforms, such as <Link underline="none" target='_blank' href='https://uden.tech'>Uden.tech</Link>, an AI-enabled recruitment and upskilling startup, is providing significant assistance to both employers and employees in terms of hiring and upskilling. Pratham Jain, COO of the company declared "We realize that there are many startups out there that are looking for the best suited candidates for their requirements as they need to expand their teams at a seamless pace. We are assisting some of them in their hiring drives for roles like Risk Analytics, Data Scientists and full-stack developers. Also since these startups are flush with money, they are willing to offer good hikes for the candidates they find the best-fit for their roles.”</Typography>
+                    },
+                    'The startup ecosystem is moving to the next level with a huge fund inflow and also a rise in the platforms for talent acquisition. Although, with startups turning into unicorns, the challenges are also there for hiring the right talent. To overcome them, taking the right decisions at a fast pace with patience and perseverance is a must. These are some excellent times for the startup ecosystem in the country and everyone is looking forward to be a part of the revolution.',
+                    {
+                        link:(props)=><Typography component='span' variant='inherit'>Follow us for regular updates on jobs and career guidance. Click to download the <Link underline="none" target='_blank' href='https://play.google.com/store/apps/details?id=com.digverve.uden'>UDEN App</Link> to apply for UDEN exclusive jobs.</Typography>
+                    }
+                ]
+            },
+        ]
+    },
+
+
+    {
+        id:'maintaining-work-life-balance-for-increased-productivity-93292b01d06c',
+        image:Assets.Maintaining_Work_Life_Balance_93292b01d06c,
+        title:'Maintaining Work-Life Balance for Increased Productivity',
+        published:'May 13, 2022',
+        publisher:'UDEN',
+        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
+        body:[
+            {
+                paragraphs:[
+                    'Today, productivity is a much sought-after subject in every strata of life, be it education sector or the corporate world. The expectation of getting faster results, either on a personal or professional level, has made people workaholics, but work-life (family time) balance is a must to remain productive.',
+                    'Randstad Employer Brand Research (REBR) reports in its annual study done last year on employer branding that 65% of respondents gave importance to work-life balance rather than attractive salary and benefits. The other accounted for 62% among the Indian job seekers who gave importance to the attractive salary and benefits while choosing an employer. The research covered more than 80% of the global economy, with 34 participating countries and close to 2 lakh respondents worldwide.',
+                    'The importance of work-life balance was highest among females in the age group between 25 and 54, which accounted for around 67%. To balance both work as well as family, a higher percentage of female respondents, nearly 54%, also gave more importance to the possibility of working remotely/from home compared to their male counterparts, which was 49%.',
+                    {
+                        image:Assets.Maintaining_Work_Life_Balance_93292b01d06c_2
+                    },
+                    'Many times we hear from our parents, friends, relatives, or other family members that ‘don’t die for the office work; family is also important!’ Well, it’s really important, but without work or being productive, one can’t earn happiness for the family, as by giving priority to one, the other is put on the back burner.',
+                    'As per a 2019 study by monster.com, 60% working Indians rate work-life balance from average to terrible. The survey was conducted among 2000 working professionals. Significantly, as much as 45% of the respondents were from non-metros, where work-life balance is supposedly a lesser issue. It was also revealed in the study that collectively, 67% of India’s working professionals think about work when not at work. About 50% of the respondents confessed that the lack of work-life balance makes them or their partners irritable or ill-tempered. Lack of sleep, depression, anxiety, and irritability came up as the top work-related illnesses when employees are unable to balance their work and family.',
+                    'It can be perfect only when the time for family and friends is only for them, and for that, one has to train his mind to be passionate about work. Love to work gives less stress and anxiety. One must understand that everyone can’t be kept happy. To maintain a healthy lifestyle, one has to learn to say no to some expectations which might affect the other part of the life, whether they are from the family or from the workplace. To remain calm, try to explain the situation. The people on the other side will definitely understand.',
+                    {
+                        image:Assets.Maintaining_Work_Life_Balance_93292b01d06c_3
+                    },
+                    'A story depicts it well when a mother comes up to her son engrossed in his work and asks, "How old are you my son?" He was surprised to get a sudden question but answered, "Why, I am 25?" She again asked, "At the same age I already had you".',
+                    '"At your age, we had you and your father to live with us. Don’t you think that our work suffered at that time because there were you to be taken care of? We both always took care of everything and lived well. We were clear, never to bring work back home. You brought us so much joy because we made it to finish everything at work and leave it there," her mother narrated.',
+                    'She continued, "I am blessed and feel lucky to be with you and your dad." I think I have never seen a person more productive than your dad. I still don’t know what his work was, because all he talked about was you at home. He had a perfect work-life balance. At work, he always worked, and at home, he was always with us. This is the reason he is so calm and peaceful, and so productive as well."',
+                    'The moral of the story is that "It’s just one\'s mindset that has to get ready to maintain the balance."',
+                    'Never bring work home, everything will balance itself'
+                ]
+            },
+        ]
     },
     
 ];

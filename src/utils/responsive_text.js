@@ -1,7 +1,5 @@
 
 
-import { px2vw } from './helper';
-
 
 
 
