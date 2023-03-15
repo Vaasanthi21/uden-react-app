@@ -1,9 +1,9 @@
-import { Card, CardContent, CardMedia, Grid, IconButton, Link, Typography } from '@mui/material'
+import {  Grid } from '@mui/material'
 import React from 'react'
-import { AppRoutes } from '../../../../utils/consts/routes'
 
-import TrustedBrand from '../../../components/trustedBrand/TrustedBrand'
+
 import { BlogsConst } from '../Blogs.Const'
+import BlogCard from './BlogCard/BlogCard'
 
 const BlogList = (props) => {
   const data = BlogsConst.Blogs
@@ -13,7 +13,8 @@ const BlogList = (props) => {
             <Grid container justifyContent="center" spacing={2} >
               {data.map((value,i) => (
                 <Grid key={i} item xs={11} sm={6} md={4} lg={3} height={450}>
-                  <Card sx={{height:'100%'}} >
+                  <BlogCard data={value}/>
+                  {/* <Card sx={{height:'100%'}} >
                     <CardMedia
                       component='img'
                       className='founder-card-image'
@@ -34,7 +35,7 @@ const BlogList = (props) => {
                       <Typography className='founder-card-designation' variant='subtitle1' component="p">{value?.designation}</Typography>
                       {data.message && <Typography className='founder-card-message' variant="caption" component="p">{value?.message}</Typography>}
                     </CardContent>
-                  </Card>
+                  </Card> */}
                 </Grid>
               ))}
             </Grid>
