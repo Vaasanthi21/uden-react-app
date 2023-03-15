@@ -16,7 +16,7 @@ import PrivacyPolicy from './modules/pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndConditions';
 import HRServices from './modules/pages/HRServices/HRServices';
 import Blogs from './modules/pages/Blogs/Blogs';
-import { Blog } from './modules/pages/Blogs/childrens/[EXAMPLE]/Blog';
+import { Blog } from './modules/pages/Blogs/childrens/Blog/Blog';
 import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
 import Error404 from './modules/pages/404/404';
 

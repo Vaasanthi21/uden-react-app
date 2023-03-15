@@ -10,7 +10,7 @@ const SliderItem = (props) => {
   return (
     <Paper {...props} css={styles}  style={{alignItems:'center'}} elevation={0} >
       <Grid className='main-grid' container direction={{xs:"column-reverse",sm:"column-reverse",md:"row-reverse",lg:"row"}} height={{xs:'550px',md:'400px'}}>
-        <Grid container item xs={0} md={1}/>
+        <Grid container item xs={0} md={1} />
         <Grid  container direction='row' item xs={iscarousel?5:3} md={5} alignContent={{xs:'start',md:"center"}} justifyContent='center'>
         <Grid className='text-grid' container item xs={11}  md={12} alignContent='center'>
           <Box className='text-boxs'>

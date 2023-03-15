@@ -8,6 +8,8 @@ import AboutUsAssets from './app_assets/about_us_assets'
 import ContactUsAssets from './app_assets/contact_us_assets'
 import KnowMoreFromAssets from './app_assets/know_more_form_assets'
 import HRServicesAssets from './app_assets/hr_services_assets'
+import BlogAssets from './app_assets/blog_assets'
+
 
 
 
@@ -29,6 +31,7 @@ export const AppAssets = {
     ContactUsAssets,
     KnowMoreFromAssets,
     HRServicesAssets,
-    Error404
+    Error404,
+    BlogAssets
 
 }

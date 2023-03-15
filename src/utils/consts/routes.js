@@ -7,6 +7,7 @@ const JOB_SEEKERS = "/job-seekers";
 const UPSKILLING_PARTNERS = "/upskillig-partners";
 const HR_SERVICES = "/hr-services";
 const BLOGS = "/blogs";
+const BLOG = (id) => `/blogs/${id}`;
 const ABOUT_US = "/about-us";
 const COTACT_US = "/cotact-us";
 const TERMS = "/terms-and-conditions";
@@ -33,6 +34,7 @@ export const AppRoutes = {
     UPSKILLING_PARTNERS,
     HR_SERVICES,
     BLOGS,
+    BLOG,
     ABOUT_US,
     COTACT_US,
     APP,

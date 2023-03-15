@@ -4,6 +4,7 @@ import { AppColors } from "../../../utils/consts/app_colors";
 
 const ParagraphStyles = css({
     ".paragraph-title":{
+        textAlign:'left',
         marginBottom:'30px',
         fontWeight: "bold",
         color: AppColors.FOOTER_COLOR,

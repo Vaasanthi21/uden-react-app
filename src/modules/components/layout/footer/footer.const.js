@@ -21,9 +21,10 @@ export const FooterConst = {
                 isDisabled:false,
             },
             {
-                NAME:"Blogs",
-                LINK:AppRoutes.BLOGS,
-                isDisabled:true,
+                NAME:"HR Services",
+                LINK:AppRoutes.HR_SERVICES,
+                isDisabled:false,
+
             }
         ],
         [
@@ -51,10 +52,9 @@ export const FooterConst = {
         ],
         [
             {
-                NAME:"HR Services",
-                LINK:AppRoutes.HR_SERVICES,
+                NAME:"Blogs",
+                LINK:AppRoutes.BLOGS,
                 isDisabled:false,
-
             },
             {
                 NAME:"Careers",

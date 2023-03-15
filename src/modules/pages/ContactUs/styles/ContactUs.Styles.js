@@ -9,6 +9,7 @@ export const AboutUsStyles = {
         ".form-title":{
             fontWeight: "bold",
             color: AppColors.PRIMARY_MAIN,
+            paddingBottom:'16px'
         },
         ".form-subtitle":{
             fontWeight: "bold",

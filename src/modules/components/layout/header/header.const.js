@@ -1,5 +1,5 @@
 import { AppRoutes } from "../../../../utils/consts/routes";
-import { CorporateFare,Work,Upgrade,Groups, ContactPage, Diversity3 } from '@mui/icons-material';
+import { CorporateFare,Work,Upgrade,Groups, Diversity3 } from '@mui/icons-material';
 
 
 const HeaderTabs = {
