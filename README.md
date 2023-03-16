@@ -132,7 +132,7 @@ For each pattern used in the code, an explanation and code example will be provi
 ### 3.2 Explanation with Code Examples
 Below are some code examples demonstrating how we have implemented each of these design patterns in our codebase:
 
-1. **Render Props pattern:**
+**1. Render Props pattern:**
 
         import React from 'react';
 
@@ -153,7 +153,7 @@ Below are some code examples demonstrating how we have implemented each of these
         );
         }
 
-2. **Higher-Order Component (HOC) pattern:**
+**2. Higher-Order Component (HOC) pattern:**
 
         import React from 'react';
 
@@ -181,7 +181,7 @@ Below are some code examples demonstrating how we have implemented each of these
         return <EnhancedExample />;
         }
 
-3. **Container/Component Pattern:**
+**3. Container/Component Pattern:**
 
         import React from 'react';
 
