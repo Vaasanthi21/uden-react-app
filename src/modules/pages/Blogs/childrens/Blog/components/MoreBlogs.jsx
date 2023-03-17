@@ -15,8 +15,8 @@ const MoreBlogs = (props) => {
         <Typography variant='h4' className='moreblogs-title' >More Blogs by UDEN</Typography>
         <Divider/>
         <Spacer height/>
-        <Box display='flex' gap={2}  flexDirection={props.fixed?'row':{xs:'row',md:'column'}} height={{xs:'300px',md:'auto'}} overflow='scroll' alignItems='center' justifyContent={{xs:'start',md:'center'}}>
-            {data.map((blog,i)=><Box key={i}> <BlogCard  data={blog} hidepara={+true}  height={{xs:'280px',md:'340px'}} width={props?.fixed?'250px':{xs:"250px",md:'auto',lg:'380px'}}/></Box>)}
+        <Box display='flex' gap={2}  flexDirection={props.fixed?'row':{xs:'row',md:'column'}} height={{xs:'320px',md:'auto'}}  overflow='auto' alignItems='center' justifyContent='start'>
+            {data.map((blog,i)=><Box key={i}> <BlogCard  data={blog} hidepara={+true}  height={{xs:'300px',md:'340px'}} width={props?.fixed?'250px':{xs:"250px",md:'auto',lg:'380px'}}/></Box>)}
         </Box>
         <Divider/>
         <Spacer height/>
