@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CompanyWorkFlow from "../../../assets/images/company-work-flow.png";
 import Picture1 from "../../../assets/images/flowcharts/Picture1.jpg";
 import Picture2 from "../../../assets/images/flowcharts/Picture2.jpg";
@@ -35,6 +35,17 @@ const Campus = () => {
         alert('Thank you for your interest! We will be in touch soon.');
         setState({ institution: '', email: '' });
     };
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+}, []);
+
     const testimonials = [
         {
             name: "Palak Jain",
@@ -210,9 +221,9 @@ const Campus = () => {
                 </div>
             </section>
             {/* Results Section */}
-            <section style={{ maxWidth: "1200px", margin: "3rem auto", padding: "0 20px", fontFamily: "'Poppins', sans-serif" }}>
+            <section style={{ maxWidth: "1200px", margin: "3rem auto", padding: "0 20px", fontFamily: "Helvetica, Arial, sans-serif", }}>
             <h2 style={{ fontFamily: "Helvetica, Arial, sans-serif",color: " #ed500d", fontSize: "2em" }}>Transformative Benefits</h2>
-                <table style={{ width: "100%", borderCollapse: "collapse", margin: "2rem 0", fontFamily: "'Poppins', sans-serif" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", margin: "2rem 0", fontFamily: "Helvetica, Arial, sans-serif", }}>
                 <thead>
                     <tr>
                     <th style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left", background: "#f3f4f6", color: "#ed500d" }}>Metric</th>
@@ -266,20 +277,36 @@ const Campus = () => {
             </section>
             {/* Process Visualization */}
             <section style={{ maxWidth: "1200px", margin: "3rem auto", padding: "0 20px" }}>
-    <div style={{ 
-        background: "rgb(255, 255, 255)", borderRadius: "8px", padding: "2rem",  textAlign: "center", minHeight: "400px", display: "flex", alignItems: "center", justifyContent: "center", color: "#64748b" 
-    }}>
-        <img 
-            src={CompanyWorkFlow} alt="Company JD Analysis Process Flow" 
-            style={{ 
-                width: "100%", maxWidth: "800px", height: "auto", borderRadius: "8px",objectFit: "contain" // Ensures it fits well
-            }} 
-        />
-    </div>
+                <div style={{ 
+                            background: "rgb(255, 255, 255)", 
+                            borderRadius: "8px", 
+                            padding: window.innerWidth <= 768 ? "1rem" : "2rem",  
+                            textAlign: "center", 
+                            minHeight: window.innerWidth <= 768 ? "250px" : "400px",  
+                            display: "flex", 
+                            alignItems: "center", 
+                            justifyContent: "center", 
+                            color: "#64748b"
+                        }}>
+                    <img 
+                        src={CompanyWorkFlow} 
+                        alt="Company JD Analysis Process Flow" 
+                        style={{ 
+                            width: window.innerWidth <= 768 ? "90%" : "100%",  
+                            maxWidth: window.innerWidth <= 768 ? "100%" : "800px",  
+                            height: "auto",  
+                            borderRadius: "8px", 
+                            objectFit: "contain",
+                            display: "block",
+                            margin: "0 auto",
+                            padding: "0.5rem"
+                        }} 
+                    />
+                </div>
 </section>
         
 <section style={{ textAlign: "center", padding: "3rem 0", background: "#fff5d8" }}>
-    <h2 style={{ color: " #F15A24", fontSize: "2.5rem", marginBottom: "1rem", fontFamily: "'Poppins', sans-serif" }}>Our Sponsors</h2>
+    <h2 style={{ color: " #F15A24", fontSize: "2.5rem", marginBottom: "1rem", fontFamily: "Helvetica, Arial, sans-serif" }}>Our Sponsors</h2>
     <div style={{ display: "flex", gap: "2rem", padding: "20px", justifyContent: "center" }}>
         {sponsors.map((sponsor, index) => (
             <div key={sponsor.id} style={{ 
@@ -298,7 +325,7 @@ const Campus = () => {
 </section>
         {/* Testimonials Section */}
         <section style={{ margin: "4rem auto", textAlign: "center", maxWidth: "1200px" }}>
-                <h2 style={{ color: " #ed500d", fontSize: "2.5rem", marginBottom: "2rem", fontFamily: "'Poppins', sans-serif" }}>Testimonials</h2>
+                <h2 style={{ color: " #ed500d", fontSize: "2.5rem", marginBottom: "2rem", fontFamily: "Helvetica, Arial, sans-serif" }}>Testimonials</h2>
                 
                 <div style={{ 
                     display: "flex", overflowX: "auto", gap: "2rem", padding: "20px", scrollBehavior: "smooth",maxWidth: "100%",
@@ -308,8 +335,18 @@ const Campus = () => {
                             key={index} 
                             onClick={() => setSelectedTestimonial(testimonial)}
                             style={{
-                                background: "  #fff5d8",padding: "2rem",borderRadius: "12px",boxShadow: "0 4px 10px rgba(0,0,0,0.1)",minWidth: "400px",maxWidth: "450px",flexShrink: 0,textAlign: "left",cursor: "pointer",
-                                transition: "transform 0.3s ease",
+                                background: "#fff5d8",
+                                padding: isMobile ? "1rem" : "2rem",
+                                borderRadius: "12px",
+                                boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+                                minWidth: isMobile ? "90%" : "400px",
+                                maxWidth: isMobile ? "90%" : "450px",
+                                textAlign: isMobile ? "center" : "left",
+                                fontSize: isMobile ? "14px" : "16px",
+                                cursor: "pointer",
+                                scrollSnapAlign: "center",
+                                margin: "0 auto",
+                                
                             }}>
                             <p style={{ fontStyle: "italic", color: " #333" }}>
                                 "{testimonial.text ? testimonial.text.substring(0, 80) : "No testimonial available"}..."
@@ -327,56 +364,66 @@ const Campus = () => {
                     ))}
                 </div>
             </section>
-             {/* Popup Modal */}
+            {/* Popup Modal */}
             {selectedTestimonial && (
+            <div 
+                style={{
+                    position: "fixed",
+                    top: 0, left: 0,
+                    width: "100%", height: "100%",
+                    background: "rgba(0, 0, 0, 0.5)",
+                    display: "flex", justifyContent: "center", alignItems: "center",
+                    backdropFilter: "blur(5px)", zIndex: 1000,
+                    padding: "1rem"
+                }} 
+                onClick={() => setSelectedTestimonial(null)}
+            >
                 <div 
                     style={{
-                        position: "fixed",
-                        top: 0, left: 0,
-                        width: "100%", height: "100%",
-                        background: "rgba(0, 0, 0, 0.5)",
-                        display: "flex", justifyContent: "center", alignItems: "center",
-                        backdropFilter: "blur(5px)", zIndex: 1000
+                        background: "#fff",
+                        padding: "2rem 2rem",
+                        borderRadius: "12px",
+                        maxWidth: "300px",  
+                        width: "90%", 
+                        textAlign: "center",
+                        position: "relative",
+                        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                        margin: "0 auto",
+                        display: "flex", flexDirection: "column", alignItems: "center",
                     }} 
-                    onClick={() => setSelectedTestimonial(null)}
+                    onClick={(e) => e.stopPropagation()}
                 >
-                    <div 
+                    <button 
+                        onClick={() => setSelectedTestimonial(null)}
                         style={{
-                            background: "#fff",
-                            padding: "2rem",
-                            borderRadius: "12px",
-                            maxWidth: "500px",
-                            textAlign: "center",
-                            position: "relative",
-                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
-                        }} 
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <button 
-                            onClick={() => setSelectedTestimonial(null)}
-                            style={{
-                                position: "absolute", top: "10px", right: "15px",
-                                border: "none", background: "transparent",
-                                fontSize: "1.5rem", cursor: "pointer"
-                            }}>
-                            ✖
-                        </button>
-                        <p style={{ fontStyle: "italic", color: "#333" }}>
-                            {selectedTestimonial.text}
-                        </p>
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1rem" }}>
-                            {selectedTestimonial.image && (
-                                <img src={selectedTestimonial.image} alt={selectedTestimonial.name} 
-                                    style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "12px" }} />
-                            )}
-                            <div>
-                                <strong style={{ color: "#ed500d" }}>{selectedTestimonial.name}</strong>
-                                <p style={{ fontSize: "14px", margin: "0", color: "#666" }}>{selectedTestimonial.role}</p>
-                            </div>
+                            position: "absolute", top: "10px", right: "15px",
+                            border: "none", background: "transparent",
+                            fontSize: "1.5rem", cursor: "pointer"
+                        }}>
+                        ✖
+                    </button>
+                    <p style={{ 
+                        fontStyle: "italic", 
+                        color: "#333", 
+                        fontSize: window.innerWidth <= 768 ? "14px" : "16px",
+                        maxWidth: "90%" 
+                    }}>
+                        {selectedTestimonial.text}
+                    </p>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1rem" }}>
+                        {selectedTestimonial.image && (
+                            <img src={selectedTestimonial.image} alt={selectedTestimonial.name} 
+                                style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }} />
+                        )}
+                        <div>
+                            <strong style={{ color: "#ed500d" }}>{selectedTestimonial.name}</strong>
+                            <p style={{ fontSize: "12px", margin: "0", color: "#666" }}>{selectedTestimonial.role}</p>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
+        )}
+
         </div>
     );
 };
