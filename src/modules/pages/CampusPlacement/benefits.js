@@ -102,7 +102,8 @@ const Benefits = () => {
         testimonialsContainer: {
             margin: "4rem auto",
             textAlign: "center",
-            maxWidth: "1200px"
+            maxWidth: "100%",
+            flexWrap: "wrap",
         },
         testimonialsWrapper: {
             display: "flex",
@@ -126,6 +127,7 @@ const Benefits = () => {
             transition: "transform 0.3s ease",
             cursor: "pointer"
         },
+        
         app: {
             lineHeight: 1.6,
             color: "var(--text-color)",
@@ -387,6 +389,7 @@ const Benefits = () => {
             color: "#555"
         }
     }
+    
 
     return (
         <div style={{...styles.root, ...styles.app}}>
