@@ -314,7 +314,8 @@ const Benefits = () => {
             display: "flex", 
             justifyContent: "space-between", 
             alignItems: "center", 
-            marginBottom: "20px"
+            marginBottom: "20px",
+            flexWrap: "wrap",
         },
         jobFiltersTitle: {
             fontSize: "24px", 
