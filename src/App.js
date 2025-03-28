@@ -18,8 +18,8 @@ import Blogs from './modules/pages/Blogs/Blogs';
 import { Blog } from './modules/pages/Blogs/childrens/Blog/Blog';
 import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
 import Error404 from './modules/pages/404/404';
-import Campus from '../src/modules/pages/Campus Placement/campus';
-import Benefits from '../src/modules/pages/Campus Placement/benefits';
+import Campus from '../src/modules/pages/CampusPlacement/campus';
+import Benefits from '../src/modules/pages/CampusPlacement/benefits';
 
 
 function App() {
