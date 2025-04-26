@@ -1,6 +1,4 @@
 
-
-
 const HOME = "/";
 const COMPANIES = "/companies";
 const JOB_SEEKERS = "/job-seekers";

@@ -140,6 +140,7 @@ useEffect(() => {
             border: "2px solid #F15A24", 
             borderRadius: "10px",
             fontSize: "16px",
+            boxSizing: "border-box",
             fontFamily: "Helvetica, Arial, sans-serif",
         },
         ctaButton: {
@@ -328,7 +329,7 @@ useEffect(() => {
                 <h2 style={{ color: " #ed500d", fontSize: "2.5rem", marginBottom: "2rem", fontFamily: "Helvetica, Arial, sans-serif" }}>Testimonials</h2>
                 
                 <div style={{ 
-                    display: "flex", overflowX: "auto", gap: "2rem", padding: "20px", scrollBehavior: "smooth",maxWidth: "100%",
+                    display: "flex", overflowX: "auto", gap: "2rem", padding: "20px", scrollBehavior: "smooth",maxWidth: "100%",scrollSnapType: "x mandatory",
                 }}>
                     {testimonials.map((testimonial, index) => (
                         <div 
@@ -345,9 +346,15 @@ useEffect(() => {
                                 fontSize: isMobile ? "14px" : "16px",
                                 cursor: "pointer",
                                 scrollSnapAlign: "center",
-                                margin: "0 auto",
                                 
-                            }}>
+                                scrollSnapAlign: "center",
+                    transition: "transform 0.3s ease",
+                                
+                            }}
+                            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                        >
+                                
                             <p style={{ fontStyle: "italic", color: " #333" }}>
                                 "{testimonial.text ? testimonial.text.substring(0, 80) : "No testimonial available"}..."
                             </p>
@@ -374,7 +381,7 @@ useEffect(() => {
                     background: "rgba(0, 0, 0, 0.5)",
                     display: "flex", justifyContent: "center", alignItems: "center",
                     backdropFilter: "blur(5px)", zIndex: 1000,
-                    padding: "1rem"
+                    
                 }} 
                 onClick={() => setSelectedTestimonial(null)}
             >
@@ -406,7 +413,8 @@ useEffect(() => {
                         fontStyle: "italic", 
                         color: "#333", 
                         fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                        maxWidth: "90%" 
+                        maxWidth: "90%",
+                        lineHeight: "1.6" 
                     }}>
                         {selectedTestimonial.text}
                     </p>

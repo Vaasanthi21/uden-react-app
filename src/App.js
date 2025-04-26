@@ -23,7 +23,6 @@ import Benefits from '../src/modules/pages/CampusPlacement/benefits';
 
 
 function App() {
- 
   return (
     <div className="App">
       <Routes>

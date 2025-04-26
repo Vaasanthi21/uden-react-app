@@ -75,7 +75,12 @@ const DesktopHeader = ({...props}) => {
               )
           ))}
       </Box>
-      <Button sx={{ display: { xs: 'none', md: 'flex' } }} href={AppRoutes.APP} variant="contained" css={styles.signupButtonDesktop} size='small'>{data.ButtonStrings.SIGNUP_SIGNIN}</Button>
+      <Button
+    sx={{ display: { xs: 'none', md: 'flex' } }}href="https://cps.uden.tech/"variant="contained"css={styles.signupButtonDesktop}size="small"target="_blank" // optional: opens in new tab
+>
+    {data.ButtonStrings.SIGNUP_SIGNIN}
+  </Button>
+
     </>
   )
 }

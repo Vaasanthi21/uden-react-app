@@ -665,7 +665,6 @@ useEffect(() => {
                     background: "rgba(0, 0, 0, 0.5)",
                     display: "flex", justifyContent: "center", alignItems: "center",
                     backdropFilter: "blur(5px)", zIndex: 1000,
-                    padding: "1rem"
                 }} 
                 onClick={() => setSelectedTestimonial(null)}
             >
