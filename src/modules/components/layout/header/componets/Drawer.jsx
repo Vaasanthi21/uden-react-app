@@ -118,9 +118,10 @@ const Drawer = ({ props }) => {
                     </List>
 
                     <Spacer height />
-                    <Button href={AppRoutes.APP} variant="contained" css={styles.signupButtonMobile} size="large">
+                    <Button href="https://cps.uden.tech/" variant="contained" css={styles.signupButtonMobile} size="large">
                         {data.ButtonStrings.SIGNUP_SIGNIN}
                     </Button>
+
                 </Box>
             </MUIDrawer>
         </Box>
