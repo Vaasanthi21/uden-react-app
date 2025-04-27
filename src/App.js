@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, /*Outlet, Link*/ } from "react-router-dom";
 
-
 import './App.css';
 import { AppRoutes } from './utils/consts/routes';
 import Layout from './modules/components/layout/Layout';
@@ -19,11 +18,11 @@ import Blogs from './modules/pages/Blogs/Blogs';
 import { Blog } from './modules/pages/Blogs/childrens/Blog/Blog';
 import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
 import Error404 from './modules/pages/404/404';
-
+import Campus from '../src/modules/pages/CampusPlacement/campus';
+import Benefits from '../src/modules/pages/CampusPlacement/benefits';
 
 
 function App() {
- 
   return (
     <div className="App">
       <Routes>
@@ -39,8 +38,11 @@ function App() {
 
             <Route path={AppRoutes.BLOGS} element={<Blogs/>}/>
             <Route path={AppRoutes.BLOGS+"/:id"}  element={<Blog/>} />
-
+        
           <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
+          <Route path={AppRoutes.CAMPUS_PLACEMENTS} element={<Campus />} />
+          <Route path={AppRoutes.FOR_CAMPUS} element={<Campus />} />
+          <Route path={AppRoutes.FOR_STUDENTS} element={<Benefits />} />
           <Route path={AppRoutes.COTACT_US} element={<ContactUs />} />
           <Route path={AppRoutes.PRIVACY} element={<PrivacyPolicy />} />
           <Route path={AppRoutes.TERMS} element={<TermsAndConditions />} />
@@ -49,7 +51,6 @@ function App() {
           <Route path={AppRoutes.BECOME_PARTNER} element={<KnowMoreForm />} />
           <Route path={AppRoutes.FIND_OPPORTUNITY} element={<KnowMoreForm />} />
           <Route path={AppRoutes.HR_SERVICE_JOIN} element={<KnowMoreForm />} />
-
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
