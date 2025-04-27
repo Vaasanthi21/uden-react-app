@@ -41,14 +41,6 @@ const AboutUsConst = {
                 linkedinUrl: "https://www.linkedin.com/in/ranjantayalofficial/",
                 message:undefined,
               },
-              {
-                id: 4,
-                name: "Vivek Vinayak Purekar",
-                designation: "Chief Customer Success Officer and Co-Founder",
-                image: AppAssets.AboutUsAssets.LEADERSHIP_TEAM.CCO,
-                linkedinUrl: "https://www.linkedin.com/in/vivekpurekar/",
-                message:undefined,
-              },
         ]
     },
     AdvisoryBoard:{
