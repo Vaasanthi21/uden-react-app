@@ -1,42 +1,11 @@
 stages:
   - build
-  - test
-  - deploy
-
-variables:
-  APP_PATH: '$CI_PROJECT_DIR'
-  OUTPUT_PATH: '$CI_PROJECT_DIR/build'
 
 build-job:
   stage: build
-  image: node:20
   script:
-    - npm ci || npm install
+    - npm install --legacy-peer-deps
     - DISABLE_ESLINT_PLUGIN=true CI=false npm run build
   artifacts:
     paths:
       - build/
-
-deploy-development:
-  stage: deploy
-  environment: development
-  variables:
-    API_TOKEN: $DEPLOYMENT_TOKEN_DEV
-  image: registry.gitlab.com/static-web-apps/azure-static-web-apps-deploy
-  script:
-    - echo "Deploying Development application..."
-    - echo "Development Application successfully deployed."
-  only:
-    - development
-
-deploy-production:
-  stage: deploy
-  environment: production
-  variables:
-    API_TOKEN: $DEPLOYMENT_TOKEN
-  image: registry.gitlab.com/static-web-apps/azure-static-web-apps-deploy
-  script:
-    - echo "Deploying Production application..."
-    - echo "Production Application successfully deployed."
-  only:
-    - master
