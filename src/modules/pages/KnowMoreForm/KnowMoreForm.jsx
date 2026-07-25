@@ -1,19 +1,16 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
-// eslint-disable-next-line
-import React from 'react'
+import { jsx } from '@emotion/react';
 
-import { PrivacyPolicyStyles as styles } from './styles/KnowMoreForm.Styles';
-import KnowMoreFormComponent from './components/Form';
-
+import AuthLoginPortal from './components/AuthLoginPortal';
 
 const KnowMoreForm = () => {
   return (
-    <>
-      <KnowMoreFormComponent css={styles.form} />
-    </>
-  )
-}
+    <div style={{ width: '100%', overflowX: 'hidden' }}>
+      <AuthLoginPortal />
+    </div>
+  );
+};
 
-export default KnowMoreForm
+export default KnowMoreForm;

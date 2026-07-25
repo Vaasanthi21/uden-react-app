@@ -1,12 +1,13 @@
-
 const HOME = "/";
 const COMPANIES = "/companies";
 const JOB_SEEKERS = "/job-seekers";
 const UPSKILLING_PARTNERS = "/upskillig-partners";
 const HR_SERVICES = "/hr-services";
-const CAMPUS_PLACEMENTS= "/campus-placement"; 
-const FOR_CAMPUS= "/campus";  
-const FOR_STUDENTS= "/benefits";
+const CAMPUS_PLACEMENTS = "/campus-placement"; 
+const FOR_CAMPUS = "/campus";  
+const FOR_STUDENTS = "/benefits";
+const GOVERNMENT = "/government";
+const FAQ = "/faq";
 const BLOGS = "/blogs";
 const BLOG = (id) => `/blogs/${id}`;
 const ABOUT_US = "/about-us";
@@ -22,8 +23,6 @@ const FIND_OPPORTUNITY = "/find-opportunity";
 const BECOME_PARTNER = "/become-partner";
 const HR_SERVICE_JOIN = "/hr-service-join";
 
-
-
 const APP = "/app";
 
 export const AppRoutes = {
@@ -35,6 +34,8 @@ export const AppRoutes = {
     CAMPUS_PLACEMENTS,  
     FOR_CAMPUS, 
     FOR_STUDENTS, 
+    GOVERNMENT,
+    FAQ,
     BLOGS,
     BLOG,
     ABOUT_US,
@@ -50,5 +51,4 @@ export const AppRoutes = {
     FIND_OPPORTUNITY,
     BECOME_PARTNER,
     HR_SERVICE_JOIN
-
-}
+};

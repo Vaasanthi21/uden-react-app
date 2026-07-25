@@ -1,22 +1,23 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Box, Button, ButtonGroup, Container, Divider, Grid, Typography } from '@mui/material'
-import GPlayLogo from '../../logo/GPlayLogo'
+import { Box, Button, ButtonGroup, Container, Divider, Grid, Typography } from '@mui/material';
+import GPlayLogo from '../../logo/GPlayLogo';
 
-import Logo from '../../logo/Logo'
+import Logo from '../../logo/Logo';
 import SocialLogo from '../../logo/SocialLogo';
 import FooterContentWrapper from './components/FooterContentWrapper';
 import FooterLogoContainer from './components/FooterLogoContainer';
 import FooterMenuContaier from './components/FooterMenuContainer';
 import FooterMenu from './components/FooterMenu';
-import { FooterStyles as styles} from './styles/footer.styles'
+import { FooterStyles as styles} from './styles/footer.styles';
 import FooterMenuItems from './components/FooterMenuItems';
 import Spacer from '../../Spacer';
 import { FooterConst } from './footer.const';
 
 const AppFooter = () => {
-  const route =  window.location.href.split(window.location.host)[1].split("/")[1];
+  const route =  window.location.href.split(window.location.host)[1]?.split("/")[1] || "";
   const data = FooterConst;
   return (
     <Container maxWidth='auto' css={styles.mainContainer}>
@@ -56,7 +57,7 @@ const AppFooter = () => {
         <Box height='20px' />
         
     </Container>
-  )
-}
+  );
+};
 
-export default AppFooter
+export default AppFooter;

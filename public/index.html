@@ -20,20 +20,32 @@
     <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/android-chrome-512x512.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
-   
     <title>UDEN</title>
 
-    <!-- HubSpot Embed Code -->
-      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/21283859.js"></script>
-    <!-- HubSpot Embed Code -->
-
-    <!-- Smart Chatbot Embed Code -->
-      <script>var chatbot_id=8408;!function(){var t,e,a=document,s="smatbot-chatbot";a.getElementById(s)||(t=a.createElement("script"),t.id=s,t.type="text/javascript",t.src="https://smatbot.s3.amazonaws.com/files/smatbot_plugin.js.gz",e=a.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e))}();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.5.1/fingerprint2.min.js"></script>
-    <!-- Smart Chatbot Embed Code -->
+    <style>
+      /* Hide external pink HubSpot & SmatBot floating launcher icons completely */
+      #hubspot-messages-iframe-container,
+      #hubspot-conversations-iframe,
+      .hs-messages-widget-open,
+      #smatbot_icon,
+      #smatbot-chatbot,
+      #smatbot_plugin_container,
+      div[id*="hubspot"],
+      iframe[id*="hubspot"],
+      iframe[src*="hubspot"],
+      iframe[src*="hs-scripts"],
+      iframe[src*="smatbot"],
+      .smatbot-chat-icon,
+      .smatbot-widget-button {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-   
   </body>
 </html>

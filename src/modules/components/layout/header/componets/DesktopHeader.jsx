@@ -1,27 +1,25 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
-// eslint-disable-next-line
-import React, { useState } from 'react'; // Add useState
+import { jsx } from '@emotion/react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu'; // Add Menu
-import MenuItem from '@mui/material/MenuItem'; // Add MenuItem
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Badge from '@mui/material/Badge';
+import { useNavigate } from 'react-router-dom';
 
 import Logo from '../../../logo/Logo';
-import {HeaderStyles as styles} from '../styles/Header.Style';
+import { HeaderStyles as styles } from '../styles/Header.Style';
 import { HeaderConst } from '../header.const';
 import { AppRoutes } from '../../../../../utils/consts/routes';
-import { Badge } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Add useNavigate
 
-const DesktopHeader = ({...props}) => {
-  const navigate = useNavigate(); // Add navigation
-  const [anchorEl, setAnchorEl] = useState(null); // State for dropdown
-  const hooks = props?.hooks??null;
+const DesktopHeader = ({ ...props }) => {
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const hooks = props?.hooks ?? null;
   const data = HeaderConst;
 
-  // Dropdown handling functions
   const handleCampusPlacementsClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -37,52 +35,92 @@ const DesktopHeader = ({...props}) => {
 
   return (
     <>
-      <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }}/>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {data.Tabs.Names.map((names, index) => (
-              names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements index
-                <div key={index}>
-                  <Button
-                    startIcon={data.Tabs.Icons[index]}
-                    onClick={handleCampusPlacementsClick}
-                    css={styles.tabsDesktop({isCurrent:false})}
-                  >
-                    {names}
-                  </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleCampusPlacementsClose}
-                  >
-                    <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_CAMPUS)}>
-                      For Campus
-                    </MenuItem>
-                    <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_STUDENTS)}>
-                      For Students
-                    </MenuItem>
-                  </Menu>
-                </div>
-              ) : (
-                <Badge key={index} invisible={data?.Tabs?.Badge[index]?false:true} badgeContent={data?.Tabs?.Badge[index]} color="primary">
-                  <Button
-                    startIcon={data.Tabs.Icons[index]}
-                    css={styles.tabsDesktop({isCurrent:((!hooks.route)?false:data.Tabs.Routes[index].includes(hooks.route))})}
-                    href={data.Tabs.Routes[index]}
-                  >
-                    {names}
-                  </Button>
-                </Badge>
-              )
-          ))}
+      <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center' }}>
+        {data.Tabs.Names.map((names, index) => (
+          names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements dropdown
+            <div key={index}>
+              <Button
+                startIcon={data.Tabs.Icons[index]}
+                onClick={handleCampusPlacementsClick}
+                css={styles.tabsDesktop({ isCurrent: false })}
+              >
+                {names}
+              </Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleCampusPlacementsClose}
+                PaperProps={{
+                  elevation: 3,
+                  sx: {
+                    borderRadius: '12px',
+                    mt: 1,
+                    minWidth: 160,
+                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
+                    '& .MuiMenuItem-root': {
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: '#1E293B',
+                      py: 1.2,
+                      px: 2,
+                      '&:hover': {
+                        backgroundColor: 'rgba(218, 83, 44, 0.08)',
+                        color: '#DA532C',
+                      },
+                    },
+                  },
+                }}
+              >
+                <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_CAMPUS)}>
+                  For Campus
+                </MenuItem>
+                <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_STUDENTS)}>
+                  For Students
+                </MenuItem>
+              </Menu>
+            </div>
+          ) : (
+            <Badge
+              key={index}
+              invisible={!data?.Tabs?.Badge[index]}
+              badgeContent={data?.Tabs?.Badge[index]}
+              sx={{
+                '& .MuiBadge-badge': {
+                  backgroundColor: '#DA532C',
+                  color: '#FFFFFF',
+                  fontSize: '10px',
+                  fontWeight: '800',
+                  height: '18px',
+                  minWidth: '18px',
+                  borderRadius: '10px',
+                  top: 6,
+                  right: 6
+                }
+              }}
+            >
+              <Button
+                startIcon={data.Tabs.Icons[index]}
+                css={styles.tabsDesktop({ isCurrent: ((!hooks.route) ? false : data.Tabs.Routes[index].includes(hooks.route)) })}
+                href={data.Tabs.Routes[index]}
+              >
+                {names}
+              </Button>
+            </Badge>
+          )
+        ))}
       </Box>
+
       <Button
-    sx={{ display: { xs: 'none', md: 'flex' } }}href="https://cps.uden.tech/"variant="contained"css={styles.signupButtonDesktop}size="small"target="_blank" // optional: opens in new tab
->
-    {data.ButtonStrings.SIGNUP_SIGNIN}
-  </Button>
-
+        sx={{ display: { xs: 'none', md: 'flex' } }}
+        onClick={() => navigate(AppRoutes.FIND_TALENT)}
+        variant="contained"
+        css={styles.signupButtonDesktop}
+      >
+        {data.ButtonStrings.SIGNUP_SIGNIN}
+      </Button>
     </>
-  )
-}
+  );
+};
 
-export default DesktopHeader
+export default DesktopHeader;

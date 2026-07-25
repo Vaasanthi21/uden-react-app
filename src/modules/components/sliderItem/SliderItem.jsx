@@ -1,8 +1,9 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Avatar, Box, Button, Chip, Grid, Paper, Typography } from '@mui/material'
-import { SliderItemStyles as styles } from './SliderItem.Styles'
+import { Avatar, Box, Button, Chip, Grid, Paper, Typography } from '@mui/material';
+import { SliderItemStyles as styles } from './SliderItem.Styles';
 
 const SliderItem = (props) => {
   const darksubtitle = props.darksubtitle;
@@ -38,7 +39,7 @@ const SliderItem = (props) => {
         <Grid container item xs={0} md={1}/>
       </Grid>
     </Paper>
-  )
-}
+  );
+};
 
-export default SliderItem
+export default SliderItem;
