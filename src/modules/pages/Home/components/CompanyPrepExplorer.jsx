@@ -184,6 +184,27 @@ const styles = {
     &:hover {
       background: #B83D1B;
     }
+  `,
+  accessBtn: css`
+    width: 100%;
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    color: #1E293B;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 13.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #DA532C;
+      color: #DA532C;
+    }
   `
 };
 
@@ -277,21 +298,7 @@ const CompanyPrepExplorer = () => {
               </div>
 
               <button 
-                style={{
-                  width: '100%',
-                  background: '#F8FAFC',
-                  border: '1.5px solid #CBD5E1',
-                  color: '#1E293B',
-                  padding: '10px',
-                  borderRadius: '10px',
-                  fontWeight: '800',
-                  fontSize: '13.5px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  align-items: 'center',
-                  justify-content: 'center',
-                  gap: '6px'
-                }}
+                css={styles.accessBtn}
                 onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
               >
                 Access Round Prep & PYQs
