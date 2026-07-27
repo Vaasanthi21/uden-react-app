@@ -2,103 +2,119 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { HelpCircle, ChevronDown, ChevronUp, Search, Sparkles, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search, Sparkles, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 
-const faqList = [
+const faqItems = [
   {
-    id: 1,
-    category: 'general',
+    id: 'q1',
     question: 'What is UDEN.tech?',
     answer: 'UDEN (Unified Development and Employment Network) is an AI-powered career readiness and placement platform that helps Tier 2 and Tier 3 college students in India get job-ready, upskill, and get placed — while helping colleges, employers, and government bodies build placement pipelines.'
   },
   {
-    id: 2,
-    category: 'students',
+    id: 'q2',
     question: 'Is UDEN.tech free for students?',
-    answer: 'Creating a profile and getting matched is 100% free to start. Some advanced upskilling tracks may carry a fee — see Upskilling Partners for current pricing.'
+    answer: 'Creating a candidate profile, searching 100,000+ aggregated jobs, and attempting company round prep is 100% free for all students.'
   },
   {
-    id: 3,
-    category: 'colleges',
+    id: 'q3',
     question: 'Which colleges does UDEN work with?',
-    answer: 'UDEN partners with colleges and universities across India, with a particular focus on Tier 2 and Tier 3 institutions that are typically underserved by traditional placement infrastructure.'
+    answer: 'UDEN partners with 60+ universities and Tier 2/3 engineering and degree institutes across India to digitize placement drives and skill readiness.'
   },
   {
-    id: 4,
-    category: 'government',
+    id: 'q4',
     question: 'Does UDEN work with state governments?',
-    answer: 'Yes. UDEN has partnered with state Departments of Higher Education on placement-readiness initiatives, including a partnership with the Jharkhand Department of Higher Education and JSFDA.'
+    answer: 'Yes. UDEN partners with State Departments of Higher Education on placement-readiness initiatives, including a partnership with the Jharkhand Department of Higher Education and JSFDA.'
   },
   {
-    id: 5,
-    category: 'company',
+    id: 'q5',
     question: 'Is UDEN a registered company?',
     answer: 'Yes. UDEN operates under Digverve Solutions Pvt. Ltd., CIN U72900KA2017PTC104027, registered in HSR Layout, Bengaluru, Karnataka, and recognized under DPIIT Startup India, Microsoft for Startups, NVIDIA Inception, and AWS EdStart.'
-  },
-  {
-    id: 6,
-    category: 'employers',
-    question: 'How can an employer hire through UDEN?',
-    answer: 'Employers can access pre-screened, placement-ready candidates from UDEN\'s partner institutes through UDEN\'s HR Services — covering sourcing, screening, and campus drives.'
   }
 ];
 
 const styles = {
-  heroOuter: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    padding: 64px 16px 48px 16px;
-    text-align: center;
-    border-bottom: 4px solid #DA532C;
+  sectionOuter: css`
+    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    padding: 80px 20px;
+    width: 100%;
+    overflow-x: hidden;
   `,
   container: css`
-    max-width: 900px;
+    max-width: 1140px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: flex-start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  `,
+
+  /* LEFT COLUMN STYLES */
+  leftCol: css`
+    display: flex;
+    flex-direction: column;
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(218, 83, 44, 0.12);
+    background: #FEF5D8;
     color: #DA532C;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 12px;
     font-weight: 800;
-    margin-bottom: 18px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 176, 32, 0.5);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
   `,
   title: css`
-    font-size: 42px;
+    font-size: 46px;
     font-weight: 900;
     color: #1E293B;
-    margin-bottom: 16px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
 
     span {
       color: #DA532C;
     }
+
+    @media (max-width: 768px) {
+      font-size: 34px;
+    }
   `,
   subtitle: css`
-    font-size: 16.5px;
-    color: #475569;
-    max-width: 650px;
-    margin: 0 auto 32px auto;
+    font-size: 16px;
+    color: #64748B;
+    line-height: 1.65;
+    margin-bottom: 32px;
     font-weight: 500;
-    line-height: 1.6;
   `,
   searchBox: css`
     display: flex;
     align-items: center;
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 1.5px solid rgba(218, 83, 44, 0.4);
     border-radius: 28px;
-    padding: 8px 18px;
-    box-shadow: 0 8px 24px rgba(218, 83, 44, 0.12);
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 14px 22px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    margin-bottom: 36px;
     gap: 12px;
+    transition: border-color 0.25s ease;
+
+    &:focus-within {
+      border-color: #DA532C;
+      box-shadow: 0 8px 24px rgba(218, 83, 44, 0.15);
+    }
 
     input {
       border: none;
@@ -114,64 +130,14 @@ const styles = {
       }
     }
   `,
-
-  /* FAQ SECTION */
-  faqSection: css`
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 16px;
-  `,
-  faqList: css`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  `,
-  faqItem: (open) => css`
-    background: #FFFFFF;
-    border: 1.5px solid ${open ? '#DA532C' : '#E2E8F0'};
-    border-radius: 18px;
-    overflow: hidden;
-    transition: all 0.25s ease;
-    box-shadow: ${open ? '0 8px 20px rgba(218, 83, 44, 0.12)' : '0 4px 12px rgba(0,0,0,0.02)'};
-  `,
-  faqHeader: css`
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 22px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 800;
-    color: #1E293B;
-    gap: 16px;
-
-    &:hover {
-      color: #DA532C;
-    }
-  `,
-  faqBody: css`
-    padding: 0 24px 22px 24px;
-    font-size: 15px;
-    color: #475569;
-    line-height: 1.65;
-    font-weight: 500;
-  `,
-
-  /* CTA BANNER */
-  ctaBox: css`
+  ctaCard: css`
     background: #FEF5D8;
-    border: 1.5px solid rgba(255, 176, 32, 0.4);
+    border: 1px solid rgba(255, 176, 32, 0.5);
     border-radius: 24px;
-    padding: 40px;
-    text-align: center;
-    margin-top: 50px;
+    padding: 32px;
 
     h3 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
       color: #1E293B;
       margin-bottom: 8px;
@@ -181,51 +147,100 @@ const styles = {
       font-size: 14.5px;
       color: #64748B;
       margin-bottom: 24px;
+      line-height: 1.5;
     }
   `,
   ctaBtn: css`
     background: #DA532C;
     color: #FFFFFF;
     border: none;
-    padding: 13px 28px;
-    border-radius: 28px;
+    padding: 14px 28px;
+    border-radius: 24px;
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.2s ease;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
 
     &:hover {
       background: #B83D1B;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
     }
+  `,
+
+  /* RIGHT COLUMN - ACCORDION CARDS */
+  rightCol: css`
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  `,
+  accordionCard: (isOpen) => css`
+    background: #FFFFFF;
+    border: ${isOpen ? '2px solid rgba(218, 83, 44, 0.5)' : '1.5px solid #E2E8F0'};
+    border-radius: 20px;
+    padding: ${isOpen ? '24px' : '20px 24px'};
+    box-shadow: ${isOpen ? '0 12px 28px rgba(218, 83, 44, 0.1)' : '0 4px 16px rgba(0, 0, 0, 0.02)'};
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+
+    &:hover {
+      border-color: #DA532C;
+      box-shadow: 0 8px 24px rgba(218, 83, 44, 0.12);
+    }
+  `,
+  cardHeader: (isOpen) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 800;
+    color: ${isOpen ? '#DA532C' : '#1E293B'};
+    gap: 16px;
+  `,
+  cardBody: css`
+    margin-top: 16px;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.65;
+    font-weight: 500;
   `
 };
 
 const FaqPage = () => {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState('q1');
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
-  const filteredFaqs = faqList.filter(
+  const filteredFaqs = faqItems.filter(
     (item) =>
       item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.answer.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* Hero Header */}
-      <div css={styles.heroOuter}>
-        <div css={styles.container}>
-          <div css={styles.badgeTag}>
+    <div css={styles.sectionOuter} className="uden-fade-in">
+      <div css={styles.container}>
+        {/* LEFT COLUMN: Header, Search & Still Have Questions Card */}
+        <div css={styles.leftCol}>
+          <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} />
             QUESTIONS, ANSWERED DIRECTLY
           </div>
-          <h1 css={styles.title}>
+
+          <h2 css={styles.title}>
             Frequently Asked <span>Questions</span>
-          </h1>
+          </h2>
+
           <p css={styles.subtitle}>
             Everything you need to know about UDEN's AI career readiness model, college placement drives, and employer hiring pipelines.
           </p>
@@ -234,42 +249,44 @@ const FaqPage = () => {
             <Search size={20} color="#DA532C" />
             <input 
               type="text"
-              placeholder="Search questions (e.g. free for students, hiring, colleges)..."
+              placeholder="Search questions..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-        </div>
-      </div>
 
-      {/* Accordion List */}
-      <div css={styles.faqSection}>
-        <div css={styles.faqList}>
+          <div css={styles.ctaCard}>
+            <h3>Still have questions?</h3>
+            <p>Talk to our team or explore our dedicated stakeholder portals.</p>
+            <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_TALENT)}>
+              Get Started with UDEN
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: Accordion Item Cards matching Screenshot */}
+        <div css={styles.rightCol}>
           {filteredFaqs.map((item) => {
             const isOpen = openId === item.id;
             return (
-              <div key={item.id} css={styles.faqItem(isOpen)}>
-                <button 
-                  css={styles.faqHeader} 
-                  onClick={() => setOpenId(isOpen ? null : item.id)}
-                >
+              <div 
+                key={item.id} 
+                css={styles.accordionCard(isOpen)}
+                onClick={() => setOpenId(isOpen ? null : item.id)}
+              >
+                <button css={styles.cardHeader(isOpen)}>
                   <span>{item.question}</span>
-                  {isOpen ? <ChevronUp size={20} color="#DA532C" /> : <ChevronDown size={20} color="#64748B" />}
+                  {isOpen ? <ChevronUp size={20} color="#DA532C" /> : <ChevronDown size={20} color="#DA532C" />}
                 </button>
-                {isOpen && <div css={styles.faqBody}>{item.answer}</div>}
+                {isOpen && (
+                  <div css={styles.cardBody}>
+                    {item.answer}
+                  </div>
+                )}
               </div>
             );
           })}
-        </div>
-
-        {/* CTA Contact Box */}
-        <div css={styles.ctaBox}>
-          <h3>Still have questions?</h3>
-          <p>Talk to our team or explore our dedicated stakeholder portals.</p>
-          <button css={styles.ctaBtn} onClick={() => navigate(AppRoutes.FIND_TALENT)}>
-            Get Started with UDEN
-            <ArrowRight size={16} />
-          </button>
         </div>
       </div>
     </div>

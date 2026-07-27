@@ -6,7 +6,6 @@ import MultiJobSearch from './components/MultiJobSearch';
 import CompanyPrepExplorer from './components/CompanyPrepExplorer';
 import RecruiterVettedHub from './components/RecruiterVettedHub';
 import MetricsTicker from './components/MetricsTicker';
-import PersonaSwitcher from './components/PersonaSwitcher';
 import CareerCalculator from './components/CareerCalculator';
 import HomeTrustedBrand from './components/TrustedBrand';
 import HomeTestimonial from './components/Testimonial';
@@ -43,25 +42,22 @@ const Home = () => {
         <HomeTrustedBrand css={styles.trustedBrand} />
       </div>
 
-      {/* 7. Dual Persona Switcher (Candidates, Employers, Colleges, Government) */}
+      {/* 7. Interactive Career & Salary Growth Calculator */}
       <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
-        <PersonaSwitcher />
-      </div>
-
-      {/* 8. Interactive Career & Salary Growth Calculator */}
-      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
         <CareerCalculator />
       </div>
 
-      {/* 9. Success Stories & Testimonials */}
+      {/* 8. Success Stories & Testimonials */}
       <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
         <HomeTestimonial css={styles.testimonial} />
       </div>
 
-      {/* 10. Frequently Asked Questions Section */}
-      <FaqPage />
+      {/* 9. Tailored Solutions & Stakeholder FAQ Section (Matching Screenshot 1) */}
+      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
 
-      {/* 11. Bottom CTA Banner */}
+      {/* 10. Bottom CTA Banner */}
       <StudentPlaced css={styles.studentPlaced} />
     </div>
   );

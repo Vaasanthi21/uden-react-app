@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 
 export const HeaderStyles = {
     appBar: ({...props}) => css({
-        backgroundColor: 'rgba(255, 255, 255, 0.96)',
+        backgroundColor: 'rgba(255, 255, 255, 0.98)',
         backdropFilter: 'blur(12px)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
         borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
@@ -38,28 +38,59 @@ export const HeaderStyles = {
     }),
 
     tabsDesktop: ({...props}) => css({
-        margin: "0 4px",
-        padding: "8px 14px",
-        fontSize: "13.5px",
-        fontWeight: props?.isCurrent ? '700' : '600',
-        color: props?.isCurrent ? '#DA532C' : '#1E293B',
+        margin: "0 6px",
+        padding: "6px 12px",
+        fontSize: "13px",
+        fontWeight: props?.isCurrent ? '800' : '600',
+        color: props?.isCurrent ? '#DA532C' : '#334155',
         borderRadius: "8px",
-        textTransform: "capitalize",
-        letterSpacing: "0.2px",
-        transition: "all 0.2s ease",
-        background: props?.isCurrent ? 'rgba(218, 83, 44, 0.08)' : 'transparent',
-        
+        textTransform: "none",
+        letterSpacing: "0.1px",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        transition: "all 0.25s ease",
+        background: 'transparent',
+        minWidth: 'auto',
+
+        '& .MuiButton-startIcon': {
+          margin: 0,
+          marginBottom: '2px',
+          color: props?.isCurrent ? '#DA532C' : '#64748B',
+          transition: 'color 0.25s ease',
+        },
+
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          bottom: '-6px',
+          left: '50%',
+          transform: props?.isCurrent ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
+          width: '80%',
+          height: '3px',
+          backgroundColor: '#DA532C',
+          borderRadius: '2px',
+          transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        },
+
         "&:hover": {
-            backgroundColor: "rgba(218, 83, 44, 0.1)",
+            backgroundColor: "transparent",
             color: "#DA532C",
-            transform: "translateY(-1px)"
+            '& .MuiButton-startIcon': {
+              color: '#DA532C',
+            },
+            '&::after': {
+              transform: 'translateX(-50%) scaleX(1)',
+            }
         }
     }),
 
     tabsMobile: ({...props}) => css({
         color: props?.isCurrent ? '#DA532C' : '#1E293B',
         backgroundColor: props?.isCurrent ? 'rgba(218, 83, 44, 0.08)' : 'transparent',
-        fontSize: "16px",
+        fontSize: "15px",
         fontWeight: "600",
         borderRadius: "8px",
         "&:hover": {
@@ -83,18 +114,19 @@ export const HeaderStyles = {
 
     signupButtonDesktop: css({
         textTransform: 'none',
-        fontSize: '14px',
-        fontWeight: '700',
-        background: 'linear-gradient(135deg, #DA532C 0%, #C0392B 100%)',
+        fontSize: '14.5px',
+        fontWeight: '800',
+        background: '#DA532C',
         color: '#FFFFFF',
         borderRadius: '24px',
-        padding: '8px 24px',
+        padding: '10px 24px',
         boxShadow: '0 4px 14px rgba(218, 83, 44, 0.3)',
         transition: 'all 0.25s ease',
         border: 'none',
+        whiteSpace: 'nowrap',
 
         '&:hover': {
-            background: 'linear-gradient(135deg, #C0392B 0%, #A93226 100%)',
+            background: '#B83D1B',
             boxShadow: '0 6px 18px rgba(218, 83, 44, 0.45)',
             transform: 'translateY(-2px)'
         }
@@ -102,9 +134,9 @@ export const HeaderStyles = {
 
     signupButtonMobile: css({
         textTransform: 'none',
-        fontWeight: '700',
+        fontWeight: '800',
         width: '90%',
-        background: 'linear-gradient(135deg, #DA532C 0%, #C0392B 100%)',
+        background: '#DA532C',
         color: '#FFFFFF',
         borderRadius: '24px',
         padding: '10px 20px'

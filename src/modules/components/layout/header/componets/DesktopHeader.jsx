@@ -36,16 +36,20 @@ const DesktopHeader = ({ ...props }) => {
   return (
     <>
       <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center' }}>
-        {data.Tabs.Names.map((names, index) => (
-          names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements dropdown
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+        {data.Tabs.Names.map((names, index) => {
+          const route = data.Tabs.Routes[index];
+          const isCurrent = Boolean(hooks?.route && route && route.includes(hooks.route));
+          const hasBadge = Boolean(data?.Tabs?.Badge[index]);
+
+          return names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements dropdown
             <div key={index}>
               <Button
                 startIcon={data.Tabs.Icons[index]}
                 onClick={handleCampusPlacementsClick}
-                css={styles.tabsDesktop({ isCurrent: false })}
+                css={styles.tabsDesktop({ isCurrent })}
               >
-                {names}
+                <span style={{ textAlign: 'center', lineHeight: 1.2 }}>{names}</span>
               </Button>
               <Menu
                 anchorEl={anchorEl}
@@ -83,32 +87,33 @@ const DesktopHeader = ({ ...props }) => {
           ) : (
             <Badge
               key={index}
-              invisible={!data?.Tabs?.Badge[index]}
+              invisible={!hasBadge}
               badgeContent={data?.Tabs?.Badge[index]}
               sx={{
                 '& .MuiBadge-badge': {
                   backgroundColor: '#DA532C',
                   color: '#FFFFFF',
-                  fontSize: '10px',
-                  fontWeight: '800',
-                  height: '18px',
-                  minWidth: '18px',
-                  borderRadius: '10px',
-                  top: 6,
-                  right: 6
+                  fontSize: '9.5px',
+                  fontWeight: '900',
+                  height: '16px',
+                  minWidth: '28px',
+                  borderRadius: '8px',
+                  top: 0,
+                  right: 12,
+                  boxShadow: '0 2px 6px rgba(218, 83, 44, 0.4)'
                 }
               }}
             >
               <Button
                 startIcon={data.Tabs.Icons[index]}
-                css={styles.tabsDesktop({ isCurrent: ((!hooks.route) ? false : data.Tabs.Routes[index].includes(hooks.route)) })}
-                href={data.Tabs.Routes[index]}
+                css={styles.tabsDesktop({ isCurrent })}
+                href={route}
               >
-                {names}
+                <span style={{ textAlign: 'center', lineHeight: 1.2 }}>{names}</span>
               </Button>
             </Badge>
-          )
-        ))}
+          );
+        })}
       </Box>
 
       <Button
