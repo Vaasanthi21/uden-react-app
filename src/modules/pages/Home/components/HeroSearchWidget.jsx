@@ -189,11 +189,11 @@ const HeroSearchWidget = () => {
   };
 
   return (
-    <div css={styles.container}>
+    <div css={styles.container} className="uden-fade-in">
       <div css={styles.wrapper}>
         <div css={styles.topRow}>
           <div css={styles.titleGroup}>
-            <div css={styles.badgeTag}>
+            <div css={styles.badgeTag} className="uden-float-anim">
               <Sparkles size={14} />
               AI MATCH ENGINE
             </div>
@@ -248,7 +248,7 @@ const HeroSearchWidget = () => {
             </select>
           </div>
 
-          <button type="submit" css={styles.searchBtn}>
+          <button type="submit" css={styles.searchBtn} className="uden-pulse-btn">
             Search
             <ArrowRight size={18} />
           </button>
