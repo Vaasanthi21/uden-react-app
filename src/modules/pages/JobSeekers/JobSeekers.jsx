@@ -10,6 +10,8 @@ import JobSeekerWorkFlow from './components/WorkFlow';
 import JobSeekersFeature from './components/Features';
 import JobSeekersTestimonial from './components/Testimonial';
 import JobSeekersKnowMore from './components/KnowMore';
+import MultiJobSearch from '../Home/components/MultiJobSearch';
+import CompanyPrepExplorer from '../Home/components/CompanyPrepExplorer';
 
 const JobSeekers = () => {
   return (
@@ -22,22 +24,32 @@ const JobSeekers = () => {
         <JobSeekerTrustedBrand />
       </div>
 
-      {/* 3. 4-Step Interactive Candidate Career Journey */}
+      {/* 3. Multi-Job Board Search Engine (100,000+ Jobs Aggregated) */}
+      <div style={{ padding: '60px 0', background: '#FFFDF7' }}>
+        <MultiJobSearch />
+      </div>
+
+      {/* 4. Company-Specific Round-by-Round Prep, PYQs & AI Video Interview Simulator */}
+      <div style={{ padding: '60px 0', background: '#FFFFFF' }}>
+        <CompanyPrepExplorer />
+      </div>
+
+      {/* 5. 4-Step Interactive Candidate Career Journey */}
       <div style={{ padding: '70px 0', background: '#F8FAFC' }}>
         <JobSeekerWorkFlow css={styles.workFlow} />
       </div>
 
-      {/* 4. Candidate Features (Global Companies, Upskill, Support) */}
+      {/* 6. Candidate Features (Global Companies, Upskill, Support) */}
       <div style={{ padding: '70px 0' }}>
         <JobSeekersFeature css={styles.features} />
       </div>
 
-      {/* 5. Placed Candidate Alumni Testimonials */}
+      {/* 7. Placed Candidate Alumni Testimonials */}
       <div style={{ padding: '70px 0', background: '#FEF5D8' }}>
         <JobSeekersTestimonial />
       </div>
 
-      {/* 6. Candidate Career Registration CTA */}
+      {/* 8. Candidate Career Registration CTA */}
       <JobSeekersKnowMore />
     </div>
   );

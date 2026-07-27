@@ -67,34 +67,140 @@ const MetricsTicker = [
     }
 ];
 
+const CompanyInterviewPrep = {
+    title: "Company-Specific Interview Prep & PYQs Engine",
+    subtitle: "Search 100,000+ jobs directly and master each company's interview rounds with skill paths, video lessons, and previous years' exam papers.",
+    companies: [
+        {
+            id: "deloitte",
+            name: "Deloitte",
+            logoText: "DL",
+            roleTarget: "Associate Analyst & Tech Consultant",
+            avgPackage: "₹7.6L / yr",
+            rounds: [
+                {
+                    roundNum: "01",
+                    title: "Aptitude & Verbal Reasoning",
+                    skillFocus: "Quantitative, Logical & Verbal Ability",
+                    pyqCount: "45 Previous Exam Papers",
+                    videoCount: "12 Curated Video Lessons",
+                    description: "Assess speed and accuracy in numerical puzzles, data interpretation, and business communication."
+                },
+                {
+                    roundNum: "02",
+                    title: "Technical Coding & SQL Assessment",
+                    skillFocus: "Data Structures, SQL Queries, OOPS Concepts",
+                    pyqCount: "30 Verified Coding Problems",
+                    videoCount: "18 Hands-on Code Walkthroughs",
+                    description: "Covers array manipulation, complex SQL JOIN queries, and object-oriented architecture."
+                },
+                {
+                    roundNum: "03",
+                    title: "AI Video Mock Interview (Final Prep)",
+                    skillFocus: "Behavioral Scenarios & Project Defense",
+                    pyqCount: "15 Real Recruiter Questions",
+                    videoCount: "AI Real-Time Feedback Simulator",
+                    description: "Simulate a live 1-on-1 video interview with real-time feedback on body language, tone, and technical clarity."
+                }
+            ]
+        },
+        {
+            id: "tcs",
+            name: "TCS NQT / Prime",
+            logoText: "TCS",
+            roleTarget: "Digital & Ninja Engineer",
+            avgPackage: "₹7.0L - ₹9.0L / yr",
+            rounds: [
+                {
+                    roundNum: "01",
+                    title: "Cognitive & Foundational Test",
+                    skillFocus: "Numerical, Verbal & Reasoning",
+                    pyqCount: "60 TCS NQT Exam Sets",
+                    videoCount: "15 Shortcut Trick Videos",
+                    description: "Master time management for foundation and advanced cognitive sections."
+                },
+                {
+                    roundNum: "02",
+                    title: "Advanced Coding & Algorithms",
+                    skillFocus: "C++, Java, Python Problem Solving",
+                    pyqCount: "40 Past Exam Questions",
+                    videoCount: "20 Algorithm Solutions",
+                    description: "Solve string parsing, dynamic programming, and matrix manipulation questions under strict time limits."
+                },
+                {
+                    roundNum: "03",
+                    title: "Managerial & Technical Video Round",
+                    skillFocus: "System Design & Final HR Round",
+                    pyqCount: "20 Past Interview Transcripts",
+                    videoCount: "AI Video Interview Practice",
+                    description: "Comprehensive practice for technical defense, project architecture, and HR salary negotiation."
+                }
+            ]
+        },
+        {
+            id: "amazon",
+            name: "Amazon SDE",
+            logoText: "AMZ",
+            roleTarget: "Software Development Engineer (SDE-1)",
+            avgPackage: "₹18L - ₹28L / yr",
+            rounds: [
+                {
+                    roundNum: "01",
+                    title: "Online Assessment & Work Simulation",
+                    skillFocus: "16 Leadership Principles & Coding",
+                    pyqCount: "50 Online Assessment Questions",
+                    videoCount: "10 Work Style Walkthroughs",
+                    description: "Evaluate system tradeoffs aligned directly with Amazon Leadership Principles."
+                },
+                {
+                    roundNum: "02",
+                    title: "Data Structures & Algorithmic Deep-Dive",
+                    skillFocus: "Trees, Graphs, DP & System Architecture",
+                    pyqCount: "65 Medium-Hard Problems",
+                    videoCount: "25 Whiteboard Coding Videos",
+                    description: "Focus on optimal space-time complexity, graph traversals, and dynamic programming."
+                },
+                {
+                    roundNum: "03",
+                    title: "Bar Raiser AI Video Interview",
+                    skillFocus: "Behavioral Star Method & Technical Defense",
+                    pyqCount: "30 Past Bar Raiser Prompts",
+                    videoCount: "AI Bar-Raiser Mock Interview",
+                    description: "Practice answering high-stakes behavioral questions using the STAR framework with instant AI scoring."
+                }
+            ]
+        }
+    ]
+};
+
 const WorkFlowNew = {
     title: "How UDEN Works",
     subtitle: "A personalized journey to assess, upskill and get you industry-ready.",
     jobSeekerSteps: [
         {
             step: "01",
-            title: "Register on UDEN",
-            desc: "Create your profile in minutes and kickstart your career journey."
+            title: "Register & Search 100,000+ Jobs",
+            desc: "Search openings aggregated across top job boards directly in one unified platform."
         },
         {
             step: "02",
-            title: "Technical & Behavioral Assessment",
-            desc: "Evaluate your technical skills and behavior to identify your strengths and gaps."
+            title: "Company-Specific Round Prep & PYQs",
+            desc: "Explore round-by-round skill paths, video lessons, and previous years' exam paper sets."
         },
         {
             step: "03",
-            title: "Upskilling Based on Assessed Gap",
-            desc: "Get personalized learning paths aligned with industry demand and your skill gaps."
+            title: "AI Video Mock Interview Practice",
+            desc: "Practice company-specific video interviews with real-time AI scoring on tone, body language, and tech answers."
         },
         {
             step: "04",
-            title: "Profile Improves Continuously",
-            desc: "Build in-demand skills consistently and watch your profile and opportunities grow."
+            title: "Targeted Upskilling & Certification",
+            desc: "Bridge identified skill gaps with accredited upskilling partners."
         },
         {
             step: "05",
-            title: "Mentorship & Best Fitment",
-            desc: "Get expert mentorship and guidance to find the right career opportunities and best fit roles."
+            title: "Direct Recruiter Introduction",
+            desc: "Get introduced directly to hiring managers with a 48-Hour Shortlist SLA."
         }
     ],
     companySteps: [
@@ -135,10 +241,10 @@ const PersonaSwitcher = {
             id: "student",
             tabLabel: "🎓 For Job Seekers",
             badge: "Job Seekers & Freshers",
-            title: "Six months ago, zero interview calls.",
-            desc: "UDEN gets Tier 2 and Tier 3 college students placement-ready with AI-powered career counselling, real skill-building, and direct employer access.",
-            bullets: ["Free AI Skill Baseline Assessment", "Direct Matching with 150+ Employers", "1-on-1 Mock Interview Mentorship"],
-            actionText: "Create Free Profile",
+            title: "Search 100,000+ Jobs & Master Company Interview Rounds.",
+            desc: "UDEN gives Tier 2 & Tier 3 students a multi-job board search engine, company-specific round prep, previous years' exam papers (PYQs), and AI Video Mock Interviews.",
+            bullets: ["Multi-Job Board Search (100,000+ Jobs)", "Company Round-by-Round Study Paths & PYQs", "AI Video Detailed Mock Interview Simulator"],
+            actionText: "Explore Job & Exam Prep",
             route: AppRoutes.JOB_SEEKERS
         },
         {
@@ -155,9 +261,9 @@ const PersonaSwitcher = {
             id: "employer",
             tabLabel: "🏢 For Employers",
             badge: "Companies & Recruiters",
-            title: "Hire from where the talent actually is.",
-            desc: "Access pre-screened, placement-ready candidates from 21+ partner institutes across India — without running your own campus drive.",
-            bullets: ["48-Hour Shortlist SLA", "Top 5% Skill Verified Scores", "Zero Upfront Sourcing Fees"],
+            title: "Hire pre-vetted talent evaluated by AI Video Interviews.",
+            desc: "Access pre-screened, placement-ready candidates with AI video interview reports and verified benchmark scores across 21+ partner institutes.",
+            bullets: ["48-Hour Shortlist SLA", "AI Video Interview Assessments", "Zero Upfront Sourcing Fees"],
             actionText: "Hire from UDEN",
             route: AppRoutes.COMPANIES
         },
@@ -216,15 +322,15 @@ const RecruiterHub = {
     desc: "Skip 30-day hiring cycles. Access UDEN’s pool of pre-assessed candidates evaluated by AI and industry mentors on real-world projects.",
     features: [
         "Top 5% verified technical & domain skill scores",
-        "48-hour shortlist SLA with resume & interview recordings",
-        "Curated intake programs tailored to your exact tech stack"
+        "AI Video Interview Assessment Recordings",
+        "48-hour shortlist SLA with resume & interview recordings"
     ],
     ctaText: "Request Candidate Profiles",
     slaCard: {
         title: "UDEN Hiring SLA Guarantee",
         rows: [
             { label: "Candidate Shortlist Time", value: "Under 24 Hours", highlight: true },
-            { label: "Interview Scheduling", value: "Same Day" },
+            { label: "AI Video Evaluation", value: "100% Completed" },
             { label: "Assessment Accuracy", value: "98.4% Verified" },
             { label: "Risk Protection", value: "Replacement Guarantee" }
         ]
@@ -300,7 +406,7 @@ const Testimonial = {
         {
             id: 1,
             image: AppAssets.HomeAssets.TESTIMONIAL.PALAK_JAIN,
-            message: 'UDEN helped me with the interview preparation and mock interviews which helped build my confidence to tackle the interviewer’s questions. Thanks to their team I cracked Deloitte’s interview.',
+            message: 'UDEN helped me with the interview preparation, PYQs, and AI video mock interviews which built my confidence. Thanks to their team I cracked Deloitte’s interview.',
             name: 'Palak Jain',
             company: 'Placed at Deloitte',
             badge: 'Verified Candidate'
@@ -308,7 +414,7 @@ const Testimonial = {
         {
             id: 2,
             image: AppAssets.HomeAssets.TESTIMONIAL.PANKAJ_SHARMA,
-            message: 'As a fresher, it was difficult to find jobs. But the team at UDEN guided me to upskill, helped me with the interview process and connected me to the Company directly for the interview. I finally got the offer and now I am hopeful for a bright future.',
+            message: 'Searching from lakhs of jobs and following the company-specific round prep guide made all the difference. I cleared TCS Digital with a ₹7.0L package.',
             name: 'Pankaj Sharma',
             company: 'Software Engineer',
             badge: 'Placed via UDEN'
@@ -316,7 +422,7 @@ const Testimonial = {
         {
             id: 3,
             image: AppAssets.HomeAssets.TESTIMONIAL.PALAK_JAIN,
-            message: 'As a hiring manager, UDEN reduced our time-to-hire from 4 weeks to under 48 hours. The pre-assessed skill benchmark scores saved us dozens of unnecessary screening rounds.',
+            message: 'As a hiring manager, UDEN reduced our time-to-hire from 4 weeks to under 48 hours. The pre-assessed AI video interview recordings saved us dozens of screening rounds.',
             name: 'Ananya Verma',
             company: 'Talent Acquisition Director',
             badge: 'Enterprise Employer'
@@ -332,6 +438,7 @@ const StudentPlaced = {
 export const HomeConst = {
     SliderItems,
     MetricsTicker,
+    CompanyInterviewPrep,
     WorkFlowNew,
     PersonaSwitcher,
     CareerCalculator,
