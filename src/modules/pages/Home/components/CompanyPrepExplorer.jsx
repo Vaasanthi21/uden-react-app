@@ -2,26 +2,28 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, HelpCircle, Play } from 'lucide-react';
+import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
 import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppAssets } from '../../../../utils/consts/app_assets';
 
 const styles = {
   container: css`
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 16px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
   `,
   header: css`
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 44px;
 
     h2 {
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 900;
       color: #1E293B;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
 
       span {
         color: #DA532C;
@@ -30,38 +32,40 @@ const styles = {
 
     p {
       color: #64748B;
-      font-size: 15.5px;
+      font-size: 16px;
       font-weight: 500;
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
+      line-height: 1.65;
     }
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
+    background: rgba(218, 83, 44, 0.1);
     color: #DA532C;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12.5px;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 12px;
     font-weight: 800;
-    margin-bottom: 14px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    margin-bottom: 16px;
+    border: 1px solid rgba(218, 83, 44, 0.2);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   `,
 
   /* COMPANY TABS */
   tabsRow: css`
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 36px;
+    gap: 14px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
   `,
   companyTab: (active) => css`
-    padding: 12px 24px;
-    border-radius: 30px;
+    padding: 14px 28px;
+    border-radius: 32px;
     font-size: 15px;
     font-weight: 800;
     cursor: pointer;
@@ -70,13 +74,14 @@ const styles = {
     color: ${active ? '#FFFFFF' : '#334155'};
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.25s ease;
-    box-shadow: ${active ? '0 8px 20px -6px rgba(218, 83, 44, 0.35)' : 'none'};
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: ${active ? '0 8px 22px -6px rgba(218, 83, 44, 0.35)' : 'none'};
 
     &:hover {
       border-color: #DA532C;
       color: ${active ? '#FFFFFF' : '#DA532C'};
+      transform: translateY(-2px);
     }
   `,
 
@@ -84,7 +89,7 @@ const styles = {
   roundsGrid: css`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
@@ -93,74 +98,79 @@ const styles = {
   roundCard: css`
     background: #FFFFFF;
     border: 1.5px solid #E2E8F0;
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  `,
+  iconGraphic: css`
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    transition: transform 0.4s ease;
 
     &:hover {
-      transform: translateY(-4px);
-      border-color: #DA532C;
-      box-shadow: 0 12px 28px rgba(218, 83, 44, 0.12);
+      transform: scale(1.1) rotate(-5deg);
     }
   `,
   roundHeader: css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   `,
   roundBadge: css`
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: rgba(218, 83, 44, 0.12);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(218, 83, 44, 0.1);
     color: #DA532C;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 900;
   `,
   roundTitle: css`
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
     color: #1E293B;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    line-height: 1.35;
   `,
   roundDesc: css`
-    font-size: 14px;
+    font-size: 14.5px;
     color: #64748B;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.65;
+    margin-bottom: 24px;
   `,
   resourceList: css`
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 24px;
+    gap: 12px;
+    margin-bottom: 28px;
   `,
   resourceItem: css`
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-size: 13px;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #334155;
   `,
   aiMockCard: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
     border: 2px solid #DA532C;
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 10px 24px rgba(218, 83, 44, 0.15);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 12px 28px rgba(218, 83, 44, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -170,8 +180,23 @@ const styles = {
     background: #DA532C;
     color: #FFFFFF;
     border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  `,
+  accessBtn: css`
+    width: 100%;
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    color: #1E293B;
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: 800;
     font-size: 14px;
     cursor: pointer;
@@ -179,34 +204,21 @@ const styles = {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: #B83D1B;
-    }
-  `,
-  accessBtn: css`
-    width: 100%;
-    background: #F8FAFC;
-    border: 1.5px solid #CBD5E1;
-    color: #1E293B;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: 800;
-    font-size: 13.5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 
     &:hover {
       border-color: #DA532C;
       color: #DA532C;
+      background: #FFFFFF;
     }
   `
 };
+
+const roundIcons = [
+  AppAssets.HomeAssets.FEATURES.TALENT_DEVELOPMENT,
+  AppAssets.HomeAssets.FEATURES.CURATED_PROGRAM,
+  AppAssets.HomeAssets.FEATURES.AI_POWERED_MATHC
+];
 
 const CompanyPrepExplorer = () => {
   const [selectedCompanyId, setSelectedCompanyId] = useState('deloitte');
@@ -216,9 +228,9 @@ const CompanyPrepExplorer = () => {
   const currentCompany = prepData.companies.find(c => c.id === selectedCompanyId) || prepData.companies[0];
 
   return (
-    <div css={styles.container}>
+    <div css={styles.container} className="uden-fade-in">
       <div css={styles.header}>
-        <div css={styles.badgeTag}>
+        <div css={styles.badgeTag} className="uden-float-anim">
           <Sparkles size={14} />
           COMPANY-SPECIFIC ROUND PREP & PYQs ENGINE
         </div>
@@ -226,7 +238,6 @@ const CompanyPrepExplorer = () => {
         <p>{prepData.subtitle}</p>
       </div>
 
-      {/* Target Company Tabs */}
       <div css={styles.tabsRow}>
         {prepData.companies.map((comp) => (
           <button 
@@ -234,23 +245,22 @@ const CompanyPrepExplorer = () => {
             css={styles.companyTab(selectedCompanyId === comp.id)}
             onClick={() => setSelectedCompanyId(comp.id)}
           >
-            <Award size={16} />
+            <Award size={18} />
             {comp.name} ({comp.avgPackage})
           </button>
         ))}
       </div>
 
-      {/* 3 Rounds Breakdown Cards */}
-      <div css={styles.roundsGrid}>
+      <div css={styles.roundsGrid} className="uden-tab-anim" key={selectedCompanyId}>
         {currentCompany.rounds.map((rnd, idx) => {
           const isAiVideoRound = idx === 2;
           return isAiVideoRound ? (
-            /* Round 3: AI Video Mock Interview Card */
-            <div key={idx} css={styles.aiMockCard}>
+            <div key={idx} css={styles.aiMockCard} className="uden-card-hover">
               <div>
+                <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
-                  <span style={{ fontSize: '11px', fontWeight: '800', background: '#DA532C', color: '#FFF', padding: '3px 8px', borderRadius: '6px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: '800', background: '#DA532C', color: '#FFF', padding: '4px 10px', borderRadius: '8px' }}>
                     AI VIDEO SIMULATOR
                   </span>
                 </div>
@@ -259,25 +269,25 @@ const CompanyPrepExplorer = () => {
 
                 <div css={styles.resourceList}>
                   <div css={styles.resourceItem}>
-                    <Bot size={16} color="#DA532C" />
+                    <Bot size={18} color="#DA532C" />
                     <span>{rnd.pyqCount}</span>
                   </div>
                   <div css={styles.resourceItem}>
-                    <Video size={16} color="#DA532C" />
+                    <Video size={18} color="#DA532C" />
                     <span>{rnd.videoCount}</span>
                   </div>
                 </div>
               </div>
 
-              <button css={styles.startBtn} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+              <button css={styles.startBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
                 <Play size={16} />
                 Launch AI Video Mock Interview
               </button>
             </div>
           ) : (
-            /* Round 1 & 2 Cards */
-            <div key={idx} css={styles.roundCard}>
+            <div key={idx} css={styles.roundCard} className="uden-card-hover">
               <div>
+                <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
                   <span style={{ fontSize: '12px', fontWeight: '700', color: '#64748B' }}>SELECTION ROUND</span>
@@ -287,11 +297,11 @@ const CompanyPrepExplorer = () => {
 
                 <div css={styles.resourceList}>
                   <div css={styles.resourceItem}>
-                    <FileText size={16} color="#DA532C" />
+                    <FileText size={18} color="#DA532C" />
                     <span>{rnd.pyqCount}</span>
                   </div>
                   <div css={styles.resourceItem}>
-                    <Video size={16} color="#DA532C" />
+                    <Video size={18} color="#DA532C" />
                     <span>{rnd.videoCount}</span>
                   </div>
                 </div>
@@ -302,7 +312,7 @@ const CompanyPrepExplorer = () => {
                 onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
               >
                 Access Round Prep & PYQs
-                <ArrowRight size={15} />
+                <ArrowRight size={16} />
               </button>
             </div>
           );

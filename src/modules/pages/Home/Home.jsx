@@ -21,12 +21,12 @@ const Home = () => {
       <HeroSearchWidget />
 
       {/* 2. Multi-Job Board Search Engine (100,000+ Jobs Aggregated) */}
-      <div style={{ padding: '60px 0', background: '#FFFDF7' }}>
+      <div style={{ padding: '80px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
         <MultiJobSearch />
       </div>
 
       {/* 3. Company-Specific Round-by-Round Prep, PYQs & AI Video Interview Simulator */}
-      <div style={{ padding: '60px 0', background: '#FFFFFF' }}>
+      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
         <CompanyPrepExplorer />
       </div>
 
@@ -34,27 +34,27 @@ const Home = () => {
       <MetricsTicker />
 
       {/* 5. Enterprise Recruiter Pre-Vetted AI Video Talent Hub */}
-      <div style={{ padding: '60px 0', background: '#FFFDF7' }}>
+      <div style={{ padding: '80px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
         <RecruiterVettedHub />
       </div>
 
       {/* 6. Trust Logos Bar */}
-      <div style={{ padding: '40px 0' }}>
+      <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
         <HomeTrustedBrand css={styles.trustedBrand} />
       </div>
 
       {/* 7. Dual Persona Switcher (Candidates, Employers, Colleges, Government) */}
-      <div style={{ padding: '60px 0', background: '#F8FAFC' }}>
+      <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
         <PersonaSwitcher />
       </div>
 
       {/* 8. Interactive Career & Salary Growth Calculator */}
-      <div style={{ padding: '60px 0' }}>
+      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
         <CareerCalculator />
       </div>
 
       {/* 9. Success Stories & Testimonials */}
-      <div style={{ padding: '60px 0', background: '#FEF5D8' }}>
+      <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
         <HomeTestimonial css={styles.testimonial} />
       </div>
 

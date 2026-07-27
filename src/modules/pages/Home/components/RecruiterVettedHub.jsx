@@ -1,101 +1,113 @@
-import React, { useState } from 'react';
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, css } from '@emotion/react';
-import { ShieldCheck, Video, Award, Clock, ArrowRight, CheckCircle2, User, Building } from 'lucide-react';
+import { jsx, css, keyframes } from '@emotion/react';
+import { ShieldCheck, Video, Award, Clock, ArrowRight, CheckCircle2, Building } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { HomeConst } from '../Home.Const';
 import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppAssets } from '../../../../utils/consts/app_assets';
+
+const floatSlow = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+`;
 
 const styles = {
   container: css`
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 16px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
   `,
   cardOuter: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
     border: 2px solid #DA532C;
     border-radius: 28px;
-    padding: 44px;
-    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.14);
+    padding: 50px;
+    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.12);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
+    gap: 48px;
     align-items: center;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
-      padding: 28px;
+      padding: 32px;
+      gap: 32px;
     }
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
+    background: rgba(218, 83, 44, 0.1);
     color: #DA532C;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12.5px;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 12px;
     font-weight: 800;
-    margin-bottom: 16px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    margin-bottom: 18px;
+    border: 1px solid rgba(218, 83, 44, 0.2);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 34px;
+    font-size: 36px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.25;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
 
     span {
       color: #DA532C;
     }
 
     @media (max-width: 768px) {
-      font-size: 26px;
+      font-size: 28px;
     }
   `,
   subtitle: css`
-    font-size: 15.5px;
+    font-size: 16px;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     font-weight: 500;
   `,
   benefitsList: css`
     list-style: none;
     padding: 0;
-    margin: 0 0 32px 0;
+    margin: 0 0 36px 0;
 
     li {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 14.5px;
+      gap: 14px;
+      font-size: 15px;
       color: #1E293B;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
   `,
   ctaBtn: css`
     background: #DA532C;
     color: #FFFFFF;
     border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
+    padding: 16px 32px;
+    border-radius: 14px;
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.2s ease;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
 
     &:hover {
       background: #B83D1B;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
     }
   `,
 
@@ -103,21 +115,29 @@ const styles = {
   previewCard: css`
     background: #FFFFFF;
     border: 1.5px solid #E2E8F0;
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    animation: ${floatSlow} 4s ease-in-out infinite;
+  `,
+  illustrationImg: css`
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 12px;
   `,
   candidateHeader: css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 16px;
+    padding-bottom: 18px;
     border-bottom: 1px solid #E2E8F0;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   `,
   candidateAvatar: css`
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: rgba(218, 83, 44, 0.12);
     color: #DA532C;
@@ -125,7 +145,7 @@ const styles = {
     align-items: center;
     justify-content: center;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 17px;
   `,
   scoreBadge: css`
     background: #FEF5D8;
@@ -133,31 +153,31 @@ const styles = {
     border: 1px solid rgba(255, 176, 32, 0.6);
     font-size: 12px;
     font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 12px;
+    padding: 5px 12px;
+    border-radius: 14px;
   `,
   scoreRow: css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 14px;
+    margin-bottom: 24px;
   `,
   scoreBox: css`
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 12px;
+    border-radius: 14px;
+    padding: 16px;
     text-align: center;
 
     h4 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 900;
       color: #DA532C;
-      margin: 0 0 2px 0;
+      margin: 0 0 4px 0;
     }
 
     p {
-      font-size: 11.5px;
+      font-size: 12px;
       color: #64748B;
       margin: 0;
       font-weight: 700;
@@ -165,13 +185,13 @@ const styles = {
   `,
   videoVerifiedBox: css`
     background: rgba(218, 83, 44, 0.08);
-    border: 1px dashed #DA532C;
-    border-radius: 12px;
-    padding: 12px;
+    border: 1.5px dashed #DA532C;
+    border-radius: 14px;
+    padding: 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
+    gap: 12px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #1E293B;
   `
@@ -179,7 +199,6 @@ const styles = {
 
 const RecruiterVettedHub = () => {
   const navigate = useNavigate();
-  const data = HomeConst.RecruiterHub;
 
   return (
     <div css={styles.container}>
@@ -198,33 +217,33 @@ const RecruiterVettedHub = () => {
 
           <ul css={styles.benefitsList}>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={20} color="#DA532C" />
               <span>Top 5% verified technical & domain skill scores</span>
             </li>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={20} color="#DA532C" />
               <span>AI Video Interview Assessment Recordings Included</span>
             </li>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={20} color="#DA532C" />
               <span>48-Hour Shortlist SLA Guarantee with Zero Upfront Sourcing Fee</span>
             </li>
           </ul>
 
           <button css={styles.ctaBtn} onClick={() => navigate(AppRoutes.FIND_TALENT)}>
             Request Candidate Profiles
-            <ArrowRight size={16} />
+            <ArrowRight size={18} />
           </button>
         </div>
 
-        {/* Right Candidate Video Verification Card */}
         <div css={styles.previewCard}>
+          <img src={AppAssets.HomeAssets.FEATURES.IN_DEMAND_SKILLS} alt="In-Demand Talent Pool" css={styles.illustrationImg} />
           <div css={styles.candidateHeader}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div css={styles.candidateAvatar}>PJ</div>
               <div>
-                <div style={{ fontSize: '15px', fontWeight: '800', color: '#1E293B' }}>Palak Jain</div>
-                <div style={{ fontSize: '12px', color: '#64748B', fontWeight: '600' }}>React & TypeScript Engineer</div>
+                <div style={{ fontSize: '16px', fontWeight: '800', color: '#1E293B' }}>Palak Jain</div>
+                <div style={{ fontSize: '12.5px', color: '#64748B', fontWeight: '600' }}>React & TypeScript Engineer</div>
               </div>
             </div>
             <span css={styles.scoreBadge}>TOP 5% VERIFIED</span>
@@ -242,10 +261,10 @@ const RecruiterVettedHub = () => {
           </div>
 
           <div css={styles.videoVerifiedBox}>
-            <Video size={20} color="#DA532C" />
+            <Video size={22} color="#DA532C" />
             <div>
-              <div style={{ fontSize: '13px', fontWeight: '800', color: '#1E293B' }}>AI Video Interview Recording</div>
-              <div style={{ fontSize: '11px', color: '#64748B' }}>Behavioral STAR Method & Live Code Defense</div>
+              <div style={{ fontSize: '13.5px', fontWeight: '800', color: '#1E293B' }}>AI Video Interview Recording</div>
+              <div style={{ fontSize: '11.5px', color: '#64748B' }}>Behavioral STAR Method & Live Code Defense</div>
             </div>
           </div>
         </div>
