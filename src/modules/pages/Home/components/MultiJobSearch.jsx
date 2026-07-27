@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/react';
-import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter } from 'lucide-react';
+import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
@@ -47,7 +47,7 @@ const styles = {
       color: #475569;
       font-size: 16px;
       font-weight: 500;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       line-height: 1.65;
     }
@@ -68,7 +68,33 @@ const styles = {
     letter-spacing: 0.5px;
   `,
 
-  /* SEARCH CARD CONTAINER MATCHING SCREENSHOT EXACTLY */
+  /* VALUE HIGHLIGHT BAR (SAVING 20 DAYS & REFERRAL REWARDS) */
+  valueHighlightBar: css`
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  `,
+  valuePill: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1.5px solid #DA532C;
+    color: #1E293B;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-size: 13.5px;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(218, 83, 44, 0.1);
+
+    span {
+      color: #DA532C;
+    }
+  `,
+
+  /* SEARCH CARD CONTAINER */
   searchCard: css`
     background: #FFFDF7;
     border: 1.5px solid rgba(218, 83, 44, 0.25);
@@ -277,7 +303,7 @@ const sampleJobs = [
   {
     title: 'Frontend Engineer (React 18 & TypeScript)',
     company: 'Deloitte Digital',
-    board: 'LinkedIn & UDEN Direct',
+    board: 'Direct Hiring Partner',
     location: 'Bengaluru (Hybrid)',
     package: '₹7.5L - ₹12.0L / yr',
     skills: ['React 18', 'TypeScript', 'Next.js', 'Redux']
@@ -285,7 +311,7 @@ const sampleJobs = [
   {
     title: 'SDE-1 (Java Microservices & AWS)',
     company: 'TCS Digital',
-    board: 'Naukri & Enterprise',
+    board: 'AI Crawled Opening',
     location: 'Hyderabad / Pune',
     package: '₹7.0L - ₹9.5L / yr',
     skills: ['Java 17', 'Spring Boot', 'AWS', 'Docker']
@@ -293,7 +319,7 @@ const sampleJobs = [
   {
     title: 'Data Analyst & Python Developer',
     company: 'Accenture AI Labs',
-    board: 'Indeed & UDEN Partner',
+    board: 'Direct Hiring Partner',
     location: 'Remote / Work From Home',
     package: '₹6.5L - ₹11.0L / yr',
     skills: ['Python', 'SQL', 'Pandas', 'PowerBI']
@@ -316,18 +342,34 @@ const MultiJobSearch = () => {
       <div css={styles.container}>
         <div css={styles.header}>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Globe size={14} />
-            MULTI-JOB BOARD SEARCH ENGINE
+            <Sparkles size={14} />
+            AI-POWERED MATCHING COMPANION
           </div>
           <h2>
-            Search <span>100,000+ Jobs</span> Directly in One Place
+            Search <span>100,000+ Jobs</span> & Save 20 Days Manually
           </h2>
           <p>
-            Students can access live job openings aggregated from top global job boards, complete with company-specific round prep and AI video mock interviews.
+            UDEN’s AI companion understands your profile to eliminate manual job searching. Plus, get paid cash rewards while searching by referring friends!
           </p>
         </div>
 
-        {/* Search Card Pill Container matching screenshot */}
+        {/* Value Highlights Pill Bar */}
+        <div css={styles.valueHighlightBar}>
+          <div css={styles.valuePill}>
+            <Clock size={16} color="#DA532C" />
+            <span>Saves 20 Days</span> of Manual Job Searching
+          </div>
+          <div css={styles.valuePill}>
+            <Users size={16} color="#DA532C" />
+            Direct Partner Postings (Growing Daily)
+          </div>
+          <div css={styles.valuePill}>
+            <DollarSign size={16} color="#DA532C" />
+            <span>Get Paid</span> by Referring Friends
+          </div>
+        </div>
+
+        {/* Search Card Pill Container */}
         <div css={styles.searchCard}>
           <form onSubmit={handleSearchSubmit} css={styles.inputGrid}>
             <div css={styles.inputPill}>
@@ -366,17 +408,17 @@ const MultiJobSearch = () => {
             </button>
           </form>
 
-          {/* Aggregating Live Openings From Pill Row matching screenshot */}
+          {/* Aggregating Live Openings Pill Row */}
           <div css={styles.boardBadgesRow}>
-            <span>Aggregating Live Openings From:</span>
-            <span css={styles.boardPill}>Naukri.com</span>
-            <span css={styles.boardPill}>LinkedIn Jobs</span>
-            <span css={styles.boardPill}>Indeed</span>
-            <span css={styles.boardPill}>150+ Direct UDEN Enterprise Partners</span>
+            <span>AI Match Engine Highlights:</span>
+            <span css={styles.boardPill}>Direct Enterprise Partner Postings</span>
+            <span css={styles.boardPill}>AI Job Crawling Engine</span>
+            <span css={styles.boardPill}>Refer & Earn Rewards</span>
+            <span css={styles.boardPill}>20 Days Time Saved</span>
           </div>
         </div>
 
-        {/* 3 Job Cards matching screenshot font & layout */}
+        {/* 3 Job Cards matching UDEN brand colors */}
         <div css={styles.jobsGrid}>
           {sampleJobs.map((job, idx) => (
             <div key={idx} css={styles.jobCard} className="uden-card-hover">
