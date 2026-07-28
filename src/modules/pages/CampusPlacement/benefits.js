@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Briefcase, Building, MapPin, Star, Sparkles, ArrowRight, FileCheck, CheckCircle2, Award, Users, Bot, BookOpen, Clock, ShieldCheck, ZoomIn } from 'lucide-react';
+import { Briefcase, Building, MapPin, Star, Sparkles, ArrowRight, FileCheck, CheckCircle2, Award, Users, Bot, BookOpen, Clock, ShieldCheck, ZoomIn, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 
@@ -266,7 +266,7 @@ const styles = {
     }
   `,
 
-  /* COMPRESSED SLEEK FLOWCHART CARD */
+  /* ENHANCED READABLE FLOWCHART CARD */
   journeySection: css`
     padding: 80px 20px;
     background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
@@ -277,25 +277,79 @@ const styles = {
     background: #FFFFFF;
     border: 2px solid #DA532C;
     border-radius: 24px;
-    padding: 20px;
-    box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
+    padding: 24px;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
     text-align: center;
-    max-width: 860px;
+    max-width: 1040px;
     margin: 0 auto 56px auto;
-    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      border-radius: 12px;
+      cursor: zoom-in;
+    }
+  `,
+  zoomBadge: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FEF5D8;
+    color: #DA532C;
+    border: 1px solid rgba(255, 176, 32, 0.6);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 800;
+    margin-top: 14px;
+    cursor: pointer;
+  `,
+  modalOverlay: css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  `,
+  modalContent: css`
+    position: relative;
+    max-width: 95vw;
+    max-height: 92vh;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 16px;
+    overflow: auto;
 
     img {
       max-width: 100%;
-      max-height: 380px;
-      object-fit: contain;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.02);
-      }
+      height: auto;
     }
   `,
+  closeModalBtn: css`
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #DA532C;
+    color: #FFFFFF;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+  `,
+
   parserGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -477,6 +531,7 @@ const styles = {
 
 const Benefits = () => {
   const [filter, setFilter] = useState('all');
+  const [isZoomOpen, setIsZoomOpen] = useState(false);
   const navigate = useNavigate();
 
   const filteredJobs = jobRecommendations.filter(
@@ -485,6 +540,18 @@ const Benefits = () => {
 
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
+      {/* Fullscreen Zoom Modal */}
+      {isZoomOpen && (
+        <div css={styles.modalOverlay} onClick={() => setIsZoomOpen(false)}>
+          <div css={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button css={styles.closeModalBtn} onClick={() => setIsZoomOpen(false)}>
+              <X size={20} />
+            </button>
+            <img src={flowchartImage} alt="UDEN High Resolution Placement Flowchart" />
+          </div>
+        </div>
+      )}
+
       {/* 1. Hero Student Placement Accelerator */}
       <div css={styles.heroOuter} className="uden-fade-in">
         <div css={styles.container}>
@@ -555,9 +622,19 @@ const Benefits = () => {
             <p>From initial skill assessment to verified AI video scorecards and direct corporate interview shortlists.</p>
           </div>
 
-          {/* Compressed Sleek Flowchart Card */}
+          {/* Enhanced Crisp Flowchart Card */}
           <div css={styles.flowchartCard} className="uden-card-hover">
-            <img src={flowchartImage} alt="UDEN Student Placement Flowchart" />
+            <img 
+              src={flowchartImage} 
+              alt="UDEN Student Placement Flowchart" 
+              onClick={() => setIsZoomOpen(true)}
+            />
+            <div>
+              <div css={styles.zoomBadge} onClick={() => setIsZoomOpen(true)}>
+                <ZoomIn size={14} />
+                Click to Expand Full High-Resolution Diagram
+              </div>
+            </div>
           </div>
 
           <div css={styles.parserGrid}>
