@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Briefcase, Building, MapPin, Star, Sparkles, ArrowRight, FileCheck, CheckCircle2, Award, Users, Bot, BookOpen, Clock, ShieldCheck } from 'lucide-react';
+import { Briefcase, Building, MapPin, Star, Sparkles, ArrowRight, FileCheck, CheckCircle2, Award, Users, Bot, BookOpen, Clock, ShieldCheck, ZoomIn } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 
@@ -11,16 +11,12 @@ import ParseGif from "../../../assets/images/flowcharts/ParseGif.gif";
 import Picture4 from "../../../assets/images/flowcharts/Picture4.jpg";
 import Picture5 from "../../../assets/images/flowcharts/Picture5.png";
 
-let StudentRoadmapImage, MentorGuidanceImage, TeamCollaborationImage;
+let StudentRoadmapImage;
 try {
   const illustrations = require('../../../utils/consts/uploaded_illustrations');
   StudentRoadmapImage = illustrations.StudentRoadmapImage;
-  MentorGuidanceImage = illustrations.MentorGuidanceImage;
-  TeamCollaborationImage = illustrations.TeamCollaborationImage;
 } catch (e) {
   StudentRoadmapImage = null;
-  MentorGuidanceImage = null;
-  TeamCollaborationImage = null;
 }
 
 const jobRecommendations = [
@@ -270,7 +266,7 @@ const styles = {
     }
   `,
 
-  /* FLOWCHART & AI PARSER SECTION */
+  /* COMPRESSED SLEEK FLOWCHART CARD */
   journeySection: css`
     padding: 80px 20px;
     background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
@@ -280,16 +276,24 @@ const styles = {
   flowchartCard: css`
     background: #FFFFFF;
     border: 2px solid #DA532C;
-    border-radius: 28px;
-    padding: 36px;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.08);
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
     text-align: center;
-    margin-bottom: 56px;
+    max-width: 860px;
+    margin: 0 auto 56px auto;
+    overflow: hidden;
 
     img {
       max-width: 100%;
-      height: auto;
-      border-radius: 16px;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
     }
   `,
   parserGrid: css`
@@ -336,7 +340,8 @@ const styles = {
 
     img {
       width: 100%;
-      height: auto;
+      max-height: 280px;
+      object-fit: contain;
       border-radius: 16px;
     }
   `,
@@ -550,6 +555,7 @@ const Benefits = () => {
             <p>From initial skill assessment to verified AI video scorecards and direct corporate interview shortlists.</p>
           </div>
 
+          {/* Compressed Sleek Flowchart Card */}
           <div css={styles.flowchartCard} className="uden-card-hover">
             <img src={flowchartImage} alt="UDEN Student Placement Flowchart" />
           </div>
