@@ -7,11 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 import { HomeConst } from '../Home.Const';
 
-let CareerGrowthVideo;
+let CareerGrowthVideo, CareerGrowthImg;
 try {
   CareerGrowthVideo = require('../../../../assets/images/career-growth-video.mp4');
+  CareerGrowthImg = require('../../../../assets/images/career-growth.jpg');
 } catch (e) {
   CareerGrowthVideo = process.env.PUBLIC_URL + '/videos/career-growth-video.mp4';
+  CareerGrowthImg = process.env.PUBLIC_URL + '/images/career-growth.jpg';
 }
 
 const styles = {
@@ -101,16 +103,19 @@ const styles = {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
   `,
   growthVideo: css`
     width: 100%;
     max-height: 240px;
     object-fit: contain;
     border-radius: 16px;
-    background: #FFFDF7;
-    padding: 6px;
-    border: 1.5px solid #FEF5D8;
-    box-shadow: 0 8px 24px rgba(218, 83, 44, 0.1);
+    background: #FFFFFF !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   `,
   resultCol: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
@@ -240,16 +245,18 @@ const CareerCalculator = () => {
             </p>
           </div>
 
-          {/* Column 2: Autoplaying GIF-like Video from 20260728_16_09_19_491.mp4 */}
+          {/* Column 2: Seamless Autoplaying Video GIF with Poster Fallback & Zero Black Flashes */}
           <div css={styles.illustrationCol}>
             <video 
               src={CareerGrowthVideo}
+              poster={CareerGrowthImg}
               autoPlay
               loop
               muted
               playsInline
               css={styles.growthVideo}
               className="uden-card-hover"
+              style={{ background: '#FFFFFF' }}
             />
           </div>
 
