@@ -10,7 +10,11 @@ let RecruitmentTeamImage;
 try {
   RecruitmentTeamImage = require('../../../../assets/images/recruitment-team.jpg');
 } catch (e) {
-  RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
+  try {
+    RecruitmentTeamImage = require('../../../../assets/images/candidate-network.jpg');
+  } catch (err) {
+    RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
+  }
 }
 
 const styles = {

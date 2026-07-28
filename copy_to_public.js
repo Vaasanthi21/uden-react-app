@@ -17,14 +17,15 @@ function copyFile(src, publicName) {
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, publicName));
     fs.copyFileSync(src, path.join(assetsDir, publicName));
-    console.log(`COPIED: ${publicName}`);
+    console.log(`SUCCESSFULLY_COPIED: ${publicName}`);
   } else {
-    console.log(`NOT FOUND: ${src}`);
+    console.log(`NOT_FOUND: ${src}`);
   }
 }
 
-// 1. Recruitment Team illustration
-copyFile(path.join(tempStorageDir, 'media__1785237090473.jpg'), 'recruitment-team.jpg');
+// 1. Recruitment Team illustration (Hire From Us / Companies Page)
+const recruitSrc = path.join(tempStorageDir, 'media__1785237090473.jpg');
+copyFile(recruitSrc, 'recruitment-team.jpg');
 
 // 2. Career Growth Line Graph
 copyFile(path.join(userUploadedDir, 'media__1785235035154.jpg'), 'career-growth.jpg');
@@ -37,4 +38,4 @@ copyFile(path.join(userUploadedDir, 'media__1785226960653.jpg'), 'candidate-netw
 copyFile(path.join(userUploadedDir, 'media__1785226960693.jpg'), 'faq-support-desk.jpg');
 copyFile(path.join(userUploadedDir, 'media__1785226961085.jpg'), 'ai-robot-team.jpg');
 
-console.log('ALL_ILLUSTRATION_IMAGES_SYNCED_TO_GIT_ASSETS');
+console.log('ALL_IMAGES_COPIED_TO_PUBLIC_AND_ASSETS');
