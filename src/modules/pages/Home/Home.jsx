@@ -5,6 +5,7 @@ import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
 import CompanyPrepExplorer from './components/CompanyPrepExplorer';
 import RecruiterVettedHub from './components/RecruiterVettedHub';
+import ReferralCommunityHub from './components/ReferralCommunityHub';
 import MetricsTicker from './components/MetricsTicker';
 import CareerCalculator from './components/CareerCalculator';
 import HomeTrustedBrand from './components/TrustedBrand';
@@ -37,27 +38,32 @@ const Home = () => {
         <RecruiterVettedHub />
       </div>
 
-      {/* 6. Trust Logos Bar */}
+      {/* 6. Referral & Peer Learning Community Hub (Get Paid While Job Searching) */}
+      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+        <ReferralCommunityHub />
+      </div>
+
+      {/* 7. Trust Logos Bar */}
       <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
         <HomeTrustedBrand css={styles.trustedBrand} />
       </div>
 
-      {/* 7. Interactive Career & Salary Growth Calculator */}
+      {/* 8. Interactive Career & Salary Growth Calculator */}
       <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
         <CareerCalculator />
       </div>
 
-      {/* 8. Success Stories & Testimonials */}
+      {/* 9. Success Stories & Testimonials */}
       <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
         <HomeTestimonial css={styles.testimonial} />
       </div>
 
-      {/* 9. Tailored Solutions & Stakeholder FAQ Section (Matching Screenshot 1) */}
+      {/* 10. Tailored Solutions & Stakeholder FAQ Section */}
       <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
         <FaqPage />
       </div>
 
-      {/* 10. Bottom CTA Banner */}
+      {/* 11. Bottom CTA Banner */}
       <StudentPlaced css={styles.studentPlaced} />
     </div>
   );
