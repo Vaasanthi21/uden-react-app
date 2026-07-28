@@ -2,42 +2,49 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Search, Sparkles, ShieldCheck, Clock, ArrowRight, Users, CheckCircle2 } from 'lucide-react';
+import { Search, Sparkles, ShieldCheck, Clock, ArrowRight, Users, CheckCircle2, Building2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
+let RecruitmentTeamImage;
+try {
+  RecruitmentTeamImage = require('../../../../assets/images/recruitment-team.jpg');
+} catch (e) {
+  RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
+}
+
 const styles = {
   heroOuter: css`
-    background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-    padding: 60px 16px 40px 16px;
-    border-bottom: 1px solid #E2E8F0;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    padding: 70px 20px 50px 20px;
+    border-bottom: 2px solid rgba(218, 83, 44, 0.2);
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 48px;
     align-items: center;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
       text-align: center;
-      gap: 32px;
     }
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(218, 83, 44, 0.1);
+    background: #FEF5D8;
     color: #DA532C;
-    padding: 6px 16px;
+    padding: 6px 18px;
     border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 12.5px;
+    font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(218, 83, 44, 0.2);
+    border: 1px solid rgba(255, 176, 32, 0.6);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -45,9 +52,9 @@ const styles = {
     font-size: 42px;
     font-weight: 900;
     color: #1E293B;
-    line-height: 1.2;
+    line-height: 1.18;
     margin: 0 0 16px 0;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
 
     span {
       color: #DA532C;
@@ -59,9 +66,10 @@ const styles = {
   `,
   subtitle: css`
     font-size: 16.5px;
-    color: #64748B;
-    line-height: 1.6;
+    color: #475569;
+    line-height: 1.65;
     margin-bottom: 32px;
+    font-weight: 500;
   `,
   bulletGrid: css`
     display: grid;
@@ -78,30 +86,45 @@ const styles = {
     align-items: center;
     gap: 10px;
     font-size: 14px;
-    font-weight: 600;
-    color: #334155;
+    font-weight: 700;
+    color: #1E293B;
   `,
   iconBox: css`
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(218, 83, 44, 0.1);
+    background: rgba(218, 83, 44, 0.15);
     color: #DA532C;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   `,
+  rightCol: css`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  `,
+  recruitImgBanner: css`
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 24px;
+    background: #FFFFFF;
+    padding: 14px;
+    border: 2px solid #DA532C;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+  `,
   widgetCard: css`
     background: #FFFFFF;
     border: 2px solid #DA532C;
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.15);
+    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.12);
   `,
   cardTitle: css`
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 900;
     color: #1E293B;
     margin-bottom: 6px;
     display: flex;
@@ -109,9 +132,10 @@ const styles = {
     gap: 8px;
   `,
   cardSub: css`
-    font-size: 13px;
+    font-size: 13.5px;
     color: #64748B;
     margin-bottom: 24px;
+    line-height: 1.5;
   `,
   formGroup: css`
     display: flex;
@@ -127,28 +151,27 @@ const styles = {
     label {
       font-size: 13px;
       font-weight: 700;
-      color: #334155;
+      color: #1E293B;
     }
 
-    select, input {
+    select {
       padding: 12px 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1.5px solid #CBD5E1;
       font-size: 14px;
       color: #1E293B;
-      background: #F8FAFC;
+      background: #FFFFFF;
       outline: none;
       font-weight: 600;
 
       &:focus {
         border-color: #DA532C;
-        background: #FFFFFF;
       }
     }
   `,
   ctaBtn: css`
     width: 100%;
-    background: linear-gradient(135deg, #DA532C 0%, #C0392B 100%);
+    background: #DA532C;
     color: #FFFFFF;
     border: none;
     padding: 14px;
@@ -161,22 +184,13 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
 
     &:hover {
-      background: linear-gradient(135deg, #C0392B 0%, #A93226 100%);
+      background: #B83D1B;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(218, 83, 44, 0.4);
+      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
     }
-  `,
-  guaranteeNote: css`
-    font-size: 12px;
-    color: #64748B;
-    text-align: center;
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
   `
 };
 
@@ -190,11 +204,11 @@ const CompaniesBanner = () => {
   };
 
   return (
-    <div css={styles.heroOuter}>
+    <div css={styles.heroOuter} className="uden-fade-in">
       <div css={styles.container}>
         {/* Left Column Text & Value Proposition */}
         <div>
-          <div css={styles.badgeTag}>
+          <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} />
             ENTERPRISE TALENT ACQUISITION
           </div>
@@ -225,55 +239,50 @@ const CompaniesBanner = () => {
           </div>
         </div>
 
-        {/* Right Column Talent Request Card */}
-        <div css={styles.widgetCard}>
-          <div css={styles.cardTitle}>
-            <Users size={20} color="#DA532C" />
-            Request Candidate Profiles
-          </div>
-          <p css={styles.cardSub}>Tell us your hiring needs and receive pre-vetted candidate resumes within 48 hours.</p>
+        {/* Right Column Talent Request Card with Embedded Recruitment Illustration */}
+        <div css={styles.rightCol}>
+          <img 
+            src={RecruitmentTeamImage} 
+            alt="Corporate Recruitment Team & Candidate Profile" 
+            css={styles.recruitImgBanner}
+            className="uden-card-hover" 
+          />
 
-          <form onSubmit={handleRequestSubmit}>
-            <div css={styles.formGroup}>
-              <div css={styles.field}>
-                <label>Primary Tech Role:</label>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="fullstack">Fullstack / React & Node.js Dev</option>
-                  <option value="cloud">Cloud Engineer & DevOps (AWS/Azure)</option>
-                  <option value="ai">AI / Data Science & Python Engineer</option>
-                  <option value="mobile">Mobile App Developer (Flutter / React Native)</option>
-                  <option value="qa">QA Automation & SDET Engineer</option>
-                </select>
-              </div>
-
-              <div css={styles.field}>
-                <label>Required Experience Level:</label>
-                <select defaultValue="mid">
-                  <option value="fresher">Pre-Assessed Fresher (0-1 Yrs)</option>
-                  <option value="mid">Mid-Senior (2-5 Yrs)</option>
-                  <option value="lead">Lead Architect (5+ Yrs)</option>
-                </select>
-              </div>
-
-              <div css={styles.field}>
-                <label>Work Model:</label>
-                <select defaultValue="hybrid">
-                  <option value="remote">Remote (Full-time)</option>
-                  <option value="hybrid">On-site / Hybrid</option>
-                  <option value="contract">Contractual / Project-based</option>
-                </select>
-              </div>
+          <div css={styles.widgetCard} className="uden-card-hover">
+            <div css={styles.cardTitle}>
+              <Building2 size={22} color="#DA532C" />
+              Request Candidate Profiles
             </div>
+            <p css={styles.cardSub}>Tell us your hiring needs and receive pre-vetted candidate resumes within 48 hours.</p>
 
-            <button type="submit" css={styles.ctaBtn}>
-              Get Pre-Vetted Candidates
-              <ArrowRight size={18} />
-            </button>
-          </form>
+            <form onSubmit={handleRequestSubmit}>
+              <div css={styles.formGroup}>
+                <div css={styles.field}>
+                  <label>Primary Tech Role:</label>
+                  <select value={role} onChange={(e) => setRole(e.target.value)}>
+                    <option value="fullstack">Fullstack / React & Node.js Dev</option>
+                    <option value="cloud">Cloud Engineer & DevOps (AWS/Azure)</option>
+                    <option value="ai">AI / Data Science & Python Engineer</option>
+                    <option value="mobile">Mobile App Developer (Flutter / React Native)</option>
+                    <option value="qa">QA Automation & SDET Engineer</option>
+                  </select>
+                </div>
 
-          <div css={styles.guaranteeNote}>
-            <ShieldCheck size={14} color="#DA532C" />
-            100% Free Candidate Vetting & Proposal
+                <div css={styles.field}>
+                  <label>Required Experience Level:</label>
+                  <select defaultValue="mid">
+                    <option value="fresher">Pre-Assessed Fresher (0-1 Yrs)</option>
+                    <option value="mid">Mid-Senior (2-5 Yrs)</option>
+                    <option value="lead">Lead Architect (5+ Yrs)</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" css={styles.ctaBtn} className="uden-pulse-btn">
+                Get Pre-Vetted Candidates
+                <ArrowRight size={18} />
+              </button>
+            </form>
           </div>
         </div>
       </div>

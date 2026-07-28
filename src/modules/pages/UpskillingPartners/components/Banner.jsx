@@ -2,43 +2,52 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { GraduationCap, Sparkles, Award, ArrowRight, BookOpen, CheckCircle2, Search } from 'lucide-react';
+import { GraduationCap, Sparkles, Award, ArrowRight, BookOpen, CheckCircle2, Search, Handshake } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
+let MentorGuidanceImage, TeamCollaborationImage;
+try {
+  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  MentorGuidanceImage = illustrations.MentorGuidanceImage;
+  TeamCollaborationImage = illustrations.TeamCollaborationImage;
+} catch (e) {
+  MentorGuidanceImage = null;
+  TeamCollaborationImage = null;
+}
+
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    padding: 64px 16px 50px 16px;
-    color: #1E293B;
-    border-bottom: 4px solid #DA532C;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    padding: 70px 20px 50px 20px;
+    border-bottom: 2px solid rgba(218, 83, 44, 0.2);
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 48px;
     align-items: center;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
       text-align: center;
-      gap: 32px;
     }
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(218, 83, 44, 0.12);
+    background: #FEF5D8;
     color: #DA532C;
-    padding: 6px 16px;
+    padding: 6px 18px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    border: 1px solid rgba(255, 176, 32, 0.6);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -46,9 +55,9 @@ const styles = {
     font-size: 42px;
     font-weight: 900;
     color: #1E293B;
-    line-height: 1.2;
+    line-height: 1.18;
     margin: 0 0 16px 0;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
 
     span {
       color: #DA532C;
@@ -61,7 +70,7 @@ const styles = {
   subtitle: css`
     font-size: 16.5px;
     color: #475569;
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 32px;
     font-weight: 500;
   `,
@@ -116,14 +125,14 @@ const styles = {
   `,
   statCard: css`
     background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    border-radius: 14px;
-    padding: 20px 16px;
+    border: 1.5px solid rgba(255, 176, 32, 0.4);
+    border-radius: 16px;
+    padding: 18px 14px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 
     h3 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 900;
       color: #DA532C;
       margin: 0 0 4px 0;
@@ -136,18 +145,33 @@ const styles = {
       font-weight: 700;
     }
   `,
+  rightCol: css`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  `,
+  partnerImgBanner: css`
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 24px;
+    background: #FFFFFF;
+    padding: 12px;
+    border: 2px solid #DA532C;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+  `,
   rightCardDeck: css`
     background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    border-radius: 20px;
+    border: 2px solid #DA532C;
+    border-radius: 24px;
     padding: 28px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
   `,
   deckTitle: css`
     font-size: 18px;
     font-weight: 900;
     color: #1E293B;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -156,7 +180,7 @@ const styles = {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #E2E8F0;
 
     &:last-of-type {
@@ -164,8 +188,8 @@ const styles = {
     }
   `,
   partnerIcon: css`
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 10px;
     background: rgba(218, 83, 44, 0.12);
     color: #DA532C;
@@ -173,14 +197,14 @@ const styles = {
     align-items: center;
     justify-content: center;
     font-weight: 800;
+    flex-shrink: 0;
   `
 };
 
 const partnerTypes = [
-  { name: 'AWS & Cloud Academy', track: 'Cloud Architect & DevOps', count: '12 Courses' },
-  { name: 'Fullstack Engineering Institute', track: 'React 18 & Next.js Fullstack', count: '18 Courses' },
-  { name: 'AI & Data Science Labs', track: 'Python, PyTorch & LLMs', count: '10 Courses' },
-  { name: 'Mobile App Developer Guild', track: 'Flutter & Native Mobile', count: '8 Courses' }
+  { name: 'AWS & Cloud Academy', track: 'Cloud Architect & DevOps', count: '12 Tracks' },
+  { name: 'Fullstack Guild', track: 'React 18 & Next.js Fullstack', count: '18 Tracks' },
+  { name: 'AI & Data Science Labs', track: 'Python & Generative AI', count: '10 Tracks' }
 ];
 
 const UpskillingBanner = () => {
@@ -193,10 +217,10 @@ const UpskillingBanner = () => {
   };
 
   return (
-    <div css={styles.heroOuter}>
+    <div css={styles.heroOuter} className="uden-fade-in">
       <div css={styles.container}>
         <div>
-          <div css={styles.badgeTag}>
+          <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} />
             ACCREDITED UPSKILLING NETWORK
           </div>
@@ -215,7 +239,7 @@ const UpskillingBanner = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button type="submit" css={styles.searchBtn}>
+            <button type="submit" css={styles.searchBtn} className="uden-pulse-btn">
               Explore Tracks
               <ArrowRight size={16} />
             </button>
@@ -237,21 +261,32 @@ const UpskillingBanner = () => {
           </div>
         </div>
 
-        <div css={styles.rightCardDeck}>
-          <div css={styles.deckTitle}>
-            <Award size={20} color="#DA532C" />
-            Featured Partner Academies
-          </div>
+        <div css={styles.rightCol}>
+          {TeamCollaborationImage && (
+            <img 
+              src={TeamCollaborationImage} 
+              alt="Upskilling Partnership & Contract Handshake" 
+              css={styles.partnerImgBanner}
+              className="uden-card-hover" 
+            />
+          )}
 
-          {partnerTypes.map((p, idx) => (
-            <div key={idx} css={styles.partnerItem}>
-              <div css={styles.partnerIcon}><BookOpen size={20} /></div>
-              <div>
-                <div style={{ fontSize: '15px', fontWeight: '800', color: '#1E293B' }}>{p.name}</div>
-                <div style={{ fontSize: '12px', color: '#64748B', fontWeight: '500' }}>{p.track} • {p.count}</div>
-              </div>
+          <div css={styles.rightCardDeck} className="uden-card-hover">
+            <div css={styles.deckTitle}>
+              <Award size={20} color="#DA532C" />
+              Featured Partner Academies
             </div>
-          ))}
+
+            {partnerTypes.map((p, idx) => (
+              <div key={idx} css={styles.partnerItem}>
+                <div css={styles.partnerIcon}><BookOpen size={18} /></div>
+                <div>
+                  <div style={{ fontSize: '14px', fontWeight: '800', color: '#1E293B' }}>{p.name}</div>
+                  <div style={{ fontSize: '12px', color: '#64748B', fontWeight: '500' }}>{p.track} • {p.count}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
