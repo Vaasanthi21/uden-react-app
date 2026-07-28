@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/react';
-import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock } from 'lucide-react';
+import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock, Compass } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
-const floatAnim = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-`;
+let StudentRoadmapImage;
+try {
+  StudentRoadmapImage = require('../../../../utils/consts/uploaded_illustrations').StudentRoadmapImage;
+} catch (e) {
+  StudentRoadmapImage = null;
+}
 
 const styles = {
   sectionOuter: css`
@@ -27,12 +28,32 @@ const styles = {
     position: relative;
     z-index: 2;
   `,
-  header: css`
-    text-align: center;
+  topHeroGrid: css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
     margin-bottom: 44px;
 
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  `,
+  roadmapImg: css`
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 20px;
+    background: #FFFFFF;
+    padding: 12px;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+    border: 2px solid #DA532C;
+  `,
+  header: css`
+    text-align: left;
+
     h2 {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 900;
       color: #1E293B;
       margin-bottom: 14px;
@@ -47,8 +68,6 @@ const styles = {
       color: #475569;
       font-size: 16px;
       font-weight: 500;
-      max-width: 760px;
-      margin: 0 auto;
       line-height: 1.65;
     }
   `,
@@ -68,7 +87,7 @@ const styles = {
     letter-spacing: 0.5px;
   `,
 
-  /* VALUE HIGHLIGHT BAR (SAVING 20 DAYS & REFERRAL REWARDS) */
+  /* VALUE HIGHLIGHT BAR */
   valueHighlightBar: css`
     display: flex;
     justify-content: center;
@@ -159,7 +178,6 @@ const styles = {
     transition: all 0.25s ease;
     box-shadow: 0 6px 18px rgba(218, 83, 44, 0.3);
     white-space: nowrap;
-    font-family: 'Plus Jakarta Sans', sans-serif;
 
     &:hover {
       background: #B83D1B;
@@ -187,14 +205,9 @@ const styles = {
     border-radius: 18px;
     font-size: 12.5px;
     font-weight: 800;
-    transition: transform 0.25s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
   `,
 
-  /* 3 JOB CARDS MATCHING SCREENSHOT EXACTLY */
+  /* 3 JOB CARDS */
   jobsGrid: css`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -213,18 +226,6 @@ const styles = {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(218, 83, 44, 0.18);
-    }
-  `,
-  jobHeader: css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
   `,
   companyTag: css`
     font-size: 13px;
@@ -249,7 +250,6 @@ const styles = {
     color: #1E293B;
     margin-bottom: 12px;
     line-height: 1.35;
-    letter-spacing: -0.3px;
   `,
   jobMeta: css`
     display: flex;
@@ -289,13 +289,6 @@ const styles = {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: all 0.25s ease;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-
-    &:hover {
-      background: #B83D1B;
-      box-shadow: 0 6px 18px rgba(218, 83, 44, 0.35);
-    }
   `
 };
 
@@ -340,17 +333,26 @@ const MultiJobSearch = () => {
   return (
     <div css={styles.sectionOuter} className="uden-fade-in">
       <div css={styles.container}>
-        <div css={styles.header}>
-          <div css={styles.badgeTag} className="uden-float-anim">
-            <Sparkles size={14} />
-            AI-POWERED MATCHING COMPANION
+        {/* Top Hero 2-Column Grid embedding StudentRoadmapImage */}
+        <div css={styles.topHeroGrid}>
+          <div css={styles.header}>
+            <div css={styles.badgeTag} className="uden-float-anim">
+              <Compass size={14} />
+              AI CAREER COMPANION & ROADMAP
+            </div>
+            <h2>
+              Search <span>100,000+ Jobs</span> & Save 20 Days Manually
+            </h2>
+            <p>
+              UDEN’s AI companion understands your profile to eliminate manual job searching. Plus, get paid cash rewards while searching by referring friends!
+            </p>
           </div>
-          <h2>
-            Search <span>100,000+ Jobs</span> & Save 20 Days Manually
-          </h2>
-          <p>
-            UDEN’s AI companion understands your profile to eliminate manual job searching. Plus, get paid cash rewards while searching by referring friends!
-          </p>
+
+          {StudentRoadmapImage && (
+            <div>
+              <img src={StudentRoadmapImage} alt="Student AI Career Roadmap" css={styles.roadmapImg} className="uden-card-hover" />
+            </div>
+          )}
         </div>
 
         {/* Value Highlights Pill Bar */}
@@ -418,12 +420,12 @@ const MultiJobSearch = () => {
           </div>
         </div>
 
-        {/* 3 Job Cards matching UDEN brand colors */}
+        {/* 3 Job Cards */}
         <div css={styles.jobsGrid}>
           {sampleJobs.map((job, idx) => (
             <div key={idx} css={styles.jobCard} className="uden-card-hover">
               <div>
-                <div css={styles.jobHeader}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
                   <span css={styles.companyTag}>{job.company}</span>
                   <span css={styles.sourceBoardTag}>{job.board}</span>
                 </div>

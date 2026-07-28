@@ -2,17 +2,50 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, Play } from 'lucide-react';
+import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, Play, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
 import { AppRoutes } from '../../../../utils/consts/routes';
 import { AppAssets } from '../../../../utils/consts/app_assets';
+
+let MentorGuidanceImage;
+try {
+  MentorGuidanceImage = require('../../../../utils/consts/uploaded_illustrations').MentorGuidanceImage;
+} catch (e) {
+  MentorGuidanceImage = null;
+}
 
 const styles = {
   container: css`
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
+  `,
+  topMentorCard: css`
+    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    border: 2px solid #DA532C;
+    border-radius: 24px;
+    padding: 32px 40px;
+    margin-bottom: 44px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+  `,
+  mentorImg: css`
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   `,
   header: css`
     text-align: center;
@@ -229,6 +262,29 @@ const CompanyPrepExplorer = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
+      {/* 1-on-1 Mentor Guidance Top Feature Banner displaying Image 1 */}
+      {MentorGuidanceImage && (
+        <div css={styles.topMentorCard} className="uden-card-hover">
+          <img src={MentorGuidanceImage} alt="1-on-1 Mentor Guidance & Live Prep" css={styles.mentorImg} />
+          <div>
+            <div css={styles.badgeTag} className="uden-float-anim">
+              <Users size={14} />
+              1-ON-1 MENTORSHIP & GROUP PREP
+            </div>
+            <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#1E293B', marginBottom: '10px' }}>
+              Learn Directly from Industry Experts & Crack Target Selection Rounds
+            </h3>
+            <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', marginBottom: '20px' }}>
+              Get personal guidance from experienced mentors who have cleared selection rounds at Deloitte, TCS NQT, and Amazon SDE.
+            </p>
+            <button css={styles.accessBtn} style={{ background: '#DA532C', color: '#FFFFFF', border: 'none' }} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+              Book 1-on-1 Mentor Session
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
       <div css={styles.header}>
         <div css={styles.badgeTag} className="uden-float-anim">
           <Sparkles size={14} />
