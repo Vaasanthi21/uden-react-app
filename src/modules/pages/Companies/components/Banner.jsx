@@ -10,11 +10,7 @@ let RecruitmentTeamImage;
 try {
   RecruitmentTeamImage = require('../../../../assets/images/recruitment-team.jpg');
 } catch (e) {
-  try {
-    RecruitmentTeamImage = require('../../../../assets/images/candidate-network.jpg');
-  } catch (err) {
-    RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
-  }
+  RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
 }
 
 const styles = {
@@ -111,11 +107,11 @@ const styles = {
   `,
   recruitImgBanner: css`
     width: 100%;
-    max-height: 260px;
+    max-height: 270px;
     object-fit: contain;
     border-radius: 24px;
     background: #FFFFFF;
-    padding: 14px;
+    padding: 12px;
     border: 2px solid #DA532C;
     box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
   `,
@@ -243,7 +239,7 @@ const CompaniesBanner = () => {
           </div>
         </div>
 
-        {/* Right Column Talent Request Card with Embedded Recruitment Illustration */}
+        {/* Right Column Talent Request Card with Embedded Recruitment Team Illustration */}
         <div css={styles.rightCol}>
           <img 
             src={RecruitmentTeamImage} 

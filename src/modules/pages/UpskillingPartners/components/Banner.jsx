@@ -6,14 +6,11 @@ import { GraduationCap, Sparkles, Award, ArrowRight, BookOpen, CheckCircle2, Sea
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
-let MentorGuidanceImage, TeamCollaborationImage;
+let ContractHandshakeImage;
 try {
-  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
-  MentorGuidanceImage = illustrations.MentorGuidanceImage;
-  TeamCollaborationImage = illustrations.TeamCollaborationImage;
+  ContractHandshakeImage = require('../../../../assets/images/contract-handshake.jpg');
 } catch (e) {
-  MentorGuidanceImage = null;
-  TeamCollaborationImage = null;
+  ContractHandshakeImage = process.env.PUBLIC_URL + '/images/contract-handshake.jpg';
 }
 
 const styles = {
@@ -152,7 +149,7 @@ const styles = {
   `,
   partnerImgBanner: css`
     width: 100%;
-    max-height: 260px;
+    max-height: 270px;
     object-fit: contain;
     border-radius: 24px;
     background: #FFFFFF;
@@ -262,14 +259,12 @@ const UpskillingBanner = () => {
         </div>
 
         <div css={styles.rightCol}>
-          {TeamCollaborationImage && (
-            <img 
-              src={TeamCollaborationImage} 
-              alt="Upskilling Partnership & Contract Handshake" 
-              css={styles.partnerImgBanner}
-              className="uden-card-hover" 
-            />
-          )}
+          <img 
+            src={ContractHandshakeImage} 
+            alt="Upskilling Partnership & Contract Handshake" 
+            css={styles.partnerImgBanner}
+            className="uden-card-hover" 
+          />
 
           <div css={styles.rightCardDeck} className="uden-card-hover">
             <div css={styles.deckTitle}>

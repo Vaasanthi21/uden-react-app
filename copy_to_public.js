@@ -13,29 +13,43 @@ if (!fs.existsSync(assetsDir)) {
   fs.mkdirSync(assetsDir, { recursive: true });
 }
 
-function copyFile(src, publicName) {
+function copyFile(filename, publicName) {
+  let src = path.join(userUploadedDir, filename);
+  if (!fs.existsSync(src)) {
+    src = path.join(tempStorageDir, filename);
+  }
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, path.join(publicDir, publicName));
     fs.copyFileSync(src, path.join(assetsDir, publicName));
-    console.log(`SUCCESSFULLY_COPIED: ${publicName}`);
+    console.log(`COPIED: ${filename} -> ${publicName}`);
   } else {
-    console.log(`NOT_FOUND: ${src}`);
+    console.log(`FILE NOT FOUND: ${filename}`);
   }
 }
 
-// 1. Recruitment Team illustration (Hire From Us / Companies Page)
-const recruitSrc = path.join(tempStorageDir, 'media__1785237090473.jpg');
-copyFile(recruitSrc, 'recruitment-team.jpg');
+// 1. Checklist Completed (New Purple Clipboard Checklist)
+copyFile('media__1785238216632.jpg', 'checklist-completed.jpg');
 
-// 2. Career Growth Line Graph
-copyFile(path.join(userUploadedDir, 'media__1785235035154.jpg'), 'career-growth.jpg');
+// 2. Recruitment Team around Screen
+copyFile('media__1785238216636.jpg', 'recruitment-team.jpg');
 
-// 3. All other 6 illustrations
-copyFile(path.join(userUploadedDir, 'media__1785224359752.jpg'), 'mentor-guidance.jpg');
-copyFile(path.join(userUploadedDir, 'media__1785224359761.jpg'), 'team-collaboration.jpg');
-copyFile(path.join(userUploadedDir, 'media__1785224359995.jpg'), 'student-roadmap.jpg');
-copyFile(path.join(userUploadedDir, 'media__1785226960653.jpg'), 'candidate-network.jpg');
-copyFile(path.join(userUploadedDir, 'media__1785226960693.jpg'), 'faq-support-desk.jpg');
-copyFile(path.join(userUploadedDir, 'media__1785226961085.jpg'), 'ai-robot-team.jpg');
+// 3. Candidate Screening / Magnifying Glass
+copyFile('media__1785238216656.jpg', 'candidate-network.jpg');
 
-console.log('ALL_IMAGES_COPIED_TO_PUBLIC_AND_ASSETS');
+// 4. Contract Handshake
+copyFile('media__1785238216653.jpg', 'contract-handshake.jpg');
+
+// 5. JOB Team Illustration
+copyFile('media__1785238216789.jpg', 'job-team.jpg');
+
+// 6. Career Growth Line Graph
+copyFile('media__1785235035154.jpg', 'career-growth.jpg');
+
+// 7. Other batch 1 & 2 illustrations
+copyFile('media__1785224359752.jpg', 'mentor-guidance.jpg');
+copyFile('media__1785224359761.jpg', 'team-collaboration.jpg');
+copyFile('media__1785224359995.jpg', 'student-roadmap.jpg');
+copyFile('media__1785226960693.jpg', 'faq-support-desk.jpg');
+copyFile('media__1785226961085.jpg', 'ai-robot-team.jpg');
+
+console.log('ALL_5_TARGET_IMAGES_COPIED_TO_PUBLIC_AND_ASSETS');

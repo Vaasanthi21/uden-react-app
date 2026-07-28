@@ -8,3 +8,7 @@ export const AiRobotTeamImage = process.env.PUBLIC_URL + '/images/ai-robot-team.
 
 export const CareerGrowthImage = process.env.PUBLIC_URL + '/images/career-growth.jpg';
 export const RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
+
+export const ChecklistCompletedImage = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
+export const ContractHandshakeImage = process.env.PUBLIC_URL + '/images/contract-handshake.jpg';
+export const JobTeamImage = process.env.PUBLIC_URL + '/images/job-team.jpg';

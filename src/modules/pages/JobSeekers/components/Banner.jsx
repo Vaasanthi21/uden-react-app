@@ -6,14 +6,11 @@ import { Sparkles, ArrowRight, CheckCircle2, Star, ShieldCheck, UserCheck, Trend
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
-let StudentRoadmapImage, AiRobotTeamImage;
+let JobTeamImage;
 try {
-  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
-  StudentRoadmapImage = illustrations.StudentRoadmapImage;
-  AiRobotTeamImage = illustrations.AiRobotTeamImage;
+  JobTeamImage = require('../../../../assets/images/job-team.jpg');
 } catch (e) {
-  StudentRoadmapImage = null;
-  AiRobotTeamImage = null;
+  JobTeamImage = process.env.PUBLIC_URL + '/images/job-team.jpg';
 }
 
 const styles = {
@@ -130,6 +127,11 @@ const styles = {
     @media (max-width: 960px) {
       justify-content: center;
     }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      width: 100%;
+    }
   `,
   primaryBtn: css`
     background: #DA532C;
@@ -180,7 +182,7 @@ const styles = {
   `,
   jobImgBanner: css`
     width: 100%;
-    max-height: 240px;
+    max-height: 270px;
     object-fit: contain;
     border-radius: 24px;
     background: #FFFFFF;
@@ -345,16 +347,14 @@ const JobSeekerBanner = () => {
           </div>
         </div>
 
-        {/* Right Column: Embedded Candidate Roadmap Illustration Banner + AI Match Card */}
+        {/* Right Column: Embedded Candidate JOB Team Illustration Banner + AI Match Card */}
         <div css={styles.rightCol}>
-          {StudentRoadmapImage && (
-            <img 
-              src={StudentRoadmapImage} 
-              alt="Student Career Roadmap & Skill Assessment" 
-              css={styles.jobImgBanner}
-              className="uden-card-hover" 
-            />
-          )}
+          <img 
+            src={JobTeamImage} 
+            alt="Candidate JOB Team & Opportunity Finder" 
+            css={styles.jobImgBanner}
+            className="uden-card-hover" 
+          />
 
           <div css={styles.profileDemoCard} className="uden-card-hover">
             <div css={styles.profileCardHeader}>
