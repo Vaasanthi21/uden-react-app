@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { TrendingUp, ArrowUpRight, Sparkles, Award } from 'lucide-react';
+import { TrendingUp, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 import { HomeConst } from '../Home.Const';
 
-let CareerGrowthImage;
+let CareerGrowthVideo;
 try {
-  CareerGrowthImage = require('../../../../utils/consts/uploaded_illustrations').CareerGrowthImage;
+  CareerGrowthVideo = require('../../../../assets/images/career-growth-video.mp4');
 } catch (e) {
-  CareerGrowthImage = null;
+  CareerGrowthVideo = process.env.PUBLIC_URL + '/videos/career-growth-video.mp4';
 }
 
 const styles = {
@@ -102,15 +102,15 @@ const styles = {
     justify-content: center;
     align-items: center;
   `,
-  growthImg: css`
+  growthVideo: css`
     width: 100%;
-    max-height: 220px;
+    max-height: 240px;
     object-fit: contain;
     border-radius: 16px;
     background: #FFFDF7;
-    padding: 8px;
+    padding: 6px;
     border: 1.5px solid #FEF5D8;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 24px rgba(218, 83, 44, 0.1);
   `,
   resultCol: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
@@ -240,21 +240,17 @@ const CareerCalculator = () => {
             </p>
           </div>
 
-          {/* Column 2: New Career Growth Line Graph Illustration */}
+          {/* Column 2: Autoplaying GIF-like Video from 20260728_16_09_19_491.mp4 */}
           <div css={styles.illustrationCol}>
-            {CareerGrowthImage ? (
-              <img 
-                src={CareerGrowthImage} 
-                alt="Career Growth & Salary Uplift Analysis" 
-                css={styles.growthImg}
-                className="uden-card-hover"
-              />
-            ) : (
-              <div style={{ textAlign: 'center', color: '#DA532C', fontWeight: '800' }}>
-                <TrendingUp size={36} />
-                <div style={{ marginTop: '8px' }}>Market Uplift Analysis</div>
-              </div>
-            )}
+            <video 
+              src={CareerGrowthVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              css={styles.growthVideo}
+              className="uden-card-hover"
+            />
           </div>
 
           {/* Column 3: Salary Uplift & Skills Card */}
