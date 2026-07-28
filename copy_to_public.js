@@ -13,9 +13,12 @@ fs.copyFileSync(path.join(srcDir, 'media__1785224359752.jpg'), path.join(publicD
 fs.copyFileSync(path.join(srcDir, 'media__1785224359761.jpg'), path.join(publicDir, 'team-collaboration.jpg'));
 fs.copyFileSync(path.join(srcDir, 'media__1785224359995.jpg'), path.join(publicDir, 'student-roadmap.jpg'));
 
-// Second set of 3 images with exact filenames
+// Second set of 3 images
 fs.copyFileSync(path.join(srcDir, 'media__1785226960653.jpg'), path.join(publicDir, 'candidate-network.jpg'));
 fs.copyFileSync(path.join(srcDir, 'media__1785226960693.jpg'), path.join(publicDir, 'faq-support-desk.jpg'));
 fs.copyFileSync(path.join(srcDir, 'media__1785226961085.jpg'), path.join(publicDir, 'ai-robot-team.jpg'));
 
-console.log('ALL_6_PUBLIC_IMAGES_COPIED_SUCCESSFULLY');
+// Newest Career Growth Line Graph image
+fs.copyFileSync(path.join(srcDir, 'media__1785227745778.jpg'), path.join(publicDir, 'career-growth.jpg'));
+
+console.log('ALL_7_PUBLIC_IMAGES_COPIED_SUCCESSFULLY');
