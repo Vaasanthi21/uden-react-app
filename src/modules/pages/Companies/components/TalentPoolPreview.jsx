@@ -2,53 +2,125 @@ import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Award, Briefcase, MapPin, CheckCircle2, ArrowRight, UserCheck } from 'lucide-react';
+import { Award, Briefcase, MapPin, CheckCircle2, ArrowRight, UserCheck, Sparkles, ShieldCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
+
+let StudentRoadmapImage, CandidateNetworkImage, AiRobotTeamImage, FaqSupportDeskImage, RecruitmentTeamImage;
+try {
+  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  StudentRoadmapImage = illustrations.StudentRoadmapImage;
+  CandidateNetworkImage = illustrations.CandidateNetworkImage;
+  AiRobotTeamImage = illustrations.AiRobotTeamImage;
+  FaqSupportDeskImage = illustrations.FaqSupportDeskImage;
+  RecruitmentTeamImage = illustrations.RecruitmentTeamImage;
+} catch (e) {
+  StudentRoadmapImage = null;
+  CandidateNetworkImage = null;
+  AiRobotTeamImage = null;
+  FaqSupportDeskImage = null;
+  RecruitmentTeamImage = null;
+}
+
+const candidateBanners = [
+  StudentRoadmapImage,
+  CandidateNetworkImage,
+  AiRobotTeamImage,
+  FaqSupportDeskImage
+];
 
 const styles = {
   section: css`
     max-width: 1200px;
     margin: 50px auto;
     padding: 0 16px;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  `,
+  topHeroBanner: css`
+    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    border: 2px solid #DA532C;
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 44px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  `,
+  topImg: css`
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
   header: css`
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
 
     h2 {
-      font-size: 30px;
-      font-weight: 800;
+      font-size: 34px;
+      font-weight: 900;
       color: #1E293B;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+
+      span {
+        color: #DA532C;
+      }
     }
 
     p {
       color: #64748B;
-      font-size: 15px;
+      font-size: 16px;
+      font-weight: 500;
     }
   `,
   grid: css`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
   `,
   card: css`
     background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    border-radius: 18px;
+    border: 2px solid #DA532C;
+    border-radius: 22px;
     padding: 24px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(218, 83, 44, 0.08);
+    transition: all 0.35s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 14px 28px rgba(218, 83, 44, 0.15);
-      border-color: #DA532C;
+      box-shadow: 0 16px 36px rgba(218, 83, 44, 0.16);
     }
+  `,
+  cardImgBanner: css`
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #FFFDF7;
+    padding: 6px;
+    border: 1px solid #FEF5D8;
+    margin-bottom: 16px;
   `,
   candidateHeader: css`
     display: flex;
@@ -57,34 +129,35 @@ const styles = {
     margin-bottom: 14px;
   `,
   avatarBadge: css`
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #DA532C 0%, #FFB020 100%);
+    background: #DA532C;
     color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 16px;
+    font-weight: 900;
+    font-size: 15px;
   `,
   verifiedTag: css`
-    background: #FFF5F5;
+    background: #FEF5D8;
     color: #DA532C;
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 800;
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 4px 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     gap: 4px;
-    border: 1px solid #FECDD3;
+    border: 1px solid rgba(255, 176, 32, 0.6);
   `,
   roleTitle: css`
     font-size: 17px;
     font-weight: 800;
     color: #1E293B;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    line-height: 1.3;
   `,
   experienceRow: css`
     display: flex;
@@ -92,6 +165,7 @@ const styles = {
     gap: 12px;
     font-size: 13px;
     color: #64748B;
+    font-weight: 600;
     margin-bottom: 16px;
 
     span {
@@ -107,13 +181,13 @@ const styles = {
     margin-bottom: 20px;
   `,
   skillChip: css`
-    background: #F8FAFC;
-    color: #334155;
+    background: #FEF5D8;
+    color: #DA532C;
     font-size: 11.5px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 176, 32, 0.4);
   `,
   footerRow: css`
     display: flex;
@@ -124,12 +198,12 @@ const styles = {
   `,
   noticeText: css`
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     color: #10B981;
   `,
   requestLink: css`
     color: #DA532C;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 13px;
     background: none;
     border: none;
@@ -150,8 +224,8 @@ const topCandidates = [
     role: 'Senior React 18 & Next.js Lead',
     exp: '5.5 Years',
     location: 'Remote / India',
-    score: '96% Assessment',
-    skills: ['React 18', 'Next.js', 'TypeScript', 'Redux Toolkit', 'GraphQL'],
+    score: '96% Match',
+    skills: ['React 18', 'Next.js', 'TypeScript', 'Redux'],
     notice: '⚡ Immediate Joiner'
   },
   {
@@ -159,8 +233,8 @@ const topCandidates = [
     role: 'AWS Cloud & DevOps Architect',
     exp: '4.0 Years',
     location: 'Hybrid / APAC',
-    score: '94% Assessment',
-    skills: ['AWS EC2/S3', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'],
+    score: '94% Match',
+    skills: ['AWS EC2', 'Docker', 'Kubernetes', 'CI/CD'],
     notice: '⚡ 15 Days Notice'
   },
   {
@@ -168,8 +242,8 @@ const topCandidates = [
     role: 'AI / Python Data Engineer',
     exp: '3.5 Years',
     location: 'Remote / Global',
-    score: '95% Assessment',
-    skills: ['Python', 'Django', 'PyTorch', 'LLM Fine-Tuning', 'PostgreSQL'],
+    score: '95% Match',
+    skills: ['Python', 'Django', 'PyTorch', 'LLMs'],
     notice: '⚡ Immediate Joiner'
   },
   {
@@ -177,8 +251,8 @@ const topCandidates = [
     role: 'Flutter Cross-Platform Specialist',
     exp: '3.0 Years',
     location: 'Remote / India',
-    score: '91% Assessment',
-    skills: ['Flutter', 'Dart', 'BLoC Pattern', 'Firebase', 'REST APIs'],
+    score: '91% Match',
+    skills: ['Flutter', 'Dart', 'BLoC', 'Firebase'],
     notice: '⚡ Immediate Joiner'
   }
 ];
@@ -187,49 +261,87 @@ const TalentPoolPreview = () => {
   const navigate = useNavigate();
 
   return (
-    <div css={styles.section}>
+    <div css={styles.section} className="uden-fade-in">
+      {/* Feature Header Banner with Recruitment Team Illustration */}
+      {RecruitmentTeamImage && (
+        <div css={styles.topHeroBanner} className="uden-card-hover">
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#FEF5D8', color: '#DA532C', padding: '6px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: '800', marginBottom: '14px', border: '1px solid rgba(255, 176, 32, 0.6)' }}>
+              <ShieldCheck size={14} />
+              PRE-VETTED TALENT SPOTLIGHT
+            </div>
+            <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#1E293B', marginBottom: '10px' }}>
+              Hire Verified Engineers with Zero Upfront Sourcing Fees
+            </h3>
+            <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', marginBottom: '20px' }}>
+              Every candidate in our spotlight pool undergoes rigorous AI technical assessments, system design interviews, and background verifications.
+            </p>
+            <button 
+              style={{ background: '#DA532C', color: '#FFFFFF', border: 'none', padding: '12px 24px', borderRadius: '12px', fontWeight: '800', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              className="uden-pulse-btn"
+              onClick={() => navigate(AppRoutes.FIND_TALENT)}
+            >
+              Request Full Candidate Roster
+              <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <img src={RecruitmentTeamImage} alt="Recruitment Team & Candidate Spotlight" css={styles.topImg} />
+        </div>
+      )}
+
       <div css={styles.header}>
-        <h2>Pre-Assessed Candidate Spotlight</h2>
+        <h2>
+          Pre-Assessed <span>Candidate Spotlight</span>
+        </h2>
         <p>Preview top-rated talent actively seeking opportunities across engineering teams.</p>
       </div>
 
       <div css={styles.grid}>
-        {topCandidates.map((c, idx) => (
-          <div key={idx} css={styles.card}>
-            <div>
-              <div css={styles.candidateHeader}>
-                <div css={styles.avatarBadge}>{c.initials}</div>
-                <div css={styles.verifiedTag}>
-                  <Award size={13} color="#DA532C" />
-                  {c.score}
+        {topCandidates.map((c, idx) => {
+          const bannerImg = candidateBanners[idx];
+
+          return (
+            <div key={idx} css={styles.card} className="uden-card-hover">
+              <div>
+                {bannerImg && (
+                  <img src={bannerImg} alt={c.role} css={styles.cardImgBanner} />
+                )}
+
+                <div css={styles.candidateHeader}>
+                  <div css={styles.avatarBadge}>{c.initials}</div>
+                  <div css={styles.verifiedTag}>
+                    <Award size={13} color="#DA532C" />
+                    {c.score}
+                  </div>
+                </div>
+
+                <div css={styles.roleTitle}>{c.role}</div>
+                <div css={styles.experienceRow}>
+                  <span><Briefcase size={14} /> {c.exp}</span>
+                  <span><MapPin size={14} /> {c.location}</span>
+                </div>
+
+                <div css={styles.skillsTags}>
+                  {c.skills.map((s, i) => (
+                    <span key={i} css={styles.skillChip}>{s}</span>
+                  ))}
                 </div>
               </div>
 
-              <div css={styles.roleTitle}>{c.role}</div>
-              <div css={styles.experienceRow}>
-                <span><Briefcase size={14} /> {c.exp}</span>
-                <span><MapPin size={14} /> {c.location}</span>
-              </div>
-
-              <div css={styles.skillsTags}>
-                {c.skills.map((s, i) => (
-                  <span key={i} css={styles.skillChip}>{s}</span>
-                ))}
+              <div css={styles.footerRow}>
+                <span css={styles.noticeText}>{c.notice}</span>
+                <button 
+                  css={styles.requestLink}
+                  onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                >
+                  Request Profile
+                  <ArrowRight size={14} />
+                </button>
               </div>
             </div>
-
-            <div css={styles.footerRow}>
-              <span css={styles.noticeText}>{c.notice}</span>
-              <button 
-                css={styles.requestLink}
-                onClick={() => navigate(AppRoutes.FIND_TALENT)}
-              >
-                Request Profile
-                <ArrowRight size={14} />
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
