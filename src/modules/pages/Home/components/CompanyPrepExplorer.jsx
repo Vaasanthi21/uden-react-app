@@ -8,14 +8,18 @@ import { HomeConst } from '../Home.Const';
 import { AppRoutes } from '../../../../utils/consts/routes';
 import { AppAssets } from '../../../../utils/consts/app_assets';
 
-let MentorGuidanceImage;
-let AiRobotTeamImage;
+let MentorGuidanceImage, AiRobotTeamImage, FaqSupportDeskImage, StudentRoadmapImage;
 try {
-  MentorGuidanceImage = require('../../../../utils/consts/uploaded_illustrations').MentorGuidanceImage;
-  AiRobotTeamImage = require('../../../../utils/consts/uploaded_illustrations').AiRobotTeamImage;
+  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  MentorGuidanceImage = illustrations.MentorGuidanceImage;
+  AiRobotTeamImage = illustrations.AiRobotTeamImage;
+  FaqSupportDeskImage = illustrations.FaqSupportDeskImage;
+  StudentRoadmapImage = illustrations.StudentRoadmapImage;
 } catch (e) {
   MentorGuidanceImage = null;
   AiRobotTeamImage = null;
+  FaqSupportDeskImage = null;
+  StudentRoadmapImage = null;
 }
 
 const styles = {
@@ -141,42 +145,33 @@ const styles = {
     flex-direction: column;
     justify-content: space-between;
   `,
-  iconGraphic: css`
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 12px;
-    transition: transform 0.4s ease;
-
-    &:hover {
-      transform: scale(1.1) rotate(-5deg);
-    }
-  `,
-  robotGraphic: css`
+  illustrationCardBanner: css`
     width: 100%;
-    max-height: 120px;
+    max-height: 140px;
     object-fit: contain;
     margin-bottom: 16px;
-    border-radius: 12px;
+    border-radius: 14px;
     background: #FFFFFF;
     padding: 6px;
+    border: 1px solid #FEF5D8;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
   `,
   roundHeader: css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   `,
   roundBadge: css`
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     border-radius: 12px;
     background: rgba(218, 83, 44, 0.1);
     color: #DA532C;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
   `,
   roundTitle: css`
@@ -259,10 +254,10 @@ const styles = {
   `
 };
 
-const roundIcons = [
-  AppAssets.HomeAssets.FEATURES.TALENT_DEVELOPMENT,
-  AppAssets.HomeAssets.FEATURES.CURATED_PROGRAM,
-  AppAssets.HomeAssets.FEATURES.AI_POWERED_MATHC
+const roundCardImages = [
+  FaqSupportDeskImage,
+  StudentRoadmapImage,
+  AiRobotTeamImage
 ];
 
 const CompanyPrepExplorer = () => {
@@ -274,7 +269,7 @@ const CompanyPrepExplorer = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
-      {/* 1-on-1 Mentor Guidance Top Feature Banner displaying Image 1 */}
+      {/* 1-on-1 Mentor Guidance Top Feature Banner */}
       {MentorGuidanceImage && (
         <div css={styles.topMentorCard} className="uden-card-hover">
           <img src={MentorGuidanceImage} alt="1-on-1 Mentor Guidance & Live Prep" css={styles.mentorImg} />
@@ -322,13 +317,13 @@ const CompanyPrepExplorer = () => {
       <div css={styles.roundsGrid} className="uden-tab-anim" key={selectedCompanyId}>
         {currentCompany.rounds.map((rnd, idx) => {
           const isAiVideoRound = idx === 2;
+          const cardImg = roundCardImages[idx];
+
           return isAiVideoRound ? (
             <div key={idx} css={styles.aiMockCard} className="uden-card-hover">
               <div>
-                {AiRobotTeamImage ? (
-                  <img src={AiRobotTeamImage} alt="AI Mock Interview Assistant" css={styles.robotGraphic} />
-                ) : (
-                  <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
+                {cardImg && (
+                  <img src={cardImg} alt={rnd.title} css={styles.illustrationCardBanner} />
                 )}
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
@@ -359,7 +354,9 @@ const CompanyPrepExplorer = () => {
           ) : (
             <div key={idx} css={styles.roundCard} className="uden-card-hover">
               <div>
-                <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
+                {cardImg && (
+                  <img src={cardImg} alt={rnd.title} css={styles.illustrationCardBanner} />
+                )}
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
                   <span style={{ fontSize: '12px', fontWeight: '700', color: '#64748B' }}>SELECTION ROUND</span>
