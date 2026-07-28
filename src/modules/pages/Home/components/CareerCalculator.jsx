@@ -7,12 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 import { HomeConst } from '../Home.Const';
 
-let CareerGrowthVideo, CareerGrowthImg;
+let CareerGrowthImg;
 try {
-  CareerGrowthVideo = require('../../../../assets/images/career-growth-video.mp4');
   CareerGrowthImg = require('../../../../assets/images/career-growth.jpg');
 } catch (e) {
-  CareerGrowthVideo = process.env.PUBLIC_URL + '/videos/career-growth-video.mp4';
   CareerGrowthImg = process.env.PUBLIC_URL + '/images/career-growth.jpg';
 }
 
@@ -107,9 +105,9 @@ const styles = {
     border-radius: 16px;
     overflow: hidden;
   `,
-  growthVideo: css`
+  growthImg: css`
     width: 100%;
-    max-height: 240px;
+    max-height: 230px;
     object-fit: contain;
     border-radius: 16px;
     background: #FFFFFF !important;
@@ -245,18 +243,13 @@ const CareerCalculator = () => {
             </p>
           </div>
 
-          {/* Column 2: Seamless Autoplaying Video GIF with Poster Fallback & Zero Black Flashes */}
+          {/* Column 2: 100% Crisp Illustration Image (Zero Black Canvas Flashes) */}
           <div css={styles.illustrationCol}>
-            <video 
-              src={CareerGrowthVideo}
-              poster={CareerGrowthImg}
-              autoPlay
-              loop
-              muted
-              playsInline
-              css={styles.growthVideo}
+            <img 
+              src={CareerGrowthImg}
+              alt="Career Growth & Salary Uplift Analysis" 
+              css={styles.growthImg}
               className="uden-card-hover"
-              style={{ background: '#FFFFFF' }}
             />
           </div>
 
