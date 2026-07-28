@@ -6,6 +6,13 @@ import { ChevronDown, ChevronUp, Search, Sparkles, ArrowRight } from 'lucide-rea
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 
+let FaqSupportDeskImage;
+try {
+  FaqSupportDeskImage = require('../../../utils/consts/uploaded_illustrations').FaqSupportDeskImage;
+} catch (e) {
+  FaqSupportDeskImage = null;
+}
+
 const faqItems = [
   {
     id: 'q1',
@@ -45,7 +52,7 @@ const styles = {
     max-width: 1140px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.95fr 1.05fr;
     gap: 56px;
     align-items: flex-start;
 
@@ -77,7 +84,7 @@ const styles = {
     width: fit-content;
   `,
   title: css`
-    font-size: 46px;
+    font-size: 44px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.15;
@@ -107,14 +114,8 @@ const styles = {
     border-radius: 28px;
     padding: 14px 22px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     gap: 12px;
-    transition: border-color 0.25s ease;
-
-    &:focus-within {
-      border-color: #DA532C;
-      box-shadow: 0 8px 24px rgba(218, 83, 44, 0.15);
-    }
 
     input {
       border: none;
@@ -132,9 +133,10 @@ const styles = {
   `,
   ctaCard: css`
     background: #FEF5D8;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    border: 2px solid #DA532C;
     border-radius: 24px;
-    padding: 32px;
+    padding: 28px;
+    box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
 
     h3 {
       font-size: 22px;
@@ -146,9 +148,19 @@ const styles = {
     p {
       font-size: 14.5px;
       color: #64748B;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.5;
     }
+  `,
+  supportImg: css`
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
   ctaBtn: css`
     background: #DA532C;
@@ -164,6 +176,8 @@ const styles = {
     gap: 8px;
     transition: all 0.25s ease;
     box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    width: 100%;
+    justify-content: center;
 
     &:hover {
       background: #B83D1B;
@@ -230,7 +244,7 @@ const FaqPage = () => {
   return (
     <div css={styles.sectionOuter} className="uden-fade-in">
       <div css={styles.container}>
-        {/* LEFT COLUMN: Header, Search & Still Have Questions Card */}
+        {/* LEFT COLUMN: Header, Search & Support Desk Card */}
         <div css={styles.leftCol}>
           <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} />
@@ -255,9 +269,12 @@ const FaqPage = () => {
             />
           </div>
 
-          <div css={styles.ctaCard}>
+          <div css={styles.ctaCard} className="uden-card-hover">
+            {FaqSupportDeskImage && (
+              <img src={FaqSupportDeskImage} alt="UDEN Support Desk & Guidelines" css={styles.supportImg} />
+            )}
             <h3>Still have questions?</h3>
-            <p>Talk to our team or explore our dedicated stakeholder portals.</p>
+            <p>Talk to our career onboarding team or explore our dedicated stakeholder guidelines.</p>
             <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_TALENT)}>
               Get Started with UDEN
               <ArrowRight size={16} />
@@ -265,7 +282,7 @@ const FaqPage = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Accordion Item Cards matching Screenshot */}
+        {/* RIGHT COLUMN: Accordion Item Cards */}
         <div css={styles.rightCol}>
           {filteredFaqs.map((item) => {
             const isOpen = openId === item.id;

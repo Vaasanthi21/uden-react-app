@@ -9,10 +9,13 @@ import { AppRoutes } from '../../../../utils/consts/routes';
 import { AppAssets } from '../../../../utils/consts/app_assets';
 
 let MentorGuidanceImage;
+let AiRobotTeamImage;
 try {
   MentorGuidanceImage = require('../../../../utils/consts/uploaded_illustrations').MentorGuidanceImage;
+  AiRobotTeamImage = require('../../../../utils/consts/uploaded_illustrations').AiRobotTeamImage;
 } catch (e) {
   MentorGuidanceImage = null;
+  AiRobotTeamImage = null;
 }
 
 const styles = {
@@ -148,6 +151,15 @@ const styles = {
     &:hover {
       transform: scale(1.1) rotate(-5deg);
     }
+  `,
+  robotGraphic: css`
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    padding: 6px;
   `,
   roundHeader: css`
     display: flex;
@@ -313,7 +325,11 @@ const CompanyPrepExplorer = () => {
           return isAiVideoRound ? (
             <div key={idx} css={styles.aiMockCard} className="uden-card-hover">
               <div>
-                <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
+                {AiRobotTeamImage ? (
+                  <img src={AiRobotTeamImage} alt="AI Mock Interview Assistant" css={styles.robotGraphic} />
+                ) : (
+                  <img src={roundIcons[idx]} alt={rnd.title} css={styles.iconGraphic} />
+                )}
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
                   <span style={{ fontSize: '11px', fontWeight: '800', background: '#DA532C', color: '#FFF', padding: '4px 10px', borderRadius: '8px' }}>

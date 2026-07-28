@@ -2,10 +2,16 @@ import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/react';
-import { ShieldCheck, Video, Award, Clock, ArrowRight, CheckCircle2, Building } from 'lucide-react';
+import { ShieldCheck, Video, Award, Clock, ArrowRight, CheckCircle2, Building, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
-import { AppAssets } from '../../../../utils/consts/app_assets';
+
+let CandidateNetworkImage;
+try {
+  CandidateNetworkImage = require('../../../../utils/consts/uploaded_illustrations').CandidateNetworkImage;
+} catch (e) {
+  CandidateNetworkImage = null;
+}
 
 const floatSlow = keyframes`
   0% { transform: translateY(0px); }
@@ -120,12 +126,15 @@ const styles = {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     animation: ${floatSlow} 4s ease-in-out infinite;
   `,
-  illustrationImg: css`
+  networkImg: css`
     width: 100%;
-    max-height: 160px;
+    max-height: 180px;
     object-fit: contain;
     margin-bottom: 20px;
-    border-radius: 12px;
+    border-radius: 14px;
+    background: #FFFDF7;
+    padding: 10px;
+    border: 1.5px solid #FEF5D8;
   `,
   candidateHeader: css`
     display: flex;
@@ -230,14 +239,17 @@ const RecruiterVettedHub = () => {
             </li>
           </ul>
 
-          <button css={styles.ctaBtn} onClick={() => navigate(AppRoutes.FIND_TALENT)}>
+          <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_TALENT)}>
             Request Candidate Profiles
             <ArrowRight size={18} />
           </button>
         </div>
 
-        <div css={styles.previewCard}>
-          <img src={AppAssets.HomeAssets.FEATURES.IN_DEMAND_SKILLS} alt="In-Demand Talent Pool" css={styles.illustrationImg} />
+        <div css={styles.previewCard} className="uden-card-hover">
+          {CandidateNetworkImage && (
+            <img src={CandidateNetworkImage} alt="Interconnected Candidate Talent Network" css={styles.networkImg} />
+          )}
+
           <div css={styles.candidateHeader}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div css={styles.candidateAvatar}>PJ</div>
