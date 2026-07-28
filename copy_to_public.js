@@ -13,27 +13,28 @@ if (!fs.existsSync(assetsDir)) {
   fs.mkdirSync(assetsDir, { recursive: true });
 }
 
-// 1. Recruitment Team illustration (Hire From Us / Companies Page)
-const recruitImgFile = path.join(tempStorageDir, 'media__1785237090473.jpg');
-if (fs.existsSync(recruitImgFile)) {
-  fs.copyFileSync(recruitImgFile, path.join(publicDir, 'recruitment-team.jpg'));
-  fs.copyFileSync(recruitImgFile, path.join(assetsDir, 'recruitment-team.jpg'));
+function copyFile(src, publicName) {
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(publicDir, publicName));
+    fs.copyFileSync(src, path.join(assetsDir, publicName));
+    console.log(`COPIED: ${publicName}`);
+  } else {
+    console.log(`NOT FOUND: ${src}`);
+  }
 }
 
-// 2. All other 6 illustrations
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359752.jpg'), path.join(publicDir, 'mentor-guidance.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359761.jpg'), path.join(publicDir, 'team-collaboration.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359995.jpg'), path.join(publicDir, 'student-roadmap.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226960653.jpg'), path.join(publicDir, 'candidate-network.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226960693.jpg'), path.join(publicDir, 'faq-support-desk.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226961085.jpg'), path.join(publicDir, 'ai-robot-team.jpg'));
+// 1. Recruitment Team illustration
+copyFile(path.join(tempStorageDir, 'media__1785237090473.jpg'), 'recruitment-team.jpg');
 
-// Copy to assetsDir for direct Webpack imports
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359752.jpg'), path.join(assetsDir, 'mentor-guidance.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359761.jpg'), path.join(assetsDir, 'team-collaboration.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785224359995.jpg'), path.join(assetsDir, 'student-roadmap.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226960653.jpg'), path.join(assetsDir, 'candidate-network.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226960693.jpg'), path.join(assetsDir, 'faq-support-desk.jpg'));
-fs.copyFileSync(path.join(userUploadedDir, 'media__1785226961085.jpg'), path.join(assetsDir, 'ai-robot-team.jpg'));
+// 2. Career Growth Line Graph
+copyFile(path.join(userUploadedDir, 'media__1785235035154.jpg'), 'career-growth.jpg');
 
-console.log('ALL_PAGE_ILLUSTRATION_IMAGES_COPIED');
+// 3. All other 6 illustrations
+copyFile(path.join(userUploadedDir, 'media__1785224359752.jpg'), 'mentor-guidance.jpg');
+copyFile(path.join(userUploadedDir, 'media__1785224359761.jpg'), 'team-collaboration.jpg');
+copyFile(path.join(userUploadedDir, 'media__1785224359995.jpg'), 'student-roadmap.jpg');
+copyFile(path.join(userUploadedDir, 'media__1785226960653.jpg'), 'candidate-network.jpg');
+copyFile(path.join(userUploadedDir, 'media__1785226960693.jpg'), 'faq-support-desk.jpg');
+copyFile(path.join(userUploadedDir, 'media__1785226961085.jpg'), 'ai-robot-team.jpg');
+
+console.log('ALL_ILLUSTRATION_IMAGES_SYNCED_TO_GIT_ASSETS');
