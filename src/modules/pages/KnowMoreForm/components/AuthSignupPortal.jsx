@@ -7,6 +7,13 @@ import Logo from '../../../components/logo/Logo';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
+let ChecklistCompletedImage;
+try {
+  ChecklistCompletedImage = require('../../../../assets/images/checklist-completed.jpg');
+} catch (e) {
+  ChecklistCompletedImage = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
+}
+
 const styles = {
   outer: css`
     min-height: calc(100vh - 120px);
@@ -15,14 +22,15 @@ const styles = {
     justify-content: center;
     background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
     padding: 40px 16px;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   card: css`
     width: 100%;
-    max-width: 980px;
+    max-width: 1020px;
     background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
+    border: 2px solid #DA532C;
     border-radius: 24px;
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 45px -10px rgba(218, 83, 44, 0.15);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     overflow: hidden;
@@ -33,7 +41,7 @@ const styles = {
   `,
   leftCol: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    padding: 48px;
+    padding: 44px;
     color: #1E293B;
     display: flex;
     flex-direction: column;
@@ -54,41 +62,53 @@ const styles = {
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     border: 1px solid rgba(218, 83, 44, 0.25);
     align-self: flex-start;
   `,
   heroHeading: css`
     font-size: 32px;
     font-weight: 900;
-    line-height: 1.25;
-    margin-bottom: 16px;
+    line-height: 1.22;
+    margin-bottom: 14px;
     color: #1E293B;
+    letter-spacing: -0.5px;
 
     span {
       color: #DA532C;
     }
   `,
   heroSub: css`
-    font-size: 15px;
+    font-size: 14.5px;
     color: #475569;
     line-height: 1.6;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     font-weight: 500;
+  `,
+  checklistImg: css`
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 10px;
+    border: 1.5px solid #FEF5D8;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
   featuresList: css`
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 10px;
+    margin-bottom: 24px;
   `,
   featureItem: css`
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #334155;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1E293B;
   `,
   leftFooter: css`
     font-size: 12px;
@@ -96,10 +116,10 @@ const styles = {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-weight: 600;
+    font-weight: 700;
   `,
   rightCol: css`
-    padding: 48px 40px;
+    padding: 44px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -129,10 +149,11 @@ const styles = {
   `,
   accountTypeTabs: css`
     display: flex;
-    background: #F1F5F9;
+    background: #FEF5D8;
     padding: 4px;
     border-radius: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 176, 32, 0.5);
   `,
   tabBtn: (active) => css`
     flex: 1;
@@ -160,7 +181,7 @@ const styles = {
     label {
       font-size: 12.5px;
       font-weight: 700;
-      color: #334155;
+      color: #1E293B;
     }
 
     input, select {
@@ -181,7 +202,7 @@ const styles = {
   socialButtonsRow: css`
     display: flex;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   `,
   socialBtn: css`
     flex: 1;
@@ -200,15 +221,14 @@ const styles = {
     transition: all 0.2s ease;
 
     &:hover {
-      background: #DA532C;
-      color: #FFFFFF;
+      background: #FEF5D8;
       transform: translateY(-2px);
     }
   `,
   dividerRow: css`
     display: flex;
     align-items: center;
-    margin: 16px 0;
+    margin: 14px 0;
     color: #94A3B8;
     font-size: 11.5px;
     font-weight: 700;
@@ -239,6 +259,7 @@ const styles = {
     gap: 8px;
     margin-top: 10px;
     transition: background 0.2s ease;
+    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
 
     &:hover {
       background: #B83D1B;
@@ -264,7 +285,7 @@ const styles = {
 };
 
 const AuthSignupPortal = () => {
-  const [accountType, setAccountType] = useState('candidate'); // 'candidate' or 'employer'
+  const [accountType, setAccountType] = useState('candidate');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -275,12 +296,12 @@ const AuthSignupPortal = () => {
   };
 
   return (
-    <div css={styles.outer}>
-      <div css={styles.card}>
-        {/* Left Column Brand Value Proposition */}
+    <div css={styles.outer} className="uden-fade-in">
+      <div css={styles.card} className="uden-card-hover">
+        {/* Left Column Brand Value Proposition + Checklist Illustration */}
         <div css={styles.leftCol}>
           <div>
-            <div css={styles.badgeTag}>
+            <div css={styles.badgeTag} className="uden-float-anim">
               <Sparkles size={13} />
               JOIN THE UDEN NETWORK
             </div>
@@ -292,6 +313,14 @@ const AuthSignupPortal = () => {
             <p css={styles.heroSub}>
               Create your account to unlock AI skill assessments, accredited upskilling tracks, and direct recruiter matching.
             </p>
+
+            {ChecklistCompletedImage && (
+              <img 
+                src={ChecklistCompletedImage} 
+                alt="Candidate Profile Verification & Completed Checklist" 
+                css={styles.checklistImg}
+              />
+            )}
 
             <div css={styles.featuresList}>
               <div css={styles.featureItem}>
@@ -399,7 +428,7 @@ const AuthSignupPortal = () => {
               />
             </div>
 
-            <button type="submit" css={styles.submitBtn}>
+            <button type="submit" css={styles.submitBtn} className="uden-pulse-btn">
               {accountType === 'employer' ? 'Create Employer Account' : 'Create Candidate Account'}
               <ArrowRight size={16} />
             </button>
