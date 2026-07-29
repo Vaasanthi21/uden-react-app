@@ -16,7 +16,7 @@ try {
 const styles = {
   heroOuter: css`
     background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
-    padding: 70px 20px 50px 20px;
+    padding: 60px 20px 50px 20px;
     border-bottom: 2px solid rgba(75, 99, 140, 0.2);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
@@ -24,7 +24,7 @@ const styles = {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 48px;
     align-items: center;
 
@@ -32,6 +32,17 @@ const styles = {
       grid-template-columns: 1fr;
       text-align: center;
     }
+  `,
+  topHeroImg: css`
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 20px;
+    background: #FFFFFF;
+    padding: 10px;
+    border: 1.5px solid rgba(75, 99, 140, 0.25);
+    box-shadow: 0 10px 28px rgba(75, 99, 140, 0.08);
+    margin-bottom: 24px;
   `,
   badgeTag: css`
     display: inline-flex;
@@ -43,13 +54,13 @@ const styles = {
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.18;
@@ -61,21 +72,21 @@ const styles = {
     }
 
     @media (max-width: 768px) {
-      font-size: 32px;
+      font-size: 30px;
     }
   `,
   subtitle: css`
-    font-size: 16.5px;
+    font-size: 16px;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     font-weight: 500;
   `,
   bulletGrid: css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    margin-bottom: 36px;
+    margin-bottom: 12px;
 
     @media (max-width: 540px) {
       grid-template-columns: 1fr;
@@ -105,19 +116,9 @@ const styles = {
     flex-direction: column;
     gap: 24px;
   `,
-  recruitImgBanner: css`
-    width: 100%;
-    max-height: 270px;
-    object-fit: contain;
-    border-radius: 24px;
-    background: #FFFFFF;
-    padding: 12px;
-    border: 2px solid #4B638C;
-    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
-  `,
   widgetCard: css`
     background: #FFFFFF;
-    border: 2px solid #4B638C;
+    border: 1.5px solid #E2E8F0;
     border-radius: 24px;
     padding: 32px;
     box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
@@ -206,15 +207,27 @@ const CompaniesBanner = () => {
   return (
     <div css={styles.heroOuter} className="uden-fade-in">
       <div css={styles.container}>
-        {/* Left Column Text & Value Proposition */}
+        {/* Left Column Text, Illustration Picture & Value Proposition */}
         <div>
+          {/* Picture moved above the headline */}
+          {RecruitmentTeamImage && (
+            <img 
+              src={RecruitmentTeamImage} 
+              alt="Corporate Recruitment Team & Candidate Profile" 
+              css={styles.topHeroImg}
+              className="uden-card-hover" 
+            />
+          )}
+
           <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} color="#F7BC08" />
             ENTERPRISE TALENT ACQUISITION
           </div>
+
           <h1 css={styles.title}>
             Hire Pre-Vetted, <span>Job-Ready Tech Talent</span> in 48 Hours
           </h1>
+
           <p css={styles.subtitle}>
             Access top 1% pre-assessed software engineers, cloud architects, and data experts across India & global markets. Zero sourcing fee until you hire.
           </p>
@@ -241,13 +254,6 @@ const CompaniesBanner = () => {
 
         {/* Right Column Talent Request Card */}
         <div css={styles.rightCol}>
-          <img 
-            src={RecruitmentTeamImage} 
-            alt="Corporate Recruitment Team & Candidate Profile" 
-            css={styles.recruitImgBanner}
-            className="uden-card-hover" 
-          />
-
           <div css={styles.widgetCard} className="uden-card-hover">
             <div css={styles.cardTitle}>
               <Building2 size={22} color="#4B638C" />
