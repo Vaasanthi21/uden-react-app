@@ -16,10 +16,16 @@ try {
   NetworkPatternImage = process.env.PUBLIC_URL + '/images/network-pattern.png';
 }
 
+const networkConstellationSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg stroke='%23E2A838' stroke-width='1.4' stroke-opacity='0.45' fill='none'%3E%3Cline x1='40' y1='60' x2='170' y2='110'/%3E%3Cline x1='170' y1='110' x2='310' y2='50'/%3E%3Cline x1='170' y1='110' x2='130' y2='230'/%3E%3Cline x1='310' y1='50' x2='360' y2='190'/%3E%3Cline x1='130' y1='230' x2='290' y2='270'/%3E%3Cline x1='360' y1='190' x2='290' y2='270'/%3E%3Cline x1='130' y1='230' x2='70' y2='350'/%3E%3Cline x1='290' y1='270' x2='350' y2='370'/%3E%3Ccircle cx='40' cy='60' r='5' fill='%23E2A838' fill-opacity='0.6'/%3E%3Ccircle cx='170' cy='110' r='7' fill='%23E2A838' fill-opacity='0.8'/%3E%3Ccircle cx='310' cy='50' r='6' fill='%23E2A838' fill-opacity='0.7'/%3E%3Ccircle cx='130' cy='230' r='7' fill='%23E2A838' fill-opacity='0.8'/%3E%3Ccircle cx='360' cy='190' r='6' fill='%23E2A838' fill-opacity='0.7'/%3E%3Ccircle cx='290' cy='270' r='8' fill='%23E2A838' fill-opacity='0.85'/%3E%3Ccircle cx='70' cy='350' r='5' fill='%23E2A838' fill-opacity='0.6'/%3E%3Ccircle cx='350' cy='370' r='6' fill='%23E2A838' fill-opacity='0.7'/%3E%3C/g%3E%3C/svg%3E`;
+
 const styles = {
   sectionOuter: css`
     width: 100%;
-    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
+    background-color: #FFFDF4;
+    background-image: url("${networkConstellationSvg}"), url("${NetworkPatternImage}");
+    background-position: top left, top right;
+    background-repeat: repeat, no-repeat;
+    background-size: 380px 380px, contain;
     padding: 80px 20px;
     position: relative;
     overflow: hidden;
@@ -29,14 +35,14 @@ const styles = {
     &::before {
       content: '';
       position: absolute;
-      top: -20px;
-      left: -20px;
-      width: 360px;
-      height: 360px;
-      background-image: url('${NetworkPatternImage}');
+      top: 0;
+      left: 0;
+      width: 420px;
+      height: 420px;
+      background-image: url("${networkConstellationSvg}");
       background-size: contain;
       background-repeat: no-repeat;
-      opacity: 0.65;
+      opacity: 0.85;
       pointer-events: none;
       z-index: 1;
     }
@@ -45,44 +51,44 @@ const styles = {
     &::after {
       content: '';
       position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 360px;
-      height: 360px;
-      background-image: url('${NetworkPatternImage}');
+      top: 0;
+      right: 0;
+      width: 420px;
+      height: 420px;
+      background-image: url("${networkConstellationSvg}");
       background-size: contain;
       background-repeat: no-repeat;
       transform: scaleX(-1);
-      opacity: 0.65;
+      opacity: 0.85;
       pointer-events: none;
       z-index: 1;
     }
   `,
   bottomLeftPattern: css`
     position: absolute;
-    bottom: -30px;
-    left: -30px;
-    width: 340px;
-    height: 340px;
-    background-image: url('${NetworkPatternImage}');
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url("${networkConstellationSvg}");
     background-size: contain;
     background-repeat: no-repeat;
     transform: scaleY(-1);
-    opacity: 0.55;
+    opacity: 0.85;
     pointer-events: none;
     z-index: 1;
   `,
   bottomRightPattern: css`
     position: absolute;
-    bottom: -30px;
-    right: -30px;
-    width: 340px;
-    height: 340px;
-    background-image: url('${NetworkPatternImage}');
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url("${networkConstellationSvg}");
     background-size: contain;
     background-repeat: no-repeat;
     transform: scale(-1, -1);
-    opacity: 0.55;
+    opacity: 0.85;
     pointer-events: none;
     z-index: 1;
   `,
