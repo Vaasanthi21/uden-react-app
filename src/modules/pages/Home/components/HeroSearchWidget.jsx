@@ -9,20 +9,20 @@ import { AppRoutes } from '../../../../utils/consts/routes';
 const styles = {
   container: css`
     max-width: 1140px;
-    margin: 32px auto 40px auto;
+    margin: 20px auto 48px auto;
     padding: 0 16px;
     position: relative;
     z-index: 10;
   `,
   wrapper: css`
     background: #FFFFFF;
-    border-radius: 24px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
-    border: 2px solid #DA532C;
-    padding: 32px;
+    border-radius: 28px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.06);
+    border: 1.5px solid #E2E8F0;
+    padding: 32px 36px;
 
     @media (max-width: 768px) {
-      padding: 20px;
+      padding: 24px 20px;
     }
   `,
   topRow: css`
@@ -43,12 +43,13 @@ const styles = {
       font-weight: 800;
       color: #1E293B;
       margin: 0;
+      letter-spacing: -0.4px;
     }
   `,
   badgeTag: css`
     background: rgba(218, 83, 44, 0.1);
     color: #DA532C;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 800;
@@ -59,11 +60,11 @@ const styles = {
   `,
   tabNav: css`
     display: flex;
-    gap: 8px;
-    background: #FEF5D8;
+    gap: 6px;
+    background: #F8FAFC;
     padding: 4px;
     border-radius: 30px;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    border: 1px solid #E2E8F0;
   `,
   tabBtn: (active) => css`
     padding: 8px 20px;
@@ -74,8 +75,8 @@ const styles = {
     cursor: pointer;
     transition: all 0.2s ease;
     background: ${active ? '#DA532C' : 'transparent'};
-    color: ${active ? '#FFFFFF' : '#334155'};
-    box-shadow: ${active ? '0 4px 12px rgba(218, 83, 44, 0.3)' : 'none'};
+    color: ${active ? '#FFFFFF' : '#475569'};
+    box-shadow: ${active ? '0 4px 14px rgba(218, 83, 44, 0.3)' : 'none'};
 
     &:hover {
       color: ${active ? '#FFFFFF' : '#DA532C'};
@@ -96,14 +97,15 @@ const styles = {
     align-items: center;
     gap: 10px;
     background: #F8FAFC;
-    border: 1.5px solid #CBD5E1;
-    border-radius: 12px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 14px;
     padding: 12px 16px;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
 
     &:focus-within {
       border-color: #DA532C;
       background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(218, 83, 44, 0.1);
     }
 
     input, select {
@@ -124,8 +126,8 @@ const styles = {
     background: #DA532C;
     color: #FFFFFF;
     border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
+    padding: 14px 30px;
+    border-radius: 14px;
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
@@ -134,18 +136,19 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.2s ease;
+    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
 
     &:hover {
       background: #B83D1B;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
     }
   `,
   tagsRow: css`
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 16px;
+    margin-top: 18px;
     flex-wrap: wrap;
 
     span {
@@ -158,8 +161,8 @@ const styles = {
     background: #F8FAFC;
     color: #334155;
     border: 1px solid #E2E8F0;
-    padding: 4px 12px;
-    border-radius: 14px;
+    padding: 5px 14px;
+    border-radius: 16px;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
@@ -190,7 +193,7 @@ const HeroSearchWidget = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
-      <div css={styles.wrapper}>
+      <div css={styles.wrapper} className="uden-card-hover">
         <div css={styles.topRow}>
           <div css={styles.titleGroup}>
             <div css={styles.badgeTag} className="uden-float-anim">
