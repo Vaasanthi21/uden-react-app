@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, css, keyframes } from '@emotion/react';
+import { jsx, css } from '@emotion/react';
 import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock, Compass } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
@@ -16,7 +16,7 @@ try {
 const styles = {
   sectionOuter: css`
     width: 100%;
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 80px 20px;
     position: relative;
     overflow: hidden;
@@ -43,11 +43,11 @@ const styles = {
     width: 100%;
     max-height: 320px;
     object-fit: contain;
-    border-radius: 20px;
+    border-radius: 24px;
     background: #FFFFFF;
     padding: 12px;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
-    border: 2px solid #DA532C;
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.1);
+    border: 1.5px solid #4B638C;
   `,
   header: css`
     text-align: left;
@@ -60,7 +60,7 @@ const styles = {
       letter-spacing: -0.8px;
 
       span {
-        color: #DA532C;
+        color: #F55825;
       }
     }
 
@@ -75,14 +75,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FEF5D8;
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 16px;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -100,26 +100,26 @@ const styles = {
     align-items: center;
     gap: 8px;
     background: #FFFFFF;
-    border: 1.5px solid #DA532C;
+    border: 1.5px solid rgba(75, 99, 140, 0.3);
     color: #1E293B;
     padding: 10px 20px;
     border-radius: 24px;
     font-size: 13.5px;
     font-weight: 800;
-    box-shadow: 0 4px 14px rgba(218, 83, 44, 0.1);
+    box-shadow: 0 4px 14px rgba(75, 99, 140, 0.06);
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
 
   /* SEARCH CARD CONTAINER */
   searchCard: css`
-    background: #FFFDF7;
-    border: 1.5px solid rgba(218, 83, 44, 0.25);
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
     border-radius: 28px;
     padding: 32px;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.08);
+    box-shadow: 0 20px 48px rgba(75, 99, 140, 0.08);
     margin-bottom: 48px;
   `,
   inputGrid: css`
@@ -136,15 +136,16 @@ const styles = {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
     border-radius: 24px;
     padding: 12px 18px;
     transition: all 0.3s ease;
 
     &:focus-within {
-      border-color: #DA532C;
-      box-shadow: 0 4px 14px rgba(218, 83, 44, 0.15);
+      border-color: #4B638C;
+      box-shadow: 0 4px 14px rgba(75, 99, 140, 0.15);
+      background: #FFFFFF;
     }
 
     input, select {
@@ -163,7 +164,7 @@ const styles = {
     }
   `,
   searchBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px 28px;
@@ -176,13 +177,13 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.3);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.28);
     white-space: nowrap;
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(218, 83, 44, 0.45);
+      box-shadow: 0 8px 22px rgba(245, 88, 37, 0.42);
     }
   `,
   boardBadgesRow: css`
@@ -192,15 +193,15 @@ const styles = {
     flex-wrap: wrap;
     margin-top: 24px;
     padding-top: 20px;
-    border-top: 1px dashed rgba(218, 83, 44, 0.25);
+    border-top: 1px dashed #CBD5E1;
     font-size: 13.5px;
     color: #475569;
     font-weight: 700;
   `,
   boardPill: css`
-    background: #FEF5D8;
-    color: #DA532C;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    background: rgba(247, 188, 8, 0.15);
+    color: #1E293B;
+    border: 1px solid rgba(247, 188, 8, 0.5);
     padding: 5px 16px;
     border-radius: 18px;
     font-size: 12.5px;
@@ -219,28 +220,35 @@ const styles = {
   `,
   jobCard: css`
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 1.5px solid #E2E8F0;
     border-radius: 24px;
     padding: 28px;
-    box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.08);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: #4B638C;
+      box-shadow: 0 20px 48px rgba(75, 99, 140, 0.15);
+    }
   `,
   companyTag: css`
     font-size: 13px;
     font-weight: 800;
-    color: #DA532C;
-    background: rgba(218, 83, 44, 0.1);
+    color: #4B638C;
+    background: rgba(75, 99, 140, 0.1);
     padding: 5px 12px;
     border-radius: 10px;
   `,
   sourceBoardTag: css`
     font-size: 11.5px;
     font-weight: 700;
-    color: #DA532C;
-    background: #FEF5D8;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    color: #1E293B;
+    background: rgba(247, 188, 8, 0.18);
+    border: 1px solid rgba(247, 188, 8, 0.5);
     padding: 4px 10px;
     border-radius: 8px;
   `,
@@ -267,9 +275,9 @@ const styles = {
     margin-bottom: 24px;
   `,
   skillTag: css`
-    background: #FEF5D8;
-    border: 1px solid rgba(255, 176, 32, 0.4);
-    color: #DA532C;
+    background: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    color: #4B638C;
     font-size: 12px;
     font-weight: 700;
     padding: 4px 12px;
@@ -277,7 +285,7 @@ const styles = {
   `,
   applyBtn: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 13px;
@@ -289,6 +297,11 @@ const styles = {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #D94616;
+    }
   `
 };
 
@@ -337,7 +350,7 @@ const MultiJobSearch = () => {
         <div css={styles.topHeroGrid}>
           <div css={styles.header}>
             <div css={styles.badgeTag} className="uden-float-anim">
-              <Compass size={14} />
+              <Compass size={14} color="#F7BC08" />
               AI CAREER COMPANION & ROADMAP
             </div>
             <h2>
@@ -358,15 +371,15 @@ const MultiJobSearch = () => {
         {/* Value Highlights Pill Bar */}
         <div css={styles.valueHighlightBar}>
           <div css={styles.valuePill}>
-            <Clock size={16} color="#DA532C" />
+            <Clock size={16} color="#4B638C" />
             <span>Saves 20 Days</span> of Manual Job Searching
           </div>
           <div css={styles.valuePill}>
-            <Users size={16} color="#DA532C" />
+            <Users size={16} color="#4B638C" />
             Direct Partner Postings (Growing Daily)
           </div>
           <div css={styles.valuePill}>
-            <DollarSign size={16} color="#DA532C" />
+            <DollarSign size={16} color="#F55825" />
             <span>Get Paid</span> by Referring Friends
           </div>
         </div>
@@ -375,7 +388,7 @@ const MultiJobSearch = () => {
         <div css={styles.searchCard}>
           <form onSubmit={handleSearchSubmit} css={styles.inputGrid}>
             <div css={styles.inputPill}>
-              <Search size={18} color="#DA532C" />
+              <Search size={18} color="#4B638C" />
               <input 
                 type="text" 
                 placeholder="Search title, skills (e.g. React, Python)"
@@ -385,7 +398,7 @@ const MultiJobSearch = () => {
             </div>
 
             <div css={styles.inputPill}>
-              <MapPin size={18} color="#DA532C" />
+              <MapPin size={18} color="#4B638C" />
               <input 
                 type="text" 
                 placeholder="Location (e.g. Bengaluru)"
@@ -395,7 +408,7 @@ const MultiJobSearch = () => {
             </div>
 
             <div css={styles.inputPill}>
-              <Filter size={18} color="#DA532C" />
+              <Filter size={18} color="#4B638C" />
               <select value={workModel} onChange={(e) => setWorkModel(e.target.value)}>
                 <option value="all">All Work Models</option>
                 <option value="remote">Remote / WFH</option>
@@ -432,7 +445,7 @@ const MultiJobSearch = () => {
                 <h3 css={styles.jobTitle}>{job.title}</h3>
                 <div css={styles.jobMeta}>
                   <span>📍 {job.location}</span>
-                  <span style={{ color: '#DA532C', fontWeight: '800' }}>💰 {job.package}</span>
+                  <span style={{ color: '#F55825', fontWeight: '800' }}>💰 {job.package}</span>
                 </div>
                 <div css={styles.tagsRow}>
                   {job.skills.map((skill, sIdx) => (
