@@ -61,7 +61,7 @@ const DesktopHeader = ({ ...props }) => {
                     borderRadius: '12px',
                     mt: 1,
                     minWidth: 160,
-                    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
+                    boxShadow: '0 10px 25px rgba(75, 99, 140, 0.12)',
                     '& .MuiMenuItem-root': {
                       fontSize: '14px',
                       fontWeight: '600',
@@ -69,8 +69,8 @@ const DesktopHeader = ({ ...props }) => {
                       py: 1.2,
                       px: 2,
                       '&:hover': {
-                        backgroundColor: 'rgba(218, 83, 44, 0.08)',
-                        color: '#DA532C',
+                        backgroundColor: 'rgba(75, 99, 140, 0.08)',
+                        color: '#4B638C',
                       },
                     },
                   },
@@ -91,7 +91,7 @@ const DesktopHeader = ({ ...props }) => {
               badgeContent={data?.Tabs?.Badge[index]}
               sx={{
                 '& .MuiBadge-badge': {
-                  backgroundColor: '#DA532C',
+                  backgroundColor: '#F55825',
                   color: '#FFFFFF',
                   fontSize: '9.5px',
                   fontWeight: '900',
@@ -100,7 +100,7 @@ const DesktopHeader = ({ ...props }) => {
                   borderRadius: '8px',
                   top: 0,
                   right: 12,
-                  boxShadow: '0 2px 6px rgba(218, 83, 44, 0.4)'
+                  boxShadow: '0 2px 6px rgba(245, 88, 37, 0.4)'
                 }
               }}
             >

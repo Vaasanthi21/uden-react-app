@@ -28,9 +28,9 @@ const styles = {
     width: 100%;
     max-width: 1020px;
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 24px;
-    box-shadow: 0 20px 45px -10px rgba(218, 83, 44, 0.15);
+    box-shadow: 0 20px 45px -10px rgba(75, 99, 140, 0.15);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     overflow: hidden;
@@ -40,13 +40,13 @@ const styles = {
     }
   `,
   leftCol: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 44px;
     color: #1E293B;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1.5px solid rgba(255, 176, 32, 0.35);
+    border-right: 1.5px solid rgba(247, 188, 8, 0.4);
 
     @media (max-width: 860px) {
       padding: 32px 24px;
@@ -56,14 +56,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 20px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     align-self: flex-start;
   `,
   heroHeading: css`
@@ -75,7 +75,7 @@ const styles = {
     letter-spacing: -0.5px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   heroSub: css`
@@ -92,7 +92,7 @@ const styles = {
     border-radius: 16px;
     background: #FFFFFF;
     padding: 10px;
-    border: 1.5px solid #FEF5D8;
+    border: 1.5px solid #FFFDF0;
     margin-bottom: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
@@ -144,16 +144,16 @@ const styles = {
     text-align: center;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   accountTypeTabs: css`
     display: flex;
-    background: #FEF5D8;
+    background: #FFFDF0;
     padding: 4px;
     border-radius: 12px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    border: 1px solid rgba(247, 188, 8, 0.5);
   `,
   tabBtn: (active) => css`
     flex: 1;
@@ -163,9 +163,9 @@ const styles = {
     font-weight: 800;
     border: none;
     cursor: pointer;
-    background: ${active ? '#DA532C' : 'transparent'};
+    background: ${active ? '#4B638C' : 'transparent'};
     color: ${active ? '#FFFFFF' : '#475569'};
-    box-shadow: ${active ? '0 2px 8px rgba(218,83,44,0.3)' : 'none'};
+    box-shadow: ${active ? '0 2px 8px rgba(75,99,140,0.3)' : 'none'};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,7 +195,7 @@ const styles = {
       background: #FFFFFF;
 
       &:focus {
-        border-color: #DA532C;
+        border-color: #4B638C;
       }
     }
   `,
@@ -207,12 +207,12 @@ const styles = {
   socialBtn: css`
     flex: 1;
     background: #FFFFFF;
-    border: 1.5px solid #DA532C;
+    border: 1.5px solid #4B638C;
     border-radius: 20px;
     padding: 10px 14px;
     font-size: 13px;
     font-weight: 700;
-    color: #DA532C;
+    color: #4B638C;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -221,7 +221,7 @@ const styles = {
     transition: all 0.2s ease;
 
     &:hover {
-      background: #FEF5D8;
+      background: #F8FAFC;
       transform: translateY(-2px);
     }
   `,
@@ -245,7 +245,7 @@ const styles = {
   `,
   submitBtn: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 13px;
@@ -259,10 +259,10 @@ const styles = {
     gap: 8px;
     margin-top: 10px;
     transition: background 0.2s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
     }
   `,
   footerText: css`
@@ -273,7 +273,7 @@ const styles = {
     line-height: 1.5;
 
     a {
-      color: #DA532C;
+      color: #F55825;
       font-weight: 700;
       text-decoration: none;
 
@@ -302,7 +302,7 @@ const AuthSignupPortal = () => {
         <div css={styles.leftCol}>
           <div>
             <div css={styles.badgeTag} className="uden-float-anim">
-              <Sparkles size={13} />
+              <Sparkles size={13} color="#F7BC08" />
               JOIN THE UDEN NETWORK
             </div>
 
@@ -324,22 +324,22 @@ const AuthSignupPortal = () => {
 
             <div css={styles.featuresList}>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>Free Profile Setup & Skill Assessment</span>
               </div>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>Direct Access to 150+ Hiring Partners</span>
               </div>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>90-Day Placement Retention Warranty</span>
               </div>
             </div>
           </div>
 
           <div css={styles.leftFooter}>
-            <ShieldCheck size={14} color="#DA532C" />
+            <ShieldCheck size={14} color="#4B638C" />
             100% Free Registration for Candidates
           </div>
         </div>

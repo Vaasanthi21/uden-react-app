@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { Sparkles, ArrowRight, ShieldCheck, CheckCircle2, Users, FileSearch } from 'lucide-react';
+import { Search, Sparkles, ShieldCheck, Clock, ArrowRight, Users, CheckCircle2, Building2, UserCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
@@ -15,9 +15,9 @@ try {
 
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 70px 20px 50px 20px;
-    border-bottom: 2px solid rgba(218, 83, 44, 0.2);
+    border-bottom: 2px solid rgba(75, 99, 140, 0.2);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -37,14 +37,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FEF5D8;
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -57,7 +57,7 @@ const styles = {
     letter-spacing: -0.8px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -93,8 +93,8 @@ const styles = {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(218, 83, 44, 0.15);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.15);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,93 +103,186 @@ const styles = {
   rightCol: css`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
   `,
   hrImgBanner: css`
     width: 100%;
-    max-height: 280px;
+    max-height: 270px;
     object-fit: contain;
     border-radius: 24px;
     background: #FFFFFF;
-    padding: 14px;
-    border: 2px solid #DA532C;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+    padding: 12px;
+    border: 2px solid #4B638C;
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
   `,
-  primaryBtn: css`
-    background: #DA532C;
-    color: #FFFFFF;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 14px;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    display: inline-flex;
+  widgetCard: css`
+    background: #FFFFFF;
+    border: 2px solid #4B638C;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
+  `,
+  cardTitle: css`
+    font-size: 20px;
+    font-weight: 900;
+    color: #1E293B;
+    margin-bottom: 6px;
+    display: flex;
     align-items: center;
     gap: 8px;
+  `,
+  cardSub: css`
+    font-size: 13.5px;
+    color: #64748B;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  `,
+  formGroup: css`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  `,
+  field: css`
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1E293B;
+    }
+
+    select {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid #CBD5E1;
+      font-size: 14px;
+      color: #1E293B;
+      background: #FFFFFF;
+      outline: none;
+      font-weight: 600;
+
+      &:focus {
+        border-color: #4B638C;
+      }
+    }
+  `,
+  ctaBtn: css`
+    width: 100%;
+    background: #F55825;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 8px 20px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.35);
     }
   `
 };
 
 const HRServicesBanner = () => {
+  const [serviceType, setServiceType] = useState('outsourcing');
   const navigate = useNavigate();
+
+  const handleConsultationSubmit = (e) => {
+    e.preventDefault();
+    navigate(AppRoutes.FIND_TALENT);
+  };
 
   return (
     <div css={styles.heroOuter} className="uden-fade-in">
       <div css={styles.container}>
+        {/* Left Column Text & Value Proposition */}
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Sparkles size={14} />
-            END-TO-END HR & RECRUITMENT SERVICES
+            <Sparkles size={14} color="#F7BC08" />
+            END-TO-END HR & RECRUITMENT SOLUTIONS
           </div>
           <h1 css={styles.title}>
-            Streamline Enterprise Hiring with <span>AI-Driven HR Operations</span>
+            Streamline Hiring & <span>HR Operations</span> for Global Enterprises
           </h1>
           <p css={styles.subtitle}>
-            From automated ATS resume screening and video background checks to payroll and placement compliance — empower your HR team with UDEN's verified talent ecosystem.
+            From candidate sourcing and background verification to payroll management and talent retention, UDEN delivers customized HR solutions.
           </p>
 
           <div css={styles.bulletGrid}>
             <div css={styles.bulletItem}>
               <div css={styles.iconBox}><CheckCircle2 size={15} /></div>
-              <span>Automated ATS Resume Parsing</span>
+              <span>End-to-End Recruitment Outsourcing</span>
             </div>
             <div css={styles.bulletItem}>
               <div css={styles.iconBox}><CheckCircle2 size={15} /></div>
-              <span>Background & Credential Verification</span>
+              <span>Background & Skill Verification</span>
             </div>
             <div css={styles.bulletItem}>
               <div css={styles.iconBox}><CheckCircle2 size={15} /></div>
-              <span>Payroll & Onboarding Compliance</span>
+              <span>Payroll & Compliance Support</span>
             </div>
             <div css={styles.bulletItem}>
               <div css={styles.iconBox}><CheckCircle2 size={15} /></div>
-              <span>48-Hour Talent Shortlisting</span>
+              <span>90-Day Candidate Warranty</span>
             </div>
           </div>
-
-          <button css={styles.primaryBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.HR_SERVICE_JOIN)}>
-            Explore Enterprise HR Services
-            <ArrowRight size={18} />
-          </button>
         </div>
 
+        {/* Right Column Consultation Request Card */}
         <div css={styles.rightCol}>
-          {CandidateNetworkImage && (
-            <img 
-              src={CandidateNetworkImage} 
-              alt="HR Candidate Screening & Network Illustration" 
-              css={styles.hrImgBanner}
-              className="uden-card-hover" 
-            />
-          )}
+          <img 
+            src={CandidateNetworkImage} 
+            alt="Candidate Network & HR Screening Visual" 
+            css={styles.hrImgBanner}
+            className="uden-card-hover" 
+          />
+
+          <div css={styles.widgetCard} className="uden-card-hover">
+            <div css={styles.cardTitle}>
+              <UserCheck size={22} color="#4B638C" />
+              Request HR Consultation
+            </div>
+            <p css={styles.cardSub}>Speak with our HR specialists to tailor recruitment & payroll solutions for your organization.</p>
+
+            <form onSubmit={handleConsultationSubmit}>
+              <div css={styles.formGroup}>
+                <div css={styles.field}>
+                  <label>Primary HR Need:</label>
+                  <select value={serviceType} onChange={(e) => setServiceType(e.target.value)}>
+                    <option value="outsourcing">Recruitment Process Outsourcing (RPO)</option>
+                    <option value="verification">Background & Skill Verification</option>
+                    <option value="payroll">Payroll & Statutory Compliance</option>
+                    <option value="upskilling">Custom Corporate Cohort Training</option>
+                  </select>
+                </div>
+
+                <div css={styles.field}>
+                  <label>Team Hiring Volume:</label>
+                  <select defaultValue="10-50">
+                    <option value="1-10">1 - 10 Hires / Month</option>
+                    <option value="10-50">10 - 50 Hires / Month</option>
+                    <option value="50+">50+ Enterprise Cohorts</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" css={styles.ctaBtn} className="uden-pulse-btn">
+                Schedule HR Consultation
+                <ArrowRight size={18} />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

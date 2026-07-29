@@ -7,7 +7,7 @@ export const HeaderStyles = {
     appBar: ({...props}) => css({
         backgroundColor: 'rgba(255, 255, 255, 0.98)',
         backdropFilter: 'blur(12px)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+        boxShadow: '0 4px 20px rgba(75, 99, 140, 0.06)',
         borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
         justifyContent: 'center',
         position: 'sticky',
@@ -42,7 +42,7 @@ export const HeaderStyles = {
         padding: "6px 12px",
         fontSize: "13px",
         fontWeight: props?.isCurrent ? '800' : '600',
-        color: props?.isCurrent ? '#DA532C' : '#334155',
+        color: props?.isCurrent ? '#4B638C' : '#334155',
         borderRadius: "8px",
         textTransform: "none",
         letterSpacing: "0.1px",
@@ -58,7 +58,7 @@ export const HeaderStyles = {
         '& .MuiButton-startIcon': {
           margin: 0,
           marginBottom: '2px',
-          color: props?.isCurrent ? '#DA532C' : '#64748B',
+          color: props?.isCurrent ? '#4B638C' : '#64748B',
           transition: 'color 0.25s ease',
         },
 
@@ -70,32 +70,33 @@ export const HeaderStyles = {
           transform: props?.isCurrent ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
           width: '80%',
           height: '3px',
-          backgroundColor: '#DA532C',
+          backgroundColor: '#4B638C',
           borderRadius: '2px',
           transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
         },
 
         "&:hover": {
             backgroundColor: "transparent",
-            color: "#DA532C",
+            color: "#F55825",
             '& .MuiButton-startIcon': {
-              color: '#DA532C',
+              color: '#F55825',
             },
             '&::after': {
               transform: 'translateX(-50%) scaleX(1)',
+              backgroundColor: '#F55825',
             }
         }
     }),
 
     tabsMobile: ({...props}) => css({
-        color: props?.isCurrent ? '#DA532C' : '#1E293B',
-        backgroundColor: props?.isCurrent ? 'rgba(218, 83, 44, 0.08)' : 'transparent',
+        color: props?.isCurrent ? '#4B638C' : '#1E293B',
+        backgroundColor: props?.isCurrent ? 'rgba(75, 99, 140, 0.08)' : 'transparent',
         fontSize: "15px",
         fontWeight: "600",
         borderRadius: "8px",
         "&:hover": {
-            backgroundColor: "rgba(218, 83, 44, 0.1)",
-            color: "#DA532C"
+            backgroundColor: "rgba(75, 99, 140, 0.1)",
+            color: "#4B638C"
         }
     }),
 
@@ -116,18 +117,18 @@ export const HeaderStyles = {
         textTransform: 'none',
         fontSize: '14.5px',
         fontWeight: '800',
-        background: '#DA532C',
+        background: '#F55825',
         color: '#FFFFFF',
         borderRadius: '24px',
         padding: '10px 24px',
-        boxShadow: '0 4px 14px rgba(218, 83, 44, 0.3)',
+        boxShadow: '0 4px 14px rgba(245, 88, 37, 0.3)',
         transition: 'all 0.25s ease',
         border: 'none',
         whiteSpace: 'nowrap',
 
         '&:hover': {
-            background: '#B83D1B',
-            boxShadow: '0 6px 18px rgba(218, 83, 44, 0.45)',
+            background: '#D94616',
+            boxShadow: '0 6px 18px rgba(245, 88, 37, 0.45)',
             transform: 'translateY(-2px)'
         }
     }),
@@ -136,7 +137,7 @@ export const HeaderStyles = {
         textTransform: 'none',
         fontWeight: '800',
         width: '90%',
-        background: '#DA532C',
+        background: '#F55825',
         color: '#FFFFFF',
         borderRadius: '24px',
         padding: '10px 20px'

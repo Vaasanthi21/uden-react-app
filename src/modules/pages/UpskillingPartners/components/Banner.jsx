@@ -15,9 +15,9 @@ try {
 
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 70px 20px 50px 20px;
-    border-bottom: 2px solid rgba(218, 83, 44, 0.2);
+    border-bottom: 2px solid rgba(75, 99, 140, 0.2);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -37,14 +37,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FEF5D8;
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -57,7 +57,7 @@ const styles = {
     letter-spacing: -0.8px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -97,7 +97,7 @@ const styles = {
     }
   `,
   searchBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 12px 24px;
@@ -112,7 +112,7 @@ const styles = {
     transition: background 0.2s;
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
     }
   `,
   statsGrid: css`
@@ -122,7 +122,7 @@ const styles = {
   `,
   statCard: css`
     background: #FFFFFF;
-    border: 1.5px solid rgba(255, 176, 32, 0.4);
+    border: 1.5px solid rgba(247, 188, 8, 0.4);
     border-radius: 16px;
     padding: 18px 14px;
     text-align: center;
@@ -131,7 +131,7 @@ const styles = {
     h3 {
       font-size: 26px;
       font-weight: 900;
-      color: #DA532C;
+      color: #F55825;
       margin: 0 0 4px 0;
     }
 
@@ -154,15 +154,15 @@ const styles = {
     border-radius: 24px;
     background: #FFFFFF;
     padding: 12px;
-    border: 2px solid #DA532C;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+    border: 2px solid #4B638C;
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
   `,
   rightCardDeck: css`
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 24px;
     padding: 28px;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.1);
   `,
   deckTitle: css`
     font-size: 18px;
@@ -188,8 +188,8 @@ const styles = {
     width: 38px;
     height: 38px;
     border-radius: 10px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.12);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,7 +218,7 @@ const UpskillingBanner = () => {
       <div css={styles.container}>
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Sparkles size={14} />
+            <Sparkles size={14} color="#F7BC08" />
             ACCREDITED UPSKILLING NETWORK
           </div>
           <h1 css={styles.title}>
@@ -229,7 +229,7 @@ const UpskillingBanner = () => {
           </p>
 
           <form onSubmit={handleSearch} css={styles.searchBox}>
-            <Search size={20} color="#DA532C" />
+            <Search size={20} color="#4B638C" />
             <input 
               type="text"
               placeholder="Search upskilling tracks (e.g. AWS, Fullstack, AI, DevOps)..."
@@ -268,7 +268,7 @@ const UpskillingBanner = () => {
 
           <div css={styles.rightCardDeck} className="uden-card-hover">
             <div css={styles.deckTitle}>
-              <Award size={20} color="#DA532C" />
+              <Award size={20} color="#4B638C" />
               Featured Partner Academies
             </div>
 
