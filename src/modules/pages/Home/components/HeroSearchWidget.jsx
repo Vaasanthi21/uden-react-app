@@ -17,7 +17,7 @@ const styles = {
   wrapper: css`
     background: #FFFFFF;
     border-radius: 28px;
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 48px rgba(75, 99, 140, 0.08);
     border: 1.5px solid #E2E8F0;
     padding: 32px 36px;
 
@@ -47,8 +47,8 @@ const styles = {
     }
   `,
   badgeTag: css`
-    background: rgba(218, 83, 44, 0.1);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 5px 14px;
     border-radius: 20px;
     font-size: 12px;
@@ -56,7 +56,7 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    border: 1px solid rgba(218, 83, 44, 0.2);
+    border: 1px solid rgba(75, 99, 140, 0.2);
   `,
   tabNav: css`
     display: flex;
@@ -74,12 +74,12 @@ const styles = {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: ${active ? '#DA532C' : 'transparent'};
+    background: ${active ? '#4B638C' : 'transparent'};
     color: ${active ? '#FFFFFF' : '#475569'};
-    box-shadow: ${active ? '0 4px 14px rgba(218, 83, 44, 0.3)' : 'none'};
+    box-shadow: ${active ? '0 4px 14px rgba(75, 99, 140, 0.25)' : 'none'};
 
     &:hover {
-      color: ${active ? '#FFFFFF' : '#DA532C'};
+      color: ${active ? '#FFFFFF' : '#4B638C'};
     }
   `,
   searchForm: css`
@@ -97,15 +97,15 @@ const styles = {
     align-items: center;
     gap: 10px;
     background: #F8FAFC;
-    border: 1.5px solid #E2E8F0;
+    border: 1.5px solid #CBD5E1;
     border-radius: 14px;
     padding: 12px 16px;
     transition: all 0.2s ease;
 
     &:focus-within {
-      border-color: #DA532C;
+      border-color: #4B638C;
       background: #FFFFFF;
-      box-shadow: 0 4px 12px rgba(218, 83, 44, 0.1);
+      box-shadow: 0 4px 12px rgba(75, 99, 140, 0.1);
     }
 
     input, select {
@@ -123,7 +123,7 @@ const styles = {
     }
   `,
   searchBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px 30px;
@@ -136,12 +136,12 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.2s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.35);
     }
   `,
   tagsRow: css`
@@ -169,9 +169,9 @@ const styles = {
     transition: all 0.2s ease;
 
     &:hover {
-      background: #DA532C;
+      background: #4B638C;
       color: #FFFFFF;
-      border-color: #DA532C;
+      border-color: #4B638C;
       transform: translateY(-1px);
     }
   `
@@ -197,7 +197,7 @@ const HeroSearchWidget = () => {
         <div css={styles.topRow}>
           <div css={styles.titleGroup}>
             <div css={styles.badgeTag} className="uden-float-anim">
-              <Sparkles size={14} />
+              <Sparkles size={14} color="#F7BC08" />
               AI MATCH ENGINE
             </div>
             <h2>What are you looking for today?</h2>
@@ -223,7 +223,7 @@ const HeroSearchWidget = () => {
 
         <form onSubmit={handleSearch} css={styles.searchForm}>
           <div css={styles.inputBox}>
-            <Search size={18} color="#DA532C" />
+            <Search size={18} color="#4B638C" />
             <input 
               type="text" 
               placeholder={activeTab === 'candidate' ? "Search skills e.g., React, Node.js, Data Science..." : "Search job roles e.g., Frontend Dev, Product Manager..."}
@@ -233,7 +233,7 @@ const HeroSearchWidget = () => {
           </div>
 
           <div css={styles.inputBox}>
-            <Briefcase size={18} color="#DA532C" />
+            <Briefcase size={18} color="#4B638C" />
             <select defaultValue="all">
               <option value="all">Experience: All Levels</option>
               <option value="fresher">Fresher / 0-1 Years</option>
@@ -243,7 +243,7 @@ const HeroSearchWidget = () => {
           </div>
 
           <div css={styles.inputBox}>
-            <MapPin size={18} color="#DA532C" />
+            <MapPin size={18} color="#4B638C" />
             <select defaultValue="remote">
               <option value="remote">Location: Remote / Any</option>
               <option value="india">India (Tier-1 Cities)</option>

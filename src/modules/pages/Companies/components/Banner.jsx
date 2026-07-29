@@ -15,9 +15,9 @@ try {
 
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 70px 20px 50px 20px;
-    border-bottom: 2px solid rgba(218, 83, 44, 0.2);
+    border-bottom: 2px solid rgba(75, 99, 140, 0.2);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -37,14 +37,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FEF5D8;
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -57,7 +57,7 @@ const styles = {
     letter-spacing: -0.8px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -93,8 +93,8 @@ const styles = {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(218, 83, 44, 0.15);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.15);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,15 +112,15 @@ const styles = {
     border-radius: 24px;
     background: #FFFFFF;
     padding: 12px;
-    border: 2px solid #DA532C;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+    border: 2px solid #4B638C;
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
   `,
   widgetCard: css`
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.12);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
   `,
   cardTitle: css`
     font-size: 20px;
@@ -165,13 +165,13 @@ const styles = {
       font-weight: 600;
 
       &:focus {
-        border-color: #DA532C;
+        border-color: #4B638C;
       }
     }
   `,
   ctaBtn: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px;
@@ -184,12 +184,12 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.35);
     }
   `
 };
@@ -209,7 +209,7 @@ const CompaniesBanner = () => {
         {/* Left Column Text & Value Proposition */}
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Sparkles size={14} />
+            <Sparkles size={14} color="#F7BC08" />
             ENTERPRISE TALENT ACQUISITION
           </div>
           <h1 css={styles.title}>
@@ -239,7 +239,7 @@ const CompaniesBanner = () => {
           </div>
         </div>
 
-        {/* Right Column Talent Request Card with Embedded Recruitment Team Illustration */}
+        {/* Right Column Talent Request Card */}
         <div css={styles.rightCol}>
           <img 
             src={RecruitmentTeamImage} 
@@ -250,7 +250,7 @@ const CompaniesBanner = () => {
 
           <div css={styles.widgetCard} className="uden-card-hover">
             <div css={styles.cardTitle}>
-              <Building2 size={22} color="#DA532C" />
+              <Building2 size={22} color="#4B638C" />
               Request Candidate Profiles
             </div>
             <p css={styles.cardSub}>Tell us your hiring needs and receive pre-vetted candidate resumes within 48 hours.</p>

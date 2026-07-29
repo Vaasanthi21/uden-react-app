@@ -28,9 +28,9 @@ const styles = {
     width: 100%;
     max-width: 1020px;
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 24px;
-    box-shadow: 0 20px 45px -10px rgba(218, 83, 44, 0.15);
+    box-shadow: 0 20px 45px -10px rgba(75, 99, 140, 0.15);
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     overflow: hidden;
@@ -40,13 +40,13 @@ const styles = {
     }
   `,
   leftCol: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 44px;
     color: #1E293B;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1.5px solid rgba(255, 176, 32, 0.35);
+    border-right: 1.5px solid rgba(247, 188, 8, 0.4);
 
     @media (max-width: 860px) {
       padding: 32px 24px;
@@ -56,14 +56,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 20px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     align-self: flex-start;
   `,
   heroHeading: css`
@@ -75,7 +75,7 @@ const styles = {
     letter-spacing: -0.5px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   heroSub: css`
@@ -92,7 +92,7 @@ const styles = {
     border-radius: 16px;
     background: #FFFFFF;
     padding: 10px;
-    border: 1.5px solid #FEF5D8;
+    border: 1.5px solid #FFFDF0;
     margin-bottom: 24px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
@@ -141,7 +141,7 @@ const styles = {
     margin-bottom: 32px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   buttonsContainer: css`
@@ -154,7 +154,7 @@ const styles = {
   `,
   googleButton: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     border: none;
     border-radius: 28px;
     padding: 14px 20px;
@@ -167,23 +167,23 @@ const styles = {
     justify-content: center;
     gap: 10px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.35);
     }
   `,
   linkedInButton: css`
     width: 100%;
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 28px;
     padding: 13px 20px;
     font-size: 15px;
     font-weight: 800;
-    color: #DA532C;
+    color: #4B638C;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -192,7 +192,7 @@ const styles = {
     transition: all 0.25s ease;
 
     &:hover {
-      background: #FEF5D8;
+      background: #F8FAFC;
       transform: translateY(-2px);
     }
   `,
@@ -203,7 +203,7 @@ const styles = {
     max-width: 340px;
 
     a {
-      color: #DA532C;
+      color: #F55825;
       font-weight: 700;
       text-decoration: none;
 
@@ -218,11 +218,11 @@ const AuthLoginPortal = () => {
   return (
     <div css={styles.outer} className="uden-fade-in">
       <div css={styles.card} className="uden-card-hover">
-        {/* LEFT PART: Soft Warm Yellow Value Proposition Canvas + Checklist Illustration */}
+        {/* LEFT PART: Value Proposition Canvas + Checklist Illustration */}
         <div css={styles.leftCol}>
           <div>
             <div css={styles.badgeTag} className="uden-float-anim">
-              <Sparkles size={13} />
+              <Sparkles size={13} color="#F7BC08" />
               UNIFIED EMPLOYMENT NETWORK
             </div>
 
@@ -244,22 +244,22 @@ const AuthLoginPortal = () => {
 
             <div css={styles.featuresList}>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>Pre-Assessed Skill Profile Verification</span>
               </div>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>Direct Recruiter Interview Shortlists</span>
               </div>
               <div css={styles.featureItem}>
-                <CheckCircle2 size={16} color="#DA532C" />
+                <CheckCircle2 size={16} color="#4B638C" />
                 <span>1-on-1 Mentorship & Resume Support</span>
               </div>
             </div>
           </div>
 
           <div css={styles.leftFooter}>
-            <ShieldCheck size={14} color="#DA532C" />
+            <ShieldCheck size={14} color="#4B638C" />
             100% Encrypted & Secure Authentication
           </div>
         </div>

@@ -15,9 +15,9 @@ try {
 
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     padding: 64px 16px 56px 16px;
-    border-bottom: 4px solid #DA532C;
+    border-bottom: 4px solid #4B638C;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -38,14 +38,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 800;
     margin-bottom: 20px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -58,7 +58,7 @@ const styles = {
     letter-spacing: -0.8px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -84,7 +84,7 @@ const styles = {
   `,
   statCard: css`
     background: #FFFFFF;
-    border: 1.5px solid rgba(255, 176, 32, 0.4);
+    border: 1.5px solid rgba(247, 188, 8, 0.4);
     border-radius: 16px;
     padding: 16px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -96,8 +96,8 @@ const styles = {
     width: 42px;
     height: 42px;
     border-radius: 12px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.12);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,7 +111,7 @@ const styles = {
     margin-bottom: 4px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   statLabel: css`
@@ -134,7 +134,7 @@ const styles = {
     }
   `,
   primaryBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px 28px;
@@ -147,18 +147,18 @@ const styles = {
     justify-content: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 8px 20px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 8px 20px rgba(245, 88, 37, 0.25);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 12px 24px rgba(245, 88, 37, 0.35);
     }
   `,
   secondaryBtn: css`
     background: #FFFFFF;
-    color: #DA532C;
-    border: 2px solid #DA532C;
+    color: #4B638C;
+    border: 2px solid #4B638C;
     padding: 13px 24px;
     border-radius: 28px;
     font-size: 15px;
@@ -171,7 +171,7 @@ const styles = {
     transition: all 0.25s ease;
 
     &:hover {
-      background: rgba(218, 83, 44, 0.08);
+      background: rgba(75, 99, 140, 0.08);
       transform: translateY(-2px);
     }
   `,
@@ -187,15 +187,15 @@ const styles = {
     border-radius: 24px;
     background: #FFFFFF;
     padding: 12px;
-    border: 2px solid #DA532C;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.12);
+    border: 2px solid #4B638C;
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
   `,
   profileDemoCard: css`
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 2px solid #4B638C;
     border-radius: 24px;
     padding: 28px;
-    box-shadow: 0 20px 40px rgba(218, 83, 44, 0.15);
+    box-shadow: 0 20px 40px rgba(75, 99, 140, 0.15);
   `,
   profileCardHeader: css`
     display: flex;
@@ -209,7 +209,7 @@ const styles = {
     width: 54px;
     height: 54px;
     border-radius: 50%;
-    border: 2.5px solid #DA532C;
+    border: 2.5px solid #4B638C;
     object-fit: cover;
   `,
   candidateName: css`
@@ -228,9 +228,9 @@ const styles = {
   `,
   scoreBadge: css`
     margin-left: auto;
-    background: rgba(218, 83, 44, 0.1);
-    border: 1px solid rgba(218, 83, 44, 0.3);
-    color: #DA532C;
+    background: rgba(247, 188, 8, 0.15);
+    border: 1px solid rgba(247, 188, 8, 0.5);
+    color: #1E293B;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 12.5px;
@@ -240,8 +240,8 @@ const styles = {
     gap: 6px;
   `,
   shortlistBanner: css`
-    background: #FFFDF7;
-    border: 1.5px solid rgba(255, 176, 32, 0.5);
+    background: #FFFDF4;
+    border: 1.5px solid rgba(247, 188, 8, 0.5);
     border-radius: 14px;
     padding: 14px;
     margin-bottom: 20px;
@@ -256,12 +256,12 @@ const styles = {
     line-height: 1.4;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
   `,
   evalBtn: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px;
@@ -276,7 +276,7 @@ const styles = {
     transition: background 0.2s ease;
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
     }
   `
 };
@@ -290,7 +290,7 @@ const JobSeekerBanner = () => {
         {/* Left Column Candidate Value Proposition */}
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Sparkles size={14} />
+            <Sparkles size={14} color="#F7BC08" />
             CANDIDATE CAREER PLATFORM
           </div>
 
@@ -366,19 +366,19 @@ const JobSeekerBanner = () => {
               <div>
                 <div css={styles.candidateName}>
                   Alex Sharma
-                  <CheckCircle2 size={16} color="#DA532C" />
+                  <CheckCircle2 size={16} color="#4B638C" />
                 </div>
                 <div css={styles.candidateRole}>Fullstack React & Node.js Engineer</div>
               </div>
 
               <div css={styles.scoreBadge}>
-                <Star size={14} fill="#DA532C" color="#DA532C" />
+                <Star size={14} fill="#F7BC08" color="#F7BC08" />
                 96% AI Score
               </div>
             </div>
 
             <div css={styles.shortlistBanner}>
-              <Sparkles size={20} color="#DA532C" />
+              <Sparkles size={20} color="#F7BC08" />
               <div css={styles.shortlistText}>
                 Verified Recruiter Match: <span>Deloitte Tech</span> • Interview Shortlist Confirmed (₹9.2L / yr)
               </div>

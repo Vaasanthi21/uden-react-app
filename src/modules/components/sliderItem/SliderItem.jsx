@@ -7,17 +7,17 @@ import { useNavigate } from 'react-router-dom';
 
 const styles = {
   cardOuter: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
     border-radius: 32px;
     padding: 44px 52px;
-    box-shadow: 0 20px 50px rgba(218, 83, 44, 0.07);
+    box-shadow: 0 20px 50px rgba(75, 99, 140, 0.08);
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 40px;
     align-items: center;
     margin: 16px auto 28px auto;
     max-width: 1140px;
-    border: 1px solid rgba(255, 176, 32, 0.35);
+    border: 1px solid rgba(247, 188, 8, 0.35);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
     @media (max-width: 900px) {
@@ -31,14 +31,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 800;
     margin-bottom: 16px;
-    border: 1px solid rgba(218, 83, 44, 0.2);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -51,7 +51,7 @@ const styles = {
     letter-spacing: -0.5px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -61,14 +61,14 @@ const styles = {
   subtitle: css`
     font-size: 18px;
     font-weight: 800;
-    color: #DA532C;
+    color: #F55825;
     margin-bottom: 22px;
     line-height: 1.3;
   `,
   darkSubtitle: css`
     font-size: 15.5px;
-    font-weight: 600;
-    color: #475569;
+    font-weight: 700;
+    color: #4B638C;
     margin-bottom: 22px;
     line-height: 1.5;
   `,
@@ -88,8 +88,8 @@ const styles = {
     align-items: center;
     gap: 6px;
     background: #FFFFFF;
-    color: #DA532C;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    color: #4B638C;
+    border: 1.5px solid rgba(247, 188, 8, 0.5);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 13px;
@@ -97,7 +97,7 @@ const styles = {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   `,
   ctaBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px 32px;
@@ -109,13 +109,13 @@ const styles = {
     align-items: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 8px 20px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 8px 20px rgba(245, 88, 37, 0.28);
     text-decoration: none;
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 12px 24px rgba(245, 88, 37, 0.38);
     }
   `,
   imageWrapper: css`
@@ -152,7 +152,7 @@ const SliderItem = (props) => {
       {/* Left Column: Title, Subtitle, Point Pills & Action Button */}
       <div>
         <div css={styles.badgeTag} className="uden-float-anim">
-          <Sparkles size={14} />
+          <Sparkles size={14} color="#F7BC08" />
           UNIFIED EMPLOYMENT NETWORK
         </div>
 
@@ -172,7 +172,7 @@ const SliderItem = (props) => {
           <div css={styles.pointsRow}>
             {props.points.map((pt, idx) => (
               <div key={idx} css={styles.pointChip}>
-                <CheckCircle2 size={15} color="#DA532C" />
+                <CheckCircle2 size={15} color="#F55825" />
                 <span>{pt}</span>
               </div>
             ))}
@@ -191,7 +191,7 @@ const SliderItem = (props) => {
         )}
       </div>
 
-      {/* Right Column: Floating Illustration (No Inner Box Border) */}
+      {/* Right Column: Floating Illustration */}
       {props?.image && (
         <div css={styles.imageWrapper}>
           <img 
