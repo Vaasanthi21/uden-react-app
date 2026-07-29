@@ -12,3 +12,5 @@ export const RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitmen
 export const ChecklistCompletedImage = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
 export const ContractHandshakeImage = process.env.PUBLIC_URL + '/images/contract-handshake.jpg';
 export const JobTeamImage = process.env.PUBLIC_URL + '/images/job-team.jpg';
+
+export const NetworkPatternImage = process.env.PUBLIC_URL + '/images/network-pattern.png';

@@ -6,11 +6,14 @@ import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users,
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
-let StudentRoadmapImage;
+let StudentRoadmapImage, NetworkPatternImage;
 try {
-  StudentRoadmapImage = require('../../../../utils/consts/uploaded_illustrations').StudentRoadmapImage;
+  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  StudentRoadmapImage = illustrations.StudentRoadmapImage;
+  NetworkPatternImage = illustrations.NetworkPatternImage;
 } catch (e) {
   StudentRoadmapImage = null;
+  NetworkPatternImage = process.env.PUBLIC_URL + '/images/network-pattern.png';
 }
 
 const styles = {
@@ -21,6 +24,67 @@ const styles = {
     position: relative;
     overflow: hidden;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+    /* Top Left Network Pattern Overlay */
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 360px;
+      height: 360px;
+      background-image: url('${NetworkPatternImage}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Right Network Pattern Overlay */
+    &::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 360px;
+      height: 360px;
+      background-image: url('${NetworkPatternImage}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 1;
+    }
+  `,
+  bottomLeftPattern: css`
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 340px;
+    height: 340px;
+    background-image: url('${NetworkPatternImage}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scaleY(-1);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  `,
+  bottomRightPattern: css`
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 340px;
+    height: 340px;
+    background-image: url('${NetworkPatternImage}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(-1, -1);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
   `,
   container: css`
     max-width: 1160px;
@@ -345,6 +409,9 @@ const MultiJobSearch = () => {
 
   return (
     <div css={styles.sectionOuter} className="uden-fade-in">
+      <div css={styles.bottomLeftPattern} />
+      <div css={styles.bottomRightPattern} />
+
       <div css={styles.container}>
         {/* Top Hero 2-Column Grid embedding StudentRoadmapImage */}
         <div css={styles.topHeroGrid}>
