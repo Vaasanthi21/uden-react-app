@@ -8,8 +8,8 @@ import { AppRoutes } from '../../../../utils/consts/routes';
 
 const styles = {
   container: css`
-    max-width: 1100px;
-    margin: -40px auto 40px auto;
+    max-width: 1140px;
+    margin: 32px auto 40px auto;
     padding: 0 16px;
     position: relative;
     z-index: 10;
@@ -18,7 +18,7 @@ const styles = {
     background: #FFFFFF;
     border-radius: 24px;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
-    border: 1.5px solid #E2E8F0;
+    border: 2px solid #DA532C;
     padding: 32px;
 
     @media (max-width: 768px) {
@@ -60,10 +60,10 @@ const styles = {
   tabNav: css`
     display: flex;
     gap: 8px;
-    background: #F8FAFC;
+    background: #FEF5D8;
     padding: 4px;
     border-radius: 30px;
-    border: 1px solid #E2E8F0;
+    border: 1px solid rgba(255, 176, 32, 0.5);
   `,
   tabBtn: (active) => css`
     padding: 8px 20px;

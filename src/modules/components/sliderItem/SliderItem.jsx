@@ -10,20 +10,20 @@ const styles = {
     background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
     border: 2px solid #DA532C;
     border-radius: 24px;
-    padding: 44px 48px;
+    padding: 36px 44px;
     box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 40px;
+    gap: 36px;
     align-items: center;
-    margin: 20px auto;
+    margin: 16px auto;
     max-width: 1140px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
-      padding: 32px 24px;
-      gap: 28px;
+      padding: 28px 20px;
+      gap: 24px;
       text-align: center;
     }
   `,
@@ -37,17 +37,17 @@ const styles = {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     border: 1px solid rgba(255, 176, 32, 0.6);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.2;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     letter-spacing: -0.5px;
 
     span {
@@ -55,21 +55,21 @@ const styles = {
     }
 
     @media (max-width: 768px) {
-      font-size: 26px;
+      font-size: 24px;
     }
   `,
   subtitle: css`
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     color: #DA532C;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     line-height: 1.3;
   `,
   darkSubtitle: css`
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #475569;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     line-height: 1.5;
   `,
   pointsRow: css`
@@ -77,7 +77,7 @@ const styles = {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 
     @media (max-width: 900px) {
       justify-content: center;
@@ -100,10 +100,10 @@ const styles = {
     background: #DA532C;
     color: #FFFFFF;
     border: none;
-    padding: 14px 30px;
+    padding: 13px 28px;
     border-radius: 12px;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 14.5px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -125,11 +125,11 @@ const styles = {
   `,
   imgBox: css`
     width: 100%;
-    max-height: 280px;
+    max-height: 250px;
     object-fit: contain;
     border-radius: 20px;
     background: #FFFFFF;
-    padding: 12px;
+    padding: 10px;
     border: 1.5px solid #FEF5D8;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   `
