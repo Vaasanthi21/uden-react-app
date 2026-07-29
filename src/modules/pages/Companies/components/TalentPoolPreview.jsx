@@ -37,8 +37,8 @@ const styles = {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   topHeroBanner: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
-    border: 2px solid #DA532C;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
+    border: 1.5px solid rgba(247, 188, 8, 0.5);
     border-radius: 24px;
     padding: 32px;
     margin-bottom: 44px;
@@ -46,7 +46,7 @@ const styles = {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 36px;
     align-items: center;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.08);
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
@@ -74,7 +74,7 @@ const styles = {
       letter-spacing: -0.5px;
 
       span {
-        color: #DA532C;
+        color: #F55825;
       }
     }
 
@@ -98,10 +98,10 @@ const styles = {
   `,
   card: css`
     background: #FFFFFF;
-    border: 2px solid #DA532C;
+    border: 1.5px solid #E2E8F0;
     border-radius: 22px;
     padding: 24px;
-    box-shadow: 0 8px 24px rgba(218, 83, 44, 0.08);
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.07);
     transition: all 0.35s ease;
     display: flex;
     flex-direction: column;
@@ -109,7 +109,8 @@ const styles = {
 
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(218, 83, 44, 0.16);
+      border-color: #4B638C;
+      box-shadow: 0 20px 40px rgba(75, 99, 140, 0.15);
     }
   `,
   cardImgBanner: css`
@@ -117,9 +118,9 @@ const styles = {
     max-height: 120px;
     object-fit: contain;
     border-radius: 12px;
-    background: #FFFDF7;
+    background: #FFFDF0;
     padding: 6px;
-    border: 1px solid #FEF5D8;
+    border: 1px solid rgba(247, 188, 8, 0.4);
     margin-bottom: 16px;
   `,
   candidateHeader: css`
@@ -132,17 +133,18 @@ const styles = {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #DA532C;
+    background: #4B638C;
     color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 900;
     font-size: 15px;
+    box-shadow: 0 4px 10px rgba(75, 99, 140, 0.25);
   `,
   verifiedTag: css`
-    background: #FEF5D8;
-    color: #DA532C;
+    background: #FFFDF0;
+    color: #1E293B;
     font-size: 12px;
     font-weight: 800;
     padding: 4px 12px;
@@ -150,7 +152,8 @@ const styles = {
     display: flex;
     align-items: center;
     gap: 4px;
-    border: 1px solid rgba(255, 176, 32, 0.6);
+    border: 1.5px solid #F7BC08;
+    box-shadow: 0 2px 6px rgba(247, 188, 8, 0.2);
   `,
   roleTitle: css`
     font-size: 17px;
@@ -181,13 +184,13 @@ const styles = {
     margin-bottom: 20px;
   `,
   skillChip: css`
-    background: #FEF5D8;
-    color: #DA532C;
+    background: #FFFDF0;
+    color: #4B638C;
     font-size: 11.5px;
     font-weight: 700;
     padding: 4px 10px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 176, 32, 0.4);
+    border: 1px solid rgba(247, 188, 8, 0.5);
   `,
   footerRow: css`
     display: flex;
@@ -202,7 +205,7 @@ const styles = {
     color: #10B981;
   `,
   requestLink: css`
-    color: #DA532C;
+    color: #F55825;
     font-weight: 800;
     font-size: 13px;
     background: none;
@@ -266,8 +269,8 @@ const TalentPoolPreview = () => {
       {RecruitmentTeamImage && (
         <div css={styles.topHeroBanner} className="uden-card-hover">
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#FEF5D8', color: '#DA532C', padding: '6px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: '800', marginBottom: '14px', border: '1px solid rgba(255, 176, 32, 0.6)' }}>
-              <ShieldCheck size={14} />
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#FFFDF0', color: '#4B638C', padding: '6px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: '800', marginBottom: '14px', border: '1.5px solid #F7BC08' }}>
+              <ShieldCheck size={14} color="#F7BC08" />
               PRE-VETTED TALENT SPOTLIGHT
             </div>
             <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#1E293B', marginBottom: '10px' }}>
@@ -277,7 +280,7 @@ const TalentPoolPreview = () => {
               Every candidate in our spotlight pool undergoes rigorous AI technical assessments, system design interviews, and background verifications.
             </p>
             <button 
-              style={{ background: '#DA532C', color: '#FFFFFF', border: 'none', padding: '12px 24px', borderRadius: '12px', fontWeight: '800', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              style={{ background: '#F55825', color: '#FFFFFF', border: 'none', padding: '12px 24px', borderRadius: '24px', fontWeight: '800', fontSize: '14px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', boxShadow: '0 6px 18px rgba(245, 88, 37, 0.28)' }}
               className="uden-pulse-btn"
               onClick={() => navigate(AppRoutes.FIND_TALENT)}
             >
@@ -311,7 +314,7 @@ const TalentPoolPreview = () => {
                 <div css={styles.candidateHeader}>
                   <div css={styles.avatarBadge}>{c.initials}</div>
                   <div css={styles.verifiedTag}>
-                    <Award size={13} color="#DA532C" />
+                    <Award size={13} color="#F7BC08" />
                     {c.score}
                   </div>
                 </div>
