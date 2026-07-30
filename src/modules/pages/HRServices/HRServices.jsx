@@ -10,12 +10,14 @@ import HRServicesKnowMore from './components/KnowMore';
 import HRServicesTestimonial from './components/Testimonial';
 import HRServicesTrustedBrand from './components/TrustedBrand';
 import HRServicesWorkFlow from './components/WorkFlow';
+import HROfferingsHub from './components/HROfferingsHub';
 import { HRServicesStyles as styles } from './styles/Companies.Styles';
 
 const HRServices = () => {
   return (
     <>
       <HRServicesBanner />
+      <HROfferingsHub />
       <HRServicesTrustedBrand />
       <Spacer height />
       <HRServicesWorkFlow css={styles.workFlow} />
