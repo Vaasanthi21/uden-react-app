@@ -1,7 +1,6 @@
 import React from 'react';
 import { HomeStyles as styles } from './styles/Home.Styles';
 import Slider from './components/Slider';
-import HeroAuthSegmented from './components/HeroAuthSegmented';
 import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
 import CompanyPrepExplorer from './components/CompanyPrepExplorer';
@@ -18,11 +17,8 @@ import ScrollReveal from '../../components/layout/ScrollReveal';
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 1. Hero Slider & Segmented Jobseeker/Employer Auth */}
+      {/* 1. Hero Slider */}
       <Slider autoplay={false} css={styles.slider} />
-      <ScrollReveal delay={100}>
-        <HeroAuthSegmented />
-      </ScrollReveal>
       <ScrollReveal delay={150}>
         <HeroSearchWidget />
       </ScrollReveal>
