@@ -1,6 +1,7 @@
 import React from 'react';
 import { HomeStyles as styles } from './styles/Home.Styles';
 import Slider from './components/Slider';
+import HeroAuthSegmented from './components/HeroAuthSegmented';
 import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
 import CompanyPrepExplorer from './components/CompanyPrepExplorer';
