@@ -17,9 +17,12 @@ import ScrollReveal from '../../components/layout/ScrollReveal';
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 1. Hero Slider & Quick Search Widget */}
+      {/* 1. Hero Slider & Segmented Jobseeker/Employer Auth */}
       <Slider autoplay={false} css={styles.slider} />
       <ScrollReveal delay={100}>
+        <HeroAuthSegmented />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
         <HeroSearchWidget />
       </ScrollReveal>
 

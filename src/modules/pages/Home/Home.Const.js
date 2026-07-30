@@ -269,12 +269,12 @@ const PersonaSwitcher = {
         },
         {
             id: "govt",
-            tabLabel: "🏛️ For Government",
-            badge: "State DHE & CSR",
-            title: "₹95 crore in unspent scheme budget.",
-            desc: "UDEN partners with State Departments of Higher Education to convert employability scheme budgets into audit-ready placement outcomes.",
-            bullets: ["Jharkhand DHE Scheme 2107 Model", "GFR Rule 194 Procurement Compliant", "60 Colleges & 20,000+ Enrolled Students"],
-            actionText: "Request State MoU Briefing",
+            tabLabel: "🏛️ For Public Institutions",
+            badge: "Youth Skill Development",
+            title: "Empowering Students with Industry-Ready Skills & Placements.",
+            desc: "UDEN partners with educational institutions and skill development bodies to provide students with diagnostic skill tests, company PYQs, and corporate placement drives.",
+            bullets: ["25,000+ Students Skill-Assessed", "150+ Corporate Hiring Partners", "100% Free Career Guidance for Candidates"],
+            actionText: "Request Student Employability Proposal",
             route: AppRoutes.GOVERNMENT
         }
     ]
