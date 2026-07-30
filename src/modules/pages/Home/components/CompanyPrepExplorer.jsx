@@ -6,7 +6,6 @@ import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkl
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
 import { AppRoutes } from '../../../../utils/consts/routes';
-import { AppAssets } from '../../../../utils/consts/app_assets';
 
 let MentorGuidanceImage, AiRobotTeamImage, FaqSupportDeskImage, StudentRoadmapImage;
 try {
@@ -29,8 +28,8 @@ const styles = {
     padding: 0 20px;
   `,
   topMentorCard: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
-    border: 2px solid #DA532C;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
+    border: 1.5px solid rgba(75, 99, 140, 0.3);
     border-radius: 24px;
     padding: 32px 40px;
     margin-bottom: 44px;
@@ -38,7 +37,7 @@ const styles = {
     grid-template-columns: 1fr 1.2fr;
     gap: 36px;
     align-items: center;
-    box-shadow: 0 12px 32px rgba(218, 83, 44, 0.1);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.08);
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
@@ -66,7 +65,7 @@ const styles = {
       letter-spacing: -0.5px;
 
       span {
-        color: #DA532C;
+        color: #F55825;
       }
     }
 
@@ -83,14 +82,14 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.1);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 24px;
     font-size: 12px;
     font-weight: 800;
     margin-bottom: 16px;
-    border: 1px solid rgba(218, 83, 44, 0.2);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
@@ -109,18 +108,18 @@ const styles = {
     font-size: 15px;
     font-weight: 800;
     cursor: pointer;
-    border: 2px solid ${active ? '#DA532C' : '#E2E8F0'};
-    background: ${active ? '#DA532C' : '#FFFFFF'};
+    border: 2px solid ${active ? '#F55825' : '#E2E8F0'};
+    background: ${active ? '#F55825' : '#FFFFFF'};
     color: ${active ? '#FFFFFF' : '#334155'};
     display: flex;
     align-items: center;
     gap: 10px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: ${active ? '0 8px 22px -6px rgba(218, 83, 44, 0.35)' : 'none'};
+    box-shadow: ${active ? '0 8px 22px -6px rgba(245, 88, 37, 0.35)' : 'none'};
 
     &:hover {
-      border-color: #DA532C;
-      color: ${active ? '#FFFFFF' : '#DA532C'};
+      border-color: #F55825;
+      color: ${active ? '#FFFFFF' : '#F55825'};
       transform: translateY(-2px);
     }
   `,
@@ -140,10 +139,17 @@ const styles = {
     border: 1.5px solid #E2E8F0;
     border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.08);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 0.35s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #4B638C;
+      box-shadow: 0 20px 44px rgba(75, 99, 140, 0.15);
+    }
   `,
   illustrationCardBanner: css`
     width: 100%;
@@ -151,9 +157,9 @@ const styles = {
     object-fit: contain;
     margin-bottom: 16px;
     border-radius: 14px;
-    background: #FFFFFF;
+    background: #FFFDF0;
     padding: 6px;
-    border: 1px solid #FEF5D8;
+    border: 1px solid rgba(247, 188, 8, 0.4);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
   `,
   roundHeader: css`
@@ -166,8 +172,8 @@ const styles = {
     width: 38px;
     height: 38px;
     border-radius: 12px;
-    background: rgba(218, 83, 44, 0.1);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.12);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,18 +212,25 @@ const styles = {
     color: #334155;
   `,
   aiMockCard: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    border: 2px solid #DA532C;
+    background: linear-gradient(135deg, #FFFDF0 0%, #FFFDF7 100%);
+    border: 1.5px solid rgba(247, 188, 8, 0.6);
     border-radius: 24px;
     padding: 32px;
-    box-shadow: 0 12px 28px rgba(218, 83, 44, 0.15);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: all 0.35s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #F55825;
+      box-shadow: 0 20px 48px rgba(245, 88, 37, 0.2);
+    }
   `,
   startBtn: css`
     width: 100%;
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 14px;
@@ -229,6 +242,12 @@ const styles = {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: #D94616;
+    }
   `,
   accessBtn: css`
     width: 100%;
@@ -247,8 +266,8 @@ const styles = {
     transition: all 0.25s ease;
 
     &:hover {
-      border-color: #DA532C;
-      color: #DA532C;
+      border-color: #4B638C;
+      color: #4B638C;
       background: #FFFFFF;
     }
   `
@@ -275,7 +294,7 @@ const CompanyPrepExplorer = () => {
           <img src={MentorGuidanceImage} alt="1-on-1 Mentor Guidance & Live Prep" css={styles.mentorImg} />
           <div>
             <div css={styles.badgeTag} className="uden-float-anim">
-              <Users size={14} />
+              <Users size={14} color="#F7BC08" />
               1-ON-1 MENTORSHIP & GROUP PREP
             </div>
             <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#1E293B', marginBottom: '10px' }}>
@@ -284,7 +303,7 @@ const CompanyPrepExplorer = () => {
             <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', marginBottom: '20px' }}>
               Get personal guidance from experienced mentors who have cleared selection rounds at Deloitte, TCS NQT, and Amazon SDE.
             </p>
-            <button css={styles.accessBtn} style={{ background: '#DA532C', color: '#FFFFFF', border: 'none' }} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+            <button css={styles.accessBtn} style={{ background: '#F55825', color: '#FFFFFF', border: 'none' }} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
               Book 1-on-1 Mentor Session
               <ArrowRight size={16} />
             </button>
@@ -294,7 +313,7 @@ const CompanyPrepExplorer = () => {
 
       <div css={styles.header}>
         <div css={styles.badgeTag} className="uden-float-anim">
-          <Sparkles size={14} />
+          <Sparkles size={14} color="#F7BC08" />
           COMPANY-SPECIFIC ROUND PREP & PYQs ENGINE
         </div>
         <h2>{prepData.title}</h2>
@@ -327,7 +346,7 @@ const CompanyPrepExplorer = () => {
                 )}
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
-                  <span style={{ fontSize: '11px', fontWeight: '800', background: '#DA532C', color: '#FFF', padding: '4px 10px', borderRadius: '8px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: '800', background: '#F55825', color: '#FFF', padding: '4px 10px', borderRadius: '8px' }}>
                     AI VIDEO SIMULATOR
                   </span>
                 </div>
@@ -336,11 +355,11 @@ const CompanyPrepExplorer = () => {
 
                 <div css={styles.resourceList}>
                   <div css={styles.resourceItem}>
-                    <Bot size={18} color="#DA532C" />
+                    <Bot size={18} color="#4B638C" />
                     <span>{rnd.pyqCount}</span>
                   </div>
                   <div css={styles.resourceItem}>
-                    <Video size={18} color="#DA532C" />
+                    <Video size={18} color="#4B638C" />
                     <span>{rnd.videoCount}</span>
                   </div>
                 </div>
@@ -366,11 +385,11 @@ const CompanyPrepExplorer = () => {
 
                 <div css={styles.resourceList}>
                   <div css={styles.resourceItem}>
-                    <FileText size={18} color="#DA532C" />
+                    <FileText size={18} color="#4B638C" />
                     <span>{rnd.pyqCount}</span>
                   </div>
                   <div css={styles.resourceItem}>
-                    <Video size={18} color="#DA532C" />
+                    <Video size={18} color="#4B638C" />
                     <span>{rnd.videoCount}</span>
                   </div>
                 </div>

@@ -12,59 +12,82 @@ import HomeTrustedBrand from './components/TrustedBrand';
 import HomeTestimonial from './components/Testimonial';
 import StudentPlaced from './components/StudentPlaced';
 import FaqPage from '../Faq/Faq';
+import ScrollReveal from '../../components/layout/ScrollReveal';
 
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
       {/* 1. Hero Slider & Quick Search Widget */}
       <Slider autoplay={false} css={styles.slider} />
-      <HeroSearchWidget />
+      <ScrollReveal delay={100}>
+        <HeroSearchWidget />
+      </ScrollReveal>
 
       {/* 2. Multi-Job Board Search Engine (100,000+ Jobs Aggregated) */}
-      <div style={{ padding: '80px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
-        <MultiJobSearch />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
+          <MultiJobSearch />
+        </div>
+      </ScrollReveal>
 
       {/* 3. Company-Specific Round-by-Round Prep, PYQs & AI Video Interview Simulator */}
-      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
-        <CompanyPrepExplorer />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+          <CompanyPrepExplorer />
+        </div>
+      </ScrollReveal>
 
       {/* 4. Key Live Platform Metrics */}
-      <MetricsTicker />
+      <ScrollReveal threshold={0.15}>
+        <MetricsTicker />
+      </ScrollReveal>
 
       {/* 5. Enterprise Recruiter Pre-Vetted AI Video Talent Hub */}
-      <div style={{ padding: '80px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
-        <RecruiterVettedHub />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
+          <RecruiterVettedHub />
+        </div>
+      </ScrollReveal>
 
       {/* 6. Referral & Peer Learning Community Hub (Get Paid While Job Searching) */}
-      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
-        <ReferralCommunityHub />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+          <ReferralCommunityHub />
+        </div>
+      </ScrollReveal>
 
       {/* 7. Trust Logos Bar */}
-      <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
-        <HomeTrustedBrand css={styles.trustedBrand} />
-      </div>
+      <ScrollReveal threshold={0.15}>
+        <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
+          <HomeTrustedBrand css={styles.trustedBrand} />
+        </div>
+      </ScrollReveal>
 
       {/* 8. Interactive Career & Salary Growth Calculator */}
-      <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
-        <CareerCalculator />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
+          <CareerCalculator />
+        </div>
+      </ScrollReveal>
 
       {/* 9. Success Stories & Testimonials */}
-      <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
-        <HomeTestimonial css={styles.testimonial} />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
+          <HomeTestimonial css={styles.testimonial} />
+        </div>
+      </ScrollReveal>
 
       {/* 10. Tailored Solutions & Stakeholder FAQ Section */}
-      <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
-        <FaqPage />
-      </div>
+      <ScrollReveal threshold={0.1}>
+        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+          <FaqPage />
+        </div>
+      </ScrollReveal>
 
       {/* 11. Bottom CTA Banner */}
-      <StudentPlaced css={styles.studentPlaced} />
+      <ScrollReveal threshold={0.1}>
+        <StudentPlaced css={styles.studentPlaced} />
+      </ScrollReveal>
     </div>
   );
 };

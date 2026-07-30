@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
@@ -23,12 +23,13 @@ try {
 const styles = {
   sectionOuter: css`
     width: 100%;
-    background: linear-gradient(180deg, #0B0F17 0%, #111827 100%);
-    padding: 90px 20px;
+    background: linear-gradient(180deg, #FFFDF7 0%, #FFFDF0 100%);
+    padding: 80px 20px;
     position: relative;
     overflow: hidden;
-    color: #FFFFFF;
+    color: #1E293B;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    border-bottom: 2px solid rgba(75, 99, 140, 0.15);
   `,
   container: css`
     max-width: 1240px;
@@ -38,25 +39,22 @@ const styles = {
   `,
   header: css`
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 52px;
 
     h2 {
       font-size: 38px;
       font-weight: 900;
-      color: #FFFFFF;
+      color: #1E293B;
       margin-bottom: 12px;
       letter-spacing: -0.8px;
 
       span {
         color: #F55825;
-        background: linear-gradient(135deg, #F55825 0%, #F7BC08 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
       }
     }
 
     p {
-      color: #94A3B8;
+      color: #475569;
       font-size: 16px;
       max-width: 680px;
       margin: 0 auto;
@@ -65,19 +63,18 @@ const styles = {
     }
   `,
 
-  /* HORIZONTAL SLIDING CAROUSEL TRACK */
+  /* HORIZONTAL SLIDING CAROUSEL TRACK ON WHITE BACKGROUND */
   trackWrapper: css`
     width: 100%;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 20px 0 40px 0;
 
-    /* Custom scrollbar styling */
     &::-webkit-scrollbar {
       height: 8px;
     }
     &::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.05);
+      background: #E2E8F0;
       border-radius: 4px;
     }
     &::-webkit-scrollbar-thumb {
@@ -92,30 +89,28 @@ const styles = {
   `,
   cardItem: css`
     width: 340px;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
     border-radius: 28px;
     padding: 32px 28px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.08);
     cursor: pointer;
 
     &:hover {
       transform: translateY(-8px);
-      border-color: #F55825;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 48px rgba(245, 88, 37, 0.25);
+      border-color: #4B638C;
+      box-shadow: 0 24px 48px rgba(75, 99, 140, 0.16);
     }
   `,
   previewImgBox: css`
     width: 100%;
     height: 170px;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
     border-radius: 18px;
     padding: 12px;
     display: flex;
@@ -131,27 +126,28 @@ const styles = {
     }
   `,
   iconBox: css`
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 14px;
-    background: rgba(245, 88, 37, 0.15);
-    border: 1px solid rgba(245, 88, 37, 0.4);
-    color: #F7BC08;
+    background: rgba(75, 99, 140, 0.12);
+    border: 1px solid rgba(75, 99, 140, 0.25);
+    color: #4B638C;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
+    box-shadow: 0 4px 10px rgba(75, 99, 140, 0.1);
   `,
   cardTitle: css`
     font-size: 21px;
     font-weight: 800;
-    color: #FFFFFF;
+    color: #1E293B;
     margin-bottom: 10px;
     line-height: 1.3;
   `,
   cardDesc: css`
     font-size: 14px;
-    color: #94A3B8;
+    color: #475569;
     line-height: 1.6;
     margin-bottom: 24px;
     font-weight: 500;
@@ -168,7 +164,7 @@ const styles = {
     transition: all 0.25s ease;
 
     &:hover {
-      color: #F7BC08;
+      color: #D94616;
       transform: translateX(4px);
     }
   `
@@ -212,7 +208,7 @@ const JobSeekersFeature = (props) => {
           <p>We don't just build resumes — we craft them for impact using AI and expert recruiter insights.</p>
         </div>
 
-        {/* Horizontal Sliding Cards Track matching NxtJob.ai Video */}
+        {/* Horizontal Sliding Cards Track on Clean White Theme */}
         <div css={styles.trackWrapper}>
           <div css={styles.cardsTrack}>
             {suiteFeatures.map((item, idx) => (

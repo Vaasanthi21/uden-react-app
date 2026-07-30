@@ -2,7 +2,7 @@ import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { DollarSign, Users, Sparkles, ArrowRight, CheckCircle2, Gift } from 'lucide-react';
+import { DollarSign, Users, Sparkles, ArrowRight, CheckCircle2, Gift, Share2, Award, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
@@ -15,25 +15,21 @@ try {
 
 const styles = {
   container: css`
-    max-width: 1140px;
+    max-width: 1160px;
     margin: 0 auto;
     padding: 0 20px;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
-  cardOuter: css`
-    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    border: 2px solid #DA532C;
-    border-radius: 28px;
-    padding: 50px;
-    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.12);
+  heroGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    gap: 52px;
     align-items: center;
+    margin-bottom: 56px;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
-      padding: 32px;
-      gap: 32px;
+      gap: 36px;
     }
   `,
   illustrationCol: css`
@@ -45,58 +41,59 @@ const styles = {
     width: 100%;
     max-height: 320px;
     object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.1);
     background: #FFFFFF;
     padding: 12px;
+    border: 1.5px solid #4B638C;
   `,
   fallbackCard: css`
     width: 100%;
     height: 280px;
     background: #FFFFFF;
-    border: 2px dashed #DA532C;
+    border: 2px dashed #4B638C;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    color: #DA532C;
+    color: #4B638C;
     font-weight: 800;
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(218, 83, 44, 0.12);
-    color: #DA532C;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
     padding: 6px 18px;
     border-radius: 24px;
     font-size: 12px;
     font-weight: 800;
     margin-bottom: 18px;
-    border: 1px solid rgba(218, 83, 44, 0.25);
+    border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 900;
     color: #1E293B;
-    line-height: 1.25;
+    line-height: 1.22;
     margin-bottom: 18px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
 
     span {
-      color: #DA532C;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
-      font-size: 26px;
+      font-size: 28px;
     }
   `,
   subtitle: css`
-    font-size: 15.5px;
+    font-size: 16px;
     color: #475569;
     line-height: 1.65;
     margin-bottom: 28px;
@@ -118,7 +115,7 @@ const styles = {
     }
   `,
   ctaBtn: css`
-    background: #DA532C;
+    background: #F55825;
     color: #FFFFFF;
     border: none;
     padding: 16px 32px;
@@ -130,13 +127,55 @@ const styles = {
     align-items: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.28);
 
     &:hover {
-      background: #B83D1B;
+      background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
+      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.38);
     }
+  `,
+
+  /* BORDERLESS 3-COLUMN FEATURE ROW */
+  featureColumnsGrid: css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-top: 44px;
+    border-top: 1px solid #E2E8F0;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  `,
+  featureColItem: css`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  `,
+  colIconBox: css`
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(75, 99, 140, 0.12);
+    color: #4B638C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+  colTitle: css`
+    font-size: 18px;
+    font-weight: 800;
+    color: #1E293B;
+    margin: 0;
+  `,
+  colDesc: css`
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
   `
 };
 
@@ -145,7 +184,8 @@ const ReferralCommunityHub = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
-      <div css={styles.cardOuter}>
+      {/* Native Floating Hero Grid with NO Outer Box Border */}
+      <div css={styles.heroGrid}>
         {/* Left Column: Illustration Image */}
         <div css={styles.illustrationCol}>
           {TeamCollaborationImage ? (
@@ -157,7 +197,7 @@ const ReferralCommunityHub = () => {
             />
           ) : (
             <div css={styles.fallbackCard}>
-              <Users size={36} color="#DA532C" />
+              <Users size={36} color="#4B638C" />
               <span>Peer Collaboration & Referral Hub</span>
             </div>
           )}
@@ -166,7 +206,7 @@ const ReferralCommunityHub = () => {
         {/* Right Column: Copy & Actions */}
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
-            <Gift size={14} />
+            <Gift size={14} color="#F7BC08" />
             EARN CASH REWARDS WHILE JOB SEARCHING
           </div>
 
@@ -180,15 +220,15 @@ const ReferralCommunityHub = () => {
 
           <ul css={styles.benefitsList}>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={18} color="#F55825" />
               <span>Earn Cash Rewards per successful friend referral</span>
             </li>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={18} color="#F55825" />
               <span>Form Peer Study Groups for Deloitte, TCS & Amazon prep</span>
             </li>
             <li>
-              <CheckCircle2 size={18} color="#DA532C" />
+              <CheckCircle2 size={18} color="#F55825" />
               <span>Access Shared Mock Interview Feedback & Question Banks</span>
             </li>
           </ul>
@@ -197,6 +237,33 @@ const ReferralCommunityHub = () => {
             Refer Friends & Earn Cash Rewards
             <ArrowRight size={18} />
           </button>
+        </div>
+      </div>
+
+      {/* Borderless 3-Column Feature Row (Matching NxtJob Video Layout) */}
+      <div css={styles.featureColumnsGrid}>
+        <div css={styles.featureColItem}>
+          <div css={styles.colIconBox}>
+            <Share2 size={22} />
+          </div>
+          <h3 css={styles.colTitle}>Instant Referral Sharing</h3>
+          <p css={styles.colDesc}>Generate custom WhatsApp and LinkedIn invite links in one click to invite your college peers.</p>
+        </div>
+
+        <div css={styles.featureColItem}>
+          <div css={styles.colIconBox} style={{ background: 'rgba(245, 88, 37, 0.12)', color: '#F55825' }}>
+            <DollarSign size={22} />
+          </div>
+          <h3 css={styles.colTitle}>Direct Cash Rewards</h3>
+          <p css={styles.colDesc}>Track live referral earnings and receive direct cash deposits while searching for your dream role.</p>
+        </div>
+
+        <div css={styles.featureColItem}>
+          <div css={styles.colIconBox} style={{ background: 'rgba(247, 188, 8, 0.15)', color: '#1E293B' }}>
+            <Zap size={22} color="#F7BC08" />
+          </div>
+          <h3 css={styles.colTitle}>Collaborative Prep Circles</h3>
+          <p css={styles.colDesc}>Access shared PYQ banks, company-specific test cases, and AI video interview scorecards with your group.</p>
         </div>
       </div>
     </div>
