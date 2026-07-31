@@ -102,28 +102,19 @@ const styles = {
     line-height: 1.6;
     margin: 0;
   `,
-  /* MAIN GRID WITH EQUAL HEIGHT STRETCH FOR IDENTICAL BASELINES */
   mainGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 36px;
-    align-items: stretch;
+    gap: 48px;
+    align-items: flex-start;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
     }
   `,
-  /* LEFT CARD MATCHING RIGHT CARD PADDING & BASELINE */
-  leftCard: css`
-    background: #FFFFFF;
-    border-radius: 28px;
-    border: 1.5px solid #E2E8F0;
-    box-shadow: 0 20px 40px rgba(75, 99, 140, 0.08);
-    padding: 32px;
+  leftCol: css`
     display: flex;
     flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
   `,
   hiresHeader: css`
     font-size: 18px;
@@ -132,14 +123,14 @@ const styles = {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    height: 32px;
   `,
   marqueeWrapper: css`
     position: relative;
     overflow: hidden;
-    flex: 1;
-    min-height: 380px;
-    border-radius: 20px;
+    height: 440px;
+    border-radius: 24px;
     padding: 4px;
   `,
   marqueeTrack: css`
@@ -153,11 +144,11 @@ const styles = {
     }
   `,
   hireCard: css`
-    background: #FFFDF7;
+    background: #FFFFFF;
     border-radius: 20px;
     border: 1.5px solid #E2E8F0;
-    box-shadow: 0 4px 14px rgba(75, 99, 140, 0.05);
-    padding: 16px 20px;
+    box-shadow: 0 6px 18px rgba(75, 99, 140, 0.06);
+    padding: 18px 22px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -213,17 +204,12 @@ const styles = {
     font-weight: 900;
     animation: ${matchPulse} 2s infinite ease-in-out;
   `,
-  /* RIGHT CARD MATCHING LEFT CARD PADDING & BASELINE */
   chatCard: css`
     background: #FFFFFF;
     border-radius: 28px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 20px 40px rgba(75, 99, 140, 0.1);
     padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
     box-sizing: border-box;
   `,
   chatHeader: css`
@@ -231,10 +217,11 @@ const styles = {
     align-items: center;
     gap: 12px;
     margin-bottom: 24px;
+    height: 32px;
   `,
   sendIconBox: css`
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: linear-gradient(135deg, #F55825 0%, #F7BC08 100%);
     color: #FFFFFF;
@@ -249,9 +236,9 @@ const styles = {
     margin: 0;
   `,
   chatSub: css`
-    font-size: 12.5px;
+    font-size: 12px;
     color: #64748B;
-    margin-top: 2px;
+    margin-top: 1px;
   `,
   chatMessages: css`
     display: flex;
@@ -375,8 +362,8 @@ export default function SuccessTerminal() {
         </div>
 
         <div css={styles.mainGrid}>
-          {/* Recent Hires Card (Flush Baseline with Right Card) */}
-          <div css={styles.leftCard}>
+          {/* Left Column: Clean Floating Marquee */}
+          <div css={styles.leftCol}>
             <div css={styles.hiresHeader}>
               <Star size={18} fill="#F7BC08" color="#F7BC08" />
               Recent Hires &amp; Top Scholars
@@ -398,11 +385,11 @@ export default function SuccessTerminal() {
             </div>
           </div>
 
-          {/* Interactive Unlock Card (Flush Baseline with Left Card) */}
+          {/* Right Column: Interactive Unlock Card */}
           <div css={styles.chatCard}>
             <div css={styles.chatHeader}>
               <div css={styles.sendIconBox}>
-                <Send size={20} />
+                <Send size={18} />
               </div>
               <div>
                 <h3 css={styles.chatTitle}>Start your story</h3>
