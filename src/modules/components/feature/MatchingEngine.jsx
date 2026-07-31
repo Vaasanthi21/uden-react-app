@@ -22,7 +22,6 @@ const JOBS = [
   { title: 'Senior React & Frontend Engineer', fit: 90, company: 'Deloitte Digital', loc: 'Bangalore, India', initial: 'D', gradient: 'linear-gradient(135deg, #0EA5E9 0%, #14B8A6 100%)' },
   { title: 'Lead Software Engineer, Front End', fit: 85, company: 'Capital One', loc: 'New York, USA', initial: 'C', gradient: 'linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%)' },
   { title: 'Full Stack Developer (Remote)', fit: 74, company: 'HR199', loc: 'Remote', initial: 'H', gradient: 'linear-gradient(135deg, #F59E0B 0%, #F97316 100%)' },
-  { title: 'Frontend Web Developer [three.js]', fit: 71, company: 'Studio', loc: 'Remote', initial: 'S', gradient: 'linear-gradient(135deg, #10B981 0%, #0D9488 100%)' },
 ];
 
 const SKILLS = ['React', 'TypeScript', 'Next.js', 'Node.js', 'REST APIs'];
@@ -110,9 +109,9 @@ const styles = {
   `,
   mainGrid: css`
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: 48px;
-    align-items: center;
+    align-items: stretch;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
@@ -121,12 +120,15 @@ const styles = {
   candidateCard: css`
     background: #FFFFFF;
     border-radius: 28px;
-    padding: 28px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1.5px solid #FFE0B2;
+    padding: 32px;
+    box-shadow: 0 20px 50px -12px rgba(245, 88, 37, 0.15);
     color: #1E293B;
-    max-width: 420px;
-    margin: 0 auto;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-sizing: border-box;
   `,
   profileRow: css`
@@ -254,6 +256,8 @@ const styles = {
   jobsList: css`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     gap: 16px;
   `,
   jobCard: css`
