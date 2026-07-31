@@ -66,6 +66,7 @@ const styles = {
   leftCol: css`
     display: flex;
     flex-direction: column;
+    text-align: left;
   `,
   badgeTag: css`
     display: inline-flex;
@@ -90,6 +91,7 @@ const styles = {
     line-height: 1.15;
     margin-bottom: 18px;
     letter-spacing: -1px;
+    text-align: left;
 
     span {
       color: #DA532C;
@@ -105,6 +107,7 @@ const styles = {
     line-height: 1.65;
     margin-bottom: 32px;
     font-weight: 500;
+    text-align: left;
   `,
   searchBox: css`
     display: flex;
@@ -125,6 +128,7 @@ const styles = {
       font-weight: 600;
       color: #1E293B;
       background: transparent;
+      text-align: left;
 
       &::placeholder {
         color: #94A3B8;
@@ -137,12 +141,14 @@ const styles = {
     border-radius: 24px;
     padding: 28px;
     box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
+    text-align: left;
 
     h3 {
       font-size: 22px;
       font-weight: 900;
       color: #1E293B;
       margin-bottom: 8px;
+      text-align: left;
     }
 
     p {
@@ -150,6 +156,7 @@ const styles = {
       color: #64748B;
       margin-bottom: 20px;
       line-height: 1.5;
+      text-align: left;
     }
   `,
   supportImg: css`
@@ -191,6 +198,7 @@ const styles = {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    text-align: left;
   `,
   accordionCard: (isOpen) => css`
     background: #FFFFFF;
@@ -227,6 +235,7 @@ const styles = {
     color: #475569;
     line-height: 1.65;
     font-weight: 500;
+    text-align: left !important;
   `
 };
 
