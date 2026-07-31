@@ -9,7 +9,7 @@ import KidiChatbot from '../KidiChatbot';
 const Layout = () => {
   return (
     <div>
-        <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent="space-between">
+        <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent="space-between" sx={{ overflowY: 'visible' }}>
             <AppHeader/>
             <Outlet/>
             <AppFooter/>
