@@ -31,9 +31,11 @@ const styles = {
   section: css`
     position: relative;
     padding: 90px 0;
-    background: #1E293B;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFF3E0 100%);
+    border-top: 1px solid #FFE0B2;
+    border-bottom: 1px solid #FFE0B2;
     overflow: hidden;
-    color: #FFFFFF;
+    color: #1E293B;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   glowOrb1: css`
@@ -43,7 +45,7 @@ const styles = {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: rgba(245, 88, 37, 0.12);
+    background: rgba(245, 88, 37, 0.08);
     border-radius: 50%;
     filter: blur(100px);
     pointer-events: none;
@@ -77,9 +79,9 @@ const styles = {
     gap: 8px;
     padding: 6px 18px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #FFFFFF;
+    background: #FEF5D8;
+    border: 1px solid #F7BC08;
+    color: #4B638C;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -88,12 +90,12 @@ const styles = {
   title: css`
     font-size: 42px;
     font-weight: 900;
-    color: #FFFFFF;
+    color: #1E293B;
     margin: 0 0 16px 0;
     line-height: 1.2;
 
     span {
-      color: #F7BC08;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
@@ -102,7 +104,7 @@ const styles = {
   `,
   subtitle: css`
     font-size: 17px;
-    color: #94A3B8;
+    color: #475569;
     line-height: 1.6;
     margin: 0;
   `,
@@ -255,9 +257,8 @@ const styles = {
     gap: 16px;
   `,
   jobCard: css`
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #FFFFFF;
+    border: 1.5px solid #FFE0B2;
     border-radius: 20px;
     padding: 20px 24px;
     display: flex;
@@ -265,17 +266,19 @@ const styles = {
     gap: 18px;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 16px rgba(245, 88, 37, 0.05);
 
     &:hover {
       background: #FFFFFF;
-      color: #1E293B;
-      box-shadow: 0 20px 40px rgba(245, 88, 37, 0.25);
+      border-color: #F55825;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(245, 88, 37, 0.18);
 
       .job-title {
-        color: #4B638C;
+        color: #F55825;
       }
       .job-sub {
-        color: #64748B;
+        color: #1E293B;
       }
       .apply-btn {
         opacity: 1;
@@ -308,7 +311,7 @@ const styles = {
   jobTitle: css`
     font-size: 15px;
     font-weight: 800;
-    color: #FFFFFF;
+    color: #1E293B;
     margin: 0;
     transition: color 0.2s ease;
     white-space: nowrap;
@@ -326,7 +329,7 @@ const styles = {
   `,
   jobSub: css`
     font-size: 13px;
-    color: #94A3B8;
+    color: #64748B;
     margin-top: 3px;
     transition: color 0.2s ease;
   `,
