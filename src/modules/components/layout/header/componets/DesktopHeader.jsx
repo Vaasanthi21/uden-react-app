@@ -42,7 +42,7 @@ const DesktopHeader = ({ ...props }) => {
           const isCurrent = Boolean(hooks?.route && route && route.includes(hooks.route));
           const hasBadge = Boolean(data?.Tabs?.Badge[index]);
 
-          return names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements dropdown
+          return route === AppRoutes.CAMPUS_PLACEMENTS ? ( // Campus Placements dropdown
             <div key={index}>
               <Button
                 startIcon={data.Tabs.Icons[index]}
