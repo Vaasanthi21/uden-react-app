@@ -12,6 +12,9 @@ import JobSeekersTestimonial from './components/Testimonial';
 import JobSeekersKnowMore from './components/KnowMore';
 import MultiJobSearch from '../Home/components/MultiJobSearch';
 import CompanyPrepExplorer from '../Home/components/CompanyPrepExplorer';
+import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
+import MatchingEngine from '../../components/feature/MatchingEngine';
+import SuccessTerminal from '../../components/feature/SuccessTerminal';
 
 const JobSeekers = () => {
   return (
@@ -33,6 +36,15 @@ const JobSeekers = () => {
       <div style={{ padding: '60px 0', background: '#FFFFFF' }}>
         <CompanyPrepExplorer />
       </div>
+
+      {/* 4.5 The Feature Odyssey: Learning Path & Superpowers */}
+      <FeatureOdyssey />
+
+      {/* 4.8 AI Matching Engine */}
+      <MatchingEngine />
+
+      {/* 4.9 The Success Terminal */}
+      <SuccessTerminal />
 
       {/* 5. 4-Step Interactive Candidate Career Journey */}
       <div style={{ padding: '70px 0', background: '#F8FAFC' }}>

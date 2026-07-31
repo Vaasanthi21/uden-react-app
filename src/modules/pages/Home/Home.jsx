@@ -4,6 +4,7 @@ import Slider from './components/Slider';
 import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
 import CompanyPrepExplorer from './components/CompanyPrepExplorer';
+import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import RecruiterVettedHub from './components/RecruiterVettedHub';
 import ReferralCommunityHub from './components/ReferralCommunityHub';
 import MetricsTicker from './components/MetricsTicker';
@@ -13,6 +14,8 @@ import HomeTestimonial from './components/Testimonial';
 import StudentPlaced from './components/StudentPlaced';
 import FaqPage from '../Faq/Faq';
 import ScrollReveal from '../../components/layout/ScrollReveal';
+import MatchingEngine from '../../components/feature/MatchingEngine';
+import SuccessTerminal from '../../components/feature/SuccessTerminal';
 
 const Home = () => {
   return (
@@ -35,6 +38,21 @@ const Home = () => {
         <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
           <CompanyPrepExplorer />
         </div>
+      </ScrollReveal>
+
+      {/* 3.5 The Feature Odyssey: One Platform, Nine Superpowers */}
+      <ScrollReveal threshold={0.1}>
+        <FeatureOdyssey />
+      </ScrollReveal>
+
+      {/* 3.8 The AI Matching Engine: Connecting Skills to Real Jobs */}
+      <ScrollReveal threshold={0.1}>
+        <MatchingEngine />
+      </ScrollReveal>
+
+      {/* 3.9 The Success Terminal: Recent Hires & Story Unlock */}
+      <ScrollReveal threshold={0.1}>
+        <SuccessTerminal />
       </ScrollReveal>
 
       {/* 4. Key Live Platform Metrics */}
