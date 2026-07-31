@@ -54,7 +54,7 @@ const styles = {
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
     gap: 56px;
-    align-items: flex-start;
+    align-items: stretch;
 
     @media (max-width: 900px) {
       grid-template-columns: 1fr;
@@ -67,6 +67,8 @@ const styles = {
     display: flex;
     flex-direction: column;
     text-align: left;
+    height: 100%;
+    justify-content: space-between;
   `,
   badgeTag: css`
     display: inline-flex;
@@ -78,18 +80,18 @@ const styles = {
     border-radius: 24px;
     font-size: 12px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border: 1px solid rgba(255, 176, 32, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     width: fit-content;
   `,
   title: css`
-    font-size: 44px;
+    font-size: 42px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.15;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     letter-spacing: -1px;
     text-align: left;
 
@@ -102,10 +104,10 @@ const styles = {
     }
   `,
   subtitle: css`
-    font-size: 16px;
+    font-size: 15.5px;
     color: #64748B;
-    line-height: 1.65;
-    margin-bottom: 32px;
+    line-height: 1.6;
+    margin-bottom: 24px;
     font-weight: 500;
     text-align: left;
   `,
@@ -115,16 +117,16 @@ const styles = {
     background: #FFFFFF;
     border: 1.5px solid rgba(218, 83, 44, 0.4);
     border-radius: 28px;
-    padding: 14px 22px;
+    padding: 12px 20px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     gap: 12px;
 
     input {
       border: none;
       outline: none;
       width: 100%;
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 600;
       color: #1E293B;
       background: transparent;
@@ -139,34 +141,36 @@ const styles = {
     background: #FEF5D8;
     border: 2px solid #DA532C;
     border-radius: 24px;
-    padding: 28px;
+    padding: 22px 26px;
     box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
     text-align: left;
+    margin-top: auto;
+    box-sizing: border-box;
 
     h3 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
       color: #1E293B;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       text-align: left;
     }
 
     p {
-      font-size: 14.5px;
+      font-size: 14px;
       color: #64748B;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       line-height: 1.5;
       text-align: left;
     }
   `,
   supportImg: css`
     width: 100%;
-    max-height: 200px;
+    max-height: 155px;
     object-fit: contain;
     border-radius: 16px;
     background: #FFFFFF;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 8px;
+    margin-bottom: 14px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   `,
   ctaBtn: css`
