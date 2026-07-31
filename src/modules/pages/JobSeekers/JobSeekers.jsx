@@ -17,11 +17,15 @@ import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
+import Slider from '../Home/components/Slider';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 
 const JobSeekers = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
+      {/* 0. Hero Rotating Carousel Slides */}
+      <Slider autoplay={true} />
+
       {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
       <HeroArchitectured />
 

@@ -21,6 +21,9 @@ import SuccessTerminal from '../../components/feature/SuccessTerminal';
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
+      {/* 0. Hero Rotating Carousel Slides */}
+      <Slider autoplay={true} css={styles.slider} />
+
       {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
       <HeroArchitectured />
 
