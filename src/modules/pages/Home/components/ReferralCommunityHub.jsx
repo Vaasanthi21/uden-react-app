@@ -96,7 +96,7 @@ const styles = {
     font-size: 16px;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     font-weight: 500;
   `,
   benefitsList: css`
@@ -203,7 +203,7 @@ const ReferralCommunityHub = () => {
           )}
         </div>
 
-        {/* Right Column: Copy & Actions */}
+        {/* Right Column: Copy, Paragraph & Checkmarks List */}
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
             <Gift size={14} color="#F7BC08" />
@@ -214,6 +214,7 @@ const ReferralCommunityHub = () => {
             Learn, Collaborate & <span>Get Paid</span> by Referring Friends
           </h2>
 
+          {/* Subtitle paragraph placed directly ABOVE checkmarks list */}
           <p css={styles.subtitle}>
             Form peer study circles with classmates, share company interview prep resources, and earn cash referral rewards every time your referred friends sign up on UDEN.
           </p>
