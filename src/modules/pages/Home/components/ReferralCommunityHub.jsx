@@ -2,7 +2,7 @@ import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
-import { DollarSign, Users, Sparkles, ArrowRight, CheckCircle2, Gift, Share2, Award, Zap } from 'lucide-react';
+import { DollarSign, Users, ArrowRight, CheckCircle2, Gift, Share2, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
@@ -39,7 +39,7 @@ const styles = {
   `,
   illustrationImg: css`
     width: 100%;
-    max-height: 320px;
+    max-height: 340px;
     object-fit: contain;
     border-radius: 24px;
     box-shadow: 0 16px 36px rgba(75, 99, 140, 0.1);
@@ -61,20 +61,28 @@ const styles = {
     color: #4B638C;
     font-weight: 800;
   `,
+  /* CENTERED RIGHT COLUMN */
+  rightCol: css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: rgba(75, 99, 140, 0.1);
     color: #4B638C;
-    padding: 6px 18px;
+    padding: 8px 20px;
     border-radius: 24px;
     font-size: 12px;
     font-weight: 800;
-    margin-bottom: 18px;
+    margin: 0 auto 18px auto;
     border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    width: fit-content;
   `,
   title: css`
     font-size: 38px;
@@ -83,6 +91,7 @@ const styles = {
     line-height: 1.22;
     margin-bottom: 18px;
     letter-spacing: -0.8px;
+    text-align: center;
 
     span {
       color: #F55825;
@@ -98,11 +107,15 @@ const styles = {
     line-height: 1.65;
     margin-bottom: 24px;
     font-weight: 500;
+    text-align: center;
+    max-width: 520px;
   `,
   benefitsList: css`
     list-style: none;
     padding: 0;
-    margin: 0 0 32px 0;
+    margin: 0 auto 32px auto;
+    text-align: left;
+    display: inline-block;
 
     li {
       display: flex;
@@ -111,28 +124,30 @@ const styles = {
       font-size: 14.5px;
       color: #1E293B;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
   `,
   ctaBtn: css`
     background: #F55825;
     color: #FFFFFF;
     border: none;
-    padding: 16px 32px;
-    border-radius: 14px;
+    padding: 16px 36px;
+    border-radius: 30px;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 15.5px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.28);
+    box-shadow: 0 8px 24px rgba(245, 88, 37, 0.3);
+    margin: 0 auto;
 
     &:hover {
       background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(245, 88, 37, 0.38);
+      box-shadow: 0 12px 28px rgba(245, 88, 37, 0.4);
     }
   `,
 
@@ -153,6 +168,8 @@ const styles = {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    align-items: center;
+    text-align: center;
   `,
   colIconBox: css`
     width: 44px;
@@ -169,6 +186,7 @@ const styles = {
     font-weight: 800;
     color: #1E293B;
     margin: 0;
+    text-align: center;
   `,
   colDesc: css`
     font-size: 14px;
@@ -176,6 +194,7 @@ const styles = {
     line-height: 1.6;
     margin: 0;
     font-weight: 500;
+    text-align: center;
   `
 };
 
@@ -184,7 +203,6 @@ const ReferralCommunityHub = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
-      {/* Native Floating Hero Grid with NO Outer Box Border */}
       <div css={styles.heroGrid}>
         {/* Left Column: Illustration Image */}
         <div css={styles.illustrationCol}>
@@ -198,23 +216,22 @@ const ReferralCommunityHub = () => {
           ) : (
             <div css={styles.fallbackCard}>
               <Users size={36} color="#4B638C" />
-              <span>Peer Collaboration & Referral Hub</span>
+              <span>Peer Collaboration &amp; Referral Hub</span>
             </div>
           )}
         </div>
 
-        {/* Right Column: Copy, Paragraph & Checkmarks List */}
-        <div>
+        {/* Right Column: Centered Content & Centered Orange Button */}
+        <div css={styles.rightCol}>
           <div css={styles.badgeTag} className="uden-float-anim">
             <Gift size={14} color="#F7BC08" />
             EARN CASH REWARDS WHILE JOB SEARCHING
           </div>
 
           <h2 css={styles.title}>
-            Learn, Collaborate & <span>Get Paid</span> by Referring Friends
+            Learn, Collaborate &amp; <span>Get Paid</span> by Referring Friends
           </h2>
 
-          {/* Subtitle paragraph placed directly ABOVE checkmarks list */}
           <p css={styles.subtitle}>
             Form peer study circles with classmates, share company interview prep resources, and earn cash referral rewards every time your referred friends sign up on UDEN.
           </p>
@@ -226,22 +243,22 @@ const ReferralCommunityHub = () => {
             </li>
             <li>
               <CheckCircle2 size={18} color="#F55825" />
-              <span>Form Peer Study Groups for Deloitte, TCS & Amazon prep</span>
+              <span>Form Peer Study Groups for Deloitte, TCS &amp; Amazon prep</span>
             </li>
             <li>
               <CheckCircle2 size={18} color="#F55825" />
-              <span>Access Shared Mock Interview Feedback & Question Banks</span>
+              <span>Access Shared Mock Interview Feedback &amp; Question Banks</span>
             </li>
           </ul>
 
           <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.JOB_SEEKERS)}>
-            Refer Friends & Earn Cash Rewards
+            Refer Friends &amp; Earn Cash Rewards
             <ArrowRight size={18} />
           </button>
         </div>
       </div>
 
-      {/* Borderless 3-Column Feature Row (Matching NxtJob Video Layout) */}
+      {/* Borderless 3-Column Feature Row */}
       <div css={styles.featureColumnsGrid}>
         <div css={styles.featureColItem}>
           <div css={styles.colIconBox}>
