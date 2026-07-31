@@ -7,17 +7,17 @@ import { useNavigate } from 'react-router-dom';
 
 const styles = {
   cardOuter: css`
-    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
-    border-radius: 32px;
-    padding: 44px 52px;
-    box-shadow: 0 20px 50px rgba(75, 99, 140, 0.08);
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    padding: 36px 20px;
+    box-shadow: none;
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 40px;
     align-items: center;
-    margin: 16px auto 28px auto;
+    margin: 0 auto;
     max-width: 1140px;
-    border: 1px solid rgba(247, 188, 8, 0.35);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
     @media (max-width: 900px) {
