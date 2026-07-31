@@ -102,15 +102,28 @@ const styles = {
     line-height: 1.6;
     margin: 0;
   `,
+  /* MAIN GRID WITH EQUAL HEIGHT STRETCH FOR IDENTICAL BASELINES */
   mainGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: flex-start;
+    gap: 36px;
+    align-items: stretch;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
     }
+  `,
+  /* LEFT CARD MATCHING RIGHT CARD PADDING & BASELINE */
+  leftCard: css`
+    background: #FFFFFF;
+    border-radius: 28px;
+    border: 1.5px solid #E2E8F0;
+    box-shadow: 0 20px 40px rgba(75, 99, 140, 0.08);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
   `,
   hiresHeader: css`
     font-size: 18px;
@@ -124,9 +137,10 @@ const styles = {
   marqueeWrapper: css`
     position: relative;
     overflow: hidden;
-    height: 420px;
-    border-radius: 24px;
-    padding: 8px;
+    flex: 1;
+    min-height: 380px;
+    border-radius: 20px;
+    padding: 4px;
   `,
   marqueeTrack: css`
     display: flex;
@@ -139,7 +153,7 @@ const styles = {
     }
   `,
   hireCard: css`
-    background: #FFFFFF;
+    background: #FFFDF7;
     border-radius: 20px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 4px 14px rgba(75, 99, 140, 0.05);
@@ -199,12 +213,18 @@ const styles = {
     font-weight: 900;
     animation: ${matchPulse} 2s infinite ease-in-out;
   `,
+  /* RIGHT CARD MATCHING LEFT CARD PADDING & BASELINE */
   chatCard: css`
     background: #FFFFFF;
     border-radius: 28px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 20px 40px rgba(75, 99, 140, 0.1);
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
   `,
   chatHeader: css`
     display: flex;
@@ -355,8 +375,8 @@ export default function SuccessTerminal() {
         </div>
 
         <div css={styles.mainGrid}>
-          {/* Recent Hires Marquee */}
-          <div>
+          {/* Recent Hires Card (Flush Baseline with Right Card) */}
+          <div css={styles.leftCard}>
             <div css={styles.hiresHeader}>
               <Star size={18} fill="#F7BC08" color="#F7BC08" />
               Recent Hires &amp; Top Scholars
@@ -378,7 +398,7 @@ export default function SuccessTerminal() {
             </div>
           </div>
 
-          {/* Interactive Unlock Form */}
+          {/* Interactive Unlock Card (Flush Baseline with Left Card) */}
           <div css={styles.chatCard}>
             <div css={styles.chatHeader}>
               <div css={styles.sendIconBox}>
