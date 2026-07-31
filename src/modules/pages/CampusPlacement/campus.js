@@ -11,6 +11,7 @@ import placementAlgoImage from "../../../assets/images/flowcharts/placementAlgoI
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
+import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
 const styles = {
   heroOuter: css`
@@ -392,6 +393,9 @@ const Campus = () => {
 
   return (
     <div style={{ width: '100%', overflowX: 'hidden' }}>
+      {/* 0. Student Potential Architectured & Interactive Skills Snapshot */}
+      <HeroArchitectured />
+
       {/* 1. Hero Institutional Banner & Registration Form */}
       <div css={styles.heroOuter}>
         <div css={styles.container}>

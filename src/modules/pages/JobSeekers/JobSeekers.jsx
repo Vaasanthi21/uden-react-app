@@ -15,11 +15,15 @@ import CompanyPrepExplorer from '../Home/components/CompanyPrepExplorer';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
+import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
 const JobSeekers = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 1. Hero Candidate Career Banner */}
+      {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
+      <HeroArchitectured />
+
+      {/* 2. Hero Candidate Career Banner */}
       <JobSeekerBanner />
 
       {/* 2. Hiring Partner Brands Bar */}

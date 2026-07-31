@@ -14,14 +14,17 @@ import HomeTestimonial from './components/Testimonial';
 import StudentPlaced from './components/StudentPlaced';
 import FaqPage from '../Faq/Faq';
 import ScrollReveal from '../../components/layout/ScrollReveal';
+import HeroArchitectured from '../../components/feature/HeroArchitectured';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 1. Hero Slider */}
-      <Slider autoplay={false} css={styles.slider} />
+      {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
+      <HeroArchitectured />
+
+      {/* 1.5 Hero Search Widget */}
       <ScrollReveal delay={150}>
         <HeroSearchWidget />
       </ScrollReveal>
