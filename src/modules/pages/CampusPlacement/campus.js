@@ -13,6 +13,8 @@ import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
+import ScrollReveal from '../../components/layout/ScrollReveal';
+
 const styles = {
   heroOuter: css`
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
@@ -464,13 +466,19 @@ const Campus = () => {
       </div>
 
       {/* 2.5 Student Feature Odyssey: Learning Path & Superpowers */}
-      <FeatureOdyssey />
+      <ScrollReveal threshold={0.1}>
+        <FeatureOdyssey />
+      </ScrollReveal>
 
       {/* 2.8 Student AI Matching Engine */}
-      <MatchingEngine />
+      <ScrollReveal threshold={0.1}>
+        <MatchingEngine />
+      </ScrollReveal>
 
       {/* 2.9 Student Success Terminal & Ticker */}
-      <SuccessTerminal />
+      <ScrollReveal threshold={0.1}>
+        <SuccessTerminal />
+      </ScrollReveal>
 
       {/* 3. TESTIMONIALS SECTION */}
       <div css={styles.testimonialsSection}>

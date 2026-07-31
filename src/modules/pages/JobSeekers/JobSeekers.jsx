@@ -17,6 +17,8 @@ import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
+import ScrollReveal from '../../components/layout/ScrollReveal';
+
 const JobSeekers = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
@@ -42,13 +44,19 @@ const JobSeekers = () => {
       </div>
 
       {/* 4.5 The Feature Odyssey: Learning Path & Superpowers */}
-      <FeatureOdyssey />
+      <ScrollReveal threshold={0.1}>
+        <FeatureOdyssey />
+      </ScrollReveal>
 
       {/* 4.8 AI Matching Engine */}
-      <MatchingEngine />
+      <ScrollReveal threshold={0.1}>
+        <MatchingEngine />
+      </ScrollReveal>
 
       {/* 4.9 The Success Terminal */}
-      <SuccessTerminal />
+      <ScrollReveal threshold={0.1}>
+        <SuccessTerminal />
+      </ScrollReveal>
 
       {/* 5. 4-Step Interactive Candidate Career Journey */}
       <div style={{ padding: '70px 0', background: '#F8FAFC' }}>
