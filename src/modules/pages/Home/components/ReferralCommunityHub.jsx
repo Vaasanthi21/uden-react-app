@@ -20,6 +20,27 @@ const styles = {
     padding: 0 20px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
+  /* TOP CENTERED BADGE WRAPPER */
+  topBadgeWrap: css`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 28px;
+  `,
+  badgeTag: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
+    padding: 8px 22px;
+    border-radius: 24px;
+    font-size: 12.5px;
+    font-weight: 800;
+    border: 1px solid rgba(75, 99, 140, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  `,
   heroGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -61,28 +82,11 @@ const styles = {
     color: #4B638C;
     font-weight: 800;
   `,
-  /* CENTERED RIGHT COLUMN */
   rightCol: css`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  `,
-  badgeTag: css`
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(75, 99, 140, 0.1);
-    color: #4B638C;
-    padding: 8px 20px;
-    border-radius: 24px;
-    font-size: 12px;
-    font-weight: 800;
-    margin: 0 auto 18px auto;
-    border: 1px solid rgba(75, 99, 140, 0.25);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    width: fit-content;
+    align-items: flex-start;
+    text-align: left;
   `,
   title: css`
     font-size: 38px;
@@ -91,7 +95,7 @@ const styles = {
     line-height: 1.22;
     margin-bottom: 18px;
     letter-spacing: -0.8px;
-    text-align: center;
+    text-align: left;
 
     span {
       color: #F55825;
@@ -107,15 +111,14 @@ const styles = {
     line-height: 1.65;
     margin-bottom: 24px;
     font-weight: 500;
-    text-align: center;
-    max-width: 520px;
+    text-align: left;
   `,
   benefitsList: css`
     list-style: none;
     padding: 0;
-    margin: 0 auto 32px auto;
+    margin: 0 0 32px 0;
     text-align: left;
-    display: inline-block;
+    width: 100%;
 
     li {
       display: flex;
@@ -125,6 +128,7 @@ const styles = {
       color: #1E293B;
       font-weight: 700;
       margin-bottom: 14px;
+      text-align: left;
     }
   `,
   ctaBtn: css`
@@ -138,11 +142,10 @@ const styles = {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     transition: all 0.25s ease;
     box-shadow: 0 8px 24px rgba(245, 88, 37, 0.3);
-    margin: 0 auto;
+    margin: 0;
 
     &:hover {
       background: #D94616;
@@ -168,8 +171,7 @@ const styles = {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: center;
-    text-align: center;
+    text-align: left;
   `,
   colIconBox: css`
     width: 44px;
@@ -186,7 +188,7 @@ const styles = {
     font-weight: 800;
     color: #1E293B;
     margin: 0;
-    text-align: center;
+    text-align: left;
   `,
   colDesc: css`
     font-size: 14px;
@@ -194,7 +196,7 @@ const styles = {
     line-height: 1.6;
     margin: 0;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
   `
 };
 
@@ -203,6 +205,15 @@ const ReferralCommunityHub = () => {
 
   return (
     <div css={styles.container} className="uden-fade-in">
+      {/* 1. TOP CENTERED BADGE DIRECTLY ABOVE THE SECTION */}
+      <div css={styles.topBadgeWrap}>
+        <div css={styles.badgeTag} className="uden-float-anim">
+          <Gift size={14} color="#F7BC08" />
+          EARN CASH REWARDS WHILE JOB SEARCHING
+        </div>
+      </div>
+
+      {/* 2. MAIN 2-COLUMN GRID */}
       <div css={styles.heroGrid}>
         {/* Left Column: Illustration Image */}
         <div css={styles.illustrationCol}>
@@ -221,13 +232,8 @@ const ReferralCommunityHub = () => {
           )}
         </div>
 
-        {/* Right Column: Centered Content & Centered Orange Button */}
+        {/* Right Column: Clean Left Alignment */}
         <div css={styles.rightCol}>
-          <div css={styles.badgeTag} className="uden-float-anim">
-            <Gift size={14} color="#F7BC08" />
-            EARN CASH REWARDS WHILE JOB SEARCHING
-          </div>
-
           <h2 css={styles.title}>
             Learn, Collaborate &amp; <span>Get Paid</span> by Referring Friends
           </h2>
@@ -258,7 +264,7 @@ const ReferralCommunityHub = () => {
         </div>
       </div>
 
-      {/* Borderless 3-Column Feature Row */}
+      {/* 3. BORDERLESS 3-COLUMN FEATURE ROW */}
       <div css={styles.featureColumnsGrid}>
         <div css={styles.featureColItem}>
           <div css={styles.colIconBox}>
