@@ -10,6 +10,11 @@ import flowchartImage from "../../../assets/images/flowcharts/1Flowchart.png";
 import ParseGif from "../../../assets/images/flowcharts/ParseGif.gif";
 import Picture4 from "../../../assets/images/flowcharts/Picture4.jpg";
 import Picture5 from "../../../assets/images/flowcharts/Picture5.png";
+import HeroArchitectured from '../../components/feature/HeroArchitectured';
+import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
+import MatchingEngine from '../../components/feature/MatchingEngine';
+import SuccessTerminal from '../../components/feature/SuccessTerminal';
+import ScrollReveal from '../../components/layout/ScrollReveal';
 
 let StudentRoadmapImage;
 try {
@@ -540,6 +545,24 @@ const Benefits = () => {
 
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
+      {/* 0. Student Potential Architectured & Interactive Skills Snapshot */}
+      <HeroArchitectured />
+
+      {/* 0.5 The Feature Odyssey: Learning Path & Superpowers */}
+      <ScrollReveal threshold={0.1}>
+        <FeatureOdyssey />
+      </ScrollReveal>
+
+      {/* 0.8 AI Matching Engine */}
+      <ScrollReveal threshold={0.1}>
+        <MatchingEngine />
+      </ScrollReveal>
+
+      {/* 0.9 The Success Terminal */}
+      <ScrollReveal threshold={0.1}>
+        <SuccessTerminal />
+      </ScrollReveal>
+
       {/* Fullscreen Zoom Modal */}
       {isZoomOpen && (
         <div css={styles.modalOverlay} onClick={() => setIsZoomOpen(false)}>
