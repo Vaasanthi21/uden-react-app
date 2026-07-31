@@ -20,92 +20,94 @@ import SuccessTerminal from '../../components/feature/SuccessTerminal';
 const Home = () => {
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 0. Hero Rotating Carousel Slides */}
+      
+      {/* ========================================================================= */}
+      {/* FOLD 1: THE HOOK & VISION — Hero Slides & Architecture                     */}
+      {/* ========================================================================= */}
       <Slider autoplay={true} css={styles.slider} />
-
-      {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
       <HeroArchitectured />
-
-      {/* 1.5 Hero Search Widget */}
       <ScrollReveal delay={150}>
         <HeroSearchWidget />
       </ScrollReveal>
 
-      {/* 2. Multi-Job Board Search Engine (100,000+ Jobs Aggregated) */}
+      {/* ========================================================================= */}
+      {/* FOLD 2: THE OPPORTUNITY EXPLORER — 100,000+ Aggregated Jobs Engine       */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
           <MultiJobSearch />
         </div>
       </ScrollReveal>
 
-
-
-      {/* 3.5 The Feature Odyssey: One Platform, Nine Superpowers */}
+      {/* ========================================================================= */}
+      {/* FOLD 3: THE CAPABILITY SUITE — One Platform, Nine Superpowers            */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <FeatureOdyssey />
       </ScrollReveal>
 
-      {/* 3.8 The AI Matching Engine: Connecting Skills to Real Jobs */}
+      {/* ========================================================================= */}
+      {/* FOLD 4: THE INTELLIGENT MATCH — AI Matching Engine & Skill Scorecards    */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <MatchingEngine />
       </ScrollReveal>
 
-      {/* 3.9 The Success Terminal: Recent Hires & Story Unlock */}
+      {/* ========================================================================= */}
+      {/* FOLD 5: THE PROVEN OUTCOME — Recent Hires Ticker & Platform Metrics       */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <SuccessTerminal />
       </ScrollReveal>
-
-      {/* 4. Key Live Platform Metrics */}
       <ScrollReveal threshold={0.15}>
         <MetricsTicker />
       </ScrollReveal>
 
-      {/* 5. Enterprise Recruiter Pre-Vetted AI Video Talent Hub */}
+      {/* ========================================================================= */}
+      {/* FOLD 6: THE ECOSYSTEM & COMMUNITY — Employer Pool & Peer Referral Hub    */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
           <RecruiterVettedHub />
         </div>
       </ScrollReveal>
-
-      {/* 6. Referral & Peer Learning Community Hub (Get Paid While Job Searching) */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
           <ReferralCommunityHub />
         </div>
       </ScrollReveal>
 
-      {/* 7. Trust Logos Bar */}
+      {/* ========================================================================= */}
+      {/* FOLD 7: PROOF & VALIDATION — Partners, Calculator, Stories & FAQ        */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.15}>
         <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
           <HomeTrustedBrand css={styles.trustedBrand} />
         </div>
       </ScrollReveal>
-
-      {/* 8. Interactive Career & Salary Growth Calculator */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
           <CareerCalculator />
         </div>
       </ScrollReveal>
-
-      {/* 9. Success Stories & Testimonials */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
           <HomeTestimonial css={styles.testimonial} />
         </div>
       </ScrollReveal>
-
-      {/* 10. Tailored Solutions & Stakeholder FAQ Section */}
       <ScrollReveal threshold={0.1}>
         <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
           <FaqPage />
         </div>
       </ScrollReveal>
 
-      {/* 11. Bottom CTA Banner */}
+      {/* ========================================================================= */}
+      {/* FOLD 8: THE GATEWAY — Final Placement Drive Call-to-Action                */}
+      {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <StudentPlaced css={styles.studentPlaced} />
       </ScrollReveal>
+
     </div>
   );
 };
