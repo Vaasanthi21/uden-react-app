@@ -153,7 +153,7 @@ const SliderItem = (props) => {
       <div>
         <div css={styles.badgeTag} className="uden-float-anim">
           <Sparkles size={14} color="#F7BC08" />
-          UNIFIED EMPLOYMENT NETWORK
+          UNIFIED DEVELOPMENT AND EMPLOYMENT NETWORK
         </div>
 
         {props?.title && (
