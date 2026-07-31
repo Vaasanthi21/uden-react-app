@@ -3,7 +3,6 @@ import { HomeStyles as styles } from './styles/Home.Styles';
 import Slider from './components/Slider';
 import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
-import CompanyPrepExplorer from './components/CompanyPrepExplorer';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import RecruiterVettedHub from './components/RecruiterVettedHub';
 import ReferralCommunityHub from './components/ReferralCommunityHub';
@@ -39,12 +38,7 @@ const Home = () => {
         </div>
       </ScrollReveal>
 
-      {/* 3. Company-Specific Round-by-Round Prep, PYQs & AI Video Interview Simulator */}
-      <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
-          <CompanyPrepExplorer />
-        </div>
-      </ScrollReveal>
+
 
       {/* 3.5 The Feature Odyssey: One Platform, Nine Superpowers */}
       <ScrollReveal threshold={0.1}>

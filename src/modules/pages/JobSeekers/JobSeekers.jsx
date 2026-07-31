@@ -11,7 +11,6 @@ import JobSeekersFeature from './components/Features';
 import JobSeekersTestimonial from './components/Testimonial';
 import JobSeekersKnowMore from './components/KnowMore';
 import MultiJobSearch from '../Home/components/MultiJobSearch';
-import CompanyPrepExplorer from '../Home/components/CompanyPrepExplorer';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
@@ -42,10 +41,7 @@ const JobSeekers = () => {
         <MultiJobSearch />
       </div>
 
-      {/* 4. Company-Specific Round-by-Round Prep, PYQs & AI Video Interview Simulator */}
-      <div style={{ padding: '60px 0', background: '#FFFFFF' }}>
-        <CompanyPrepExplorer />
-      </div>
+
 
       {/* 4.5 The Feature Odyssey: Learning Path & Superpowers */}
       <ScrollReveal threshold={0.1}>
