@@ -12,6 +12,7 @@ import AboutUs from './modules/pages/AboutUs/AboutUs';
 import ContactUs from './modules/pages/ContactUs/ContactUs';
 import KnowMoreForm from './modules/pages/KnowMoreForm/KnowMoreForm';
 import AuthSignupPortal from './modules/pages/KnowMoreForm/components/AuthSignupPortal';
+import FindOpportunityPage from './modules/pages/KnowMoreForm/components/FindOpportunityPage';
 import PrivacyPolicy from './modules/pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndConditions';
 import HRServices from './modules/pages/HRServices/HRServices';
@@ -80,7 +81,7 @@ function App() {
             <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
             <Route path={AppRoutes.CAMPUS_PLACEMENTS} element={<Campus />} />
             <Route path={AppRoutes.FOR_CAMPUS} element={<Campus />} />
-            <Route path={AppRoutes.FOR_STUDENTS} element={<Benefits />} />
+            <Route path={AppRoutes.FOR_STUDENTS} element={<JobSeekers />} />
             <Route path={AppRoutes.COTACT_US} element={<ContactUs />} />
             <Route path={AppRoutes.PRIVACY} element={<PrivacyPolicy />} />
             <Route path={AppRoutes.TERMS} element={<TermsAndConditions />} />
@@ -96,7 +97,8 @@ function App() {
 
             <Route path={AppRoutes.FIND_TALENT} element={<AuthSignupPortal />} />
             <Route path={AppRoutes.BECOME_PARTNER} element={<AuthSignupPortal />} />
-            <Route path={AppRoutes.FIND_OPPORTUNITY} element={<AuthSignupPortal />} />
+            <Route path={AppRoutes.FIND_OPPORTUNITY} element={<FindOpportunityPage />} />
+            <Route path="/find_opportunity" element={<FindOpportunityPage />} />
             <Route path={AppRoutes.HR_SERVICE_JOIN} element={<AuthSignupPortal />} />
             <Route path="*" element={<Error404 />} />
           </Route>

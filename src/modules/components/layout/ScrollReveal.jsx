@@ -17,33 +17,35 @@ const fadeInUp = keyframes`
 const styles = {
   container: (isVisible, delay) => css`
     opacity: ${isVisible ? 1 : 0};
-    transform: ${isVisible ? 'translateY(0)' : 'translateY(45px)'};
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms;
-    will-change: opacity, transform;
+    transform: ${isVisible ? 'translateY(0)' : 'translateY(30px)'};
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms;
+    will-change: ${isVisible ? 'auto' : 'opacity, transform'};
   `
 };
 
-const ScrollReveal = ({ children, delay = 0, threshold = 0.12, style, className }) => {
+const ScrollReveal = ({ children, delay = 0, threshold = 0.1, style, className }) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          if (el) observer.unobserve(el);
         }
       },
       { threshold }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (el) {
+      observer.observe(el);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (el) {
+        observer.unobserve(el);
       }
     };
   }, [threshold]);
