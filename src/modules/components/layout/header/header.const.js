@@ -5,7 +5,7 @@ import { CorporateFare, Work, Upgrade, Groups, ContactPage, Diversity3, AccountB
 const HeaderTabs = {
     HOME: "Home",
     COMPANIES: "Hire from us",
-    JOB_SEEKERS: "Job Seekers",
+    JOB_SEEKERS: "Career Aspirants",
     HR_SERVICES: "HR Services",
     CAMPUS_PLACEMENTS: "Campus Placements",
     GOVERNMENT: "Government",

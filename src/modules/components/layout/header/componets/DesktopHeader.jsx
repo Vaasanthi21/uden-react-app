@@ -42,49 +42,7 @@ const DesktopHeader = ({ ...props }) => {
           const isCurrent = Boolean(hooks?.route && route && route.includes(hooks.route));
           const hasBadge = Boolean(data?.Tabs?.Badge[index]);
 
-          return route === AppRoutes.CAMPUS_PLACEMENTS ? ( // Campus Placements dropdown
-            <div key={index}>
-              <Button
-                startIcon={data.Tabs.Icons[index]}
-                onClick={handleCampusPlacementsClick}
-                css={styles.tabsDesktop({ isCurrent })}
-              >
-                <span style={{ textAlign: 'center', lineHeight: 1.2 }}>{names}</span>
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleCampusPlacementsClose}
-                PaperProps={{
-                  elevation: 3,
-                  sx: {
-                    borderRadius: '12px',
-                    mt: 1,
-                    minWidth: 160,
-                    boxShadow: '0 10px 25px rgba(75, 99, 140, 0.12)',
-                    '& .MuiMenuItem-root': {
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: '#1E293B',
-                      py: 1.2,
-                      px: 2,
-                      '&:hover': {
-                        backgroundColor: 'rgba(75, 99, 140, 0.08)',
-                        color: '#4B638C',
-                      },
-                    },
-                  },
-                }}
-              >
-                <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_CAMPUS)}>
-                  For Campus
-                </MenuItem>
-                <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_STUDENTS)}>
-                  For Students
-                </MenuItem>
-              </Menu>
-            </div>
-          ) : (
+          return (
             <Badge
               key={index}
               invisible={!hasBadge}
@@ -107,7 +65,7 @@ const DesktopHeader = ({ ...props }) => {
               <Button
                 startIcon={data.Tabs.Icons[index]}
                 css={styles.tabsDesktop({ isCurrent })}
-                href={route}
+                href={route === AppRoutes.CAMPUS_PLACEMENTS ? AppRoutes.FOR_CAMPUS : route}
               >
                 <span style={{ textAlign: 'center', lineHeight: 1.2 }}>{names}</span>
               </Button>
