@@ -4,6 +4,7 @@ import Slider from './components/Slider';
 import HeroSearchWidget from './components/HeroSearchWidget';
 import MultiJobSearch from './components/MultiJobSearch';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
+import ExplanatoryVideoSuite from '../../components/feature/ExplanatoryVideoSuite';
 import RecruiterVettedHub from './components/RecruiterVettedHub';
 import ReferralCommunityHub from './components/ReferralCommunityHub';
 import MetricsTicker from './components/MetricsTicker';
@@ -44,6 +45,13 @@ const Home = () => {
       {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <FeatureOdyssey />
+      </ScrollReveal>
+
+      {/* ========================================================================= */}
+      {/* 90-SECOND PLATFORM WALKTHROUGH — Explanatory Video Suite                 */}
+      {/* ========================================================================= */}
+      <ScrollReveal threshold={0.1}>
+        <ExplanatoryVideoSuite />
       </ScrollReveal>
 
       {/* ========================================================================= */}

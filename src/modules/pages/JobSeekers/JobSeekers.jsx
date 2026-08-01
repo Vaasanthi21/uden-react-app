@@ -14,6 +14,7 @@ import JobSeekersTestimonial from './components/Testimonial';
 import JobSeekersKnowMore from './components/KnowMore';
 import MultiJobSearch from '../Home/components/MultiJobSearch';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
+import ExplanatoryVideoSuite from '../../components/feature/ExplanatoryVideoSuite';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
@@ -656,6 +657,11 @@ const JobSeekers = () => {
       {/* 8. Feature Odyssey: Learning Path & Superpowers */}
       <ScrollReveal threshold={0.1}>
         <FeatureOdyssey />
+      </ScrollReveal>
+
+      {/* 8.5. 90-Second Platform Explanatory Video Suite */}
+      <ScrollReveal threshold={0.1}>
+        <ExplanatoryVideoSuite />
       </ScrollReveal>
 
       {/* 9. AI Matching Engine */}
