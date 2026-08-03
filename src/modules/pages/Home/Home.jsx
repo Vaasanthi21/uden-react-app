@@ -17,6 +17,7 @@ import ScrollReveal from '../../components/layout/ScrollReveal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
+import HowItWorks from '../../components/feature/HowItWorks';
 
 const Home = () => {
   return (
@@ -52,6 +53,13 @@ const Home = () => {
       {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
         <ExplanatoryVideoSuite />
+      </ScrollReveal>
+
+      {/* ========================================================================= */}
+      {/* STREAMLINED PROCESS — How It Works (Job Seekers vs Companies)             */}
+      {/* ========================================================================= */}
+      <ScrollReveal threshold={0.1}>
+        <HowItWorks />
       </ScrollReveal>
 
       {/* ========================================================================= */}
