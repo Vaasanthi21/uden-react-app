@@ -38,6 +38,10 @@ const styles = {
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
       text-align: center;
+      gap: 32px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
   `,
   badgeTag: css`
@@ -53,6 +57,12 @@ const styles = {
     margin-bottom: 20px;
     border: 1px solid rgba(16, 185, 129, 0.25);
     letter-spacing: 0.5px;
+
+    @media (max-width: 480px) {
+      font-size: 11px;
+      padding: 5px 12px;
+      max-width: 100%;
+    }
   `,
   greenPulseDot: css`
     width: 8px;
@@ -74,7 +84,7 @@ const styles = {
     }
 
     @media (max-width: 768px) {
-      font-size: 36px;
+      font-size: 32px;
     }
   `,
   subtitle: css`
@@ -83,6 +93,11 @@ const styles = {
     line-height: 1.65;
     margin-bottom: 36px;
     font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
   `,
   ctaRow: css`
     display: flex;
@@ -110,6 +125,12 @@ const styles = {
     transition: all 0.25s ease;
     box-shadow: 0 10px 24px rgba(245, 88, 37, 0.3);
 
+    @media (max-width: 480px) {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+    }
+
     &:hover {
       background: #D94616;
       transform: translateY(-2px);
@@ -130,6 +151,12 @@ const styles = {
     gap: 8px;
     transition: all 0.25s ease;
 
+    @media (max-width: 480px) {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+    }
+
     &:hover {
       border-color: #4B638C;
       color: #1E293B;
@@ -147,6 +174,7 @@ const styles = {
 
     @media (max-width: 960px) {
       justify-content: center;
+      gap: 12px;
     }
   `,
   highlightItem: css`
@@ -164,6 +192,14 @@ const styles = {
     padding: 28px;
     box-shadow: 0 20px 40px rgba(75, 99, 140, 0.12);
     animation: ${floatAnim} 5s ease-in-out infinite;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    @media (max-width: 640px) {
+      padding: 16px 12px;
+    }
   `,
   matchScoreBadge: css`
     position: absolute;

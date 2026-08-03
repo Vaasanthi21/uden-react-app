@@ -125,14 +125,16 @@ const styles = {
     box-shadow: 0 20px 50px -12px rgba(245, 88, 37, 0.15);
     color: #1E293B;
     width: 100%;
+    max-width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+    overflow: hidden;
 
     @media (max-width: 640px) {
-      padding: 20px 14px;
+      padding: 16px 12px;
     }
   `,
   profileRow: css`
@@ -268,6 +270,10 @@ const styles = {
     justify-content: space-between;
     height: 100%;
     gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   `,
   jobCard: css`
     background: #FFFFFF;
@@ -280,9 +286,13 @@ const styles = {
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(245, 88, 37, 0.05);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 
     @media (max-width: 640px) {
-      padding: 14px 12px;
+      padding: 12px 10px;
       gap: 10px;
     }
 

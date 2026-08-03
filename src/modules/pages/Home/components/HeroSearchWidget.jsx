@@ -65,6 +65,14 @@ const styles = {
     padding: 4px;
     border-radius: 30px;
     border: 1px solid #E2E8F0;
+    max-width: 100%;
+    flex-wrap: wrap;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      border-radius: 16px;
+      justify-content: center;
+    }
   `,
   tabBtn: (active) => css`
     padding: 8px 20px;
@@ -77,6 +85,13 @@ const styles = {
     background: ${active ? '#4B638C' : 'transparent'};
     color: ${active ? '#FFFFFF' : '#475569'};
     box-shadow: ${active ? '0 4px 14px rgba(75, 99, 140, 0.25)' : 'none'};
+
+    @media (max-width: 640px) {
+      padding: 8px 12px;
+      font-size: 12px;
+      flex: 1;
+      text-align: center;
+    }
 
     &:hover {
       color: ${active ? '#FFFFFF' : '#4B638C'};

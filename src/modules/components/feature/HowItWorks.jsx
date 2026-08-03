@@ -108,10 +108,14 @@ const styles = {
     justify-content: ${isEven ? 'flex-end' : 'flex-start'};
     position: relative;
     padding-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: 768px) {
       justify-content: flex-start;
       padding-left: 56px;
+      width: 100%;
     }
   `,
   centerDot: css`
@@ -147,6 +151,8 @@ const styles = {
     cursor: pointer;
     position: relative;
     z-index: 2;
+    box-sizing: border-box;
+    overflow: hidden;
 
     &:hover {
       border-color: #F55825;
@@ -156,6 +162,7 @@ const styles = {
 
     @media (max-width: 768px) {
       width: 100%;
+      padding: 20px 14px;
     }
   `,
   numPill: css`

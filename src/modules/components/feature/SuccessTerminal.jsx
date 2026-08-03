@@ -153,12 +153,21 @@ const styles = {
     align-items: center;
     gap: 16px;
     flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
     transition: all 0.25s ease;
 
     &:hover {
       border-color: #F55825;
       transform: translateY(-2px);
       box-shadow: 0 10px 24px rgba(245, 88, 37, 0.12);
+    }
+
+    @media (max-width: 640px) {
+      padding: 14px 12px;
+      gap: 10px;
     }
   `,
   avatarInitial: (colorGrad) => css`
@@ -177,6 +186,7 @@ const styles = {
   hireInfo: css`
     flex: 1;
     min-width: 0;
+    overflow: hidden;
   `,
   hireName: css`
     font-size: 15px;
@@ -196,7 +206,7 @@ const styles = {
     text-overflow: ellipsis;
   `,
   matchBadge: css`
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
     background: #F7BC08;
     color: #1E293B;
@@ -205,6 +215,11 @@ const styles = {
     animation: ${matchPulse} 2s infinite ease-in-out;
     white-space: nowrap;
     flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      padding: 3px 8px;
+      font-size: 10px;
+    }
   `,
   chatCard: css`
     background: #FFFFFF;
@@ -213,6 +228,9 @@ const styles = {
     box-shadow: 0 20px 40px rgba(75, 99, 140, 0.1);
     padding: 32px;
     box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 
     @media (max-width: 640px) {
       padding: 20px 14px;
