@@ -148,10 +148,11 @@ const styles = {
     border-radius: 20px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 6px 18px rgba(75, 99, 140, 0.06);
-    padding: 18px 22px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 12px;
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;
@@ -166,8 +167,8 @@ const styles = {
     }
 
     @media (max-width: 640px) {
-      padding: 14px 12px;
-      gap: 10px;
+      padding: 12px 10px;
+      gap: 8px;
     }
   `,
   avatarInitial: (colorGrad) => css`
@@ -187,12 +188,14 @@ const styles = {
     flex: 1;
     min-width: 0;
     overflow: hidden;
+    text-align: left;
   `,
   hireName: css`
     font-size: 15px;
     font-weight: 800;
     color: #1E293B;
     margin: 0;
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -201,6 +204,7 @@ const styles = {
     font-size: 12.5px;
     color: #64748B;
     margin-top: 2px;
+    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -215,6 +219,7 @@ const styles = {
     animation: ${matchPulse} 2s infinite ease-in-out;
     white-space: nowrap;
     flex-shrink: 0;
+    margin-left: auto;
 
     @media (max-width: 480px) {
       padding: 3px 8px;

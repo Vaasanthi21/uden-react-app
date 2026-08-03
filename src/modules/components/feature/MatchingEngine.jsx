@@ -282,6 +282,7 @@ const styles = {
     padding: 20px 24px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 18px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -329,12 +330,15 @@ const styles = {
   jobMeta: css`
     flex: 1;
     min-width: 0;
+    overflow: hidden;
+    text-align: left;
   `,
   jobTitleRow: css`
     display: flex;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
   `,
   jobTitle: css`
     font-size: 15px;
@@ -345,6 +349,9 @@ const styles = {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
   `,
   fitBadge: css`
     padding: 3px 10px;
@@ -354,6 +361,9 @@ const styles = {
     font-size: 11px;
     font-weight: 900;
     animation: ${matchPulse} 2s infinite ease-in-out;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
   `,
   jobSub: css`
     font-size: 13px;
