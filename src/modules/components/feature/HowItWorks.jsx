@@ -7,7 +7,7 @@ import { User, Building2, ClipboardCheck, GraduationCap, TrendingUp, HeartHandsh
 const fadeInSlide = keyframes`
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -17,19 +17,19 @@ const fadeInSlide = keyframes`
 
 const styles = {
   section: css`
-    padding: 80px 20px;
+    padding: 90px 20px;
     background: #FFFDF4;
     border-top: 1px solid #FEF5D8;
     border-bottom: 1px solid #FEF5D8;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
-    max-width: 960px;
+    max-width: 1060px;
     margin: 0 auto;
   `,
   header: css`
     text-align: center;
-    margin-bottom: 44px;
+    margin-bottom: 50px;
   `,
   badgeTag: css`
     font-size: 12px;
@@ -76,109 +76,114 @@ const styles = {
       transform: translateY(-2px);
     }
   `,
-  timelineWrapper: css`
+
+  /* ALTERNATING ZIG-ZAG TIMELINE CONTAINER */
+  timelineContainer: css`
     position: relative;
-    margin-top: 36px;
-    padding-left: 20px;
+    margin-top: 50px;
 
     &::before {
       content: '';
       position: absolute;
-      left: 38px;
-      top: 36px;
-      bottom: 36px;
+      left: 50%;
+      top: 20px;
+      bottom: 20px;
       width: 3px;
-      background: linear-gradient(180deg, #F55825 0%, #F7BC08 100%);
-      opacity: 0.35;
-      border-radius: 2px;
-      z-index: 1;
-    }
+      background: #FFE0B2;
+      transform: translateX(-50%);
 
-    @media (max-width: 640px) {
-      padding-left: 0;
-      &::before {
+      @media (max-width: 768px) {
         left: 24px;
       }
     }
   `,
-  cardList: css`
+  timelineList: css`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     animation: ${fadeInSlide} 0.4s ease forwards;
   `,
-  itemCard: (isHovered) => css`
+  timelineRow: (isEven) => css`
+    display: flex;
+    justify-content: ${isEven ? 'flex-end' : 'flex-start'};
     position: relative;
-    z-index: 2;
-    background: #FFFFFF;
-    border-radius: 22px;
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    box-shadow: ${isHovered ? '0 14px 32px rgba(245, 88, 37, 0.16)' : '0 4px 18px rgba(0, 0, 0, 0.03)'};
-    border: 2px solid ${isHovered ? '#F55825' : '#FEF5D8'};
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
+    padding-bottom: 24px;
 
-    &:hover {
-      transform: translateY(-3px);
-      border-color: #F55825;
-      box-shadow: 0 14px 32px rgba(245, 88, 37, 0.16);
-    }
-
-    @media (max-width: 640px) {
-      padding: 20px 16px;
-      gap: 16px;
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+      padding-left: 56px;
     }
   `,
-  badgeNumber: css`
-    width: 40px;
-    height: 40px;
+  centerDot: css`
+    position: absolute;
+    left: 50%;
+    top: 36px;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #F55825;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(245, 88, 37, 0.3);
-    z-index: 3;
-  `,
-  iconBox: css`
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: #FFFDF0;
-    border: 1px solid #FEF5D8;
+    background: #FFFFFF;
+    border: 2.5px solid #F55825;
     color: #F55825;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(245, 88, 37, 0.25);
+    z-index: 3;
 
-    @media (max-width: 640px) {
-      display: none;
+    @media (max-width: 768px) {
+      left: 24px;
     }
   `,
-  contentBox: css`
-    flex: 1;
+  card: (isHovered) => css`
+    width: 45%;
+    background: #FFFFFF;
+    border: 2px solid ${isHovered ? '#F55825' : '#FFE0B2'};
+    border-radius: 24px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: ${isHovered ? '0 16px 36px rgba(245, 88, 37, 0.18)' : '0 6px 20px rgba(0, 0, 0, 0.03)'};
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      border-color: #F55825;
+      box-shadow: 0 16px 36px rgba(245, 88, 37, 0.18);
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  `,
+  numPill: css`
+    display: inline-block;
+    background: #F55825;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 10px rgba(245, 88, 37, 0.25);
   `,
   cardTitle: css`
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 800;
     color: #1E293B;
-    margin: 0 0 6px 0;
+    margin: 0 0 10px 0;
+    line-height: 1.35;
 
     @media (max-width: 640px) {
-      font-size: 15.5px;
+      font-size: 16.5px;
     }
   `,
   subTagsRow: css`
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     color: #64748B;
     font-size: 13.5px;
@@ -202,42 +207,42 @@ export default function HowItWorks() {
       title: 'Technical & behavioral Assessment',
       sub1: 'Holistic',
       sub2: 'Certified',
-      icon: <ClipboardCheck size={22} />
+      icon: <ClipboardCheck size={20} />
     },
     {
       num: 2,
       title: 'Upskilling based on demand and assessed skill gap',
       sub1: 'Live classes',
       sub2: 'Curated Programs',
-      icon: <GraduationCap size={22} />
+      icon: <GraduationCap size={20} />
     },
     {
       num: 3,
       title: 'Profile improves with continuous upskilling',
       sub1: 'Holistic',
       sub2: 'Certified',
-      icon: <TrendingUp size={22} />
+      icon: <TrendingUp size={20} />
     },
     {
       num: 4,
       title: 'Mentorship & guidance for best fitment',
       sub1: 'Live Classes',
       sub2: '1-on-1',
-      icon: <HeartHandshake size={22} />
+      icon: <HeartHandshake size={20} />
     },
     {
       num: 5,
       title: 'Suggest & shortlist based on best-fit match',
       sub1: 'AI Powered',
       sub2: 'Maximize Reach',
-      icon: <Target size={22} />
+      icon: <Target size={20} />
     },
     {
       num: 6,
       title: 'Companies get right Talent at the right cost',
       sub1: 'Best fit Match',
       sub2: 'Global Talent',
-      icon: <Award size={22} />
+      icon: <Award size={20} />
     }
   ];
 
@@ -247,35 +252,35 @@ export default function HowItWorks() {
       title: 'Platform identifies Best- fit and near fit profiles',
       sub1: 'Best fit match',
       sub2: 'Global Talent',
-      icon: <Target size={22} />
+      icon: <Target size={20} />
     },
     {
       num: 2,
       title: 'Shortlist Talent and initiate the hiring process',
       sub1: 'Pool',
       sub2: 'Pre Assessed',
-      icon: <FileSearch size={22} />
+      icon: <FileSearch size={20} />
     },
     {
       num: 3,
       title: 'Work with UDEN to design curated programs',
       sub1: 'Customized',
       sub2: 'Visibility',
-      icon: <Layers size={22} />
+      icon: <Layers size={20} />
     },
     {
       num: 4,
       title: 'Profiles are shortlisted and upskilled',
       sub1: 'Live Classes',
       sub2: '1-on-1',
-      icon: <Users size={22} />
+      icon: <Users size={20} />
     },
     {
       num: 5,
       title: 'Upskilled resources ready for hiring',
       sub1: 'Holistic',
       sub2: 'Certified',
-      icon: <CheckCircle2 size={22} />
+      icon: <CheckCircle2 size={20} />
     }
   ];
 
@@ -307,26 +312,29 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        <div css={styles.timelineWrapper}>
-          <div key={activeTab} css={styles.cardList}>
-            {currentSteps.map((step) => (
-              <div 
-                key={step.num} 
-                css={styles.itemCard(activeStep === step.num)}
-                onClick={() => setActiveStep(step.num)}
-              >
-                <div css={styles.badgeNumber}>{step.num}</div>
-                <div css={styles.iconBox}>{step.icon}</div>
-                <div css={styles.contentBox}>
-                  <h3 css={styles.cardTitle}>{step.title}</h3>
-                  <div css={styles.subTagsRow}>
-                    <span>{step.sub1}</span>
-                    <span css={styles.tagDot} />
-                    <span>{step.sub2}</span>
+        <div css={styles.timelineContainer}>
+          <div key={activeTab} css={styles.timelineList}>
+            {currentSteps.map((step, idx) => {
+              const isEven = idx % 2 === 1; // 0=odd (left), 1=even (right)
+              return (
+                <div key={step.num} css={styles.timelineRow(isEven)}>
+                  <div css={styles.centerDot}>{step.icon}</div>
+                  
+                  <div 
+                    css={styles.card(activeStep === step.num)}
+                    onClick={() => setActiveStep(step.num)}
+                  >
+                    <span css={styles.numPill}>{step.num}</span>
+                    <h3 css={styles.cardTitle}>{step.title}</h3>
+                    <div css={styles.subTagsRow}>
+                      <span>{step.sub1}</span>
+                      <span css={styles.tagDot} />
+                      <span>{step.sub2}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
