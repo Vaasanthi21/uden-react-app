@@ -122,10 +122,12 @@ const styles = {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   `,
   imgBox: css`
-    width: 85%;
-    max-height: 220px;
+    width: auto;
+    max-width: 80%;
+    max-height: 200px;
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
     transition: transform 0.3s ease;
