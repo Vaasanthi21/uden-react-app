@@ -107,14 +107,23 @@ const styles = {
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
+      gap: 32px;
+      width: 100%;
     }
   `,
   leftCol: css`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   `,
   hiresHeader: css`
     font-size: 18px;
@@ -132,6 +141,9 @@ const styles = {
     height: 440px;
     border-radius: 24px;
     padding: 4px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   `,
   marqueeTrack: css`
     display: flex;
