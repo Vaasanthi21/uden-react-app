@@ -6,13 +6,7 @@ import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users,
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../../utils/consts/routes';
 
-let StudentRoadmapImage;
-try {
-  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
-  StudentRoadmapImage = illustrations.StudentRoadmapImage;
-} catch (e) {
-  StudentRoadmapImage = null;
-}
+import { CareerGrowthImage, ChecklistCompletedImage, JobTeamImage } from '../../../../utils/consts/uploaded_illustrations';
 
 const styles = {
   sectionOuter: css`
@@ -363,11 +357,14 @@ const MultiJobSearch = () => {
             </p>
           </div>
 
-          {StudentRoadmapImage && (
-            <div>
-              <img src={StudentRoadmapImage} alt="Student AI Career Roadmap" css={styles.roadmapImg} className="uden-card-hover" />
-            </div>
-          )}
+          <div>
+            <img 
+              src={CareerGrowthImage || ChecklistCompletedImage} 
+              alt="AI Career Companion & Roadmap" 
+              css={styles.roadmapImg} 
+              className="uden-card-hover" 
+            />
+          </div>
         </div>
 
         {/* Value Highlights Pill Bar */}

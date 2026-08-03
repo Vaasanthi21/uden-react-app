@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import { Landmark, Sparkles, ShieldCheck, ArrowRight, CheckCircle2, Award, Users, BookOpen, GraduationCap, Briefcase } from 'lucide-react';
+import FaqPage from '../Faq/Faq';
 
 const styles = {
   heroOuter: css`
@@ -392,6 +393,11 @@ const GovernmentPartnership = () => {
             <p>UDEN connects pre-assessed candidates directly to 150+ hiring partners with 48-hour shortlist SLAs and zero sourcing fees for candidates.</p>
           </div>
         </div>
+      </div>
+
+      {/* Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
       </div>
     </div>
   );

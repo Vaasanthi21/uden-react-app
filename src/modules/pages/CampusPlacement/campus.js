@@ -14,6 +14,7 @@ import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
 import ScrollReveal from '../../components/layout/ScrollReveal';
+import FaqPage from '../Faq/Faq';
 
 const styles = {
   heroOuter: css`
@@ -547,6 +548,11 @@ const Campus = () => {
           <img src={placementAlgoImage} alt="Placement Prediction Algorithm" />
           <p>Predictive algorithms track candidate skill acquisition, mock interview readiness, and shortlist probabilities in real-time.</p>
         </div>
+      </div>
+
+      {/* Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
       </div>
     </div>
   );

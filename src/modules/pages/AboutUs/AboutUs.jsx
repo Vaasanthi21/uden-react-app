@@ -9,6 +9,7 @@ import AboutTimeline from './components/AboutTimeline';
 import LeadershipTeam from './components/LeadershipTeam';
 import AdvisorBoard from './components/AdvisorBoard';
 import AboutKnowMore from './components/KnowMore';
+import FaqPage from '../Faq/Faq';
 
 const AboutUs = () => {
   return (
@@ -27,6 +28,11 @@ const AboutUs = () => {
       {/* 4. Advisor & Angel Investor Section */}
       <AdvisorBoard />
       <Spacer height />
+
+      {/* 4.5. Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
 
       {/* 5. About Us CTA Banner */}
       <AboutKnowMore />

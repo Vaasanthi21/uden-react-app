@@ -123,11 +123,13 @@ const styles = {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 260px;
   `,
   imgBox: css`
+    height: 240px;
+    max-height: 240px;
     width: auto;
-    max-width: 80%;
-    max-height: 200px;
+    max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
     transition: transform 0.3s ease;

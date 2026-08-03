@@ -20,6 +20,7 @@ import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 import Slider from '../Home/components/Slider';
 import ScrollReveal from '../../components/layout/ScrollReveal';
+import FaqPage from '../Faq/Faq';
 
 import flowchartImage from "../../../assets/images/flowcharts/1Flowchart.png";
 import ParseGif from "../../../assets/images/flowcharts/ParseGif.gif";
@@ -741,6 +742,11 @@ const JobSeekers = () => {
       {/* 14. Placed Candidate Alumni Testimonials */}
       <div style={{ padding: '70px 0', background: '#FEF5D8' }}>
         <JobSeekersTestimonial />
+      </div>
+
+      {/* 14.5. Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
       </div>
 
       {/* 15. Candidate Career Registration CTA */}

@@ -10,6 +10,7 @@ import CompaniesTestimonial from './components/Testimonial';
 import CompaniesTrustedBrand from './components/TrustedBrand';
 import CompaniesWorkFlow from './components/WorkFlow';
 import TalentPoolPreview from './components/TalentPoolPreview';
+import FaqPage from '../Faq/Faq';
 import { CompaniesStyles as styles } from './styles/Companies.Styles';
 
 const Companies = () => {
@@ -43,7 +44,12 @@ const Companies = () => {
         <CompaniesTestimonial />
       </div>
 
-      {/* 7. Fast-Track Talent Hiring CTA */}
+      {/* 7. Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
+
+      {/* 8. Fast-Track Talent Hiring CTA */}
       <CompaniesKnowMore />
     </div>
   );

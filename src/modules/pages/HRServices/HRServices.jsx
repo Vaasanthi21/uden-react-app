@@ -12,6 +12,7 @@ import HRServicesTrustedBrand from './components/TrustedBrand';
 import HRServicesWorkFlow from './components/WorkFlow';
 import HROfferingsHub from './components/HROfferingsHub';
 import HRServiceTabs from './components/HRServiceTabs';
+import FaqPage from '../Faq/Faq';
 import { HRServicesStyles as styles } from './styles/Companies.Styles';
 
 const HRServices = () => {
@@ -28,6 +29,9 @@ const HRServices = () => {
       <HRServicesFeature css={styles.features} />
       <Spacer height />
       <HRServicesTestimonial />
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
       <HRServicesKnowMore />
     </>
   );
