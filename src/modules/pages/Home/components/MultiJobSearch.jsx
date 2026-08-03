@@ -17,6 +17,10 @@ const styles = {
     overflow: hidden;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     border-bottom: 2px solid rgba(75, 99, 140, 0.15);
+
+    @media (max-width: 640px) {
+      padding: 40px 12px;
+    }
   `,
   container: css`
     max-width: 1160px;
@@ -117,6 +121,11 @@ const styles = {
     padding: 32px;
     box-shadow: 0 20px 48px rgba(75, 99, 140, 0.08);
     margin-bottom: 48px;
+
+    @media (max-width: 640px) {
+      padding: 16px 12px;
+      border-radius: 20px;
+    }
   `,
   inputGrid: css`
     display: grid;

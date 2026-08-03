@@ -130,6 +130,10 @@ const styles = {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
+
+    @media (max-width: 640px) {
+      padding: 20px 14px;
+    }
   `,
   profileRow: css`
     display: flex;
@@ -169,6 +173,11 @@ const styles = {
     border-top: 1px solid #F1F5F9;
     border-bottom: 1px solid #F1F5F9;
     margin-bottom: 20px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      gap: 14px;
+    }
   `,
   gaugeContainer: css`
     position: relative;
@@ -271,6 +280,11 @@ const styles = {
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(245, 88, 37, 0.05);
+
+    @media (max-width: 640px) {
+      padding: 14px 12px;
+      gap: 10px;
+    }
 
     &:hover {
       background: #FFFFFF;

@@ -203,6 +203,8 @@ const styles = {
     font-size: 11px;
     font-weight: 900;
     animation: ${matchPulse} 2s infinite ease-in-out;
+    white-space: nowrap;
+    flex-shrink: 0;
   `,
   chatCard: css`
     background: #FFFFFF;
@@ -211,6 +213,10 @@ const styles = {
     box-shadow: 0 20px 40px rgba(75, 99, 140, 0.1);
     padding: 32px;
     box-sizing: border-box;
+
+    @media (max-width: 640px) {
+      padding: 20px 14px;
+    }
   `,
   chatHeader: css`
     display: flex;
@@ -252,11 +258,16 @@ const styles = {
     border-radius: 18px;
     border-top-left-radius: 4px;
     padding: 14px 18px;
-    max-width: 85%;
+    max-width: 90%;
     align-self: flex-start;
     font-size: 13.5px;
     color: #1E293B;
     line-height: 1.5;
+
+    @media (max-width: 640px) {
+      max-width: 100%;
+      padding: 12px 14px;
+    }
   `,
   msgUser: css`
     background: #4B638C;
@@ -264,15 +275,24 @@ const styles = {
     border-radius: 18px;
     border-top-right-radius: 4px;
     padding: 14px 18px;
-    max-width: 85%;
+    max-width: 90%;
     align-self: flex-end;
     font-size: 13.5px;
     line-height: 1.5;
+
+    @media (max-width: 640px) {
+      max-width: 100%;
+      padding: 12px 14px;
+    }
   `,
   inputRow: css`
     display: flex;
     gap: 10px;
     margin-bottom: 24px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
   `,
   inputEmail: css`
     flex: 1;
