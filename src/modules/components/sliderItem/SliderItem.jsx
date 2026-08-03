@@ -124,10 +124,10 @@ const styles = {
     align-items: center;
   `,
   imgBox: css`
-    width: 100%;
-    max-height: 280px;
+    width: 85%;
+    max-height: 220px;
     object-fit: contain;
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.06));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.05));
     transition: transform 0.3s ease;
 
     &:hover {
