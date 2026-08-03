@@ -358,21 +358,21 @@ export default function FindOpportunityPage() {
           <div>
             <div css={styles.badgeTag} className="uden-float-anim">
               <Sparkles size={13} color="#F7BC08" />
-              JOIN THE UDEN NETWORK
+              UDEN LEAD GENERATION FORM
             </div>
 
             <h2 css={styles.heroHeading}>
-              Find <span>Opportunity</span>
+              Lead Generation <span>Portal</span>
             </h2>
 
             <p css={styles.heroSub}>
-              Get access to global companies for opportunities and get upskilled to stay relevant.
+              Submit your inquiry details to get connected with 150+ global hiring partners and request platform access.
             </p>
 
             {FindOpportunityImage && (
               <img 
                 src={FindOpportunityImage} 
-                alt="Find Opportunity & Career Growth" 
+                alt="Lead Generation & Career Growth" 
                 css={styles.illustrationImg}
               />
             )}
@@ -380,7 +380,7 @@ export default function FindOpportunityPage() {
             <div css={styles.featuresList}>
               <div css={styles.featureItem}>
                 <CheckCircle2 size={16} color="#4B638C" />
-                <span>Free Profile Setup &amp; Skill Assessment</span>
+                <span>Instant Lead Profile Processing &amp; Skill Audit</span>
               </div>
               <div css={styles.featureItem}>
                 <CheckCircle2 size={16} color="#4B638C" />
@@ -395,29 +395,29 @@ export default function FindOpportunityPage() {
 
           <div css={styles.leftFooter}>
             <ShieldCheck size={14} color="#4B638C" />
-            100% Free Registration &amp; Secure Data
+            100% Secure Lead Registration Data
           </div>
         </div>
 
-        {/* Right Column Opportunity Inquiry Registration Form with Validations */}
+        {/* Right Column Opportunity Inquiry Lead Generation Form with Validations */}
         <div css={styles.rightCol}>
           <div css={styles.logoContainer}>
             <Logo style={{ height: '42px' }} />
           </div>
 
           <div css={styles.subtitleText}>
-            Assess <span>•</span> Upskill <span>•</span> Recruit
+            Lead Generation <span>•</span> Assess <span>•</span> Recruit
           </div>
 
           {submitted ? (
             <div style={{ background: '#ECFDF5', border: '1.5px solid #A7F3D0', borderRadius: '20px', padding: '32px 24px', color: '#047857', textAlign: 'center' }}>
               <CheckCircle2 size={44} color="#10B981" style={{ marginBottom: '12px' }} />
-              <h3 style={{ fontSize: '22px', fontWeight: 900, margin: '0 0 8px 0' }}>Registration Successful!</h3>
+              <h3 style={{ fontSize: '22px', fontWeight: 900, margin: '0 0 8px 0' }}>Lead Request Submitted!</h3>
               <p style={{ fontSize: '14.5px', color: '#065F46', lineHeight: 1.6, margin: '0 0 20px 0' }}>
-                Thank you <strong>{formData.fullName}</strong>. Your profile has been registered in the UDEN Talent Database. Our placement team will reach out at <strong>{formData.workEmail}</strong>.
+                Thank you <strong>{formData.fullName}</strong>. Your lead generation inquiry has been logged in the UDEN Database. Our team will contact you at <strong>{formData.workEmail}</strong>.
               </p>
               <button css={styles.resetBtn} onClick={handleReset}>
-                <RefreshCw size={14} /> Submit Another Application
+                <RefreshCw size={14} /> Submit Another Lead Request
               </button>
             </div>
           ) : (
@@ -595,7 +595,7 @@ export default function FindOpportunityPage() {
               )}
 
               <button type="submit" css={styles.submitBtn} className="uden-pulse-btn">
-                Submit Opportunity Application
+                Submit Lead Generation Request
                 <ArrowRight size={18} />
               </button>
             </form>

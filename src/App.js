@@ -99,6 +99,9 @@ function App() {
             <Route path={AppRoutes.BECOME_PARTNER} element={<AuthSignupPortal />} />
             <Route path={AppRoutes.FIND_OPPORTUNITY} element={<FindOpportunityPage />} />
             <Route path="/find_opportunity" element={<FindOpportunityPage />} />
+            <Route path="/lead-generation" element={<FindOpportunityPage />} />
+            <Route path="/lead_generation" element={<FindOpportunityPage />} />
+            <Route path="/leadgeneration" element={<FindOpportunityPage />} />
             <Route path={AppRoutes.HR_SERVICE_JOIN} element={<AuthSignupPortal />} />
             <Route path="*" element={<Error404 />} />
           </Route>
