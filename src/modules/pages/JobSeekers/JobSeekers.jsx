@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
 
 import JobSeekerBanner from './components/Banner';
+import JobSeekerDualInfographic from './components/JobSeekerDualInfographic';
 import JobSeekerTrustedBrand from './components/TrustedBrand';
 import JobSeekerWorkFlow from './components/WorkFlow';
 import JobSeekersFeature from './components/Features';
@@ -582,6 +583,9 @@ const JobSeekers = () => {
 
       {/* 2. Hero Candidate Career Banner */}
       <JobSeekerBanner />
+
+      {/* 2.5 Side-by-Side Dual Infographic: Students (3rd Year) vs Experienced Professionals */}
+      <JobSeekerDualInfographic />
 
       {/* 3. Hiring Partner Brands Bar */}
       <div style={{ padding: '36px 0', borderBottom: '1px solid #E2E8F0', background: '#FFFFFF' }}>
