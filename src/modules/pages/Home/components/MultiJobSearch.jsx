@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock, Compass } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
-import { CareerGrowthImage, ChecklistCompletedImage, JobTeamImage } from '../../../../utils/consts/uploaded_illustrations';
+import { CareerGrowthImage, ChecklistCompletedImage, JobTeamImage } from 'utils/consts/uploaded_illustrations';
 
 const styles = {
   sectionOuter: css`

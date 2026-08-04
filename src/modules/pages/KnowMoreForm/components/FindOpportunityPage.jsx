@@ -5,11 +5,11 @@ import { jsx, css } from '@emotion/react';
 import { ShieldCheck, Sparkles, CheckCircle2, ArrowRight, AlertCircle, RefreshCw, Compass, Target, Award, UserCheck, Star } from 'lucide-react';
 import Logo from '../../../components/logo/Logo';
 import { Link } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let FindOpportunityImage;
 try {
-  FindOpportunityImage = require('../../../../assets/images/find-opportunity.png');
+  FindOpportunityImage = require('assets/images/find-opportunity.png');
 } catch (e) {
   FindOpportunityImage = process.env.PUBLIC_URL + '/images/find-opportunity.png';
 }

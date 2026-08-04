@@ -1,6 +1,6 @@
 import { Box, Link } from '@mui/material'
-import GPLogo from '../../../assets/images/g-play.png'
-import { AppStrigs } from '../../../utils/consts/strings'
+import GPLogo from 'assets/images/g-play.png'
+import { AppStrigs } from 'utils/consts/strings'
 
 const GPlayLogo = props => {
     return (

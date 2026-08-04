@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { ChevronDown, ChevronUp, Search, Sparkles, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let FaqSupportDeskImage;
 try {
-  FaqSupportDeskImage = require('../../../utils/consts/uploaded_illustrations').FaqSupportDeskImage;
+  FaqSupportDeskImage = require('utils/consts/uploaded_illustrations').FaqSupportDeskImage;
 } catch (e) {
   FaqSupportDeskImage = null;
 }

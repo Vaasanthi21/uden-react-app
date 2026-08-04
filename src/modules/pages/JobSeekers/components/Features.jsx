@@ -4,11 +4,11 @@ import React from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { ArrowRight, Download, Award, Palette, BrainCircuit, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let StudentRoadmapImage, CandidateNetworkImage, AiRobotTeamImage, FaqSupportDeskImage;
 try {
-  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  const illustrations = require('utils/consts/uploaded_illustrations');
   StudentRoadmapImage = illustrations.StudentRoadmapImage;
   CandidateNetworkImage = illustrations.CandidateNetworkImage;
   AiRobotTeamImage = illustrations.AiRobotTeamImage;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, MenuItem, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const CampusPlacementsDropdown = () => {
     const [anchorEl, setAnchorEl] = useState(null);

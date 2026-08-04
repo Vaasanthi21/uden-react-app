@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Search, Sparkles, Briefcase, MapPin, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
   container: css`

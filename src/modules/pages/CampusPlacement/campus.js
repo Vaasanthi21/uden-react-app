@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import { Building2, Sparkles, Award, ArrowRight, CheckCircle2, Star, Quote } from 'lucide-react';
-import Dimensions from "../../../assets/images/flowcharts/Dimensions.png";
-import Amazon from "../../../assets/images/flowcharts/Amazon.webp";
-import Microsoft from "../../../assets/images/flowcharts/Microsoft.webp";
-import NVLogo_2D from "../../../assets/images/flowcharts/NVLogo_2D.jpg";
-import placementAlgoImage from "../../../assets/images/flowcharts/placementAlgoImage.png";
+import Dimensions from "assets/images/flowcharts/Dimensions.png";
+import Amazon from "assets/images/flowcharts/Amazon.webp";
+import Microsoft from "assets/images/flowcharts/Microsoft.webp";
+import NVLogo_2D from "assets/images/flowcharts/NVLogo_2D.jpg";
+import placementAlgoImage from "assets/images/flowcharts/placementAlgoImage.png";
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';

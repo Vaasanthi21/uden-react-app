@@ -4,7 +4,7 @@ import React from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const matchPulse = keyframes`
   0% { transform: scale(1); opacity: 1; }

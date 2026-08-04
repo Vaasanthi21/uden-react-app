@@ -5,7 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { ChevronLeft, ChevronRight, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../../Home.Const';
-import { AppRoutes } from '../../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 import IndemandSkills from './IndemandSkills';
 
 const styles = {

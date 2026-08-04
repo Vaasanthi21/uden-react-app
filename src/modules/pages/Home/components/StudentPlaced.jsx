@@ -5,7 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { ArrowRight, Building2, Award, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
   section: css`

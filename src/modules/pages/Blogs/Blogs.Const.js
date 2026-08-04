@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { AppAssets } from "../../../utils/consts/app_assets"
+import { AppAssets } from "utils/consts/app_assets"
 
 const Assets = AppAssets.BlogAssets;
 

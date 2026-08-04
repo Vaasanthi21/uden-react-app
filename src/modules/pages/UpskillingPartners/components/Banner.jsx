@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { GraduationCap, Sparkles, Award, ArrowRight, BookOpen, CheckCircle2, Search, Handshake } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let ContractHandshakeImage;
 try {
-  ContractHandshakeImage = require('../../../../assets/images/contract-handshake.jpg');
+  ContractHandshakeImage = require('assets/images/contract-handshake.jpg');
 } catch (e) {
   ContractHandshakeImage = process.env.PUBLIC_URL + '/images/contract-handshake.jpg';
 }

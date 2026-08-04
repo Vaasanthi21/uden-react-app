@@ -2,8 +2,8 @@ import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {css} from '@emotion/react';
-import {AppColors} from '../../../../../utils/consts/app_colors'
-import { resposiveFont } from '../../../../../utils/responsive_text';
+import {AppColors} from 'utils/consts/app_colors'
+import { resposiveFont } from 'utils/responsive_text';
 
 
 

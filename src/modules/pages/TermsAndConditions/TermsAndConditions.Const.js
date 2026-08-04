@@ -1,6 +1,6 @@
 import { Link, Typography } from "@mui/material"
 
-import {AppRoutes} from '../../../utils/consts/routes'
+import {AppRoutes} from 'utils/consts/routes'
 
 const TermsAndConditionsConst = {
   title:"Terms and Conditions",

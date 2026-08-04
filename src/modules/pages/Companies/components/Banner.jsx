@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Search, Sparkles, ShieldCheck, Clock, ArrowRight, Users, CheckCircle2, Building2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let RecruitmentTeamImage;
 try {
-  RecruitmentTeamImage = require('../../../../assets/images/recruitment-team.jpg');
+  RecruitmentTeamImage = require('assets/images/recruitment-team.jpg');
 } catch (e) {
   RecruitmentTeamImage = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
 }

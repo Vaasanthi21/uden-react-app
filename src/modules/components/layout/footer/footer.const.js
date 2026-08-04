@@ -1,4 +1,4 @@
-import { AppRoutes } from "../../../../utils/consts/routes"
+import { AppRoutes } from "utils/consts/routes"
 
 
 

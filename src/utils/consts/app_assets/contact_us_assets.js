@@ -1,6 +1,6 @@
-import BANNER from  '../../../assets/images/contact-banner.png'
-import BANGALORE from  '../../../assets/images/contact-1.png'
-import AMERICA from  '../../../assets/images/contact-2.png'
+import BANNER from  'assets/images/contact-banner.png'
+import BANGALORE from  'assets/images/contact-1.png'
+import AMERICA from  'assets/images/contact-2.png'
 
 
 const ContactUsAssets = {

@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Briefcase, Building, MapPin, Star, Sparkles, ArrowRight, FileCheck, CheckCircle2, Award, Users, Bot, BookOpen, Clock, ShieldCheck, ZoomIn, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
-import flowchartImage from "../../../assets/images/flowcharts/1Flowchart.png";
-import ParseGif from "../../../assets/images/flowcharts/ParseGif.gif";
-import Picture4 from "../../../assets/images/flowcharts/Picture4.jpg";
-import Picture5 from "../../../assets/images/flowcharts/Picture5.png";
+import flowchartImage from "assets/images/flowcharts/1Flowchart.png";
+import ParseGif from "assets/images/flowcharts/ParseGif.gif";
+import Picture4 from "assets/images/flowcharts/Picture4.jpg";
+import Picture5 from "assets/images/flowcharts/Picture5.png";
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
@@ -18,7 +18,7 @@ import ScrollReveal from '../../components/layout/ScrollReveal';
 
 let StudentRoadmapImage;
 try {
-  const illustrations = require('../../../utils/consts/uploaded_illustrations');
+  const illustrations = require('utils/consts/uploaded_illustrations');
   StudentRoadmapImage = illustrations.StudentRoadmapImage;
 } catch (e) {
   StudentRoadmapImage = null;

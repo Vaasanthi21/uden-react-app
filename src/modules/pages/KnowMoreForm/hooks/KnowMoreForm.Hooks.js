@@ -1,9 +1,9 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { usePostAssociationRequestMutation } from "../../../../services/contactFormServices/contactFormServices";
-import { AppRoutes } from "../../../../utils/consts/routes";
-import { ValidateField, ValidateFields } from "../../../../utils/helper";
+import { usePostAssociationRequestMutation } from "services/contactFormServices/contactFormServices";
+import { AppRoutes } from "utils/consts/routes";
+import { ValidateField, ValidateFields } from "utils/helper";
 import KnowMoreFormConst from "../KnowMoreForm.Const";
 
 

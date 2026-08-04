@@ -1,6 +1,6 @@
 import { MoreHoriz } from "@mui/icons-material";
-import { AppAssets } from "../../../utils/consts/app_assets";
-import { AppRoutes } from "../../../utils/consts/routes";
+import { AppAssets } from "utils/consts/app_assets";
+import { AppRoutes } from "utils/consts/routes";
 
 
 

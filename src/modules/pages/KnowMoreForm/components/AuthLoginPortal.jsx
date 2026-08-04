@@ -5,13 +5,13 @@ import { jsx, css } from '@emotion/react';
 import { ShieldCheck, Sparkles, CheckCircle2, User, Building2 } from 'lucide-react';
 import Logo from '../../../components/logo/Logo';
 import { Link } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let CandidateImg;
 let EmployerImg;
 try {
-  CandidateImg = require('../../../../assets/images/checklist-completed.jpg');
-  EmployerImg = require('../../../../assets/images/recruitment-team.jpg');
+  CandidateImg = require('assets/images/checklist-completed.jpg');
+  EmployerImg = require('assets/images/recruitment-team.jpg');
 } catch (e) {
   CandidateImg = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
   EmployerImg = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';

@@ -4,7 +4,7 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { ShieldCheck, Clock, CheckCircle, ArrowRight, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 import { HomeConst } from '../Home.Const';
 
 const styles = {

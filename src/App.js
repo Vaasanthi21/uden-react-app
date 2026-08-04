@@ -86,6 +86,12 @@ function App() {
             <Route path={AppRoutes.PRIVACY} element={<PrivacyPolicy />} />
             <Route path={AppRoutes.TERMS} element={<TermsAndConditions />} />
 
+            {/* Persona Lead Generation Forms */}
+            <Route path={AppRoutes.FIND_TALENT} element={<FindTalentPage />} />
+            <Route path="/campus-partner-form" element={<CampusPartnerFormPage />} />
+            <Route path={AppRoutes.HR_SERVICE_JOIN} element={<HRServicesJoinPage />} />
+            <Route path="/government-partner-form" element={<GovernmentPartnerFormPage />} />
+
             {/* Auth / Login / Signup Unified Routes */}
             <Route path="/login" element={<AuthSignupPortal />} />
             <Route path="/log_in" element={<AuthSignupPortal />} />
@@ -95,14 +101,12 @@ function App() {
             <Route path="/sign_up" element={<AuthSignupPortal />} />
             <Route path="/register" element={<AuthSignupPortal />} />
 
-            <Route path={AppRoutes.FIND_TALENT} element={<AuthSignupPortal />} />
-            <Route path={AppRoutes.BECOME_PARTNER} element={<AuthSignupPortal />} />
+            <Route path={AppRoutes.BECOME_PARTNER} element={<CampusPartnerFormPage />} />
             <Route path={AppRoutes.FIND_OPPORTUNITY} element={<FindOpportunityPage />} />
             <Route path="/find_opportunity" element={<FindOpportunityPage />} />
             <Route path="/lead-generation" element={<FindOpportunityPage />} />
             <Route path="/lead_generation" element={<FindOpportunityPage />} />
             <Route path="/leadgeneration" element={<FindOpportunityPage />} />
-            <Route path={AppRoutes.HR_SERVICE_JOIN} element={<AuthSignupPortal />} />
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>

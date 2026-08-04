@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { Briefcase, Star, Sparkles, ArrowRight, CheckCircle2, Award, Users, Bot, BookOpen, ShieldCheck, ZoomIn, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 import JobSeekerBanner from './components/Banner';
 import JobSeekerTrustedBrand from './components/TrustedBrand';
@@ -22,12 +22,12 @@ import Slider from '../Home/components/Slider';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import FaqPage from '../Faq/Faq';
 
-import flowchartImage from "../../../assets/images/flowcharts/1Flowchart.png";
-import ParseGif from "../../../assets/images/flowcharts/ParseGif.gif";
+import flowchartImage from "assets/images/flowcharts/1Flowchart.png";
+import ParseGif from "assets/images/flowcharts/ParseGif.gif";
 
 let StudentRoadmapImage;
 try {
-  const illustrations = require('../../../utils/consts/uploaded_illustrations');
+  const illustrations = require('utils/consts/uploaded_illustrations');
   StudentRoadmapImage = illustrations.StudentRoadmapImage;
 } catch (e) {
   StudentRoadmapImage = null;

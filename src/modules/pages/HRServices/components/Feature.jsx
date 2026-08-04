@@ -5,7 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { ChevronLeft, ChevronRight, Sparkles, ArrowRight, Target, TrendingUp, Users, FileCheck, Award, GraduationCap } from 'lucide-react';
 import HRServicesConst from '../HRServices.Const';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
   section: css`

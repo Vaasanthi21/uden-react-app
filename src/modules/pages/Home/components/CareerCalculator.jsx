@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { jsx, css } from '@emotion/react';
 import { TrendingUp, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 import { HomeConst } from '../Home.Const';
 
 let CareerGrowthImg;
 try {
-  CareerGrowthImg = require('../../../../assets/images/career-growth.jpg');
+  CareerGrowthImg = require('assets/images/career-growth.jpg');
 } catch (e) {
   CareerGrowthImg = process.env.PUBLIC_URL + '/images/career-growth.jpg';
 }

@@ -9,9 +9,9 @@ let CandidateSnapshotImg;
 let CampusSnapshotImg;
 
 try {
-  CareerVideoMP4 = require('../../../assets/images/career-growth-video.mp4');
-  CandidateSnapshotImg = require('../../../assets/images/checklist-completed.jpg');
-  CampusSnapshotImg = require('../../../assets/images/flowcharts/1Flowchart.png');
+  CareerVideoMP4 = require('assets/images/career-growth-video.mp4');
+  CandidateSnapshotImg = require('assets/images/checklist-completed.jpg');
+  CampusSnapshotImg = require('assets/images/flowcharts/1Flowchart.png');
 } catch (e) {
   CareerVideoMP4 = process.env.PUBLIC_URL + '/images/career-growth-video.mp4';
   CandidateSnapshotImg = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';

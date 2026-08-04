@@ -4,11 +4,11 @@ import React from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { ShieldCheck, Video, Award, Clock, ArrowRight, CheckCircle2, Building, Users, Sparkles, Cpu, CheckSquare } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let CandidateNetworkImage;
 try {
-  CandidateNetworkImage = require('../../../../utils/consts/uploaded_illustrations').CandidateNetworkImage;
+  CandidateNetworkImage = require('utils/consts/uploaded_illustrations').CandidateNetworkImage;
 } catch (e) {
   CandidateNetworkImage = null;
 }

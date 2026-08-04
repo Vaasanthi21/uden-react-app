@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRoutes } from "../../../../utils/consts/routes";
+import { AppRoutes } from "utils/consts/routes";
 import { CorporateFare, Work, Upgrade, Groups, ContactPage, Diversity3, AccountBalance } from '@mui/icons-material';
 
 const HeaderTabs = {

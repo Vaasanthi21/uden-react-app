@@ -5,11 +5,11 @@ import { jsx, css } from '@emotion/react';
 import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, Play, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 let MentorGuidanceImage, AiRobotTeamImage, FaqSupportDeskImage, StudentRoadmapImage;
 try {
-  const illustrations = require('../../../../utils/consts/uploaded_illustrations');
+  const illustrations = require('utils/consts/uploaded_illustrations');
   MentorGuidanceImage = illustrations.MentorGuidanceImage;
   AiRobotTeamImage = illustrations.AiRobotTeamImage;
   FaqSupportDeskImage = illustrations.FaqSupportDeskImage;

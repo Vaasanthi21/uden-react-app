@@ -1,7 +1,7 @@
 import { useSnackbar } from "notistack";
 import { useState } from "react";
-import { usePostContactRequestMutation } from "../../../../services/contactFormServices/contactFormServices";
-import { ValidateField, ValidateFields } from "../../../../utils/helper";
+import { usePostContactRequestMutation } from "services/contactFormServices/contactFormServices";
+import { ValidateField, ValidateFields } from "utils/helper";
 import ContactUsConst from "../ContactUs.Const";
 
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { Award, Clock, ArrowRight, CheckCircle2, Zap, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
   section: css`

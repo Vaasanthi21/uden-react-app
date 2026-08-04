@@ -8,7 +8,7 @@ import {
   Handshake, Gift, Star, Award, Award as WreathIcon, Smartphone, Play, Bot, TrendingUp
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const floatAnim = keyframes`
   0% { transform: translateY(0px); }
@@ -552,7 +552,7 @@ export default function HeroArchitectured() {
 
               <button 
                 css={styles.secondaryBtn}
-                onClick={() => navigate(AppRoutes.FOR_CAMPUS)}
+                onClick={() => navigate('/campus-partner-form')}
               >
                 <Calendar size={16} color="#F55825" />
                 Book a Demo
@@ -588,7 +588,7 @@ export default function HeroArchitectured() {
               {/* For Colleges Card */}
               <div 
                 css={styles.collegeCard}
-                onClick={() => navigate(AppRoutes.FOR_CAMPUS)}
+                onClick={() => navigate('/campus-partner-form')}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>
@@ -606,7 +606,7 @@ export default function HeroArchitectured() {
               {/* For Recruiters Card */}
               <div 
                 css={styles.recruiterCard}
-                onClick={() => navigate(AppRoutes.COMPANIES)}
+                onClick={() => navigate(AppRoutes.FIND_TALENT)}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>

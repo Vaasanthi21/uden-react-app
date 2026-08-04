@@ -1,8 +1,8 @@
 import { Email, Person, Phone } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
-import { AppAssets } from "../../../utils/consts/app_assets";
-import { AppRoutes } from "../../../utils/consts/routes";
-import { getValidator } from "../../../utils/helper";
+import { AppAssets } from "utils/consts/app_assets";
+import { AppRoutes } from "utils/consts/routes";
+import { getValidator } from "utils/helper";
 
 
 

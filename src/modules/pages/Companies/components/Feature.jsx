@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { jsx, css, keyframes } from '@emotion/react';
 import { ShieldCheck, Globe, GraduationCap, Cpu, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from '../../../../utils/consts/routes';
+import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
   sectionOuter: css`
