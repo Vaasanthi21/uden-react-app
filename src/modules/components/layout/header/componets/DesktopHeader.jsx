@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../../../logo/Logo';
 import { HeaderStyles as styles } from '../styles/Header.Style';
 import { HeaderConst } from '../header.const';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../../../../utils/consts/routes';
 
 const DesktopHeader = ({ ...props }) => {
   const navigate = useNavigate();

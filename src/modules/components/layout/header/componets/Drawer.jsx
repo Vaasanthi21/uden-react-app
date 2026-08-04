@@ -21,7 +21,7 @@ import Logo from '../../../logo/Logo';
 import { HeaderConst } from '../header.const';
 import { HeaderStyles as styles } from '../styles/Header.Style';
 import { Button, ListItemIcon, Collapse } from '@mui/material';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../../../../utils/consts/routes';
 import Spacer from '../../../Spacer';
 
 const Drawer = ({ props }) => {
