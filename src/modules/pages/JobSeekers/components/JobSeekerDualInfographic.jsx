@@ -8,6 +8,7 @@ import {
   Rocket, Gift, ShieldCheck, Globe, Clock, Layers, Star, Zap, UserCheck, ChevronDown
 } from 'lucide-react';
 import { AppRoutes } from '../../../../utils/consts/routes';
+import { useLocation } from 'react-router-dom';
 
 const popIn = keyframes`
   0% {
@@ -288,7 +289,16 @@ const styles = {
 };
 
 const JobSeekerDualInfographic = () => {
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState('all'); // 'all' | 'student' | 'experienced'
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tabParam = params.get('tab');
+    if (tabParam === 'student' || tabParam === 'experienced' || tabParam === 'all') {
+      setActiveTab(tabParam);
+    }
+  }, [location.search]);
 
   const showStudent = activeTab === 'all' || activeTab === 'student';
   const showExperienced = activeTab === 'all' || activeTab === 'experienced';

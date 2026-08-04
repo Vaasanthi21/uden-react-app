@@ -31,6 +31,7 @@ const Drawer = ({ props }) => {
 
     // Dropdown state
     const [campusOpen, setCampusOpen] = useState(false);
+    const [jobSeekersOpen, setJobSeekersOpen] = useState(false);
 
     return (
         <Box component="nav">
@@ -62,6 +63,37 @@ const Drawer = ({ props }) => {
                     <List>
                         {data.Tabs.Names.map((name, index) => {
                             const linkRoute = data.Tabs.Routes[index] === AppRoutes.CAMPUS_PLACEMENTS ? AppRoutes.FOR_CAMPUS : data.Tabs.Routes[index];
+                            const isJobSeekers = data.Tabs.Routes[index] === AppRoutes.JOB_SEEKERS;
+
+                            if (isJobSeekers) {
+                                return (
+                                    <React.Fragment key={index}>
+                                        <ListItem disablePadding>
+                                            <ListItemButton
+                                                onClick={() => setJobSeekersOpen(!jobSeekersOpen)}
+                                                sx={{ textAlign: 'center' }}
+                                            >
+                                                <ListItemIcon>
+                                                    {data.Tabs.Icons[index]}
+                                                </ListItemIcon>
+                                                <ListItemText primary={name} css={styles.tabsMobileText} />
+                                                {jobSeekersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                                            </ListItemButton>
+                                        </ListItem>
+                                        <Collapse in={jobSeekersOpen} timeout="auto" unmountOnExit>
+                                            <List component="div" disablePadding sx={{ pl: 4, background: '#F8FAFC' }}>
+                                                <ListItemButton href="/job-seekers?tab=student" onClick={props.closeDrawer}>
+                                                    <ListItemText primary="🎓 For Students" primaryTypographyProps={{ fontSize: '13px', fontWeight: 700, color: '#1E293B' }} />
+                                                </ListItemButton>
+                                                <ListItemButton href="/job-seekers?tab=experienced" onClick={props.closeDrawer}>
+                                                    <ListItemText primary="💼 For Experienced" primaryTypographyProps={{ fontSize: '13px', fontWeight: 700, color: '#1E293B' }} />
+                                                </ListItemButton>
+                                            </List>
+                                        </Collapse>
+                                    </React.Fragment>
+                                );
+                            }
+
                             return (
                                 <ListItem key={index} disablePadding>
                                     <ListItemButton
