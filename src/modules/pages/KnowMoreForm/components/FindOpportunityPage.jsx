@@ -399,6 +399,25 @@ export default function FindOpportunityPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      // HubSpot Lead & Contact Integration Tracking
+      try {
+        if (window._hsq) {
+          window._hsq.push(["identify", {
+            email: formData.workEmail,
+            firstname: formData.fullName.split(' ')[0] || formData.fullName,
+            lastname: formData.fullName.split(' ').slice(1).join(' ') || '',
+            phone: formData.phone,
+            city: formData.city,
+            state: formData.state,
+            country: formData.country,
+            primary_skill: formData.primarySkill,
+            experience: formData.experience
+          }]);
+          window._hsq.push(["trackEvent", { id: "Candidate Blueprint Opportunity Submission" }]);
+        }
+      } catch (err) {
+        console.log("HubSpot tracking:", err);
+      }
       setSubmitted(true);
     }
   };
