@@ -330,7 +330,7 @@ const ReferralCommunityHub = () => {
 
       {/* 3. BOTTOM CENTERED BUTTON */}
       <div css={styles.bottomBtnWrap}>
-        <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.JOB_SEEKERS)}>
+        <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
           Refer Friends &amp; Earn Cash Rewards
           <ArrowRight size={18} />
         </button>

@@ -81,7 +81,7 @@ const Drawer = ({ props }) => {
                     </List>
 
                     <Spacer height />
-                    <Button href="https://cps.uden.tech/" variant="contained" css={styles.signupButtonMobile} size="large">
+                    <Button href={AppRoutes.FIND_TALENT} onClick={props.closeDrawer} variant="contained" css={styles.signupButtonMobile} size="large">
                         {data.ButtonStrings.SIGNUP_SIGNIN}
                     </Button>
 

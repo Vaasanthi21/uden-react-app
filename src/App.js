@@ -86,10 +86,10 @@ function App() {
             <Route path={AppRoutes.PRIVACY} element={<PrivacyPolicy />} />
             <Route path={AppRoutes.TERMS} element={<TermsAndConditions />} />
 
-            {/* Auth / Login / Signup Routes */}
-            <Route path="/login" element={<KnowMoreForm />} />
-            <Route path="/log_in" element={<KnowMoreForm />} />
-            <Route path="/signin" element={<KnowMoreForm />} />
+            {/* Auth / Login / Signup Unified Routes */}
+            <Route path="/login" element={<AuthSignupPortal />} />
+            <Route path="/log_in" element={<AuthSignupPortal />} />
+            <Route path="/signin" element={<AuthSignupPortal />} />
             
             <Route path="/signup" element={<AuthSignupPortal />} />
             <Route path="/sign_up" element={<AuthSignupPortal />} />

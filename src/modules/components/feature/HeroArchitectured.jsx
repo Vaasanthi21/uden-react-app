@@ -552,7 +552,7 @@ export default function HeroArchitectured() {
 
               <button 
                 css={styles.secondaryBtn}
-                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                onClick={() => navigate(AppRoutes.FOR_CAMPUS)}
               >
                 <Calendar size={16} color="#F55825" />
                 Book a Demo
@@ -588,7 +588,7 @@ export default function HeroArchitectured() {
               {/* For Colleges Card */}
               <div 
                 css={styles.collegeCard}
-                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                onClick={() => navigate(AppRoutes.FOR_CAMPUS)}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>
@@ -606,7 +606,7 @@ export default function HeroArchitectured() {
               {/* For Recruiters Card */}
               <div 
                 css={styles.recruiterCard}
-                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                onClick={() => navigate(AppRoutes.COMPANIES)}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>

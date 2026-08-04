@@ -349,6 +349,10 @@ export default function AuthLoginPortal() {
             </button>
           </div>
 
+          <div css={styles.footerText} style={{ marginTop: '14px' }}>
+            Don't have an account? <Link to="/signup" style={{ color: '#F55825', fontWeight: 800 }}>Create your account →</Link>
+          </div>
+
           <div css={styles.footerText}>
             By continuing, you agree to our <Link to={AppRoutes.PRIVACY}>Privacy Policy</Link> and <Link to={AppRoutes.TERMS}>Terms and condition</Link>
           </div>
