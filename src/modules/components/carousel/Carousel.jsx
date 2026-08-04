@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectCreative, Navigation } from 'swiper/modules';
+import { Pagination, Autoplay, EffectCreative, Navigation } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/effect-creative';
