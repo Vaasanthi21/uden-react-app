@@ -8,7 +8,7 @@ import {
   Handshake, Gift, Star, Award, Award as WreathIcon, Smartphone, Play, Bot, TrendingUp
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../../utils/consts/routes';
 
 const floatAnim = keyframes`
   0% { transform: translateY(0px); }
