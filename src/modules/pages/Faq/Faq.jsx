@@ -21,13 +21,13 @@ const faqItems = [
   },
   {
     id: 'q2',
-    question: 'Is UDEN.tech free for students?',
-    answer: 'Creating a candidate profile, searching 100,000+ aggregated jobs, and attempting company round prep is 100% free for all students.'
+    question: 'Is UDEN.tech 100% free or subsidised as it has won highest technical grant of Microsoft?',
+    answer: 'Yes! UDEN.tech is 100% free till you get placed for all students and subsidized for institutions through the prestigious highest technical grant awarded by Microsoft for Startups, providing enterprise AI tools, learning roadmaps, and campus placement tracking at zero cost.'
   },
   {
     id: 'q3',
     question: 'Which colleges does UDEN work with?',
-    answer: 'UDEN partners with 60+ universities and Tier 2/3 engineering and degree institutes across India to digitize placement drives and skill readiness.'
+    answer: 'UDEN has worked with 60+ partner colleges, universities, and Tier 2/3 engineering and degree institutes across India to digitize placement drives and skill readiness.'
   },
   {
     id: 'q4',
@@ -49,156 +49,114 @@ const styles = {
     overflow-x: hidden;
   `,
   container: css`
-    max-width: 1140px;
+    max-width: 1060px;
     margin: 0 auto;
   `,
 
   /* TOP CENTERED HEADER BLOCK */
   headerBlock: css`
     text-align: center;
-    max-width: 760px;
-    margin: 0 auto 52px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 40px;
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
     background: #FEF5D8;
     color: #DA532C;
-    padding: 8px 18px;
-    border-radius: 24px;
     font-size: 12px;
     font-weight: 800;
-    margin-bottom: 16px;
-    border: 1px solid rgba(255, 176, 32, 0.5);
+    margin-bottom: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 46px;
+    font-size: 38px;
     font-weight: 900;
     color: #1E293B;
-    line-height: 1.15;
-    margin: 0 0 16px 0;
-    letter-spacing: -1px;
-    text-align: center;
-
+    margin-bottom: 12px;
     span {
       color: #DA532C;
     }
-
-    @media (max-width: 768px) {
-      font-size: 34px;
-    }
   `,
   subtitle: css`
-    font-size: 16.5px;
+    font-size: 16px;
     color: #64748B;
-    line-height: 1.65;
-    margin: 0 0 28px 0;
-    font-weight: 500;
-    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 28px auto;
   `,
   searchBox: css`
     display: flex;
     align-items: center;
-    background: #FFFFFF;
-    border: 1.5px solid rgba(218, 83, 44, 0.4);
-    border-radius: 28px;
-    padding: 14px 24px;
-    box-shadow: 0 8px 24px rgba(75, 99, 140, 0.06);
-    width: 100%;
-    max-width: 540px;
     gap: 12px;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(255, 176, 32, 0.35);
+    border-radius: 30px;
+    padding: 12px 24px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
 
     input {
       border: none;
       outline: none;
       width: 100%;
       font-size: 15px;
-      font-weight: 600;
       color: #1E293B;
-      background: transparent;
-
-      &::placeholder {
-        color: #94A3B8;
-      }
     }
   `,
 
   /* BOTTOM 2-COLUMN GRID (LEFT: IMAGE CARD, RIGHT: ACCORDIONS) */
   gridBody: css`
-    display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 48px;
-    align-items: flex-start;
-
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      gap: 36px;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   `,
   ctaCard: css`
-    background: #FEF5D8;
-    border: 2px solid #DA532C;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(255, 176, 32, 0.35);
     border-radius: 24px;
-    padding: 28px;
-    box-shadow: 0 10px 28px rgba(218, 83, 44, 0.1);
-    text-align: left;
-    height: 100%;
-    box-sizing: border-box;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 
     h3 {
       font-size: 22px;
-      font-weight: 900;
+      font-weight: 800;
       color: #1E293B;
-      margin-bottom: 8px;
-      text-align: left;
+      margin: 0;
     }
-
     p {
       font-size: 14.5px;
       color: #64748B;
-      margin-bottom: 20px;
-      line-height: 1.5;
-      text-align: left;
+      margin: 0;
+      max-width: 500px;
     }
   `,
   supportImg: css`
-    width: 100%;
-    max-height: 220px;
-    object-fit: contain;
-    border-radius: 16px;
-    background: #FFFFFF;
-    padding: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    max-height: 120px;
+    width: auto;
   `,
   ctaBtn: css`
-    background: #DA532C;
-    color: #FFFFFF;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 24px;
-    font-weight: 800;
-    font-size: 15px;
-    cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    background: linear-gradient(135deg, #DA532C 0%, #F55825 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
     transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(218, 83, 44, 0.25);
-    width: 100%;
-    justify-content: center;
-
-    &:hover {
-      background: #B83D1B;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.35);
-    }
   `,
 
   /* RIGHT COLUMN - ACCORDION CARDS */
@@ -232,7 +190,7 @@ const styles = {
     padding: 0;
     text-align: left;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
     color: ${isOpen ? '#DA532C' : '#1E293B'};
     gap: 16px;
@@ -287,20 +245,8 @@ const FaqPage = () => {
           </div>
         </div>
 
-        {/* BOTTOM GRID: LEFT IMAGE CARD & RIGHT ACCORDIONS */}
+        {/* FAQ ACCORDION LIST FIRST */}
         <div css={styles.gridBody}>
-          <div css={styles.ctaCard} className="uden-card-hover">
-            {FaqSupportDeskImage && (
-              <img src={FaqSupportDeskImage} alt="UDEN Support Desk & Guidelines" css={styles.supportImg} />
-            )}
-            <h3>Still have questions?</h3>
-            <p>Talk to our career onboarding team or explore our dedicated stakeholder guidelines.</p>
-            <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_TALENT)}>
-              Get Started with UDEN
-              <ArrowRight size={16} />
-            </button>
-          </div>
-
           <div css={styles.rightCol}>
             {filteredFaqs.map((item) => {
               const isOpen = openId === item.id;
@@ -322,6 +268,16 @@ const FaqPage = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* STILL HAVE QUESTIONS BUTTON BELOW ALL FAQ QUESTIONS */}
+          <div css={styles.ctaCard} className="uden-card-hover">
+            <h3>Still have questions?</h3>
+            <p>Talk to our career onboarding team or explore our dedicated stakeholder guidelines.</p>
+            <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+              Get in Touch with UDEN
+              <ArrowRight size={16} />
+            </button>
           </div>
         </div>
       </div>

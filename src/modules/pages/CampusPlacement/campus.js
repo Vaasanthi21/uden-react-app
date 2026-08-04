@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
@@ -388,6 +388,40 @@ const testimonialsList = [
 
 const Campus = () => {
   const [formData, setFormData] = useState({ institution: '', email: '' });
+
+  useEffect(() => {
+    document.title = "Campus & Programs | UDEN";
+    
+    const setMeta = (name, content, isProp = false) => {
+      const selector = isProp ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (isProp) el.setAttribute('property', name);
+        else el.setAttribute('name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    setMeta('description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.");
+    setMeta('og:type', 'website', true);
+    setMeta('og:url', 'https://uden.tech/campus', true);
+    setMeta('og:title', 'Campus & Programs | UDEN', true);
+    setMeta('og:description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.", true);
+    setMeta('og:image', 'https://uden.tech/og-banner.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Campus & Programs | UDEN');
+    setMeta('twitter:description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.");
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://uden.tech/campus');
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

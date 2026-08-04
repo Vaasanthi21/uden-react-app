@@ -599,17 +599,60 @@ const JobSeekers = () => {
             <div>
               <div css={styles.badgeTag} className="uden-float-anim">
                 <Sparkles size={14} />
-                STUDENT &amp; CANDIDATE CAREER ACCELERATOR
+                STUDENTS / JOBSEEKERS CAREER ACCELERATOR
               </div>
               <h1 css={styles.heroTitle}>
-                Your AI Career Companion for <span>Placement Success</span>
+                Your AI Career Companion for <span>Students / Jobseekers</span>
               </h1>
               <p css={styles.heroSub}>
-                Smart AI job matching, company-specific round prep, previous years' exam papers (PYQs), and direct recruiter interview shortlists for students and jobseekers.
+                Smart AI job matching, company-specific round prep, previous years' exam papers (PYQs), and direct recruiter interview shortlists for Students &amp; Experienced Jobseekers.
               </p>
+
+              {/* 2 Tabs: Jobs for Students & Experienced Candidates */}
+              <div style={{ display: 'flex', gap: '12px', marginTop: '20px', marginBottom: '24px', background: '#F1F5F9', padding: '6px', borderRadius: '16px', maxWidth: '440px' }}>
+                <button
+                  type="button"
+                  onClick={() => setFilter('student')}
+                  style={{
+                    flex: 1,
+                    padding: '10px 16px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    fontSize: '13.5px',
+                    fontWeight: 800,
+                    cursor: 'pointer',
+                    background: filter === 'student' || filter === 'all' ? '#F55825' : 'transparent',
+                    color: filter === 'student' || filter === 'all' ? '#FFFFFF' : '#64748B',
+                    boxShadow: filter === 'student' || filter === 'all' ? '0 4px 12px rgba(245, 88, 37, 0.25)' : 'none',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  🎓 Jobs for Students
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFilter('experienced')}
+                  style={{
+                    flex: 1,
+                    padding: '10px 16px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    fontSize: '13.5px',
+                    fontWeight: 800,
+                    cursor: 'pointer',
+                    background: filter === 'experienced' ? '#7C3AED' : 'transparent',
+                    color: filter === 'experienced' ? '#FFFFFF' : '#64748B',
+                    boxShadow: filter === 'experienced' ? '0 4px 12px rgba(124, 58, 237, 0.25)' : 'none',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  💼 Experienced Candidates
+                </button>
+              </div>
+
               <div css={styles.btnGroup}>
                 <button css={styles.primaryBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-                  Search 100,000+ Jobs
+                  Get in Touch &amp; Fill Form
                   <ArrowRight size={18} />
                 </button>
               </div>
@@ -617,7 +660,7 @@ const JobSeekers = () => {
 
             <div>
               {StudentRoadmapImage ? (
-                <img src={StudentRoadmapImage} alt="Student Career Growth Roadmap" style={{ width: '100%', maxHeight: '320px', objectFit: 'contain' }} />
+                <img src={StudentRoadmapImage} alt="Students & Jobseekers Career Growth Roadmap" style={{ width: '100%', maxHeight: '320px', objectFit: 'contain' }} />
               ) : (
                 <div style={{ background: '#FFFFFF', padding: '40px', borderRadius: '24px', border: '2px solid #F55825', textAlign: 'center' }}>
                   <Award size={48} color="#F55825" />

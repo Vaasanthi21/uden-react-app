@@ -25,7 +25,6 @@ const AppFooter = () => {
       <FooterContentWrapper >
         <FooterLogoContainer css={styles.logoContainer} >
           <Logo css={styles.logo} />
-          <GPlayLogo css={styles.logoGP}></GPlayLogo>
           <SocialLogo css={styles.socialButtons} />
         </FooterLogoContainer>
 
