@@ -30,16 +30,21 @@ const styles = {
     background: #FFFFFF;
     padding: 36px 0;
     position: relative;
+    box-sizing: border-box;
 
     /* Left & Right Edge Gradient Masking */
     &::before, &::after {
       content: '';
       position: absolute;
       top: 0;
-      width: 140px;
+      width: 100px;
       height: 100%;
       z-index: 2;
       pointer-events: none;
+
+      @media (max-width: 640px) {
+        width: 30px;
+      }
     }
 
     &::before {
@@ -59,6 +64,7 @@ const styles = {
     color: #475569;
     letter-spacing: 0.2px;
     margin-bottom: 28px;
+    padding: 0 16px;
   `,
   marqueeTrack: css`
     display: flex;
@@ -74,6 +80,11 @@ const styles = {
     align-items: center;
     gap: 72px;
     padding: 0 36px;
+
+    @media (max-width: 640px) {
+      gap: 36px;
+      padding: 0 18px;
+    }
   `,
   brandItem: css`
     font-size: 24px;

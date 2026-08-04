@@ -87,6 +87,8 @@ const styles = {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: 540px) {
       grid-template-columns: 1fr;
@@ -95,10 +97,16 @@ const styles = {
   bulletItem: css`
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #1E293B;
+    min-width: 0;
+
+    span {
+      flex: 1;
+      min-width: 0;
+    }
   `,
   iconBox: css`
     width: 24px;
@@ -115,6 +123,8 @@ const styles = {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
   `,
   widgetCard: css`
     background: #FFFFFF;
@@ -122,6 +132,13 @@ const styles = {
     border-radius: 24px;
     padding: 32px;
     box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    @media (max-width: 640px) {
+      padding: 20px 14px;
+    }
   `,
   cardTitle: css`
     font-size: 20px;
@@ -143,11 +160,15 @@ const styles = {
     flex-direction: column;
     gap: 16px;
     margin-bottom: 24px;
+    width: 100%;
+    box-sizing: border-box;
   `,
   field: css`
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 100%;
+    box-sizing: border-box;
 
     label {
       font-size: 13px;
@@ -156,10 +177,12 @@ const styles = {
     }
 
     select {
+      width: 100%;
+      box-sizing: border-box;
       padding: 12px 14px;
       border-radius: 12px;
       border: 1.5px solid #CBD5E1;
-      font-size: 14px;
+      font-size: 13.5px;
       color: #1E293B;
       background: #FFFFFF;
       outline: none;

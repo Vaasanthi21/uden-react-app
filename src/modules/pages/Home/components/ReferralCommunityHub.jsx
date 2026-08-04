@@ -19,13 +19,21 @@ const styles = {
     margin: 0 auto;
     padding: 0 20px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    box-sizing: border-box;
+
+    @media (max-width: 640px) {
+      padding: 0 14px;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
   `,
   /* TOP CENTERED BADGE WRAPPER */
   topBadgeWrap: css`
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   `,
   badgeTag: css`
     display: inline-flex;
@@ -33,25 +41,33 @@ const styles = {
     gap: 8px;
     background: rgba(75, 99, 140, 0.1);
     color: #4B638C;
-    padding: 8px 22px;
+    padding: 8px 20px;
     border-radius: 24px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
     border: 1px solid rgba(75, 99, 140, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    max-width: 100%;
+
+    @media (max-width: 480px) {
+      font-size: 10.5px;
+      padding: 6px 14px;
+    }
   `,
   /* 2-COLUMN GRID WITH FLUSH STARTING & ENDING BASELINES */
   heroGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 52px;
+    gap: 48px;
     align-items: stretch;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
+    width: 100%;
+    box-sizing: border-box;
 
-    @media (max-width: 960px) {
+    @media (max-width: 900px) {
       grid-template-columns: 1fr;
-      gap: 36px;
+      gap: 28px;
     }
   `,
   illustrationCol: css`
@@ -60,11 +76,13 @@ const styles = {
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
   `,
   illustrationImg: css`
     width: 100%;
     height: 100%;
-    max-height: 360px;
+    max-height: 340px;
     object-fit: cover;
     border-radius: 24px;
     box-shadow: 0 16px 36px rgba(75, 99, 140, 0.1);
@@ -72,11 +90,15 @@ const styles = {
     padding: 12px;
     border: 1.5px solid #4B638C;
     box-sizing: border-box;
+
+    @media (max-width: 640px) {
+      max-height: 220px;
+    }
   `,
   fallbackCard: css`
     width: 100%;
     height: 100%;
-    min-height: 320px;
+    min-height: 280px;
     background: #FFFFFF;
     border: 2px dashed #4B638C;
     border-radius: 20px;
@@ -94,6 +116,8 @@ const styles = {
     justify-content: space-between;
     text-align: left;
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
   `,
   title: css`
     font-size: 38px;
@@ -109,7 +133,7 @@ const styles = {
     }
 
     @media (max-width: 768px) {
-      font-size: 28px;
+      font-size: 26px;
     }
   `,
   subtitle: css`
@@ -119,6 +143,10 @@ const styles = {
     margin: 0 0 20px 0;
     font-weight: 500;
     text-align: left;
+
+    @media (max-width: 640px) {
+      font-size: 14px;
+    }
   `,
   benefitsList: css`
     list-style: none;
@@ -126,16 +154,27 @@ const styles = {
     margin: 0;
     text-align: left;
     width: 100%;
+    box-sizing: border-box;
 
     li {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14.5px;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
       color: #1E293B;
       font-weight: 700;
       margin-bottom: 12px;
       text-align: left;
+
+      svg {
+        flex-shrink: 0;
+        margin-top: 3px;
+      }
+
+      span {
+        flex: 1;
+        min-width: 0;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -147,7 +186,8 @@ const styles = {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 56px;
+    margin-bottom: 48px;
+    box-sizing: border-box;
   `,
   ctaBtn: css`
     background: #F55825;
@@ -165,6 +205,12 @@ const styles = {
     transition: all 0.25s ease;
     box-shadow: 0 8px 24px rgba(245, 88, 37, 0.3);
 
+    @media (max-width: 640px) {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+
     &:hover {
       background: #D94616;
       transform: translateY(-2px);
@@ -177,10 +223,12 @@ const styles = {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    padding-top: 44px;
+    padding-top: 40px;
     border-top: 1px solid #E2E8F0;
+    width: 100%;
+    box-sizing: border-box;
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       grid-template-columns: 1fr;
       gap: 24px;
     }
@@ -190,6 +238,8 @@ const styles = {
     flex-direction: column;
     gap: 12px;
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
   `,
   colIconBox: css`
     width: 44px;
@@ -200,16 +250,17 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   `,
   colTitle: css`
-    font-size: 18px;
+    font-size: 17.5px;
     font-weight: 800;
     color: #1E293B;
     margin: 0;
     text-align: left;
   `,
   colDesc: css`
-    font-size: 14px;
+    font-size: 13.5px;
     color: #64748B;
     line-height: 1.6;
     margin: 0;
