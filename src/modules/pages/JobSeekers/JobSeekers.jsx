@@ -257,17 +257,17 @@ const styles = {
   flowchartCard: css`
     background: #FFFFFF;
     border: 2px solid #F55825;
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 12px 32px rgba(245, 88, 37, 0.12);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(245, 88, 37, 0.08);
     text-align: center;
-    max-width: 1040px;
-    margin: 0 auto 56px auto;
+    max-width: 860px;
+    margin: 0 auto 40px auto;
     position: relative;
 
     img {
       width: 100%;
-      max-height: 520px;
+      max-height: 260px;
       object-fit: contain;
       border-radius: 12px;
       cursor: zoom-in;
@@ -280,11 +280,11 @@ const styles = {
     background: #FEF5D8;
     color: #F55825;
     border: 1px solid #F7BC08;
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 20px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
-    margin-top: 14px;
+    margin-top: 10px;
     cursor: pointer;
   `,
   modalOverlay: css`
@@ -294,24 +294,79 @@ const styles = {
     width: 100vw;
     height: 100vh;
     background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
+    box-sizing: border-box;
   `,
   modalContent: css`
     position: relative;
-    max-width: 95vw;
-    max-height: 92vh;
+    width: 100%;
+    max-width: 900px;
+    max-height: 85vh;
     background: #FFFFFF;
-    border-radius: 20px;
-    padding: 16px;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    overflow: hidden;
+  `,
+  modalScrollArea: css`
+    width: 100%;
+    max-height: calc(85vh - 70px);
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
 
     img {
       max-width: 100%;
-      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 12px;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  `,
+  modalToolbar: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E2E8F0;
+  `,
+  zoomControls: css`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      color: #1E293B;
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #F55825;
+        color: #FFFFFF;
+        border-color: #F55825;
+      }
     }
   `,
   closeModalBtn: css`
@@ -510,6 +565,7 @@ const styles = {
 const JobSeekers = () => {
   const [filter, setFilter] = useState('all');
   const [isZoomOpen, setIsZoomOpen] = useState(false);
+  const [zoomScale, setZoomScale] = useState(1);
   const navigate = useNavigate();
 
   const filteredJobs = jobRecommendations.filter(
@@ -638,14 +694,42 @@ const JobSeekers = () => {
         </div>
       </div>
 
-      {/* Fullscreen Zoom Modal */}
+      {/* Fullscreen Zoom Modal with Smooth Touch Scrolling & Zoom Controls */}
       {isZoomOpen && (
-        <div css={styles.modalOverlay} onClick={() => setIsZoomOpen(false)}>
+        <div css={styles.modalOverlay} onClick={() => { setIsZoomOpen(false); setZoomScale(1); }}>
           <div css={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button css={styles.closeModalBtn} onClick={() => setIsZoomOpen(false)}>
-              <X size={20} />
-            </button>
-            <img src={flowchartImage} alt="UDEN High Resolution Placement Flowchart" />
+            <div css={styles.modalToolbar}>
+              <div style={{ fontWeight: 800, fontSize: '13.5px', color: '#1E293B' }}>
+                End-to-End Placement Architecture Diagram
+              </div>
+
+              <div css={styles.zoomControls}>
+                <button type="button" onClick={() => setZoomScale((prev) => Math.min(prev + 0.25, 2.5))}>
+                  Zoom In (+)
+                </button>
+                <button type="button" onClick={() => setZoomScale(1)}>
+                  Fit (100%)
+                </button>
+                <button type="button" onClick={() => setZoomScale((prev) => Math.max(prev - 0.25, 0.5))}>
+                  Zoom Out (-)
+                </button>
+                <button 
+                  type="button" 
+                  onClick={() => { setIsZoomOpen(false); setZoomScale(1); }}
+                  style={{ background: '#F55825', color: '#FFF', border: 'none', borderRadius: '50%', width: '28px', height: '28px', padding: 0, display: 'inline-flex', cursor: 'pointer', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
+
+            <div css={styles.modalScrollArea}>
+              <img 
+                src={flowchartImage} 
+                alt="UDEN High Resolution Placement Flowchart" 
+                style={{ transform: `scale(${zoomScale})`, transformOrigin: 'top center' }}
+              />
+            </div>
           </div>
         </div>
       )}
