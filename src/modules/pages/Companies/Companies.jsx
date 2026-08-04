@@ -10,6 +10,7 @@ import CompaniesTestimonial from './components/Testimonial';
 import CompaniesTrustedBrand from './components/TrustedBrand';
 import CompaniesWorkFlow from './components/WorkFlow';
 import TalentPoolPreview from './components/TalentPoolPreview';
+import CompanyHiringInfographic from './components/CompanyHiringInfographic';
 import FaqPage from '../Faq/Faq';
 import { CompaniesStyles as styles } from './styles/Companies.Styles';
 
@@ -19,7 +20,10 @@ const Companies = () => {
       {/* 1. Hero Employer Talent Request Banner */}
       <CompaniesBanner />
 
-      {/* 2. Corporate Hiring Partner Brands */}
+      {/* 2. Smarter Hiring & Free Upskilling Corporate Infographic */}
+      <CompanyHiringInfographic />
+
+      {/* 3. Corporate Hiring Partner Brands */}
       <div style={{ padding: '36px 0', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC' }}>
         <CompaniesTrustedBrand />
       </div>
