@@ -20,10 +20,10 @@ import Blogs from './modules/pages/Blogs/Blogs';
 import { Blog } from './modules/pages/Blogs/childrens/Blog/Blog';
 import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
 import Error404 from './modules/pages/404/404';
-import Campus from '../src/modules/pages/CampusPlacement/campus';
-import Benefits from '../src/modules/pages/CampusPlacement/benefits';
-import GovernmentPartnership from '../src/modules/pages/Government/GovernmentPartnership';
-import FaqPage from '../src/modules/pages/Faq/Faq';
+import Campus from './modules/pages/CampusPlacement/campus';
+import Benefits from './modules/pages/CampusPlacement/benefits';
+import GovernmentPartnership from './modules/pages/Government/GovernmentPartnership';
+import FaqPage from './modules/pages/Faq/Faq';
 
 class ErrorBoundary extends Component {
   constructor(props) {
