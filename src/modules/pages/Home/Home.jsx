@@ -15,6 +15,7 @@ import StudentPlaced from './components/StudentPlaced';
 import FaqPage from '../Faq/Faq';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import HeroArchitectured from '../../components/feature/HeroArchitectured';
+import DualValueProposition from '../../components/feature/DualValueProposition';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
 import HowItWorks from '../../components/feature/HowItWorks';
@@ -28,6 +29,9 @@ const Home = () => {
       {/* ========================================================================= */}
       <Slider autoplay={true} css={styles.slider} />
       <HeroArchitectured />
+      
+      {/* Side-by-Side Dual Value Proposition Comparison */}
+      <DualValueProposition />
       <ScrollReveal delay={150}>
         <HeroSearchWidget />
       </ScrollReveal>

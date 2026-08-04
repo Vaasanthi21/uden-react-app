@@ -15,6 +15,7 @@ import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import FaqPage from '../Faq/Faq';
+import TpoAccreditationDashboard from '../../components/feature/TpoAccreditationDashboard';
 
 const styles = {
   heroOuter: css`
@@ -549,6 +550,9 @@ const Campus = () => {
           <p>Predictive algorithms track candidate skill acquisition, mock interview readiness, and shortlist probabilities in real-time.</p>
         </div>
       </div>
+
+      {/* TPO Accreditation & Job Listings Dashboard */}
+      <TpoAccreditationDashboard />
 
       {/* Frequently Asked Questions */}
       <div style={{ padding: '70px 0', background: '#FFFFFF' }}>

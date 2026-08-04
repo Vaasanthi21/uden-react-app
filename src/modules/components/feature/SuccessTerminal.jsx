@@ -390,6 +390,7 @@ const styles = {
 export default function SuccessTerminal() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [personaTab, setPersonaTab] = useState('student'); // 'student' | 'tpo'
 
   const handleUnlock = (e) => {
     e.preventDefault();
@@ -440,59 +441,157 @@ export default function SuccessTerminal() {
             </div>
           </div>
 
-          {/* Right Column: Interactive Unlock Card */}
+          {/* Right Column: Interactive Unlock Card with Persona Switcher */}
           <div css={styles.chatCard}>
-            <div css={styles.chatHeader}>
-              <div css={styles.sendIconBox}>
-                <Send size={18} />
-              </div>
-              <div>
-                <h3 css={styles.chatTitle}>Start your story</h3>
-                <p css={styles.chatSub}>Frictionless. Fast. Free.</p>
-              </div>
+            {/* Persona Switcher Tabs */}
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', background: '#F1F5F9', padding: '4px', borderRadius: '14px' }}>
+              <button
+                type="button"
+                onClick={() => setPersonaTab('student')}
+                style={{
+                  flex: 1,
+                  padding: '8px 12px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  background: personaTab === 'student' ? '#FFFFFF' : 'transparent',
+                  color: personaTab === 'student' ? '#F55825' : '#64748B',
+                  boxShadow: personaTab === 'student' ? '0 2px 8px rgba(0,0,0,0.06)' : 'none'
+                }}
+              >
+                🎓 Student Role Explorer
+              </button>
+              <button
+                type="button"
+                onClick={() => setPersonaTab('tpo')}
+                style={{
+                  flex: 1,
+                  padding: '8px 12px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  background: personaTab === 'tpo' ? '#FFFFFF' : 'transparent',
+                  color: personaTab === 'tpo' ? '#D97706' : '#64748B',
+                  boxShadow: personaTab === 'tpo' ? '0 2px 8px rgba(0,0,0,0.06)' : 'none'
+                }}
+              >
+                🏛️ TPO &amp; College Query
+              </button>
             </div>
 
-            <div css={styles.chatMessages}>
-              <div css={styles.msgBot}>What role are you aiming for?</div>
-              <div css={styles.msgUser}>Lead Front End Engineer — I want AI-matched paths and interview intel.</div>
-              <div css={styles.msgBot}>Great — I've found 12 active matches. Enter your email to unlock them.</div>
-            </div>
+            {personaTab === 'student' ? (
+              <>
+                <div css={styles.chatHeader}>
+                  <div css={styles.sendIconBox}>
+                    <Send size={18} />
+                  </div>
+                  <div>
+                    <h3 css={styles.chatTitle}>Start your story</h3>
+                    <p css={styles.chatSub}>Frictionless. Fast. Free.</p>
+                  </div>
+                </div>
 
-            {submitted ? (
-              <div style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '20px', padding: '16px', color: '#047857', fontWeight: 800, textAlign: 'center', marginBottom: '24px' }}>
-                <CheckCircle2 size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
-                Matches unlocked! We've sent 12 personalized roles to {email}.
-              </div>
+                <div css={styles.chatMessages}>
+                  <div css={styles.msgBot}>What role are you aiming for?</div>
+                  <div css={styles.msgUser}>Lead Front End Engineer — I want AI-matched paths and interview intel.</div>
+                  <div css={styles.msgBot}>Great — I've found 12 active matches. Enter your email to unlock them.</div>
+                </div>
+
+                {submitted ? (
+                  <div style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '20px', padding: '16px', color: '#047857', fontWeight: 800, textAlign: 'center', marginBottom: '24px' }}>
+                    <CheckCircle2 size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
+                    Matches unlocked! We've sent 12 personalized roles to {email}.
+                  </div>
+                ) : (
+                  <form onSubmit={handleUnlock} css={styles.inputRow}>
+                    <input
+                      type="email"
+                      placeholder="you@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      css={styles.inputEmail}
+                      required
+                    />
+                    <button type="submit" css={styles.unlockBtn}>
+                      Unlock <ArrowRight size={16} />
+                    </button>
+                  </form>
+                )}
+
+                <div css={styles.statsGrid}>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum}>3,670</p>
+                    <p css={styles.statLbl}>Live journeys</p>
+                  </div>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum}>2,907</p>
+                    <p css={styles.statLbl}>Consumed</p>
+                  </div>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum}>92%</p>
+                    <p css={styles.statLbl}>Avg. fit</p>
+                  </div>
+                </div>
+              </>
             ) : (
-              <form onSubmit={handleUnlock} css={styles.inputRow}>
-                <input
-                  type="email"
-                  placeholder="you@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  css={styles.inputEmail}
-                  required
-                />
-                <button type="submit" css={styles.unlockBtn}>
-                  Unlock <ArrowRight size={16} />
-                </button>
-              </form>
-            )}
+              <>
+                <div css={styles.chatHeader}>
+                  <div css={styles.sendIconBox} style={{ background: '#FEF3C7', color: '#D97706' }}>
+                    <Send size={18} />
+                  </div>
+                  <div>
+                    <h3 css={styles.chatTitle}>TPO &amp; Institutional Query Portal</h3>
+                    <p css={styles.chatSub}>Instant Answers for College Owners &amp; Placement Heads</p>
+                  </div>
+                </div>
 
-            <div css={styles.statsGrid}>
-              <div css={styles.statBox}>
-                <p css={styles.statNum}>3,670</p>
-                <p css={styles.statLbl}>Live journeys</p>
-              </div>
-              <div css={styles.statBox}>
-                <p css={styles.statNum}>2,907</p>
-                <p css={styles.statLbl}>Consumed</p>
-              </div>
-              <div css={styles.statBox}>
-                <p css={styles.statNum}>92%</p>
-                <p css={styles.statLbl}>Avg. fit</p>
-              </div>
-            </div>
+                <div css={styles.chatMessages}>
+                  <div css={styles.msgBot}>Welcome TPO Officer! How can UDEN assist your college campus drive today?</div>
+                  <div css={styles.msgUser}>Can UDEN automate NAAC/NBA student placement data exports and 1-click candidate shortlisting?</div>
+                  <div css={styles.msgBot}>Yes! UDEN provides 1-click PDF/CSV NAAC audit exports and 100+ hrs of auto-shortlisting. Enter your official TPO email for a institutional demo.</div>
+                </div>
+
+                {submitted ? (
+                  <div style={{ background: '#FEF3C7', border: '1px solid #FDE68A', borderRadius: '20px', padding: '16px', color: '#92400E', fontWeight: 800, textAlign: 'center', marginBottom: '24px' }}>
+                    <CheckCircle2 size={20} style={{ verticalAlign: 'middle', marginRight: '6px' }} />
+                    TPO Demo &amp; NAAC Pack requested! Our Institutional Director will email {email}.
+                  </div>
+                ) : (
+                  <form onSubmit={handleUnlock} css={styles.inputRow}>
+                    <input
+                      type="email"
+                      placeholder="tpo@college.edu.in"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      css={styles.inputEmail}
+                      required
+                    />
+                    <button type="submit" css={styles.unlockBtn} style={{ background: '#D97706' }}>
+                      Request Demo <ArrowRight size={16} />
+                    </button>
+                  </form>
+                )}
+
+                <div css={styles.statsGrid}>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum} style={{ color: '#D97706' }}>89%</p>
+                    <p css={styles.statLbl}>Campus Placement</p>
+                  </div>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum} style={{ color: '#D97706' }}>150+</p>
+                    <p css={styles.statLbl}>Hiring Companies</p>
+                  </div>
+                  <div css={styles.statBox}>
+                    <p css={styles.statNum} style={{ color: '#D97706' }}>₹8.2L</p>
+                    <p css={styles.statLbl}>Avg CTC Package</p>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
