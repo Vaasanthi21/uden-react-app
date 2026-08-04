@@ -229,7 +229,7 @@ const DualValueProposition = () => {
                 <div css={styles.stepNum(false)}>1</div>
                 <div css={styles.stepText}>
                   <h5>AI Career &amp; Skill Assessment</h5>
-                  <p>Discover your exact technical strengths and skill gaps in 2 minutes.</p>
+                  <p>Discover your exact technical strengths and skill gaps in under 2 minutes.</p>
                 </div>
               </div>
 
@@ -244,16 +244,48 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>3</div>
                 <div css={styles.stepText}>
-                  <h5>AI Mock Interviews &amp; Resume Score</h5>
-                  <p>Practice live video mock interviews and fix ATS resume bottlenecks.</p>
+                  <h5>Skill Building &amp; Real Projects</h5>
+                  <p>Build industry-grade projects verified by recruiter neural networks.</p>
                 </div>
               </div>
 
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>4</div>
                 <div css={styles.stepText}>
-                  <h5>Direct Partner Job Matching &amp; Referral Earnings</h5>
-                  <p>Get matched directly to partner roles and earn cash bonuses on referral hires.</p>
+                  <h5>AI Mock Interviews &amp; Resume Score</h5>
+                  <p>Practice live video mock interviews and fix ATS resume bottlenecks.</p>
+                </div>
+              </div>
+
+              <div css={styles.stepItem(false)}>
+                <div css={styles.stepNum(false)}>5</div>
+                <div css={styles.stepText}>
+                  <h5>Certifications &amp; Skill Badging</h5>
+                  <p>Earn verified credentials recognized by 150+ corporate hiring partners.</p>
+                </div>
+              </div>
+
+              <div css={styles.stepItem(false)}>
+                <div css={styles.stepNum(false)}>6</div>
+                <div css={styles.stepText}>
+                  <h5>AI Fitment &amp; Direct Job Matching</h5>
+                  <p>Matched directly to partner openings saving 20+ days of manual searching.</p>
+                </div>
+              </div>
+
+              <div css={styles.stepItem(false)}>
+                <div css={styles.stepNum(false)}>7</div>
+                <div css={styles.stepText}>
+                  <h5>Apply &amp; Get Hired</h5>
+                  <p>1-click application submission with instant recruiter notifications.</p>
+                </div>
+              </div>
+
+              <div css={styles.stepItem(false)}>
+                <div css={styles.stepNum(false)}>8</div>
+                <div css={styles.stepText}>
+                  <h5>Referral Cash Earnings &amp; Continuous Growth</h5>
+                  <p>Refer friends, earn cash, and get a share of successful referral hiring fees.</p>
                 </div>
               </div>
             </div>
@@ -273,7 +305,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>1</div>
                 <div css={styles.stepText}>
-                  <h5>AI Talent Discovery &amp; Shortlisting</h5>
+                  <h5>AI Talent Discovery &amp; Sourcing</h5>
                   <p>Search 10,000+ candidate profiles pre-assessed for real-world code readiness.</p>
                 </div>
               </div>
@@ -300,6 +332,14 @@ const DualValueProposition = () => {
                 <div>
                   <h5>100% FREE Upskilling for Hired Talent</h5>
                   <p>We train your hired candidates on your specific tech stack at zero cost to your company.</p>
+                </div>
+              </div>
+
+              <div css={styles.stepItem(true)}>
+                <div css={styles.stepNum(true)}>5</div>
+                <div css={styles.stepText}>
+                  <h5>Grow High-Performing Teams</h5>
+                  <p>Accelerate time-to-productivity with pre-aligned engineering talent.</p>
                 </div>
               </div>
             </div>
