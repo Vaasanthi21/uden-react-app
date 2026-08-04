@@ -543,7 +543,7 @@ export default function HeroArchitectured() {
             <div css={styles.ctaRow}>
               <button 
                 css={styles.primaryBtn}
-                onClick={() => navigate(AppRoutes.JOB_SEEKERS)}
+                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
                 className="uden-pulse-btn"
               >
                 Get Started Free
@@ -552,7 +552,7 @@ export default function HeroArchitectured() {
 
               <button 
                 css={styles.secondaryBtn}
-                onClick={() => navigate(AppRoutes.COMPANIES)}
+                onClick={() => navigate(AppRoutes.FIND_TALENT)}
               >
                 <Calendar size={16} color="#F55825" />
                 Book a Demo
@@ -568,7 +568,11 @@ export default function HeroArchitectured() {
             <div css={styles.triadGrid}>
               
               {/* For Students Card */}
-              <div css={styles.studentCard}>
+              <div 
+                css={styles.studentCard}
+                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div css={styles.cardHeader}>
                   <GraduationCap size={18} color="#F55825" />
                   For Students
@@ -582,7 +586,11 @@ export default function HeroArchitectured() {
               </div>
 
               {/* For Colleges Card */}
-              <div css={styles.collegeCard}>
+              <div 
+                css={styles.collegeCard}
+                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div css={styles.cardHeader}>
                   <Building2 size={18} color="#2563EB" />
                   For Colleges
@@ -596,7 +604,11 @@ export default function HeroArchitectured() {
               </div>
 
               {/* For Recruiters Card */}
-              <div css={styles.recruiterCard}>
+              <div 
+                css={styles.recruiterCard}
+                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div css={styles.cardHeader}>
                   <Briefcase size={18} color="#16A34A" />
                   For Recruiters
