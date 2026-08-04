@@ -31,18 +31,18 @@ const styles = {
   
   /* CARD WRAPPER */
   columnCard: (isPro) => css`
-    background: ${isPro ? '#FAF5FF' : '#FFFDF5'};
-    border: 1.5px solid ${isPro ? '#E9D5FF' : '#FDE68A'};
+    background: ${isPro ? '#F8FAFC' : '#FFFDF7'};
+    border: 1.5px solid ${isPro ? '#E2E8F0' : '#FEF5D8'};
     border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 16px 40px -10px ${isPro ? 'rgba(147, 51, 234, 0.08)' : 'rgba(217, 119, 6, 0.08)'};
+    box-shadow: 0 16px 40px -10px ${isPro ? 'rgba(75, 99, 140, 0.1)' : 'rgba(245, 88, 37, 0.1)'};
     display: flex;
     flex-direction: column;
   `,
   
   /* HEADER BANNER */
   cardHeader: (isPro) => css`
-    background: ${isPro ? 'linear-gradient(135deg, #4C1D95 0%, #6D28D9 100%)' : 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)'};
+    background: ${isPro ? 'linear-gradient(135deg, #1E293B 0%, #4B638C 100%)' : 'linear-gradient(135deg, #DA532C 0%, #F55825 100%)'};
     padding: 24px 32px;
     color: #FFFFFF;
     text-align: center;
@@ -69,7 +69,7 @@ const styles = {
   `,
   headerSub: css`
     font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
   `,
 
@@ -96,7 +96,7 @@ const styles = {
     align-items: flex-start;
     gap: 12px;
     background: #FFFFFF;
-    border: 1px solid ${isPro ? 'rgba(192, 132, 252, 0.3)' : 'rgba(252, 211, 77, 0.4)'};
+    border: 1px solid ${isPro ? '#E2E8F0' : 'rgba(252, 211, 77, 0.4)'};
     border-radius: 12px;
     padding: 12px 14px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
@@ -105,7 +105,7 @@ const styles = {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: ${isPro ? '#7C3AED' : '#F55825'};
+    background: ${isPro ? '#4B638C' : '#F55825'};
     color: #FFFFFF;
     font-size: 12.5px;
     font-weight: 800;
@@ -137,13 +137,13 @@ const styles = {
     gap: 16px;
   `,
   benefitsBox: (isPro) => css`
-    background: ${isPro ? '#F3E8FF' : '#FEF3C7'};
+    background: ${isPro ? '#F1F5F9' : '#FEF3C7'};
     border-radius: 16px;
     padding: 18px 16px;
     h4 {
       font-size: 12px;
       font-weight: 800;
-      color: ${isPro ? '#6B21A8' : '#92400E'};
+      color: ${isPro ? '#4B638C' : '#92400E'};
       text-transform: uppercase;
       margin-bottom: 14px;
       letter-spacing: 0.5px;
@@ -158,7 +158,7 @@ const styles = {
       margin-bottom: 0;
     }
     svg {
-      color: ${isPro ? '#7C3AED' : '#D97706'};
+      color: ${isPro ? '#4B638C' : '#D97706'};
       flex-shrink: 0;
       margin-top: 2px;
     }
@@ -180,8 +180,8 @@ const styles = {
 
   /* SPECIAL CARD (GIFT OR ROCKET) */
   specialCard: (isPro) => css`
-    background: ${isPro ? 'linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%)' : 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)'};
-    border: 1.5px solid ${isPro ? '#7C3AED' : '#FDBA74'};
+    background: ${isPro ? 'linear-gradient(135deg, #1E293B 0%, #4B638C 100%)' : 'linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)'};
+    border: 1.5px solid ${isPro ? '#4B638C' : '#FDBA74'};
     border-radius: 16px;
     padding: 18px 16px;
     color: ${isPro ? '#FFFFFF' : '#9A3412'};
@@ -195,7 +195,7 @@ const styles = {
     }
     p {
       font-size: 12px;
-      color: ${isPro ? '#DDD6FE' : '#C2410C'};
+      color: ${isPro ? '#E2E8F0' : '#C2410C'};
       margin: 0;
       line-height: 1.4;
     }
@@ -523,7 +523,7 @@ const JobSeekerDualInfographic = () => {
 
                 {/* Rocket Card Highlight */}
                 <div css={styles.specialCard(true)}>
-                  <Rocket size={28} style={{ color: '#F472B6', margin: '0 auto' }} />
+                  <Rocket size={28} style={{ color: '#F7BC08', margin: '0 auto' }} />
                   <h5>YOUR GROWTH, OUR MISSION</h5>
                   <p>We don't just help you find a job, <strong>we help you build your future.</strong></p>
                 </div>
@@ -534,15 +534,15 @@ const JobSeekerDualInfographic = () => {
             {/* Bottom Ticker */}
             <div css={styles.tickerBar}>
               <div css={styles.tickerItem}>
-                <Globe size={18} color="#7C3AED" />
+                <Globe size={18} color="#4B638C" />
                 <span>Jobs Worldwide</span>
               </div>
               <div css={styles.tickerItem}>
-                <Layers size={18} color="#7C3AED" />
+                <Layers size={18} color="#4B638C" />
                 <span>Multiple Portals</span>
               </div>
               <div css={styles.tickerItem}>
-                <Target size={18} color="#7C3AED" />
+                <Target size={18} color="#4B638C" />
                 <span>Higher Success</span>
               </div>
               <div css={styles.tickerItem}>
