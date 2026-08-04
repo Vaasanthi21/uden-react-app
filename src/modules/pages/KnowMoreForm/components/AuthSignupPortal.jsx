@@ -323,24 +323,6 @@ export default function AuthSignupPortal() {
             Assess <span>•</span> Upskill <span>•</span> Recruit
           </div>
 
-          {/* Jobseeker / Employer Role Switcher */}
-          <div css={styles.tabContainer}>
-            <button 
-              css={styles.tabBtn(role === 'jobseeker')}
-              onClick={() => setRole('jobseeker')}
-            >
-              <User size={15} />
-              Jobseeker
-            </button>
-            <button 
-              css={styles.tabBtn(role === 'employer')}
-              onClick={() => setRole('employer')}
-            >
-              <Building2 size={15} />
-              Employer
-            </button>
-          </div>
-
           {/* One-Click Login Buttons */}
           <div css={styles.buttonsWrapper}>
             <button 
