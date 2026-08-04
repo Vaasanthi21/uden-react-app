@@ -1,35 +1,94 @@
-import React from 'react';
+import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, css } from '@emotion/react';
+import { jsx, css, keyframes } from '@emotion/react';
 import { 
   GraduationCap, Briefcase, Sparkles, CheckCircle2, ArrowRight, 
   Brain, BookOpen, TrendingUp, Target, MessageSquare, Award, 
-  Rocket, Gift, ShieldCheck, Globe, Clock, Layers, Star, Zap, UserCheck
+  Rocket, Gift, ShieldCheck, Globe, Clock, Layers, Star, Zap, UserCheck, ChevronDown
 } from 'lucide-react';
 import { AppRoutes } from '../../../../utils/consts/routes';
+
+const popIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+`;
 
 const styles = {
   sectionOuter: css`
     width: 100%;
     background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-    padding: 70px 20px;
+    padding: 60px 20px 80px 20px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
     max-width: 1280px;
     margin: 0 auto;
   `,
-  mainGrid: css`
+  
+  /* DROPDOWN SELECTOR BAR */
+  selectorBar: css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  `,
+  selectLabel: css`
+    font-size: 14px;
+    font-weight: 800;
+    color: #1E293B;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  `,
+  tabGroup: css`
+    display: flex;
+    background: #F1F5F9;
+    padding: 5px;
+    border-radius: 18px;
+    gap: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  `,
+  tabBtn: (isActive, activeColor) => css`
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: none;
+    font-size: 13.5px;
+    font-weight: 800;
+    cursor: pointer;
+    background: ${isActive ? activeColor : 'transparent'};
+    color: ${isActive ? '#FFFFFF' : '#64748B'};
+    box-shadow: ${isActive ? '0 6px 16px rgba(0,0,0,0.12)' : 'none'};
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      color: ${isActive ? '#FFFFFF' : '#1E293B'};
+    }
+  `,
+
+  mainGrid: (singleCol) => css`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: ${singleCol ? '1fr' : 'repeat(2, 1fr)'};
+    max-width: ${singleCol ? '860px' : '100%'};
+    margin: 0 auto;
     gap: 32px;
     @media (max-width: 1024px) {
       grid-template-columns: 1fr;
     }
   `,
   
-  /* CARD WRAPPER */
+  /* CARD WRAPPER WITH POP-IN ANIMATION */
   columnCard: (isPro) => css`
     background: ${isPro ? '#F8FAFC' : '#FFFDF7'};
     border: 1.5px solid ${isPro ? '#E2E8F0' : '#FEF5D8'};
@@ -38,8 +97,9 @@ const styles = {
     box-shadow: 0 16px 40px -10px ${isPro ? 'rgba(75, 99, 140, 0.1)' : 'rgba(245, 88, 37, 0.1)'};
     display: flex;
     flex-direction: column;
+    animation: ${popIn} 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   `,
-  
+
   /* HEADER BANNER */
   cardHeader: (isPro) => css`
     background: ${isPro ? 'linear-gradient(135deg, #1E293B 0%, #4B638C 100%)' : 'linear-gradient(135deg, #DA532C 0%, #F55825 100%)'};
@@ -228,22 +288,61 @@ const styles = {
 };
 
 const JobSeekerDualInfographic = () => {
+  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'student' | 'experienced'
+
+  const showStudent = activeTab === 'all' || activeTab === 'student';
+  const showExperienced = activeTab === 'all' || activeTab === 'experienced';
+  const isSingleCol = activeTab === 'student' || activeTab === 'experienced';
+
   return (
     <div css={styles.sectionOuter}>
       <div css={styles.container}>
-        <div css={styles.mainGrid}>
+        
+        {/* DROPDOWN PERSONA SELECTOR BAR */}
+        <div css={styles.selectorBar}>
+          <span css={styles.selectLabel}>
+            <Sparkles size={16} color="#F55825" />
+            Select Career Stage:
+          </span>
+          <div css={styles.tabGroup}>
+            <button
+              type="button"
+              css={styles.tabBtn(activeTab === 'all', '#1E293B')}
+              onClick={() => setActiveTab('all')}
+            >
+              ⚖️ Both Views
+            </button>
+            <button
+              type="button"
+              css={styles.tabBtn(activeTab === 'student', '#F55825')}
+              onClick={() => setActiveTab('student')}
+            >
+              🎓 Students (3rd Year Onwards)
+            </button>
+            <button
+              type="button"
+              css={styles.tabBtn(activeTab === 'experienced', '#4B638C')}
+              onClick={() => setActiveTab('experienced')}
+            >
+              💼 Experienced Professionals
+            </button>
+          </div>
+        </div>
+
+        <div css={styles.mainGrid(isSingleCol)}>
           
           {/* ========================================================================= */}
           {/* LEFT: STUDENTS — 3RD YEAR ONWARDS                                         */}
           {/* ========================================================================= */}
-          <div css={styles.columnCard(false)}>
-            
-            {/* Header Banner */}
-            <div css={styles.cardHeader(false)}>
-              <div css={styles.headerBadge}>STUDENTS — 3RD YEAR ONWARDS</div>
-              <h3 css={styles.headerTitle}>AI CAREER PATH FOR STUDENTS</h3>
-              <p css={styles.headerSub}>From 3rd Year to Dream Career — Planned. Personalized. AI-Powered.</p>
-            </div>
+          {showStudent && (
+            <div key="student-card" css={styles.columnCard(false)}>
+              
+              {/* Header Banner */}
+              <div css={styles.cardHeader(false)}>
+                <div css={styles.headerBadge}>STUDENTS — 3RD YEAR ONWARDS</div>
+                <h3 css={styles.headerTitle}>AI CAREER PATH FOR STUDENTS</h3>
+                <p css={styles.headerSub}>From 3rd Year to Dream Career — Planned. Personalized. AI-Powered.</p>
+              </div>
 
             {/* Content Grid */}
             <div css={styles.cardBodyGrid}>
@@ -392,18 +491,20 @@ const JobSeekerDualInfographic = () => {
             </div>
 
           </div>
+          )}
 
           {/* ========================================================================= */}
           {/* RIGHT: EXPERIENCED PROFESSIONALS                                          */}
           {/* ========================================================================= */}
-          <div css={styles.columnCard(true)}>
-            
-            {/* Header Banner */}
-            <div css={styles.cardHeader(true)}>
-              <div css={styles.headerBadge}>EXPERIENCED PROFESSIONALS</div>
-              <h3 css={styles.headerTitle}>AI POWERED JOB SEARCH</h3>
-              <p css={styles.headerSub}>Search Smarter. Match Better. Get Hired Faster — Anywhere in the World.</p>
-            </div>
+          {showExperienced && (
+            <div key="experienced-card" css={styles.columnCard(true)}>
+              
+              {/* Header Banner */}
+              <div css={styles.cardHeader(true)}>
+                <div css={styles.headerBadge}>EXPERIENCED PROFESSIONALS</div>
+                <h3 css={styles.headerTitle}>AI POWERED JOB SEARCH</h3>
+                <p css={styles.headerSub}>Search Smarter. Match Better. Get Hired Faster — Anywhere in the World.</p>
+              </div>
 
             {/* Content Grid */}
             <div css={styles.cardBodyGrid}>
@@ -552,6 +653,7 @@ const JobSeekerDualInfographic = () => {
             </div>
 
           </div>
+          )}
 
         </div>
       </div>

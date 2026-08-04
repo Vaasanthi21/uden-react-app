@@ -32,11 +32,11 @@ const styles = {
     h2 {
       font-size: 32px;
       font-weight: 800;
-      color: #0F172A;
+      color: #1E293B;
       margin: 8px 0;
       letter-spacing: -0.5px;
       span {
-        color: #D97706;
+        color: #F55825;
       }
     }
     p {
@@ -49,10 +49,10 @@ const styles = {
     align-items: center;
     gap: 8px;
     padding: 6px 14px;
-    background: rgba(217, 119, 6, 0.1);
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    background: rgba(245, 88, 37, 0.1);
+    border: 1px solid rgba(245, 88, 37, 0.25);
     border-radius: 99px;
-    color: #D97706;
+    color: #F55825;
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
@@ -81,22 +81,22 @@ const styles = {
     }
   `,
   btnPrimary: css`
-    padding: 10px 18px;
+    padding: 10px 20px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+    background: linear-gradient(135deg, #DA532C 0%, #F55825 100%);
     border: none;
     color: #FFFFFF;
     font-size: 13.5px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 14px rgba(245, 88, 37, 0.35);
     transition: all 0.2s ease;
     &:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+      box-shadow: 0 6px 20px rgba(245, 88, 37, 0.45);
     }
   `,
 
@@ -130,8 +130,8 @@ const styles = {
   `,
   statValue: css`
     font-size: 32px;
-    font-weight: 800;
-    color: #0F172A;
+    font-weight: 900;
+    color: #F55825;
     margin: 6px 0 4px 0;
   `,
   statSub: css`
@@ -152,17 +152,17 @@ const styles = {
     padding-bottom: 12px;
   `,
   tabBtn: (active) => css`
-    padding: 8px 20px;
-    border-radius: 8px;
+    padding: 10px 22px;
+    border-radius: 10px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
     border: none;
-    background: ${active ? '#FEF3C7' : 'transparent'};
-    color: ${active ? '#92400E' : '#64748B'};
+    background: ${active ? '#FEF5D8' : 'transparent'};
+    color: ${active ? '#F55825' : '#64748B'};
     cursor: pointer;
     transition: all 0.2s ease;
     &:hover {
-      color: #D97706;
+      color: #F55825;
     }
   `,
 
@@ -187,8 +187,8 @@ const styles = {
       align-items: flex-start;
     }
     &:hover {
-      border-color: #FCD34D;
-      box-shadow: 0 8px 24px rgba(217, 119, 6, 0.08);
+      border-color: rgba(245, 88, 37, 0.4);
+      box-shadow: 0 8px 24px rgba(245, 88, 37, 0.08);
     }
   `,
   jobInfo: css`
@@ -200,19 +200,20 @@ const styles = {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: #FEF3C7;
-    color: #D97706;
+    background: #FEF5D8;
+    color: #F55825;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    font-size: 18px;
+    font-weight: 900;
+    font-size: 20px;
+    border: 1px solid rgba(245, 88, 37, 0.2);
   `,
   jobMeta: css`
     h4 {
       font-size: 17px;
-      font-weight: 700;
-      color: #0F172A;
+      font-weight: 800;
+      color: #1E293B;
       margin-bottom: 4px;
     }
     p {
@@ -224,13 +225,13 @@ const styles = {
     }
   `,
   shortlistBanner: css`
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
+    background: #ECFDF5;
+    border: 1px solid #A7F3D0;
     border-radius: 10px;
     padding: 10px 16px;
-    color: #92400E;
+    color: #047857;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -510,7 +511,7 @@ const TpoAccreditationDashboard = () => {
                         </div>
                       </div>
                     </td>
-                    <td><strong style={{ color: '#D97706' }}>{st.cgpa}</strong></td>
+                    <td><strong style={{ color: '#F55825' }}>{st.cgpa}</strong></td>
                     <td>{st.skills}</td>
                     <td><span css={styles.badgeSuccess}>{st.atsScore} ATS Match</span></td>
                     <td>
