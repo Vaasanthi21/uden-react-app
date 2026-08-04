@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/react';
-import { Sparkles, ArrowRight, Zap, CheckCircle2, ShieldCheck, Trophy, Layers } from 'lucide-react';
+import { 
+  Sparkles, ArrowRight, Calendar, GraduationCap, Building2, Briefcase, 
+  CheckCircle2, ShieldCheck, Video, FileText, Target, BookOpen, BarChart3, 
+  Handshake, Gift, Star, Award, Award as WreathIcon, Smartphone, Play, Bot, TrendingUp
+} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 
@@ -21,62 +25,58 @@ const pulseDot = keyframes`
 const styles = {
   heroOuter: css`
     position: relative;
-    padding: 70px 20px 60px 20px;
-    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
+    padding: 60px 20px 50px 20px;
+    background: linear-gradient(180deg, #FFFDF7 0%, #FFFFFF 100%);
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     border-bottom: 1px solid #FEF5D8;
     overflow: hidden;
+
+    @media (max-width: 640px) {
+      padding: 36px 12px 30px 12px;
+    }
   `,
   container: css`
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
+  `,
+  topGrid: css`
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
     align-items: center;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
-      text-align: center;
       gap: 32px;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
     }
+  `,
+
+  /* LEFT HAND NARRATIVE & TRIAD CARDS */
+  leftCol: css`
+    display: flex;
+    flex-direction: column;
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(16, 185, 129, 0.1);
-    color: #047857;
+    background: #FFF5F0;
+    color: #F55825;
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 800;
     margin-bottom: 20px;
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    letter-spacing: 0.5px;
-
-    @media (max-width: 480px) {
-      font-size: 11px;
-      padding: 5px 12px;
-      max-width: 100%;
-    }
-  `,
-  greenPulseDot: css`
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #10B981;
-    animation: ${pulseDot} 1.5s infinite ease-in-out;
+    border: 1px solid #FFDDD1;
+    align-self: flex-start;
+    letter-spacing: 0.3px;
   `,
   title: css`
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 900;
     color: #1E293B;
-    line-height: 1.12;
-    margin: 0 0 20px 0;
+    line-height: 1.14;
+    margin: 0 0 18px 0;
     letter-spacing: -1.2px;
 
     span {
@@ -85,429 +85,731 @@ const styles = {
 
     @media (max-width: 768px) {
       font-size: 32px;
+      letter-spacing: -0.5px;
     }
   `,
   subtitle: css`
-    font-size: 17.5px;
+    font-size: 16px;
     color: #475569;
     line-height: 1.65;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     font-weight: 500;
 
-    @media (max-width: 768px) {
-      font-size: 15px;
-      margin-bottom: 24px;
-    }
+    .hl-student { color: #F55825; font-weight: 700; }
+    .hl-college { color: #2563EB; font-weight: 700; }
+    .hl-recruiter { color: #16A34A; font-weight: 700; }
   `,
   ctaRow: css`
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
-
-    @media (max-width: 960px) {
-      justify-content: center;
-    }
   `,
   primaryBtn: css`
     background: #F55825;
     color: #FFFFFF;
     border: none;
-    padding: 16px 36px;
+    padding: 15px 32px;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: 15.5px;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     transition: all 0.25s ease;
-    box-shadow: 0 10px 24px rgba(245, 88, 37, 0.3);
-
-    @media (max-width: 480px) {
-      width: 100%;
-      justify-content: center;
-      padding: 14px 20px;
-    }
+    box-shadow: 0 8px 20px rgba(245, 88, 37, 0.28);
 
     &:hover {
       background: #D94616;
       transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(245, 88, 37, 0.4);
+      box-shadow: 0 12px 28px rgba(245, 88, 37, 0.38);
     }
   `,
   secondaryBtn: css`
     background: #FFFFFF;
-    color: #4B638C;
+    color: #1E293B;
     border: 1.5px solid #CBD5E1;
-    padding: 16px 28px;
+    padding: 15px 28px;
     border-radius: 30px;
     font-size: 15px;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     transition: all 0.25s ease;
 
-    @media (max-width: 480px) {
-      width: 100%;
-      justify-content: center;
-      padding: 14px 20px;
-    }
-
     &:hover {
-      border-color: #4B638C;
-      color: #1E293B;
+      border-color: #F55825;
+      color: #F55825;
       transform: translateY(-2px);
     }
   `,
-  highlightsRow: css`
-    display: flex;
-    align-items: center;
-    gap: 24px;
+  trustSubline: css`
     font-size: 13px;
     font-weight: 700;
-    color: #475569;
-    flex-wrap: wrap;
-
-    @media (max-width: 960px) {
-      justify-content: center;
-      gap: 12px;
-    }
-  `,
-  highlightItem: css`
+    color: #64748B;
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+
+    span {
+      color: #1E293B;
+      font-weight: 800;
+    }
   `,
 
-  /* RIGHT HAND INTERACTIVE WIDGET */
-  widgetCard: css`
-    position: relative;
-    background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    border-radius: 28px;
-    padding: 28px;
-    box-shadow: 0 20px 40px rgba(75, 99, 140, 0.12);
-    animation: ${floatAnim} 5s ease-in-out infinite;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
+  /* 3 STAKEHOLDER CARDS GRID */
+  triadGrid: css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 12px;
 
     @media (max-width: 640px) {
-      padding: 16px 12px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
   `,
-  matchScoreBadge: css`
-    position: absolute;
-    top: -16px;
-    right: 20px;
-    background: #FFFFFF;
-    border: 1.5px solid #FEF5D8;
-    box-shadow: 0 8px 20px rgba(247, 188, 8, 0.25);
-    border-radius: 20px;
-    padding: 8px 18px;
-    text-align: center;
+  studentCard: css`
+    background: #FFF7ED;
+    border: 1.5px solid #FFEDD5;
+    border-radius: 18px;
+    padding: 18px 16px;
+    transition: all 0.25s ease;
 
-    .score-lbl {
-      font-size: 9.5px;
-      font-weight: 800;
-      color: #D97706;
-      letter-spacing: 0.5px;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 88, 37, 0.1);
     }
-    .score-val {
-      font-size: 20px;
-      font-weight: 900;
-      color: #F7BC08;
-      line-height: 1;
+  `,
+  collegeCard: css`
+    background: #EFF6FF;
+    border: 1.5px solid #DBEAFE;
+    border-radius: 18px;
+    padding: 18px 16px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+    }
+  `,
+  recruiterCard: css`
+    background: #F0FDF4;
+    border: 1.5px solid #DCFCE7;
+    border-radius: 18px;
+    padding: 18px 16px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
     }
   `,
   cardHeader: css`
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  `,
-  cardIconBox: css`
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
-    background: #F0F4FF;
-    color: #4B638C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `,
-  cardTitle: css`
-    font-size: 18px;
-    font-weight: 800;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 900;
     color: #1E293B;
-    margin: 0;
   `,
-  gaugeFlex: css`
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 24px;
-  `,
-  gaugeContainer: css`
-    position: relative;
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-  `,
-  gaugeCenterText: css`
-    position: absolute;
-    inset: 0;
+  cardList: css`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .num {
-      font-size: 24px;
-      font-weight: 900;
-      color: #1E293B;
-      line-height: 1;
-    }
-    .lbl {
-      font-size: 9px;
-      font-weight: 800;
-      color: #64748B;
-    }
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
   `,
-  gaugeDetails: css`
-    flex: 1;
-  `,
-  strongFitBadge: css`
-    display: inline-flex;
+  cardItem: css`
+    display: flex;
     align-items: center;
     gap: 6px;
-    background: #ECFDF5;
-    color: #047857;
-    padding: 4px 12px;
+  `,
+
+  /* RIGHT HAND DASHBOARD & PHONE MOCKUP PREVIEW */
+  previewWrapper: css`
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+  desktopMockup: css`
+    width: 100%;
+    max-width: 620px;
+    background: #1E293B;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px -15px rgba(30, 41, 59, 0.35);
+    border: 2px solid #334155;
+    overflow: hidden;
+    color: #FFFFFF;
+  `,
+  dashHeader: css`
+    background: #0F172A;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+  `,
+  dashDots: css`
+    display: flex;
+    gap: 6px;
+    span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #475569;
+    }
+  `,
+  dashTitle: css`
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #94A3B8;
+    letter-spacing: 0.5px;
+  `,
+  dashBody: css`
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    background: #F8FAFC;
+    color: #1E293B;
+    min-height: 380px;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  `,
+  sidebar: css`
+    background: #0F172A;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #94A3B8;
+    font-size: 11px;
+    font-weight: 700;
+
+    .active-item {
+      background: #F55825;
+      color: #FFFFFF;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .item {
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  `,
+  mainCanvas: css`
+    padding: 18px;
+    background: #FFFFFF;
+  `,
+  welcomeBanner: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    h4 {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1E293B;
+      margin: 0;
+    }
+    p {
+      font-size: 11px;
+      color: #64748B;
+      margin: 2px 0 0 0;
+    }
+  `,
+  ptsPill: css`
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    color: #F55825;
+    padding: 3px 10px;
     border-radius: 14px;
     font-size: 11px;
     font-weight: 800;
-    margin-bottom: 6px;
   `,
-  skillCoverage: css`
-    font-size: 12px;
-    color: #64748B;
-    font-weight: 600;
-  `,
-  sectionLabel: css`
-    font-size: 11px;
-    font-weight: 800;
-    color: #1E293B;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  `,
-  skillsWrap: css`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 20px;
-  `,
-  skillChipReq: css`
-    padding: 4px 12px;
-    border-radius: 16px;
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    color: #475569;
-    font-size: 11.5px;
-    font-weight: 600;
-  `,
-  skillChipMatch: css`
-    padding: 4px 12px;
-    border-radius: 16px;
-    background: #ECFDF5;
-    border: 1px solid #A7F3D0;
-    color: #047857;
-    font-size: 11.5px;
-    font-weight: 700;
-  `,
-  actionRow: css`
+  widgetsGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  `,
-  applyBtn: css`
-    background: #4B638C;
-    color: #FFFFFF;
-    border: none;
-    padding: 12px;
-    border-radius: 12px;
-    font-weight: 800;
-    font-size: 13.5px;
-    cursor: pointer;
-    transition: background 0.2s ease;
+    gap: 10px;
 
-    &:hover {
-      background: #3B4F70;
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
     }
   `,
-  buildBtn: css`
-    background: #FFFFFF;
-    color: #1E293B;
-    border: 1.5px solid #CBD5E1;
+  widgetBox: css`
+    background: #F8FAFC;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 14px;
     padding: 12px;
-    border-radius: 12px;
+  `,
+  wTitle: css`
+    font-size: 11.5px;
     font-weight: 800;
-    font-size: 13.5px;
-    cursor: pointer;
+    color: #1E293B;
+    margin: 0 0 4px 0;
+  `,
+  wSub: css`
+    font-size: 10px;
+    color: #64748B;
+    margin-bottom: 8px;
+  `,
+  matchRow: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10.5px;
+    padding: 4px 0;
+    border-bottom: 1px solid #F1F5F9;
+
+    .m-title {
+      font-weight: 800;
+      color: #1E293B;
+    }
+    .m-score {
+      color: #10B981;
+      font-weight: 900;
+    }
+  `,
+
+  /* FLOATING SMARTPHONE MOCKUP OVERLAY */
+  mobileOverlay: css`
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 175px;
+    background: #000000;
+    border-radius: 28px;
+    padding: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 3px solid #334155;
+    animation: ${floatAnim} 4s ease-in-out infinite;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  `,
+  phoneInner: css`
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 10px;
+    color: #1E293B;
+    font-size: 10px;
+  `,
+
+  /* HORIZONTAL CORE MODULES STRIP */
+  modulesStrip: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFDF4;
+    border: 1.5px solid #FEF5D8;
+    border-radius: 24px;
+    padding: 18px 24px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @media (max-width: 900px) {
+      justify-content: center;
+      padding: 16px 12px;
+    }
+  `,
+  moduleItem: css`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .m-icon-bg {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: #FFF5F0;
+      color: #F55825;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1E293B;
+      margin: 0;
+    }
+
+    .m-sub {
+      font-size: 11px;
+      color: #64748B;
+      margin-top: 1px;
+      font-weight: 600;
+    }
+  `,
+
+  /* TRUSTED & SUPPORTED BY LOGOS ROW */
+  trustedOuter: css`
+    margin-top: 40px;
+    text-align: center;
+  `,
+  trustedLabel: css`
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #64748B;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  `,
+  logosRow: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  `,
+  logoPill: css`
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 8px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #334155;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     transition: all 0.2s ease;
 
     &:hover {
       border-color: #F55825;
-      color: #F55825;
+      transform: translateY(-1px);
     }
+  `,
+  wreathPill: css`
+    background: linear-gradient(135deg, #FFFDF0 0%, #FFF5F0 100%);
+    border: 1.5px solid #F7BC08;
+    color: #D97706;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   `
 };
 
 export default function HeroArchitectured() {
-  const [score, setScore] = useState(54);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setScore(92);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div css={styles.heroOuter}>
       <div css={styles.container}>
-        {/* Left Column Text & CTAs */}
-        <div>
-          <div css={styles.badgeTag}>
-            <div css={styles.greenPulseDot} />
-            AVAILABLE — 3,670 journeys live
-          </div>
-          <h1 css={styles.title}>
-            Your Potential, <span>Architectured.</span>
-          </h1>
-          <p css={styles.subtitle}>
-            UDEN turns the friction of job seeking into a streamlined narrative of professional evolution — AI-matched paths, skill snapshots, interview intel, and a tracker that moves with you.
-          </p>
-
-          <div css={styles.ctaRow}>
-            <button 
-              css={styles.primaryBtn}
-              onClick={() => navigate(AppRoutes.JOB_SEARCH)}
-            >
-              Get Started Now
-              <ArrowRight size={18} />
-            </button>
-
-            <button 
-              css={styles.secondaryBtn}
-              onClick={() => {
-                const el = document.getElementById('matching-engine');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <Sparkles size={16} color="#F55825" />
-              See the Matching Engine
-            </button>
-          </div>
-
-          <div css={styles.highlightsRow}>
-            <div css={styles.highlightItem}>
-              <CheckCircle2 size={15} color="#10B981" />
-              <span>92% avg. AI fit</span>
+        
+        {/* Top Grid: Hero Left Narrative & Right Dashboard Mockup */}
+        <div css={styles.topGrid}>
+          
+          {/* Left Column: Heading, CTAs & 3-Stakeholder Cards */}
+          <div css={styles.leftCol}>
+            <div css={styles.badgeTag} className="uden-float-anim">
+              <Sparkles size={14} color="#F55825" />
+              AI-First Campus Placement System (CPS)
             </div>
-            <div css={styles.highlightItem}>
-              <CheckCircle2 size={15} color="#10B981" />
-              <span>Skill-paced paths</span>
+
+            <h1 css={styles.title}>
+              AI-Powered Career Transformation <span>Platform</span>
+            </h1>
+
+            <p css={styles.subtitle}>
+              Bridging <span className="hl-student">Students</span>, <span className="hl-college">Colleges</span> and <span className="hl-recruiter">Recruiters</span> through AI-powered career intelligence, interview preparation, resume optimization, placement automation and smart hiring.
+            </p>
+
+            <div css={styles.ctaRow}>
+              <button 
+                css={styles.primaryBtn}
+                onClick={() => navigate(AppRoutes.JOB_SEEKERS)}
+                className="uden-pulse-btn"
+              >
+                Get Started Free
+                <ArrowRight size={18} />
+              </button>
+
+              <button 
+                css={styles.secondaryBtn}
+                onClick={() => navigate(AppRoutes.COMPANIES)}
+              >
+                <Calendar size={16} color="#F55825" />
+                Book a Demo
+              </button>
             </div>
-            <div css={styles.highlightItem}>
-              <CheckCircle2 size={15} color="#10B981" />
-              <span>Live application tracking</span>
+
+            <div css={styles.trustSubline}>
+              <ShieldCheck size={16} color="#10B981" />
+              <span>Trusted by 100+ Colleges</span> • <span>70+ Recruiters</span> • <span>Thousands of Students</span>
+            </div>
+
+            {/* Triad Grid: For Students, For Colleges, For Recruiters */}
+            <div css={styles.triadGrid}>
+              
+              {/* For Students Card */}
+              <div css={styles.studentCard}>
+                <div css={styles.cardHeader}>
+                  <GraduationCap size={18} color="#F55825" />
+                  For Students
+                </div>
+                <div css={styles.cardList}>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#F55825" /> AI Interview Practice</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#F55825" /> Resume Builder</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#F55825" /> Learning Roadmaps</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#F55825" /> Job Matching</div>
+                </div>
+              </div>
+
+              {/* For Colleges Card */}
+              <div css={styles.collegeCard}>
+                <div css={styles.cardHeader}>
+                  <Building2 size={18} color="#2563EB" />
+                  For Colleges
+                </div>
+                <div css={styles.cardList}>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#2563EB" /> Placement Automation</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#2563EB" /> Student Analytics</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#2563EB" /> Skill Gap Analysis</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#2563EB" /> Reports &amp; Insights</div>
+                </div>
+              </div>
+
+              {/* For Recruiters Card */}
+              <div css={styles.recruiterCard}>
+                <div css={styles.cardHeader}>
+                  <Briefcase size={18} color="#16A34A" />
+                  For Recruiters
+                </div>
+                <div css={styles.cardList}>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#16A34A" /> AI Shortlisting</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#16A34A" /> Candidate Ranking</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#16A34A" /> ATS Integration</div>
+                  <div css={styles.cardItem}><CheckCircle2 size={13} color="#16A34A" /> Faster Hiring</div>
+                </div>
+              </div>
+
             </div>
           </div>
-        </div>
 
-        {/* Right Column Interactive Skills Snapshot Card */}
-        <div css={styles.widgetCard}>
-          <div css={styles.matchScoreBadge}>
-            <div className="score-lbl">MATCH SCORE</div>
-            <div className="score-val">96%</div>
-          </div>
+          {/* Right Column: Dashboard UI Window & Smartphone Overlay */}
+          <div css={styles.previewWrapper}>
+            <div css={styles.desktopMockup}>
+              
+              {/* Desktop Header */}
+              <div css={styles.dashHeader}>
+                <div css={styles.dashDots}>
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div css={styles.dashTitle}>UDEN Assess • Upskill • Recruit</div>
+              </div>
 
-          <div css={styles.cardHeader}>
-            <div css={styles.cardIconBox}>
-              <Zap size={22} />
+              {/* Desktop Main Body */}
+              <div css={styles.dashBody}>
+                
+                {/* Sidebar */}
+                <div css={styles.sidebar}>
+                  <div className="active-item">📊 Dashboard</div>
+                  <div className="item">🎙️ AI Interview</div>
+                  <div className="item">📄 Resume Builder</div>
+                  <div className="item">🎯 Job Matches</div>
+                  <div className="item">📖 Learning Path</div>
+                  <div className="item">🤖 Assistant</div>
+                </div>
+
+                {/* Main Workspace */}
+                <div css={styles.mainCanvas}>
+                  <div css={styles.welcomeBanner}>
+                    <div>
+                      <h4>Welcome back, Ananya 👋</h4>
+                      <p>Continue your career transformation journey.</p>
+                    </div>
+                    <span css={styles.ptsPill}>✨ 12,400 Points</span>
+                  </div>
+
+                  <div css={styles.widgetsGrid}>
+                    
+                    {/* Widget 1: AI Interview Simulation */}
+                    <div css={styles.widgetBox}>
+                      <div css={styles.wTitle}>AI Interview Simulation</div>
+                      <div css={styles.wSub}>10 JD-aligned mock interviews</div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <button style={{ background: '#F55825', color: '#FFF', border: 'none', borderRadius: '10px', padding: '4px 10px', fontSize: '10px', fontWeight: 800 }}>Start Practice</button>
+                        <Bot size={20} color="#F55825" />
+                      </div>
+                    </div>
+
+                    {/* Widget 2: Resume Score */}
+                    <div css={styles.widgetBox}>
+                      <div css={styles.wTitle}>Resume Score</div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ fontSize: '18px', fontWeight: 900, color: '#F55825' }}>85</span>
+                        <span style={{ fontSize: '10px', color: '#16A34A', fontWeight: 700 }}>Great! Strong Resume</span>
+                      </div>
+                    </div>
+
+                    {/* Widget 3: Job Matches */}
+                    <div css={styles.widgetBox} style={{ gridColumn: 'span 2' }}>
+                      <div css={styles.wTitle}>Job Matches for You</div>
+                      <div css={styles.matchRow}>
+                        <span className="m-title">Software Engineer (TCS · Bangalore)</span>
+                        <span className="m-score">96% Match</span>
+                      </div>
+                      <div css={styles.matchRow}>
+                        <span className="m-title">Data Analyst (Deloitte · Hyderabad)</span>
+                        <span className="m-score">92% Match</span>
+                      </div>
+                      <div css={styles.matchRow}>
+                        <span className="m-title">Product Analyst (Zoho · Chennai)</span>
+                        <span className="m-score">90% Match</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
             </div>
-            <h3 css={styles.cardTitle}>Skills Snapshot</h3>
-          </div>
 
-          <div css={styles.gaugeFlex}>
-            <div css={styles.gaugeContainer}>
-              <svg viewBox="0 0 120 120" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
-                <circle cx="60" cy="60" r="52" stroke="#E2E8F0" strokeWidth="8" fill="none" />
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="52"
-                  stroke="#10B981"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeDasharray={2 * Math.PI * 52}
-                  strokeDashoffset={2 * Math.PI * 52 * (1 - score / 100)}
-                  style={{ transition: 'stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1)' }}
-                />
-              </svg>
-              <div css={styles.gaugeCenterText}>
-                <span className="num">{score}%</span>
-                <span className="lbl">AI Fit Score</span>
+            {/* Mobile Phone Mockup Overlay */}
+            <div css={styles.mobileOverlay}>
+              <div css={styles.phoneInner}>
+                <div style={{ fontWeight: 900, fontSize: '11px', marginBottom: '4px' }}>Hi Ananya 👋</div>
+                <div style={{ background: '#F55825', color: '#FFF', padding: '6px', borderRadius: '8px', marginBottom: '6px', fontWeight: 800 }}>
+                  AI Interview
+                </div>
+                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', padding: '6px', borderRadius: '8px' }}>
+                  <span style={{ fontSize: '9px', color: '#64748B' }}>Resume Score</span>
+                  <div style={{ fontWeight: 900, color: '#16A34A', fontSize: '14px' }}>85 / 100</div>
+                </div>
               </div>
             </div>
 
-            <div css={styles.gaugeDetails}>
-              <div css={styles.strongFitBadge}>
-                <CheckCircle2 size={13} />
-                STRONG FIT
-              </div>
-              <div css={styles.skillCoverage}>• 80% skill coverage</div>
+          </div>
+
+        </div>
+
+        {/* Horizontal Core Platform Feature Modules Bar */}
+        <div css={styles.modulesStrip}>
+          
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><Video size={18} /></div>
+            <div>
+              <p className="m-label">AI Interview</p>
+              <p className="m-sub">Simulation</p>
             </div>
           </div>
 
-          <div css={styles.sectionLabel}>REQUIRED SKILLS *</div>
-          <div css={styles.skillsWrap}>
-            <span css={styles.skillChipReq}>React</span>
-            <span css={styles.skillChipReq}>TypeScript</span>
-            <span css={styles.skillChipReq}>Next.js</span>
-            <span css={styles.skillChipReq}>Tailwind CSS</span>
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><FileText size={18} /></div>
+            <div>
+              <p className="m-label">AI Resume</p>
+              <p className="m-sub">&amp; Cover Letter</p>
+            </div>
           </div>
 
-          <div css={styles.sectionLabel} style={{ color: '#10B981' }}>MATCHED SKILLS</div>
-          <div css={styles.skillsWrap}>
-            <span css={styles.skillChipMatch}>TypeScript</span>
-            <span css={styles.skillChipMatch}>Next.js</span>
-            <span css={styles.skillChipMatch}>Tailwind CSS</span>
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><Target size={18} /></div>
+            <div>
+              <p className="m-label">Smart Job</p>
+              <p className="m-sub">Matching</p>
+            </div>
           </div>
 
-          <div css={styles.actionRow}>
-            <button 
-              css={styles.applyBtn}
-              onClick={() => navigate(AppRoutes.JOB_SEARCH)}
-            >
-              Apply
-            </button>
-            <button 
-              css={styles.buildBtn}
-              onClick={() => navigate(AppRoutes.LEARN)}
-            >
-              Build skills
-            </button>
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><BookOpen size={18} /></div>
+            <div>
+              <p className="m-label">Personalized</p>
+              <p className="m-sub">Learning Path</p>
+            </div>
+          </div>
+
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><BarChart3 size={18} /></div>
+            <div>
+              <p className="m-label">Skill Gap</p>
+              <p className="m-sub">Analysis</p>
+            </div>
+          </div>
+
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><Handshake size={18} /></div>
+            <div>
+              <p className="m-label">Placement</p>
+              <p className="m-sub">Automation</p>
+            </div>
+          </div>
+
+          <div css={styles.moduleItem}>
+            <div className="m-icon-bg"><Gift size={18} /></div>
+            <div>
+              <p className="m-label">Referral &amp; Rewards</p>
+              <p className="m-sub">Earn While You Grow</p>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Trusted & Supported By Logos Strip */}
+        <div css={styles.trustedOuter}>
+          <div css={styles.trustedLabel}>Trusted &amp; Supported By</div>
+          <div css={styles.logosRow}>
+            
+            <div css={styles.logoPill}>
+              <span style={{ color: '#00A4EF', fontWeight: 900 }}>❖</span> Microsoft <span style={{ fontSize: '11px', color: '#64748B' }}>Founders Hub</span>
+            </div>
+
+            <div css={styles.logoPill}>
+              <span style={{ color: '#76B900', fontWeight: 900 }}>▲</span> NVIDIA <span style={{ fontSize: '11px', color: '#64748B' }}>INCEPTION PROGRAM</span>
+            </div>
+
+            <div css={styles.logoPill}>
+              <span style={{ color: '#FF9900', fontWeight: 900 }}>aws</span> EdStart
+            </div>
+
+            <div css={styles.logoPill}>
+              <span style={{ color: '#E11D48', fontWeight: 900 }}>TiE</span> Fostering Entrepreneurship
+            </div>
+
+            <div css={styles.logoPill}>
+              <span style={{ color: '#2563EB', fontWeight: 900 }}>NSRCEL</span> IIMB, Bangalore
+            </div>
+
+            <div css={styles.logoPill}>
+              <span style={{ color: '#059669', fontWeight: 900 }}>CERT-IN</span> EMPANELLED
+            </div>
+
+            <div css={styles.wreathPill}>
+              <WreathIcon size={16} />
+              Building Bharat's AI-First Career Ecosystem
+            </div>
+
           </div>
         </div>
+
       </div>
     </div>
   );
