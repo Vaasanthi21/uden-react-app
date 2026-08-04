@@ -1,6 +1,6 @@
 import { Box, Button, Divider, Typography } from '@mui/material'
 import React from 'react'
-import { AppRoutes } from '../utils/consts/routes'
+import { AppRoutes } from 'utils/consts/routes';
 import Spacer from '../../../../../components/Spacer'
 import { BlogsConst } from '../../../Blogs.Const'
 import BlogCard from '../../../components/BlogCard/BlogCard'
