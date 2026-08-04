@@ -115,12 +115,6 @@ const DesktopHeader = ({ ...props }) => {
                   >
                     💼 For Experienced Candidates
                   </MenuItem>
-                  <MenuItem 
-                    onClick={() => handleJobSeekersNavigate('/job-seekers?tab=all')}
-                    sx={{ borderRadius: '10px', py: 1.2, px: 2, fontWeight: 700, fontSize: '13.5px', color: '#F55825' }}
-                  >
-                    ⚖️ Both Views (Side-by-Side)
-                  </MenuItem>
                 </Menu>
               )}
             </React.Fragment>

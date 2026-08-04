@@ -5,7 +5,7 @@ import { CorporateFare, Work, Upgrade, Groups, ContactPage, People, AccountBalan
 const HeaderTabs = {
     HOME: "Home",
     COMPANIES: "Hire from us",
-    JOB_SEEKERS: "Career Aspirants",
+    JOB_SEEKERS: "Jobseekers",
     HR_SERVICES: "HR Services",
     CAMPUS_PLACEMENTS: "Campus Placements",
     GOVERNMENT: "Government",

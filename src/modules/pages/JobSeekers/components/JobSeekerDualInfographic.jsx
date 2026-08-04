@@ -290,19 +290,19 @@ const styles = {
 
 const JobSeekerDualInfographic = () => {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'student' | 'experienced'
+  const [activeTab, setActiveTab] = useState('student'); // 'student' | 'experienced'
 
   React.useEffect(() => {
     const params = new URLSearchParams(location.search);
     const tabParam = params.get('tab');
-    if (tabParam === 'student' || tabParam === 'experienced' || tabParam === 'all') {
+    if (tabParam === 'student' || tabParam === 'experienced') {
       setActiveTab(tabParam);
     }
   }, [location.search]);
 
-  const showStudent = activeTab === 'all' || activeTab === 'student';
-  const showExperienced = activeTab === 'all' || activeTab === 'experienced';
-  const isSingleCol = activeTab === 'student' || activeTab === 'experienced';
+  const showStudent = activeTab === 'student';
+  const showExperienced = activeTab === 'experienced';
+  const isSingleCol = true;
 
   return (
     <div css={styles.sectionOuter}>
@@ -315,13 +315,6 @@ const JobSeekerDualInfographic = () => {
             Select Career Stage:
           </span>
           <div css={styles.tabGroup}>
-            <button
-              type="button"
-              css={styles.tabBtn(activeTab === 'all', '#1E293B')}
-              onClick={() => setActiveTab('all')}
-            >
-              ⚖️ Both Views
-            </button>
             <button
               type="button"
               css={styles.tabBtn(activeTab === 'student', '#F55825')}
