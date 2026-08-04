@@ -24,37 +24,42 @@ const styles = {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
     align-items: center;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
       text-align: center;
-      gap: 36px;
+      gap: 32px;
     }
   `,
   badgeTag: css`
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(75, 99, 140, 0.1);
-    color: #4B638C;
+    background: #FEF5D8;
+    color: #F55825;
     padding: 6px 16px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 800;
-    margin-bottom: 20px;
-    border: 1px solid rgba(75, 99, 140, 0.25);
+    margin-bottom: 18px;
+    border: 1px solid #F7BC08;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    align-self: flex-start;
+
+    @media (max-width: 960px) {
+      align-self: center;
+    }
   `,
   title: css`
     font-size: 42px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1.18;
-    margin: 0 0 18px 0;
+    margin: 0 0 16px 0;
     letter-spacing: -0.8px;
 
     span {
@@ -66,17 +71,17 @@ const styles = {
     }
   `,
   subtitle: css`
-    font-size: 16.5px;
+    font-size: 16px;
     color: #475569;
-    line-height: 1.6;
-    margin-bottom: 32px;
+    line-height: 1.65;
+    margin-bottom: 28px;
     font-weight: 500;
   `,
   statsGrid: css`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 36px;
+    gap: 14px;
+    margin-bottom: 28px;
 
     @media (max-width: 540px) {
       grid-template-columns: 1fr;
@@ -86,15 +91,15 @@ const styles = {
     background: #FFFFFF;
     border: 1.5px solid rgba(247, 188, 8, 0.4);
     border-radius: 16px;
-    padding: 16px 20px;
+    padding: 14px 18px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   `,
   statIcon: css`
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
     background: rgba(75, 99, 140, 0.12);
     color: #4B638C;
@@ -104,18 +109,18 @@ const styles = {
     flex-shrink: 0;
   `,
   statNum: css`
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 900;
     color: #1E293B;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 
     span {
       color: #F55825;
     }
   `,
   statLabel: css`
-    font-size: 12px;
+    font-size: 11.5px;
     color: #64748B;
     font-weight: 700;
   `,
@@ -178,24 +183,24 @@ const styles = {
   rightCol: css`
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
   `,
   jobImgBanner: css`
     width: 100%;
-    max-height: 270px;
+    max-height: 180px;
     object-fit: contain;
-    border-radius: 24px;
+    border-radius: 20px;
     background: #FFFFFF;
-    padding: 12px;
-    border: 2px solid #4B638C;
-    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.12);
+    padding: 10px;
+    border: 1.5px solid #FEF5D8;
+    box-shadow: 0 8px 24px rgba(75, 99, 140, 0.08);
   `,
   profileDemoCard: css`
     background: #FFFFFF;
-    border: 2px solid #4B638C;
-    border-radius: 24px;
-    padding: 28px;
-    box-shadow: 0 20px 40px rgba(75, 99, 140, 0.15);
+    border: 1.5px solid #FEF5D8;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 14px 32px rgba(75, 99, 140, 0.1);
   `,
   profileCardHeader: css`
     display: flex;
