@@ -7,7 +7,7 @@ import {
   Brain, BookOpen, TrendingUp, Target, MessageSquare, Award, 
   Rocket, Gift, ShieldCheck, Globe, Clock, Layers, Star, Zap, UserCheck
 } from 'lucide-react';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../../../utils/consts/routes';
 
 const styles = {
   sectionOuter: css`

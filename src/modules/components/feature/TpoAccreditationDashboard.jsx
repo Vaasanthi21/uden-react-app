@@ -7,7 +7,7 @@ import {
   Users, Award, Download, FileText, Filter, Search, Briefcase, 
   Clock, TrendingUp, CheckSquare, Zap 
 } from 'lucide-react';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../utils/consts/routes';
 
 const styles = {
   wrapper: css`

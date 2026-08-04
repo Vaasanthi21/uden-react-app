@@ -6,7 +6,7 @@ import {
   Sparkles, CheckCircle2, ArrowRight, UserCheck, 
   Building2, GraduationCap, ShieldCheck, Award, Zap, Users, Target 
 } from 'lucide-react';
-import { AppRoutes } from 'utils/consts/routes';
+import { AppRoutes } from '../../utils/consts/routes';
 
 const styles = {
   sectionOuter: css`
