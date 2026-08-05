@@ -222,6 +222,21 @@ const styles = {
       display: none;
     }
   `,
+  floatingCardWrapper: (pos) => css`
+    position: absolute;
+    z-index: 2;
+    ${pos}
+
+    @media (max-width: 979px) {
+      position: relative;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: none !important;
+      width: 100% !important;
+    }
+  `,
   mobileVerticalStack: css`
     display: none;
     width: 100%;
