@@ -243,6 +243,22 @@ const CampusPartnerFormPage = () => {
                     onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
                   />
                 </div>
+
+                <div css={styles.fullWidth}>
+                  <label htmlFor="captchaAnswer" css={styles.label}>Security Captcha * (Solve: 4 + 3 = ?)</label>
+                  <input
+                    id="captchaAnswer"
+                    name="captchaAnswer"
+                    type="text"
+                    required
+                    aria-required="true"
+                    aria-label="Security Captcha Verification Answer"
+                    placeholder="Enter answer (7)"
+                    css={styles.input}
+                    value={formData.captchaAnswer || ''}
+                    onChange={(e) => setFormData({ ...formData, captchaAnswer: e.target.value })}
+                  />
+                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
