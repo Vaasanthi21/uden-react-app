@@ -27,62 +27,52 @@ const ContactUsConst = {
             {
               id:"form-name",
               key:"name",
-              label:"Full Name",
+              placeholder:"Full Name *",
               value:"",
               error:false,
               color:'',
               helperText:'',
-              size:'small',
               fullWidth:true,
-              InputProps:{startAdornment:<InputAdornment position='start'><Person/></InputAdornment>},
               hint:"",
               validator:getValidator.withMinLength(2,"Name should contain atleast 3 characters")
             },
             {
               id:"form-email",
               key:"email",
-              label:"Work Email",
+              placeholder:"Work Email *",
               value:"",
               error:false,
               color:'',
               helperText:'',
-              size:'small',
               type:"email",
-              InputProps:{startAdornment:<InputAdornment position='start'><Email/></InputAdornment>},
               hint:"Work Email",
               validator:getValidator.withPattern(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,"Please enter a valid email address")
             },
             {
               id:"form-phone",
               key:"phone",
-              label:"Contact Number",
+              placeholder:"Contact / Mobile Number *",
               value:"",
               error:false,
               color:'',
               helperText:'',
-              size:'small',
               type:'tel',
-              InputProps:{startAdornment:<InputAdornment position='start'><Phone/></InputAdornment>},
               hint:"Contact Number",
               validator:getValidator.withPattern(/^\d{10,15}$/i,"Please enter valid contact number")
             },
             {
               id:"form-comment",
               key:"comment",
-              label:"Your Message",
+              placeholder:"Your Message *",
               value:"",
               error:false,
               color:'',
               helperText:'',
-              size:'small',
-              InputProps:undefined,
-              hint:"Your Message",
               multiline:true,
               rows:4,
               validator:getValidator.withMinLength(20,"Message should contain at least 20 characters")
             }
-              
-            ]
+          ]
         },
         errorMessage:"Please fill the required data",
         successMessage:"Your message was successfully sent, Thank you for contacting us.",
