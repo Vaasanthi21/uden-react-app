@@ -196,44 +196,73 @@ const styles = {
     }
   `,
 
-  /* LOOP CONTAINER GRID */
-  loopContainer: css`
-    border: 4px solid #F59E0B;
-    border-radius: 40px;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    background: #FFFFFF;
+  /* LOOP TRACK CONTAINER & FLOATING CARDS */
+  loopTrackContainer: css`
     position: relative;
+    width: 100%;
+    max-width: 780px;
+    height: 420px;
+    margin: 0 auto;
 
-    @media (max-width: 680px) {
-      grid-template-columns: 1fr;
-      padding: 16px;
+    @media (max-width: 980px) {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
   `,
-  stepCard: css`
-    background: #F3F4F6;
-    border-radius: 16px;
-    padding: 20px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  loopTrackBorder: css`
+    position: absolute;
+    top: 50px;
+    left: 80px;
+    right: 80px;
+    bottom: 50px;
+    border: 4px solid #F59E0B;
+    border-radius: 40px;
+    pointer-events: none;
+
+    @media (max-width: 980px) {
+      display: none;
+    }
+  `,
+  floatingCardWrapper: (pos) => css`
+    position: absolute;
+    z-index: 2;
+    ${pos}
+
+    @media (max-width: 980px) {
+      position: relative;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: none !important;
+      width: 100% !important;
+    }
+  `,
+  trackCardBox: css`
+    background: #F4F4F5;
+    border-radius: 18px;
+    padding: 16px 22px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    max-width: 270px;
+    text-align: center;
+    box-sizing: border-box;
 
     h4 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
-      color: #1E293B;
-      margin: 0 0 8px 0;
+      color: #334155;
+      margin: 0;
       line-height: 1.35;
     }
-    p {
-      font-size: 12.5px;
-      color: #94A3B8;
-      font-weight: 700;
-      margin: 0;
-    }
+  `,
+  trackSubtext: css`
+    font-size: 12px;
+    font-weight: 700;
+    color: #94A3B8;
+    margin-top: 6px;
+    text-align: center;
   `,
 
   /* SECTION 2: SKILL GAP & INTERVIEW PREP DUAL CARDS */
@@ -554,39 +583,57 @@ export default function HowItWorks() {
             <div css={styles.arrowRightEntry}>►</div>
           </div>
 
-          {/* Right Column: Golden Loop Diagram */}
-          <div css={styles.loopContainer}>
-            {/* Top Left: Step 2 */}
-            <div css={styles.stepCard}>
-              <h4>{activeData[1].title}</h4>
-              <p>{activeData[1].sub}</p>
-            </div>
-            {/* Top Right: Step 3 */}
-            <div css={styles.stepCard}>
-              <h4>{activeData[2].title}</h4>
-              <p>{activeData[2].sub}</p>
+          {/* Right Column: Golden Loop Track & Floating Cards */}
+          <div css={styles.loopTrackContainer}>
+            {/* The Golden Rounded Rectangular Loop Line */}
+            <div css={styles.loopTrackBorder} />
+
+            {/* 1. Middle Left: Step 1 (Entry Card from Arrow) */}
+            <div css={styles.floatingCardWrapper("top: 50%; left: 0px; transform: translateY(-50%);")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[0].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[0].sub}</div>
             </div>
 
-            {/* Middle Left: Step 1 (Entry point from arrow) */}
-            <div css={styles.stepCard} style={{ borderLeft: '4px solid #F59E0B' }}>
-              <h4>{activeData[0].title}</h4>
-              <p>{activeData[0].sub}</p>
-            </div>
-            {/* Middle Right: Step 4 */}
-            <div css={styles.stepCard}>
-              <h4>{activeData[3].title}</h4>
-              <p>{activeData[3].sub}</p>
+            {/* 2. Top Left: Step 2 */}
+            <div css={styles.floatingCardWrapper("top: 20px; left: 100px;")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[1].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[1].sub}</div>
             </div>
 
-            {/* Bottom Left: Step 6 */}
-            <div css={styles.stepCard}>
-              <h4>{activeData[5].title}</h4>
-              <p>{activeData[5].sub}</p>
+            {/* 3. Top Right: Step 3 */}
+            <div css={styles.floatingCardWrapper("top: 20px; right: 40px;")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[2].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[2].sub}</div>
             </div>
-            {/* Bottom Right: Step 5 */}
-            <div css={styles.stepCard}>
-              <h4>{activeData[4].title}</h4>
-              <p>{activeData[4].sub}</p>
+
+            {/* 4. Middle Right: Step 4 */}
+            <div css={styles.floatingCardWrapper("top: 50%; right: 0px; transform: translateY(-50%);")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[3].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[3].sub}</div>
+            </div>
+
+            {/* 5. Bottom Right: Step 5 */}
+            <div css={styles.floatingCardWrapper("bottom: 20px; right: 40px;")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[4].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[4].sub}</div>
+            </div>
+
+            {/* 6. Bottom Left: Step 6 */}
+            <div css={styles.floatingCardWrapper("bottom: 20px; left: 100px;")}>
+              <div css={styles.trackCardBox}>
+                <h4>{activeData[5].title}</h4>
+              </div>
+              <div css={styles.trackSubtext}>{activeData[5].sub}</div>
             </div>
           </div>
         </div>
