@@ -48,18 +48,20 @@ const styles = {
     }
   `,
 
-  /* FLOWCHART DIAGRAM WRAPPER */
+  /* DIAGRAM WRAPPER */
   diagramWrapper: css`
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 40px;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 80px;
 
-    @media (max-width: 980px) {
-      grid-template-columns: 1fr;
-      justify-items: center;
+    @media (max-width: 979px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
     }
   `,
 
@@ -84,7 +86,6 @@ const styles = {
     position: relative;
     box-sizing: border-box;
 
-    /* Top Speaker Notch */
     &::before {
       content: '';
       position: absolute;
@@ -181,6 +182,9 @@ const styles = {
       font-size: 11px;
       font-weight: 700;
       color: #64748B;
+      .activePill {
+        color: #F55825;
+      }
     }
   `,
   arrowRightEntry: css`
@@ -191,8 +195,18 @@ const styles = {
     color: #F59E0B;
     font-size: 28px;
 
-    @media (max-width: 980px) {
+    @media (max-width: 979px) {
       display: none;
+    }
+  `,
+  arrowDownEntryMobile: css`
+    display: none;
+    color: #F59E0B;
+    font-size: 32px;
+    margin: 12px 0 4px 0;
+
+    @media (max-width: 979px) {
+      display: block;
     }
   `,
 
@@ -201,66 +215,66 @@ const styles = {
     position: relative;
     width: 100%;
     max-width: 780px;
-    height: 420px;
+    height: 340px;
     margin: 0 auto;
 
-    @media (max-width: 980px) {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-  `,
-  loopTrackBorder: css`
-    position: absolute;
-    top: 50px;
-    left: 80px;
-    right: 80px;
-    bottom: 50px;
-    border: 4px solid #F59E0B;
-    border-radius: 40px;
-    pointer-events: none;
-
-    @media (max-width: 980px) {
+    @media (max-width: 979px) {
       display: none;
     }
   `,
-  floatingCardWrapper: (pos) => css`
-    position: absolute;
-    z-index: 2;
-    ${pos}
+  mobileVerticalStack: css`
+    display: none;
+    width: 100%;
+    max-width: 480px;
+    flex-direction: column;
+    gap: 16px;
 
-    @media (max-width: 980px) {
-      position: relative;
-      top: auto !important;
-      left: auto !important;
-      right: auto !important;
-      bottom: auto !important;
-      transform: none !important;
-      width: 100% !important;
+    @media (max-width: 979px) {
+      display: flex;
+    }
+  `,
+  mobileCardItem: css`
+    background: #F4F4F5;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    text-align: center;
+
+    h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #380606;
+      margin: 0;
+      line-height: 1.35;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 700;
+      color: #A3A3A3;
+      margin: 6px 0 0 0;
     }
   `,
   trackCardBox: css`
     background: #F4F4F5;
-    border-radius: 18px;
-    padding: 16px 22px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-    max-width: 270px;
-    text-align: center;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    width: 250px;
     box-sizing: border-box;
 
     h4 {
       font-size: 15px;
       font-weight: 800;
-      color: #334155;
+      color: #380606;
       margin: 0;
       line-height: 1.35;
+      text-align: left;
     }
   `,
   trackSubtext: css`
     font-size: 12px;
     font-weight: 700;
-    color: #94A3B8;
+    color: #A3A3A3;
     margin-top: 6px;
     text-align: center;
   `,
@@ -581,23 +595,40 @@ export default function HowItWorks() {
             </div>
 
             <div css={styles.arrowRightEntry}>►</div>
+            <div css={styles.arrowDownEntryMobile}>▼</div>
           </div>
 
-          {/* Right Column: Golden Loop Track & Floating Cards */}
+          {/* Right Column: Golden Loop Track & Floating Cards (Desktop/Tablet) */}
           <div css={styles.loopTrackContainer}>
-            {/* The Golden Rounded Rectangular Loop Line */}
-            <div css={styles.loopTrackBorder} />
+            {/* SVG Connecting Vector Track (Desktop Only) */}
+            <svg 
+              width="100%" 
+              height="340" 
+              viewBox="0 0 780 340" 
+              fill="none" 
+              style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}
+              className="desktop-only-track"
+            >
+              {/* Rounded Rectangle Loop Line Passing Through Cards */}
+              <path 
+                d="M 270 38 L 460 38 Q 740 38 740 70 L 740 270 Q 740 302 460 302 L 270 302 Q 130 302 130 270 L 130 70 Q 130 38 270 38 Z" 
+                stroke="#F59E0B" 
+                strokeWidth="4.5" 
+                fill="none" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+              />
+            </svg>
 
             {/* 1. Middle Left: Step 1 (Entry Card from Arrow) */}
             <div css={styles.floatingCardWrapper("top: 50%; left: 0px; transform: translateY(-50%);")}>
               <div css={styles.trackCardBox}>
                 <h4>{activeData[0].title}</h4>
               </div>
-              <div css={styles.trackSubtext}>{activeData[0].sub}</div>
             </div>
 
             {/* 2. Top Left: Step 2 */}
-            <div css={styles.floatingCardWrapper("top: 20px; left: 100px;")}>
+            <div css={styles.floatingCardWrapper("top: 10px; left: 140px;")}>
               <div css={styles.trackCardBox}>
                 <h4>{activeData[1].title}</h4>
               </div>
@@ -605,7 +636,7 @@ export default function HowItWorks() {
             </div>
 
             {/* 3. Top Right: Step 3 */}
-            <div css={styles.floatingCardWrapper("top: 20px; right: 40px;")}>
+            <div css={styles.floatingCardWrapper("top: 10px; right: 40px;")}>
               <div css={styles.trackCardBox}>
                 <h4>{activeData[2].title}</h4>
               </div>
@@ -621,7 +652,7 @@ export default function HowItWorks() {
             </div>
 
             {/* 5. Bottom Right: Step 5 */}
-            <div css={styles.floatingCardWrapper("bottom: 20px; right: 40px;")}>
+            <div css={styles.floatingCardWrapper("bottom: 10px; right: 40px;")}>
               <div css={styles.trackCardBox}>
                 <h4>{activeData[4].title}</h4>
               </div>
@@ -629,12 +660,70 @@ export default function HowItWorks() {
             </div>
 
             {/* 6. Bottom Left: Step 6 */}
-            <div css={styles.floatingCardWrapper("bottom: 20px; left: 100px;")}>
+            <div css={styles.floatingCardWrapper("bottom: 10px; left: 140px;")}>
               <div css={styles.trackCardBox}>
                 <h4>{activeData[5].title}</h4>
               </div>
               <div css={styles.trackSubtext}>{activeData[5].sub}</div>
             </div>
+          </div>
+
+          {/* Mobile Vertical Stack (Matching Screenshots 3 & 5 Exactly) */}
+          <div css={styles.mobileVerticalStack}>
+            {activeTab === 'jobseekers' ? (
+              <>
+                <div css={styles.mobileCardItem}>
+                  <h4>Upskilling based on demand and assessed skill gap</h4>
+                  <p>Live classes | Curated Programs</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Profile improves with continuous upskilling</h4>
+                  <p>Holistic | Certified</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Technical &amp; behavirol Assessment</h4>
+                  <p>Holistic | Certified</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Companies get right Talent at the right cost</h4>
+                  <p>Best fit Match | Global Talent</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Suggest &amp; shortlist based on best-fit match</h4>
+                  <p>AI Powered | Maximize Reach</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Mentorship &amp; guidance for best fitment</h4>
+                  <p>Live Classes | 1-on-1</p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div css={styles.mobileCardItem}>
+                  <h4>Platform identifies Best-fit and near fit profiles</h4>
+                  <p>Best fit match | Global Talent</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Shortlist Talent and initiate the hiring process</h4>
+                  <p>Pool | Pre Assessed</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Post your job requirements</h4>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Work with UDEN to design curated programs</h4>
+                  <p>Customized | Visibility</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Upskilled resources ready for hiring</h4>
+                  <p>Holistic | Certified</p>
+                </div>
+                <div css={styles.mobileCardItem}>
+                  <h4>Profiles are shortlisted and upskilled</h4>
+                  <p>Live Classes | 1-on-1</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
