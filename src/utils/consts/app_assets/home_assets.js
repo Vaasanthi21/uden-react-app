@@ -19,6 +19,7 @@ import CERTIFICATE from 'assets/images/certificate.png'
 import AWS from 'assets/images/aws.png'
 import TESTIMONIAL_PALAK_JAIN from 'assets/testimonial/palak_jain.png'
 import TESTIMONIAL_PANKAJ_SHARMA from 'assets/testimonial/pankaj_sharma.png'
+import TESTIMONIAL_ANANYA_VERMA from 'assets/testimonial/poonam_devi.png'
 
 
 const HomeAssets = {
@@ -58,6 +59,7 @@ const HomeAssets = {
     TESTIMONIAL:{
         PALAK_JAIN:TESTIMONIAL_PALAK_JAIN,
         PANKAJ_SHARMA:TESTIMONIAL_PANKAJ_SHARMA,
+        ANANYA_VERMA:TESTIMONIAL_ANANYA_VERMA,
     }
 }
 
