@@ -145,6 +145,7 @@ const GovernmentPartnerFormPage = () => {
   const [formData, setFormData] = useState({
     deptName: '',
     officialEmail: '',
+    contactNumber: '',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -154,7 +155,8 @@ const GovernmentPartnerFormPage = () => {
       if (window._hsq) {
         window._hsq.push(["identify", {
           email: formData.officialEmail,
-          company: formData.deptName
+          company: formData.deptName,
+          phone: formData.contactNumber
         }]);
         window._hsq.push(["trackEvent", { id: "Government Employability Partnership Submission" }]);
       }
@@ -169,7 +171,7 @@ const GovernmentPartnerFormPage = () => {
       <div css={styles.container}>
         <div css={styles.header}>
           <div css={styles.badgeTag}>
-            <Landmark size={15} /> GOVERNMENT &amp; STATE SKILL MISSIONS
+            <Landmark size={15} aria-hidden="true" /> GOVERNMENT &amp; STATE SKILL MISSIONS
           </div>
           <h1 css={styles.title}>
             Government <span>Employability Partnership</span>
@@ -182,7 +184,7 @@ const GovernmentPartnerFormPage = () => {
         <div css={styles.formCard}>
           {submitted ? (
             <div css={styles.successBox}>
-              <CheckCircle2 size={56} color="#9A3412" style={{ margin: '0 auto' }} />
+              <CheckCircle2 size={56} color="#9A3412" style={{ margin: '0 auto' }} aria-hidden="true" />
               <h3>Mission Proposal Received!</h3>
               <p>Our Government Partnerships Nodal Officer will contact <strong>{formData.officialEmail}</strong> within 24 hours.</p>
               <Link to={AppRoutes.HOME} style={{ textDecoration: 'none' }}>
@@ -192,13 +194,17 @@ const GovernmentPartnerFormPage = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label="Government Employability Partnership Form">
               <div css={styles.grid}>
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Department / State Skill Mission Name *</label>
+                  <label htmlFor="deptName" css={styles.label}>Department / State Skill Mission Name *</label>
                   <input
+                    id="deptName"
+                    name="deptName"
                     type="text"
                     required
+                    aria-required="true"
+                    aria-label="Department or State Skill Mission Name"
                     placeholder="e.g. APSSDC / KSDC / NSDC Partner Mission"
                     css={styles.input}
                     value={formData.deptName}
@@ -207,20 +213,40 @@ const GovernmentPartnerFormPage = () => {
                 </div>
 
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Official Government Email ID *</label>
+                  <label htmlFor="officialEmail" css={styles.label}>Official Government Email ID *</label>
                   <input
+                    id="officialEmail"
+                    name="officialEmail"
                     type="email"
                     required
+                    aria-required="true"
+                    aria-label="Official Government Email Address"
                     placeholder="officer@gov.in"
                     css={styles.input}
                     value={formData.officialEmail}
                     onChange={(e) => setFormData({ ...formData, officialEmail: e.target.value })}
                   />
                 </div>
+
+                <div css={styles.fullWidth}>
+                  <label htmlFor="contactNumber" css={styles.label}>Contact / Mobile Number *</label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="tel"
+                    required
+                    aria-required="true"
+                    aria-label="Contact or Mobile Number"
+                    placeholder="+91 98765 43210"
+                    css={styles.input}
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                  />
+                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
-                Submit State Mission Request <ArrowRight size={18} />
+                Submit State Mission Request <ArrowRight size={18} aria-hidden="true" />
               </button>
             </form>
           )}

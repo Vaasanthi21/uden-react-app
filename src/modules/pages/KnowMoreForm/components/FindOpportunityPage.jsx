@@ -534,56 +534,62 @@ export default function FindOpportunityPage() {
               <form onSubmit={handleSubmit} noValidate>
                 <div css={styles.formGrid}>
                   <div css={styles.formFieldHalf(Boolean(errors.fullName))}>
-                    <label>Full Name *</label>
+                    <label htmlFor="opp-fullName">Full Name *</label>
                     <input
+                      id="opp-fullName"
                       type="text"
                       name="fullName"
                       placeholder="e.g. Alex Sharma"
                       value={formData.fullName}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.fullName && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.fullName}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.fullName}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(Boolean(errors.workEmail))}>
-                    <label>Email Address *</label>
+                    <label htmlFor="opp-workEmail">Email Address *</label>
                     <input
+                      id="opp-workEmail"
                       type="email"
                       name="workEmail"
                       placeholder="name@domain.com"
                       value={formData.workEmail}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.workEmail && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.workEmail}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.workEmail}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(Boolean(errors.phone))}>
-                    <label>Contact Number *</label>
+                    <label htmlFor="opp-phone">Contact / Mobile Number *</label>
                     <input
+                      id="opp-phone"
                       type="tel"
                       name="phone"
                       placeholder="+91 9876543210"
                       value={formData.phone}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.phone && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.phone}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.phone}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(false)}>
-                    <label>Country *</label>
-                    <select name="country" value={formData.country} onChange={handleChange}>
+                    <label htmlFor="opp-country">Country *</label>
+                    <select id="opp-country" name="country" value={formData.country} onChange={handleChange}>
                       <option value="India">India</option>
                       <option value="United States">United States</option>
                       <option value="United Kingdom">United Kingdom</option>
@@ -594,40 +600,45 @@ export default function FindOpportunityPage() {
                   </div>
 
                   <div css={styles.formFieldHalf(Boolean(errors.state))}>
-                    <label>State *</label>
+                    <label htmlFor="opp-state">State *</label>
                     <input
+                      id="opp-state"
                       type="text"
                       name="state"
                       placeholder="e.g. Karnataka"
                       value={formData.state}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.state && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.state}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.state}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(Boolean(errors.city))}>
-                    <label>City *</label>
+                    <label htmlFor="opp-city">City *</label>
                     <input
+                      id="opp-city"
                       type="text"
                       name="city"
                       placeholder="e.g. Bengaluru"
                       value={formData.city}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.city && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.city}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.city}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(false)}>
-                    <label>Zip Code</label>
+                    <label htmlFor="opp-zipCode">Zip Code</label>
                     <input
+                      id="opp-zipCode"
                       type="text"
                       name="zipCode"
                       placeholder="e.g. 560001"
@@ -637,24 +648,26 @@ export default function FindOpportunityPage() {
                   </div>
 
                   <div css={styles.formFieldHalf(Boolean(errors.primarySkill))}>
-                    <label>Primary Skill *</label>
+                    <label htmlFor="opp-primarySkill">Primary Skill *</label>
                     <input
+                      id="opp-primarySkill"
                       type="text"
                       name="primarySkill"
                       placeholder="e.g. React / Java / Python"
                       value={formData.primarySkill}
                       onChange={handleChange}
+                      aria-required="true"
                     />
                     {errors.primarySkill && (
                       <div css={styles.errorText}>
-                        <AlertCircle size={12} /> {errors.primarySkill}
+                        <AlertCircle size={12} aria-hidden="true" /> {errors.primarySkill}
                       </div>
                     )}
                   </div>
 
                   <div css={styles.formFieldHalf(false)}>
-                    <label>Experience (Years)</label>
-                    <select name="experience" value={formData.experience} onChange={handleChange}>
+                    <label htmlFor="opp-experience">Experience (Years)</label>
+                    <select id="opp-experience" name="experience" value={formData.experience} onChange={handleChange}>
                       <option value="Fresher (0 Years)">Fresher (0 Years)</option>
                       <option value="1 - 2 Years">1 - 2 Years</option>
                       <option value="3 - 5 Years">3 - 5 Years</option>
@@ -663,8 +676,8 @@ export default function FindOpportunityPage() {
                   </div>
 
                   <div css={styles.formFieldHalf(false)}>
-                    <label>How learned about UDEN?</label>
-                    <select name="referralSource" value={formData.referralSource} onChange={handleChange}>
+                    <label htmlFor="opp-referralSource">How learned about UDEN?</label>
+                    <select id="opp-referralSource" name="referralSource" value={formData.referralSource} onChange={handleChange}>
                       <option value="Social Media">Social Media</option>
                       <option value="College / Campus">College / Campus</option>
                       <option value="Friend / Referral">Friend / Referral</option>

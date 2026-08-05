@@ -145,6 +145,7 @@ const HRServicesJoinPage = () => {
   const [formData, setFormData] = useState({
     companyName: '',
     businessEmail: '',
+    contactNumber: '',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -154,7 +155,8 @@ const HRServicesJoinPage = () => {
       if (window._hsq) {
         window._hsq.push(["identify", {
           email: formData.businessEmail,
-          company: formData.companyName
+          company: formData.companyName,
+          phone: formData.contactNumber
         }]);
         window._hsq.push(["trackEvent", { id: "HR Services Join Request Submission" }]);
       }
@@ -169,7 +171,7 @@ const HRServicesJoinPage = () => {
       <div css={styles.container}>
         <div css={styles.header}>
           <div css={styles.badgeTag}>
-            <Users size={15} /> ENTERPRISE HR &amp; WORKFORCE SOLUTIONS
+            <Users size={15} aria-hidden="true" /> ENTERPRISE HR &amp; WORKFORCE SOLUTIONS
           </div>
           <h1 css={styles.title}>
             Enterprise <span>HR Solutions Inquiry</span>
@@ -182,7 +184,7 @@ const HRServicesJoinPage = () => {
         <div css={styles.formCard}>
           {submitted ? (
             <div css={styles.successBox}>
-              <CheckCircle2 size={56} color="#334155" style={{ margin: '0 auto' }} />
+              <CheckCircle2 size={56} color="#334155" style={{ margin: '0 auto' }} aria-hidden="true" />
               <h3>HR Solutions Inquiry Received!</h3>
               <p>Our Senior HR Advisory lead will reach out to <strong>{formData.businessEmail}</strong> within 24 hours.</p>
               <Link to={AppRoutes.HOME} style={{ textDecoration: 'none' }}>
@@ -192,13 +194,17 @@ const HRServicesJoinPage = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label="Enterprise HR Solutions Form">
               <div css={styles.grid}>
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Company / Institution Name *</label>
+                  <label htmlFor="companyName" css={styles.label}>Company / Institution Name *</label>
                   <input
+                    id="companyName"
+                    name="companyName"
                     type="text"
                     required
+                    aria-required="true"
+                    aria-label="Company or Institution Name"
                     placeholder="e.g. Infosys / Tech Mahindra"
                     css={styles.input}
                     value={formData.companyName}
@@ -207,20 +213,40 @@ const HRServicesJoinPage = () => {
                 </div>
 
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Official Business Email ID *</label>
+                  <label htmlFor="businessEmail" css={styles.label}>Official Business Email ID *</label>
                   <input
+                    id="businessEmail"
+                    name="businessEmail"
                     type="email"
                     required
+                    aria-required="true"
+                    aria-label="Official Business Email Address"
                     placeholder="hr@company.com"
                     css={styles.input}
                     value={formData.businessEmail}
                     onChange={(e) => setFormData({ ...formData, businessEmail: e.target.value })}
                   />
                 </div>
+
+                <div css={styles.fullWidth}>
+                  <label htmlFor="contactNumber" css={styles.label}>Contact / Mobile Number *</label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="tel"
+                    required
+                    aria-required="true"
+                    aria-label="Contact or Mobile Number"
+                    placeholder="+91 98765 43210"
+                    css={styles.input}
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                  />
+                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
-                Request HR Consultation <ArrowRight size={18} />
+                Request HR Consultation <ArrowRight size={18} aria-hidden="true" />
               </button>
             </form>
           )}

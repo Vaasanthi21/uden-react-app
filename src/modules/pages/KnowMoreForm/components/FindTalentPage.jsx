@@ -179,6 +179,7 @@ const FindTalentPage = () => {
   const [formData, setFormData] = useState({
     companyName: '',
     workEmail: '',
+    contactNumber: '',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -188,7 +189,8 @@ const FindTalentPage = () => {
       if (window._hsq) {
         window._hsq.push(["identify", {
           email: formData.workEmail,
-          company: formData.companyName
+          company: formData.companyName,
+          phone: formData.contactNumber
         }]);
         window._hsq.push(["trackEvent", { id: "Corporate Find Talent Request Submission" }]);
       }
@@ -203,7 +205,7 @@ const FindTalentPage = () => {
       <div css={styles.container}>
         <div css={styles.header}>
           <div css={styles.badgeTag}>
-            <Building2 size={15} /> FOR RECRUITERS &amp; ENTERPRISES
+            <Building2 size={15} aria-hidden="true" /> FOR RECRUITERS &amp; ENTERPRISES
           </div>
           <h1 css={styles.title}>
             Hire <span>Pre-Vetted AI Talent</span>
@@ -216,7 +218,7 @@ const FindTalentPage = () => {
         <div css={styles.formCard}>
           {submitted ? (
             <div css={styles.successBox}>
-              <CheckCircle2 size={56} color="#166534" style={{ margin: '0 auto' }} />
+              <CheckCircle2 size={56} color="#166534" style={{ margin: '0 auto' }} aria-hidden="true" />
               <h3>Talent Request Submitted!</h3>
               <p>Our Corporate Talent Specialist will send curated candidate matches to <strong>{formData.workEmail}</strong> within 2 hours.</p>
               <Link to={AppRoutes.HOME} style={{ textDecoration: 'none' }}>
@@ -226,13 +228,17 @@ const FindTalentPage = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label="Find Pre-Vetted Talent Form">
               <div css={styles.grid}>
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Company / Institution Name *</label>
+                  <label htmlFor="companyName" css={styles.label}>Company / Institution Name *</label>
                   <input
+                    id="companyName"
+                    name="companyName"
                     type="text"
                     required
+                    aria-required="true"
+                    aria-label="Company or Institution Name"
                     placeholder="e.g. Google Inc. / Deloitte / SRM University"
                     css={styles.input}
                     value={formData.companyName}
@@ -241,20 +247,40 @@ const FindTalentPage = () => {
                 </div>
 
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Official Work Email ID *</label>
+                  <label htmlFor="workEmail" css={styles.label}>Official Work Email ID *</label>
                   <input
+                    id="workEmail"
+                    name="workEmail"
                     type="email"
                     required
+                    aria-required="true"
+                    aria-label="Official Work Email Address"
                     placeholder="name@company.com"
                     css={styles.input}
                     value={formData.workEmail}
                     onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                   />
                 </div>
+
+                <div css={styles.fullWidth}>
+                  <label htmlFor="contactNumber" css={styles.label}>Contact / Mobile Number *</label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="tel"
+                    required
+                    aria-required="true"
+                    aria-label="Contact or Mobile Number"
+                    placeholder="+91 98765 43210"
+                    css={styles.input}
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                  />
+                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
-                Request Pre-Vetted Candidates <ArrowRight size={18} />
+                Request Pre-Vetted Candidates <ArrowRight size={18} aria-hidden="true" />
               </button>
             </form>
           )}

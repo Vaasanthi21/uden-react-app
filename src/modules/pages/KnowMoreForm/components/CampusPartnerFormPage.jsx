@@ -145,6 +145,7 @@ const CampusPartnerFormPage = () => {
   const [formData, setFormData] = useState({
     collegeName: '',
     tpoEmail: '',
+    contactNumber: '',
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -154,7 +155,8 @@ const CampusPartnerFormPage = () => {
       if (window._hsq) {
         window._hsq.push(["identify", {
           email: formData.tpoEmail,
-          company: formData.collegeName
+          company: formData.collegeName,
+          phone: formData.contactNumber
         }]);
         window._hsq.push(["trackEvent", { id: "Campus Placement Partner Submission" }]);
       }
@@ -169,7 +171,7 @@ const CampusPartnerFormPage = () => {
       <div css={styles.container}>
         <div css={styles.header}>
           <div css={styles.badgeTag}>
-            <GraduationCap size={15} /> FOR COLLEGES &amp; TPO OFFICERS
+            <GraduationCap size={15} aria-hidden="true" /> FOR COLLEGES &amp; TPO OFFICERS
           </div>
           <h1 css={styles.title}>
             Host <span>Campus Placement Drive</span>
@@ -182,7 +184,7 @@ const CampusPartnerFormPage = () => {
         <div css={styles.formCard}>
           {submitted ? (
             <div css={styles.successBox}>
-              <CheckCircle2 size={56} color="#92400E" style={{ margin: '0 auto' }} />
+              <CheckCircle2 size={56} color="#92400E" style={{ margin: '0 auto' }} aria-hidden="true" />
               <h3>Placement Drive Request Received!</h3>
               <p>Our Campus Institutional Lead will schedule a placement drive call with <strong>{formData.tpoEmail}</strong> within 24 hours.</p>
               <Link to={AppRoutes.HOME} style={{ textDecoration: 'none' }}>
@@ -192,13 +194,17 @@ const CampusPartnerFormPage = () => {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label="Campus Placement Drive Form">
               <div css={styles.grid}>
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>College / Institution Name *</label>
+                  <label htmlFor="collegeName" css={styles.label}>College / Institution Name *</label>
                   <input
+                    id="collegeName"
+                    name="collegeName"
                     type="text"
                     required
+                    aria-required="true"
+                    aria-label="College or Institution Name"
                     placeholder="e.g. IIT Kanpur / SRM University / Anna University"
                     css={styles.input}
                     value={formData.collegeName}
@@ -207,20 +213,40 @@ const CampusPartnerFormPage = () => {
                 </div>
 
                 <div css={styles.fullWidth}>
-                  <label css={styles.label}>Official TPO Email ID *</label>
+                  <label htmlFor="tpoEmail" css={styles.label}>Official TPO Email ID *</label>
                   <input
+                    id="tpoEmail"
+                    name="tpoEmail"
                     type="email"
                     required
+                    aria-required="true"
+                    aria-label="Official TPO Email Address"
                     placeholder="tpo@college.edu.in"
                     css={styles.input}
                     value={formData.tpoEmail}
                     onChange={(e) => setFormData({ ...formData, tpoEmail: e.target.value })}
                   />
                 </div>
+
+                <div css={styles.fullWidth}>
+                  <label htmlFor="contactNumber" css={styles.label}>Contact / Mobile Number *</label>
+                  <input
+                    id="contactNumber"
+                    name="contactNumber"
+                    type="tel"
+                    required
+                    aria-required="true"
+                    aria-label="Contact or Mobile Number"
+                    placeholder="+91 98765 43210"
+                    css={styles.input}
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({ ...formData, contactNumber: e.target.value })}
+                  />
+                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
-                Schedule Campus Partnership Call <ArrowRight size={18} />
+                Schedule Campus Partnership Call <ArrowRight size={18} aria-hidden="true" />
               </button>
             </form>
           )}
