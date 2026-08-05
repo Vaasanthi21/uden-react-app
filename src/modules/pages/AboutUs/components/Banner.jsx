@@ -6,11 +6,11 @@ import { Sparkles, Globe, ShieldCheck, Target, CheckCircle2 } from 'lucide-react
 
 const styles = {
   heroOuter: css`
-    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-    padding: 70px 16px 50px 16px;
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFF3E0 100%);
+    padding: 50px 16px 40px 16px;
+    color: #1E293B;
     text-align: center;
-    border-bottom: 4px solid #F55825;
+    border-bottom: 3px solid #FFE0B2;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -21,38 +21,38 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(245, 88, 37, 0.15);
+    background: rgba(245, 88, 37, 0.12);
     color: #F55825;
     padding: 6px 18px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 800;
     margin-bottom: 20px;
-    border: 1px solid rgba(245, 88, 37, 0.3);
+    border: 1px solid rgba(245, 88, 37, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   `,
   title: css`
-    font-size: 44px;
+    font-size: 42px;
     font-weight: 900;
-    color: #FFFFFF;
+    color: #1E293B;
     line-height: 1.25;
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
     letter-spacing: -0.8px;
 
     span {
-      color: #F7BC08;
+      color: #F55825;
     }
 
     @media (max-width: 768px) {
-      font-size: 32px;
+      font-size: 30px;
     }
   `,
   subtitle: css`
-    font-size: 17.5px;
-    color: #CBD5E1;
+    font-size: 16.5px;
+    color: #475569;
     line-height: 1.65;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     max-width: 780px;
     margin-left: auto;
     margin-right: auto;
@@ -67,22 +67,23 @@ const styles = {
     }
   `,
   statCard: css`
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #FFFFFF;
+    border: 1.5px solid #FDE68A;
     border-radius: 18px;
     padding: 24px;
     text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(245, 88, 37, 0.08);
 
     h3 {
       font-size: 34px;
       font-weight: 900;
-      color: #F7BC08;
+      color: #F55825;
       margin: 0 0 4px 0;
     }
 
     p {
       font-size: 13px;
-      color: #94A3B8;
+      color: #64748B;
       margin: 0;
       font-weight: 700;
     }
