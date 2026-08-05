@@ -42,18 +42,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/* Hide external pink HubSpot & SmatBot floating launcher icons completely */
-#hubspot-messages-iframe-container,
-#hubspot-conversations-iframe,
-.hs-messages-widget-open,
+/* Hide external floating chat launchers safely without breaking page execution */
 #smatbot_icon,
 #smatbot-chatbot,
 #smatbot_plugin_container,
-div[id*="hubspot"],
-iframe[id*="hubspot"],
-iframe[src*="hubspot"],
-iframe[src*="hs-scripts"],
-iframe[src*="smatbot"],
 .smatbot-chat-icon,
 .smatbot-widget-button {
   display: none !important;
