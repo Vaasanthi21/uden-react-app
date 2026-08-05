@@ -810,10 +810,6 @@ export default function HeroArchitectured() {
               <span style={{ color: '#2563EB', fontWeight: 900 }}>NSRCEL</span> IIMB, Bangalore
             </div>
 
-            <div css={styles.logoPill}>
-              <span style={{ color: '#059669', fontWeight: 900 }}>CERT-IN</span> EMPANELLED
-            </div>
-
             <div css={styles.wreathPill}>
               <WreathIcon size={16} />
               Building Bharat's AI-First Career Ecosystem
