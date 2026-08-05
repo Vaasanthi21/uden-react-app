@@ -145,13 +145,22 @@ const HRServicesJoinPage = () => {
   const [formData, setFormData] = useState({
     companyName: '',
     businessEmail: '',
-    phone: '',
-    hrServiceRequired: 'Staff Augmentation / Contract Hiring',
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      if (window._hsq) {
+        window._hsq.push(["identify", {
+          email: formData.businessEmail,
+          company: formData.companyName
+        }]);
+        window._hsq.push(["trackEvent", { id: "HR Services Join Request Submission" }]);
+      }
+    } catch (err) {
+      console.log("HubSpot tracking error:", err);
+    }
     setSubmitted(true);
   };
 
@@ -185,8 +194,8 @@ const HRServicesJoinPage = () => {
           ) : (
             <form onSubmit={handleSubmit}>
               <div css={styles.grid}>
-                <div>
-                  <label css={styles.label}>Company Name *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Company / Institution Name *</label>
                   <input
                     type="text"
                     required
@@ -197,8 +206,8 @@ const HRServicesJoinPage = () => {
                   />
                 </div>
 
-                <div>
-                  <label css={styles.label}>Business Email *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Official Business Email ID *</label>
                   <input
                     type="email"
                     required
@@ -207,32 +216,6 @@ const HRServicesJoinPage = () => {
                     value={formData.businessEmail}
                     onChange={(e) => setFormData({ ...formData, businessEmail: e.target.value })}
                   />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    css={styles.input}
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Primary HR Solution Needed</label>
-                  <select
-                    css={styles.select}
-                    value={formData.hrServiceRequired}
-                    onChange={(e) => setFormData({ ...formData, hrServiceRequired: e.target.value })}
-                  >
-                    <option>Staff Augmentation / Contract Hiring</option>
-                    <option>Executive Leadership Search</option>
-                    <option>Payroll &amp; HR Compliance</option>
-                    <option>Campus &amp; Off-Campus Hiring Drives</option>
-                  </select>
                 </div>
               </div>
 

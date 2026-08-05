@@ -179,16 +179,22 @@ const FindTalentPage = () => {
   const [formData, setFormData] = useState({
     companyName: '',
     workEmail: '',
-    contactName: '',
-    phone: '',
-    hiringRole: '',
-    experienceLevel: 'Entry-Level / Fresher',
-    expectedCandidates: '1 - 5',
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      if (window._hsq) {
+        window._hsq.push(["identify", {
+          email: formData.workEmail,
+          company: formData.companyName
+        }]);
+        window._hsq.push(["trackEvent", { id: "Corporate Find Talent Request Submission" }]);
+      }
+    } catch (err) {
+      console.log("HubSpot tracking error:", err);
+    }
     setSubmitted(true);
   };
 
@@ -222,20 +228,20 @@ const FindTalentPage = () => {
           ) : (
             <form onSubmit={handleSubmit}>
               <div css={styles.grid}>
-                <div>
-                  <label css={styles.label}>Company Name *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Company / Institution Name *</label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Google Inc. / Deloitte"
+                    placeholder="e.g. Google Inc. / Deloitte / SRM University"
                     css={styles.input}
                     value={formData.companyName}
                     onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   />
                 </div>
 
-                <div>
-                  <label css={styles.label}>Official Work Email *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Official Work Email ID *</label>
                   <input
                     type="email"
                     required
@@ -245,72 +251,10 @@ const FindTalentPage = () => {
                     onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                   />
                 </div>
-
-                <div>
-                  <label css={styles.label}>Hiring Contact Person *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Rahul Sharma (Talent Lead)"
-                    css={styles.input}
-                    value={formData.contactName}
-                    onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    css={styles.input}
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
-
-                <div css={styles.fullWidth}>
-                  <label css={styles.label}>Role(s) You Are Hiring For *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Fullstack React Dev, Data Engineer, Product Manager"
-                    css={styles.input}
-                    value={formData.hiringRole}
-                    onChange={(e) => setFormData({ ...formData, hiringRole: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Target Experience Level</label>
-                  <select
-                    css={styles.select}
-                    value={formData.experienceLevel}
-                    onChange={(e) => setFormData({ ...formData, experienceLevel: e.target.value })}
-                  >
-                    <option>Entry-Level / Fresher (0-2 Yrs)</option>
-                    <option>Mid-Senior (2-5 Yrs)</option>
-                    <option>Senior Lead (5+ Yrs)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label css={styles.label}>Number of Open Positions</label>
-                  <select
-                    css={styles.select}
-                    value={formData.expectedCandidates}
-                    onChange={(e) => setFormData({ ...formData, expectedCandidates: e.target.value })}
-                  >
-                    <option>1 - 5 Candidates</option>
-                    <option>5 - 20 Candidates</option>
-                    <option>20+ Mass Hiring</option>
-                  </select>
-                </div>
               </div>
 
               <button type="submit" css={styles.submitBtn}>
-                Request Curated Candidate Profiles <ArrowRight size={18} />
+                Request Pre-Vetted Candidates <ArrowRight size={18} />
               </button>
             </form>
           )}

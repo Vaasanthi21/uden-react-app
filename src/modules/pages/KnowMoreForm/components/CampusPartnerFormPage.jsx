@@ -144,16 +144,23 @@ const styles = {
 const CampusPartnerFormPage = () => {
   const [formData, setFormData] = useState({
     collegeName: '',
-    tpoName: '',
     tpoEmail: '',
-    tpoPhone: '',
-    studentBatchSize: '500 - 1,000 Students',
-    driveTimeline: 'Immediate (Next 30 Days)',
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      if (window._hsq) {
+        window._hsq.push(["identify", {
+          email: formData.tpoEmail,
+          company: formData.collegeName
+        }]);
+        window._hsq.push(["trackEvent", { id: "Campus Placement Partner Submission" }]);
+      }
+    } catch (err) {
+      console.log("HubSpot tracking error:", err);
+    }
     setSubmitted(true);
   };
 
@@ -199,20 +206,8 @@ const CampusPartnerFormPage = () => {
                   />
                 </div>
 
-                <div>
-                  <label css={styles.label}>TPO / Placement Officer Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Prof. R. K. Sharma"
-                    css={styles.input}
-                    value={formData.tpoName}
-                    onChange={(e) => setFormData({ ...formData, tpoName: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Official TPO Email *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Official TPO Email ID *</label>
                   <input
                     type="email"
                     required
@@ -221,44 +216,6 @@ const CampusPartnerFormPage = () => {
                     value={formData.tpoEmail}
                     onChange={(e) => setFormData({ ...formData, tpoEmail: e.target.value })}
                   />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    css={styles.input}
-                    value={formData.tpoPhone}
-                    onChange={(e) => setFormData({ ...formData, tpoPhone: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Eligible Student Batch Size</label>
-                  <select
-                    css={styles.select}
-                    value={formData.studentBatchSize}
-                    onChange={(e) => setFormData({ ...formData, studentBatchSize: e.target.value })}
-                  >
-                    <option>100 - 500 Students</option>
-                    <option>500 - 1,000 Students</option>
-                    <option>1,000+ Students</option>
-                  </select>
-                </div>
-
-                <div css={styles.fullWidth}>
-                  <label css={styles.label}>Target Drive Timeline</label>
-                  <select
-                    css={styles.select}
-                    value={formData.driveTimeline}
-                    onChange={(e) => setFormData({ ...formData, driveTimeline: e.target.value })}
-                  >
-                    <option>Immediate (Next 30 Days)</option>
-                    <option>Upcoming Semester (Within 3 Months)</option>
-                    <option>Annual Campus Hiring Calendar Partnership</option>
-                  </select>
                 </div>
               </div>
 

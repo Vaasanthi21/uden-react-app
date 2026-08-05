@@ -145,14 +145,22 @@ const GovernmentPartnerFormPage = () => {
   const [formData, setFormData] = useState({
     deptName: '',
     officialEmail: '',
-    nodalOfficer: '',
-    phone: '',
-    partnershipScope: 'State Skill Mission Employability Drive',
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      if (window._hsq) {
+        window._hsq.push(["identify", {
+          email: formData.officialEmail,
+          company: formData.deptName
+        }]);
+        window._hsq.push(["trackEvent", { id: "Government Employability Partnership Submission" }]);
+      }
+    } catch (err) {
+      console.log("HubSpot tracking error:", err);
+    }
     setSubmitted(true);
   };
 
@@ -198,8 +206,8 @@ const GovernmentPartnerFormPage = () => {
                   />
                 </div>
 
-                <div>
-                  <label css={styles.label}>Official Government Email *</label>
+                <div css={styles.fullWidth}>
+                  <label css={styles.label}>Official Government Email ID *</label>
                   <input
                     type="email"
                     required
@@ -208,43 +216,6 @@ const GovernmentPartnerFormPage = () => {
                     value={formData.officialEmail}
                     onChange={(e) => setFormData({ ...formData, officialEmail: e.target.value })}
                   />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Nodal Officer Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Shri V. K. Naidu (Director)"
-                    css={styles.input}
-                    value={formData.nodalOfficer}
-                    onChange={(e) => setFormData({ ...formData, nodalOfficer: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    css={styles.input}
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label css={styles.label}>Partnership Scope</label>
-                  <select
-                    css={styles.select}
-                    value={formData.partnershipScope}
-                    onChange={(e) => setFormData({ ...formData, partnershipScope: e.target.value })}
-                  >
-                    <option>State Skill Mission Employability Drive</option>
-                    <option>GeM Portal Tender / Procurement</option>
-                    <option>Polytechnic &amp; ITI Skill Assessment Drive</option>
-                  </select>
                 </div>
               </div>
 
