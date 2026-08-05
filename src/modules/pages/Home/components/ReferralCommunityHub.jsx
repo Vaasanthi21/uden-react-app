@@ -1,6 +1,6 @@
-import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { DollarSign, Users, ArrowRight, CheckCircle2, Gift, Share2, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
