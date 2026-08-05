@@ -284,8 +284,8 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>8</div>
                 <div css={styles.stepText}>
-                  <h5>Referral Cash Earnings &amp; Continuous Growth</h5>
-                  <p>Refer friends, earn cash, and get a share of successful referral hiring fees.</p>
+                  <h5>Referral Cash Earnings (₹20,000 – ₹50,000 Cash Prize)</h5>
+                  <p>Refer friends to UDEN and earn <strong>₹20,000 – ₹50,000 cash prize</strong> per successful referral placement.</p>
                 </div>
               </div>
             </div>

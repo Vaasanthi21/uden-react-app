@@ -278,7 +278,7 @@ const ReferralCommunityHub = () => {
       <div css={styles.topBadgeWrap}>
         <div css={styles.badgeTag} className="uden-float-anim">
           <Gift size={14} color="#F7BC08" />
-          EARN CASH REWARDS WHILE JOB SEARCHING
+          EARN ₹20,000 – ₹50,000 CASH PRIZE FOR REFERRING FRIENDS
         </div>
       </div>
 
@@ -304,17 +304,17 @@ const ReferralCommunityHub = () => {
         {/* Right Column: Title, Description & Benefits (Starts & Ends flush with left image) */}
         <div css={styles.rightCol}>
           <h2 css={styles.title}>
-            Learn, Collaborate &amp; <span>Get Paid</span> by Referring Friends
+            Learn, Collaborate &amp; <span>Get Paid up to ₹50,000</span> by Referring Friends
           </h2>
 
           <p css={styles.subtitle}>
-            Form peer study circles with classmates, share company interview prep resources, and earn cash referral rewards every time your referred friends sign up on UDEN.
+            Form peer study circles with classmates, share company interview prep resources, and earn <strong>₹20,000 – ₹50,000 Cash Prize</strong> for every friend placed via UDEN.
           </p>
 
           <ul css={styles.benefitsList}>
             <li>
               <CheckCircle2 size={18} color="#F55825" />
-              <span>Earn Cash Rewards per successful friend referral</span>
+              <span><strong>₹20,000 – ₹50,000 Cash Prize</strong> per successful candidate referral</span>
             </li>
             <li>
               <CheckCircle2 size={18} color="#F55825" />
@@ -331,7 +331,7 @@ const ReferralCommunityHub = () => {
       {/* 3. BOTTOM CENTERED BUTTON */}
       <div css={styles.bottomBtnWrap}>
         <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-          Refer Friends &amp; Earn Cash Rewards
+          Refer Friends &amp; Earn ₹20,000 – ₹50,000 Cash Prize
           <ArrowRight size={18} />
         </button>
       </div>
@@ -351,7 +351,7 @@ const ReferralCommunityHub = () => {
             <DollarSign size={22} />
           </div>
           <h3 css={styles.colTitle}>Direct Cash Rewards</h3>
-          <p css={styles.colDesc}>Track live referral earnings and receive direct cash deposits while searching for your dream role.</p>
+          <p css={styles.colDesc}>Earn ₹20,000 – ₹50,000 cash prizes credited directly to your bank account upon candidate hiring.</p>
         </div>
 
         <div css={styles.featureColItem}>
