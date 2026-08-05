@@ -118,25 +118,37 @@ const ContactUsForm = (props) => {
                 Send us a message
               </Typography>
 
-              {fields?.map((value, i) => (
-                <TextField
-                  key={i}
-                  {...value}
-                  onChange={handleInputChange}
-                  fullWidth
-                  variant="outlined"
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '12px',
-                      background: '#FFFFFF',
-                      '& fieldset': { borderColor: '#CBD5E1' },
-                      '&:hover fieldset': { borderColor: '#F55825' },
-                      '&.Mui-focused fieldset': { borderColor: '#F55825' }
-                    },
-                    '& .MuiInputLabel-root.Mui-focused': { color: '#F55825' }
-                  }}
-                />
-              ))}
+              {fields?.map((value, i) => {
+                const { label, ...fieldProps } = value;
+                return (
+                  <Box key={i} sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Typography
+                      component="label"
+                      htmlFor={value.id || `contact-field-${i}`}
+                      sx={{ fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '6px' }}
+                    >
+                      {label} *
+                    </Typography>
+                    <TextField
+                      {...fieldProps}
+                      placeholder={`Enter ${label}`}
+                      onChange={handleInputChange}
+                      fullWidth
+                      variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius: '12px',
+                          background: '#FFFFFF',
+                          fontSize: '14px',
+                          '& fieldset': { borderColor: '#CBD5E1' },
+                          '&:hover fieldset': { borderColor: '#F55825' },
+                          '&.Mui-focused fieldset': { borderColor: '#F55825' }
+                        }
+                      }}
+                    />
+                  </Box>
+                );
+              })}
 
               <Button
                 disabled={formResult.isLoading}
