@@ -466,8 +466,8 @@ const JobSeekerDualInfographic = () => {
                 {/* Gift Box Highlight */}
                 <div css={styles.specialCard(false)}>
                   <Gift size={28} style={{ color: '#EA580C', margin: '0 auto' }} />
-                  <h5>FREE FOR ALL STUDENTS</h5>
-                  <p>Access unlimited learning, tools &amp; resources — <strong>100% Free Till You Get Placed</strong>.</p>
+                  <h5>FREE REGISTRATION FOR STUDENTS</h5>
+                  <p>Create your candidate profile &amp; explore AI career tools — <strong>100% Free Sign Up</strong>.</p>
                 </div>
               </div>
 
@@ -489,7 +489,7 @@ const JobSeekerDualInfographic = () => {
               </div>
               <div css={styles.tickerItem}>
                 <CheckCircle2 size={18} color="#10B981" />
-                <span>100% Free Till Placed</span>
+                <span>Free Sign Up</span>
               </div>
             </div>
 

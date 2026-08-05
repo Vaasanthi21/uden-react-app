@@ -22,7 +22,7 @@ const faqItems = [
   {
     id: 'q2',
     question: 'Is UDEN.tech 100% free or subsidised as it has won highest technical grant of Microsoft?',
-    answer: 'Yes! UDEN.tech is 100% free till you get placed for all students and subsidized for institutions through the prestigious highest technical grant awarded by Microsoft for Startups, providing enterprise AI tools, learning roadmaps, and campus placement tracking at zero cost.'
+    answer: 'Yes! UDEN.tech offers free account registration for students and subsidized access for institutions through the prestigious highest technical grant awarded by Microsoft for Startups, providing enterprise AI tools, learning roadmaps, and campus placement tracking.'
   },
   {
     id: 'q3',
