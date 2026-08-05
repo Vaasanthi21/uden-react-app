@@ -218,7 +218,7 @@ const styles = {
     height: 340px;
     margin: 0 auto;
 
-    @media (max-width: 979px) {
+    @media (max-width: 639px) {
       display: none;
     }
   `,
@@ -229,7 +229,7 @@ const styles = {
     flex-direction: column;
     gap: 16px;
 
-    @media (max-width: 979px) {
+    @media (max-width: 639px) {
       display: flex;
     }
   `,
