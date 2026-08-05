@@ -124,7 +124,7 @@ const DesktopHeader = ({ ...props }) => {
 
       <Button
         sx={{ display: { xs: 'none', md: 'flex' } }}
-        onClick={() => navigate(AppRoutes.FIND_TALENT)}
+        onClick={() => { window.location.href = 'https://cps.uden.tech/log_in'; }}
         variant="contained"
         css={styles.signupButtonDesktop}
       >

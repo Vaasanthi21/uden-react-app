@@ -113,7 +113,7 @@ const Drawer = ({ props }) => {
                     </List>
 
                     <Spacer height />
-                    <Button href={AppRoutes.FIND_TALENT} onClick={props.closeDrawer} variant="contained" css={styles.signupButtonMobile} size="large">
+                    <Button href="https://cps.uden.tech/log_in" onClick={props.closeDrawer} variant="contained" css={styles.signupButtonMobile} size="large">
                         {data.ButtonStrings.SIGNUP_SIGNIN}
                     </Button>
 
