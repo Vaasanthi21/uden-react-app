@@ -607,48 +607,6 @@ const JobSeekers = () => {
               <p css={styles.heroSub}>
                 Smart AI job matching, company-specific round prep, previous years' exam papers (PYQs), and direct recruiter interview shortlists for Students &amp; Experienced Jobseekers.
               </p>
-
-              {/* 2 Tabs: Jobs for Students & Experienced Candidates */}
-              <div style={{ display: 'flex', gap: '12px', marginTop: '20px', marginBottom: '24px', background: '#F1F5F9', padding: '6px', borderRadius: '16px', maxWidth: '440px' }}>
-                <button
-                  type="button"
-                  onClick={() => setFilter('student')}
-                  style={{
-                    flex: 1,
-                    padding: '10px 16px',
-                    borderRadius: '12px',
-                    border: 'none',
-                    fontSize: '13.5px',
-                    fontWeight: 800,
-                    cursor: 'pointer',
-                    background: filter === 'student' || filter === 'all' ? '#F55825' : 'transparent',
-                    color: filter === 'student' || filter === 'all' ? '#FFFFFF' : '#64748B',
-                    boxShadow: filter === 'student' || filter === 'all' ? '0 4px 12px rgba(245, 88, 37, 0.25)' : 'none',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  🎓 Jobs for Students
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setFilter('experienced')}
-                  style={{
-                    flex: 1,
-                    padding: '10px 16px',
-                    borderRadius: '12px',
-                    border: 'none',
-                    fontSize: '13.5px',
-                    fontWeight: 800,
-                    cursor: 'pointer',
-                    background: filter === 'experienced' ? '#7C3AED' : 'transparent',
-                    color: filter === 'experienced' ? '#FFFFFF' : '#64748B',
-                    boxShadow: filter === 'experienced' ? '0 4px 12px rgba(124, 58, 237, 0.25)' : 'none',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  💼 Experienced Candidates
-                </button>
-              </div>
             </div>
 
             <div>
