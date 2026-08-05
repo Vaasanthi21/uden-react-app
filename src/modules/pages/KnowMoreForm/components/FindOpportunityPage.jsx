@@ -9,7 +9,8 @@ import { AppRoutes } from 'utils/consts/routes';
 
 let FindOpportunityImage;
 try {
-  FindOpportunityImage = require('assets/images/find-opportunity.png');
+  const reqImg = require('assets/images/find-opportunity.png');
+  FindOpportunityImage = typeof reqImg === 'string' ? reqImg : (reqImg.default || reqImg);
 } catch (e) {
   FindOpportunityImage = process.env.PUBLIC_URL + '/images/find-opportunity.png';
 }

@@ -10,8 +10,10 @@ import { AppRoutes } from 'utils/consts/routes';
 let CandidateImg;
 let EmployerImg;
 try {
-  CandidateImg = require('assets/images/checklist-completed.jpg');
-  EmployerImg = require('assets/images/recruitment-team.jpg');
+  const req1 = require('assets/images/checklist-completed.jpg');
+  const req2 = require('assets/images/recruitment-team.jpg');
+  CandidateImg = typeof req1 === 'string' ? req1 : (req1.default || req1);
+  EmployerImg = typeof req2 === 'string' ? req2 : (req2.default || req2);
 } catch (e) {
   CandidateImg = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
   EmployerImg = process.env.PUBLIC_URL + '/images/recruitment-team.jpg';
