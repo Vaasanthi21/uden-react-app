@@ -649,13 +649,6 @@ const JobSeekers = () => {
                   💼 Experienced Candidates
                 </button>
               </div>
-
-              <div css={styles.btnGroup}>
-                <button css={styles.primaryBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-                  Get in Touch &amp; Fill Form
-                  <ArrowRight size={18} />
-                </button>
-              </div>
             </div>
 
             <div>

@@ -473,6 +473,71 @@ const JobSeekerDualInfographic = () => {
 
             </div>
 
+            {/* DUAL WIDGETS: SKILL GAP ANALYSIS & INTERVIEW PREP ASSISTANT */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', margin: '30px 0 10px 0' }}>
+              {/* Widget 1: Skill Gap Analysis */}
+              <div style={{ background: '#FFFFFF', border: '1.5px solid #FEF5D8', borderRadius: '20px', padding: '24px', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.03)' }}>
+                <h4 style={{ fontSize: '24px', fontWeight: 900, color: '#F55825', margin: '0 0 16px 0' }}>Skill Gap Analysis</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <svg width="280" height="260" viewBox="0 0 400 380">
+                    <polygon points="200,40 330,90 370,210 300,320 200,350 100,320 30,210 70,90" fill="#FEF9C3" stroke="#FDE047" strokeWidth="1" opacity="0.6" />
+                    <polygon points="200,80 290,120 320,200 270,280 200,300 130,280 80,200 110,120" fill="none" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="200" y2="40" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="330" y2="90" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="370" y2="210" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="300" y2="320" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="200" y2="350" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="100" y2="320" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="30" y2="210" stroke="#CBD5E1" strokeWidth="1" />
+                    <line x1="200" y1="200" x2="70" y2="90" stroke="#CBD5E1" strokeWidth="1" />
+                    <polygon points="200,65 315,105 340,210 280,295 200,315 110,295 55,210 85,105" fill="rgba(249, 115, 22, 0.25)" stroke="#F97316" strokeWidth="2.5" />
+                    <polygon points="200,105 270,135 300,210 240,265 200,275 140,265 95,210 125,135" fill="rgba(59, 130, 246, 0.45)" stroke="#3B82F6" strokeWidth="2.5" />
+                    <text x="200" y="25" textAnchor="middle" fill="#334155" fontSize="13" fontWeight="800">Python</text>
+                    <text x="345" y="80" textAnchor="start" fill="#334155" fontSize="13" fontWeight="800">Data Analysis</text>
+                    <text x="380" y="215" textAnchor="start" fill="#334155" fontSize="13" fontWeight="800">React</text>
+                    <text x="315" y="340" textAnchor="start" fill="#334155" fontSize="13" fontWeight="800">Testing</text>
+                    <text x="200" y="370" textAnchor="middle" fill="#334155" fontSize="13" fontWeight="800">SQL</text>
+                    <text x="85" y="340" textAnchor="end" fill="#334155" fontSize="13" fontWeight="800">Cloud Services</text>
+                    <text x="20" y="215" textAnchor="end" fill="#334155" fontSize="13" fontWeight="800">JavaScript</text>
+                    <text x="55" y="80" textAnchor="end" fill="#334155" fontSize="13" fontWeight="800">Machine Learning</text>
+                  </svg>
+                  <div style={{ display: 'flex', gap: '16px', fontSize: '12px', fontWeight: 700, color: '#475569', marginTop: '10px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><span style={{ width: 12, height: 12, background: 'rgba(59,130,246,0.4)', border: '1.5px solid #3B82F6' }} /> Current Skills</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><span style={{ width: 12, height: 12, background: 'rgba(249,115,22,0.2)', border: '1.5px solid #F97316' }} /> Required Skills</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Widget 2: Interview Prep Assistant */}
+              <div style={{ background: '#FFFFFF', border: '1.5px solid #FEF5D8', borderRadius: '20px', padding: '24px', textStyle: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.03)' }}>
+                <h4 style={{ fontSize: '24px', fontWeight: 900, color: '#F55825', margin: '0 0 16px 0', textAlign: 'center' }}>Interview Prep Assistant</h4>
+                <div style={{ background: '#2563EB', color: '#FFFFFF', borderRadius: '10px', padding: '10px 14px', fontSize: '12.5px', fontWeight: 700, marginBottom: '12px' }}>
+                  Q: Tell me about a time when you had to handle a difficult situation at work.
+                </div>
+                <div style={{ background: '#1E293B', borderRadius: '14px', height: '140px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>
+                  <span style={{ position: 'absolute', top: 10, right: 14, fontSize: '11px', fontWeight: 800, color: '#EF4444', display: 'flex', alignItems: 'center', gap: '4px' }}>● REC 03:45</span>
+                  <div style={{ width: 60, height: 60, borderRadius: '50%', background: '#334155', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📹</div>
+                  <button style={{ position: 'absolute', bottom: 10, left: 14, background: '#2563EB', color: '#FFFFFF', border: 'none', borderRadius: '14px', padding: '6px 12px', fontSize: '11px', fontWeight: 800, cursor: 'pointer' }}>End Interview &amp; Get Feedback</button>
+                </div>
+                <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '12px 14px', marginTop: '12px', textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: 800, color: '#1E293B', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
+                    <span style={{ background: '#2563EB', color: '#FFFFFF', borderRadius: '50%', width: 20, height: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 900 }}>AI</span> AI Feedback
+                  </div>
+                  <ul style={{ margin: '0 0 8px 0', paddingLeft: '16px', fontSize: '12px', color: '#475569', lineHeight: '1.5' }}>
+                    <li>• Speaking pace is good</li>
+                    <li>• Maintain more eye contact</li>
+                    <li>• Good explanation of skills</li>
+                  </ul>
+                  <div style={{ fontSize: '11.5px', fontWeight: 700, color: '#334155' }}>
+                    Confidence: 65%
+                    <div style={{ width: '100%', height: 6, background: '#E2E8F0', borderRadius: 3, overflow: 'hidden', marginTop: 3 }}>
+                      <div style={{ width: '65%', height: '100%', background: '#2563EB' }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Bottom Ticker */}
             <div css={styles.tickerBar}>
               <div css={styles.tickerItem}>
