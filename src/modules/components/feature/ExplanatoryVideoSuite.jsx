@@ -20,7 +20,7 @@ try {
 
 const styles = {
   section: css`
-    padding: 80px 20px;
+    padding: 45px 20px;
     background: linear-gradient(135deg, #FFFDF7 0%, #FFF3E0 100%);
     border-top: 1px solid #FFE0B2;
     border-bottom: 1px solid #FFE0B2;

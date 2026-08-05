@@ -44,7 +44,7 @@ const faqItems = [
 const styles = {
   sectionOuter: css`
     background: linear-gradient(135deg, #FFFDF7 0%, #FEF5D8 100%);
-    padding: 80px 20px;
+    padding: 45px 20px;
     width: 100%;
     overflow-x: hidden;
   `,

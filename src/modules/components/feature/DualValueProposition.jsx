@@ -12,7 +12,7 @@ const styles = {
   sectionOuter: css`
     width: 100%;
     background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-    padding: 80px 20px;
+    padding: 45px 20px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   `,
   container: css`
@@ -21,7 +21,7 @@ const styles = {
   `,
   header: css`
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 36px;
   `,
   badgeTag: css`
     display: inline-flex;

@@ -12,7 +12,7 @@ const styles = {
   sectionOuter: css`
     width: 100%;
     background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
-    padding: 80px 20px;
+    padding: 40px 20px;
     position: relative;
     overflow: hidden;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;

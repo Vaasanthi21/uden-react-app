@@ -10,7 +10,7 @@ const styles = {
   outer: css`
     min-height: calc(100vh - 120px);
     background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
-    padding: 60px 20px;
+    padding: 36px 16px;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ const styles = {
   `,
   header: css`
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   `,
   badgeTag: css`
     display: inline-flex;

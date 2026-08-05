@@ -40,7 +40,7 @@ const Home = () => {
       {/* FOLD 2: THE OPPORTUNITY EXPLORER — 100,000+ Aggregated Jobs Engine       */}
       {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
+        <div style={{ padding: '40px 0', background: '#FFFDF7', borderBottom: '1px solid #FEF5D8' }}>
           <MultiJobSearch />
         </div>
       </ScrollReveal>
@@ -87,12 +87,12 @@ const Home = () => {
       {/* FOLD 6: THE ECOSYSTEM & COMMUNITY — Employer Pool & Peer Referral Hub    */}
       {/* ========================================================================= */}
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
+        <div style={{ padding: '40px 0', background: '#FFFDF7', borderTop: '1px solid #FEF5D8' }}>
           <RecruiterVettedHub />
         </div>
       </ScrollReveal>
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+        <div style={{ padding: '40px 0', background: '#FFFFFF' }}>
           <ReferralCommunityHub />
         </div>
       </ScrollReveal>
@@ -101,22 +101,22 @@ const Home = () => {
       {/* FOLD 7: PROOF & VALIDATION — Partners, Calculator, Stories & FAQ        */}
       {/* ========================================================================= */}
       <ScrollReveal threshold={0.15}>
-        <div style={{ padding: '50px 0', background: '#FFFFFF' }}>
+        <div style={{ padding: '30px 0', background: '#FFFFFF' }}>
           <HomeTrustedBrand css={styles.trustedBrand} />
         </div>
       </ScrollReveal>
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#F8FAFC' }}>
+        <div style={{ padding: '40px 0', background: '#F8FAFC' }}>
           <CareerCalculator />
         </div>
       </ScrollReveal>
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FEF5D8' }}>
+        <div style={{ padding: '40px 0', background: '#FEF5D8' }}>
           <HomeTestimonial css={styles.testimonial} />
         </div>
       </ScrollReveal>
       <ScrollReveal threshold={0.1}>
-        <div style={{ padding: '80px 0', background: '#FFFFFF' }}>
+        <div style={{ padding: '40px 0', background: '#FFFFFF' }}>
           <FaqPage />
         </div>
       </ScrollReveal>

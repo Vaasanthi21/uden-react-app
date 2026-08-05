@@ -161,7 +161,7 @@ const ACCENT_STYLES = {
 const styles = {
   section: css`
     position: relative;
-    padding: 80px 0;
+    padding: 45px 0;
     background: #FFFFFF;
     overflow: hidden;
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
