@@ -340,16 +340,6 @@ const JobSeekerBanner = () => {
               </div>
             </div>
           </div>
-
-          <div css={styles.ctaButtonGroup}>
-            <button css={styles.primaryBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-              Build Your Free Profile
-              <ArrowRight size={18} />
-            </button>
-            <button css={styles.secondaryBtn} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-              Explore Open Drives
-            </button>
-          </div>
         </div>
 
         {/* Right Column: Embedded Candidate JOB Team Illustration Banner + AI Match Card */}
@@ -388,11 +378,6 @@ const JobSeekerBanner = () => {
                 Verified Recruiter Match: <span>Deloitte Tech</span> • Interview Shortlist Confirmed (₹9.2L / yr)
               </div>
             </div>
-
-            <button css={styles.evalBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-              Get Free AI Profile Evaluation
-              <ArrowRight size={18} />
-            </button>
           </div>
         </div>
       </div>
