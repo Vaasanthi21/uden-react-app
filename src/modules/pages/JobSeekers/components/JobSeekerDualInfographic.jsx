@@ -320,7 +320,7 @@ const JobSeekerDualInfographic = () => {
               css={styles.tabBtn(activeTab === 'student', '#F55825')}
               onClick={() => setActiveTab('student')}
             >
-              🎓 Students (3rd Year Onwards)
+              🎓 For Students
             </button>
             <button
               type="button"
@@ -342,9 +342,9 @@ const JobSeekerDualInfographic = () => {
               
               {/* Header Banner */}
               <div css={styles.cardHeader(false)}>
-                <div css={styles.headerBadge}>STUDENTS — 3RD YEAR ONWARDS</div>
+                <div css={styles.headerBadge}>FOR STUDENTS</div>
                 <h3 css={styles.headerTitle}>AI CAREER PATH FOR STUDENTS</h3>
-                <p css={styles.headerSub}>From 3rd Year to Dream Career — Planned. Personalized. AI-Powered.</p>
+                <p css={styles.headerSub}>From Student to Dream Career — Planned. Personalized. AI-Powered.</p>
               </div>
 
             {/* Content Grid */}
@@ -363,7 +363,7 @@ const JobSeekerDualInfographic = () => {
                 <div css={styles.stepRow(false)}>
                   <div css={styles.stepNumber(false)}>2</div>
                   <div css={styles.stepContent}>
-                    <h5>AI Learning Path (3rd Year Onwards)</h5>
+                    <h5>AI Learning Path for Students</h5>
                     <p>Personalized roadmap till placement • Domain, Tech &amp; Soft Skills</p>
                   </div>
                 </div>
@@ -426,7 +426,7 @@ const JobSeekerDualInfographic = () => {
                     <Target size={16} />
                     <div>
                       <h6>Plan Early, Stay Ahead</h6>
-                      <p>Start from 3rd year &amp; build ahead of others.</p>
+                      <p>Start early &amp; build ahead of others.</p>
                     </div>
                   </div>
 

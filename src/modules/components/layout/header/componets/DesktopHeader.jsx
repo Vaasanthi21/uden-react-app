@@ -107,7 +107,7 @@ const DesktopHeader = ({ ...props }) => {
                     onClick={() => handleJobSeekersNavigate('/job-seekers?tab=student')}
                     sx={{ borderRadius: '10px', py: 1.2, px: 2, fontWeight: 700, fontSize: '13.5px', color: '#1E293B' }}
                   >
-                    🎓 For Students (3rd Year Onwards)
+                    🎓 For Students
                   </MenuItem>
                   <MenuItem 
                     onClick={() => handleJobSeekersNavigate('/job-seekers?tab=experienced')}
