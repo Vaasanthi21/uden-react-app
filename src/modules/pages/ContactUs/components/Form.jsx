@@ -68,7 +68,7 @@ const ContactUsForm = (props) => {
                     padding: '12px 16px',
                     display: 'flex',
                     alignItems: 'center',
-                    justify-content: 'space-between',
+                    justifyContent: 'space-between',
                     transition: 'all 0.2s ease',
                     '&:hover': {
                       borderColor: '#F55825',
