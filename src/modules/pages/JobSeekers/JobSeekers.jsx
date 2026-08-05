@@ -592,36 +592,7 @@ const JobSeekers = () => {
         <JobSeekerTrustedBrand />
       </div>
 
-      {/* 4. Student & Candidate Placement Accelerator */}
-      <div css={styles.heroStudentOuter} className="uden-fade-in">
-        <div css={styles.container}>
-          <div css={styles.heroGrid}>
-            <div>
-              <div css={styles.badgeTag} className="uden-float-anim">
-                <Sparkles size={14} />
-                STUDENTS / JOBSEEKERS CAREER ACCELERATOR
-              </div>
-              <h1 css={styles.heroTitle}>
-                Your AI Career Companion for <span>Students / Jobseekers</span>
-              </h1>
-              <p css={styles.heroSub}>
-                Smart AI job matching, company-specific round prep, previous years' exam papers (PYQs), and direct recruiter interview shortlists for Students &amp; Experienced Jobseekers.
-              </p>
-            </div>
 
-            <div>
-              {StudentRoadmapImage ? (
-                <img src={StudentRoadmapImage} alt="Students & Jobseekers Career Growth Roadmap" style={{ width: '100%', maxHeight: '320px', objectFit: 'contain' }} />
-              ) : (
-                <div style={{ background: '#FFFFFF', padding: '40px', borderRadius: '24px', border: '2px solid #F55825', textAlign: 'center' }}>
-                  <Award size={48} color="#F55825" />
-                  <h3 style={{ color: '#1E293B', marginTop: '14px' }}>AI Career Readiness Engine</h3>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* 5. Four Core Student & Jobseeker Benefits Grid */}
       <div css={styles.benefitsSection}>
