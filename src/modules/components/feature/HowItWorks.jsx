@@ -556,12 +556,38 @@ export default function HowItWorks() {
 
           {/* Right Column: Golden Loop Diagram */}
           <div css={styles.loopContainer}>
-            {activeData.map((item, idx) => (
-              <div key={idx} css={styles.stepCard}>
-                <h4>{item.title}</h4>
-                <p>{item.sub}</p>
-              </div>
-            ))}
+            {/* Top Left: Step 2 */}
+            <div css={styles.stepCard}>
+              <h4>{activeData[1].title}</h4>
+              <p>{activeData[1].sub}</p>
+            </div>
+            {/* Top Right: Step 3 */}
+            <div css={styles.stepCard}>
+              <h4>{activeData[2].title}</h4>
+              <p>{activeData[2].sub}</p>
+            </div>
+
+            {/* Middle Left: Step 1 (Entry point from arrow) */}
+            <div css={styles.stepCard} style={{ borderLeft: '4px solid #F59E0B' }}>
+              <h4>{activeData[0].title}</h4>
+              <p>{activeData[0].sub}</p>
+            </div>
+            {/* Middle Right: Step 4 */}
+            <div css={styles.stepCard}>
+              <h4>{activeData[3].title}</h4>
+              <p>{activeData[3].sub}</p>
+            </div>
+
+            {/* Bottom Left: Step 6 */}
+            <div css={styles.stepCard}>
+              <h4>{activeData[5].title}</h4>
+              <p>{activeData[5].sub}</p>
+            </div>
+            {/* Bottom Right: Step 5 */}
+            <div css={styles.stepCard}>
+              <h4>{activeData[4].title}</h4>
+              <p>{activeData[4].sub}</p>
+            </div>
           </div>
         </div>
 
