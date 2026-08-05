@@ -42,7 +42,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/* Hide external floating chat launchers safely without breaking page execution */
+/* Hide external floating chat launchers (HubSpot & SmatBot) safely without breaking page execution */
+#hubspot-messages-iframe-container,
+#hubspot-conversations-iframe,
+iframe[data-test-id="chat-widget-iframe"],
+.hs-messages-widget-open,
+.hs-shadow-container,
 #smatbot_icon,
 #smatbot-chatbot,
 #smatbot_plugin_container,
