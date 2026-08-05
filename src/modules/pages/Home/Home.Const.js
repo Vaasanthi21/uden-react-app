@@ -421,7 +421,7 @@ const Testimonial = {
         },
         {
             id: 3,
-            image: AppAssets.HomeAssets.TESTIMONIAL.PALAK_JAIN,
+            image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
             message: 'As a hiring manager, UDEN reduced our time-to-hire from 4 weeks to under 48 hours. The pre-assessed AI video interview recordings saved us dozens of screening rounds.',
             name: 'Ananya Verma',
             company: 'Talent Acquisition Director',
