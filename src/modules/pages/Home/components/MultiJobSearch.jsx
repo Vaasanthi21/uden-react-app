@@ -369,7 +369,7 @@ const MultiJobSearch = () => {
           <div>
             <img 
               src={CareerGrowthImage || ChecklistCompletedImage} 
-              alt="AI Career Companion & Roadmap" 
+              alt="Career Growth & Salary Uplift Analysis" 
               loading="lazy"
               decoding="async"
               width="420"

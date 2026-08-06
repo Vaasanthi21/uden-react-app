@@ -289,7 +289,7 @@ const RecruiterVettedHub = () => {
         {/* Right Floating Preview Card */}
         <div css={styles.previewCard} className="uden-card-hover">
           {CandidateNetworkImage && (
-            <img src={CandidateNetworkImage} alt="Interconnected Candidate Talent Network" loading="lazy" decoding="async" css={styles.networkImg} />
+            <img src={CandidateNetworkImage} alt="Interconnected Candidate Talent Network" loading="lazy" decoding="async" width="480" height="320" css={styles.networkImg} />
           )}
 
           <div css={styles.candidateHeader}>
