@@ -370,6 +370,8 @@ const MultiJobSearch = () => {
             <img 
               src={CareerGrowthImage || ChecklistCompletedImage} 
               alt="AI Career Companion & Roadmap" 
+              loading="lazy"
+              decoding="async"
               css={styles.roadmapImg} 
               className="uden-card-hover" 
             />

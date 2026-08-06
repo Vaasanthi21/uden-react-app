@@ -164,7 +164,7 @@ const HomeTrustedBy = () => {
             </p>
 
             <div css={styles.imagePreviewBox}>
-              <img src={data.certificate} alt="Startup India Certificate" />
+              <img src={data.certificate} alt="Startup India Certificate" loading="lazy" decoding="async" />
             </div>
           </div>
 
@@ -193,7 +193,7 @@ const HomeTrustedBy = () => {
             </p>
 
             <div css={styles.imagePreviewBox} style={{ background: '#FFFFFF' }}>
-              <img src={data.aws} alt="AWS EdStart Partner Logo" style={{ maxHeight: '120px' }} />
+              <img src={data.aws} alt="AWS EdStart Partner Logo" loading="lazy" decoding="async" style={{ maxHeight: '120px' }} />
             </div>
           </div>
 

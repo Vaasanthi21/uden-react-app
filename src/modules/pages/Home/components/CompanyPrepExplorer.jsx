@@ -342,7 +342,7 @@ const CompanyPrepExplorer = () => {
             <div key={idx} css={styles.aiMockCard} className="uden-card-hover">
               <div>
                 {cardImg && (
-                  <img src={cardImg} alt={rnd.title} css={styles.illustrationCardBanner} />
+                  <img src={cardImg} alt={rnd.title} loading="lazy" decoding="async" css={styles.illustrationCardBanner} />
                 )}
                 <div css={styles.roundHeader}>
                   <div css={styles.roundBadge}>{rnd.roundNum}</div>
