@@ -201,6 +201,8 @@ const SliderItem = (props) => {
           <img 
             src={props.image} 
             alt={props?.title || 'UDEN Feature'} 
+            loading="lazy"
+            decoding="async"
             css={styles.imgBox}
           />
         </div>
