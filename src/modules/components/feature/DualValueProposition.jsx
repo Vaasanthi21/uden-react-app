@@ -228,7 +228,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>1</div>
                 <div css={styles.stepText}>
-                  <h5>AI Career &amp; Skill Assessment</h5>
+                  <h4>AI Career &amp; Skill Assessment</h4>
                   <p>Discover your exact technical strengths and skill gaps in under 2 minutes.</p>
                 </div>
               </div>
@@ -236,7 +236,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>2</div>
                 <div css={styles.stepText}>
-                  <h5>Personalized AI Learning Path</h5>
+                  <h4>Personalized AI Learning Path</h4>
                   <p>Curated micro-courses tailored to high-demand corporate job roles.</p>
                 </div>
               </div>
@@ -244,7 +244,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>3</div>
                 <div css={styles.stepText}>
-                  <h5>Skill Building &amp; Real Projects</h5>
+                  <h4>Skill Building &amp; Real Projects</h4>
                   <p>Build industry-grade projects verified by recruiter neural networks.</p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>4</div>
                 <div css={styles.stepText}>
-                  <h5>AI Mock Interviews &amp; Resume Score</h5>
+                  <h4>AI Mock Interviews &amp; Resume Score</h4>
                   <p>Practice live video mock interviews and fix ATS resume bottlenecks.</p>
                 </div>
               </div>
@@ -260,7 +260,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>5</div>
                 <div css={styles.stepText}>
-                  <h5>Certifications &amp; Skill Badging</h5>
+                  <h4>Certifications &amp; Skill Badging</h4>
                   <p>Earn verified credentials recognized by 150+ corporate hiring partners.</p>
                 </div>
               </div>
@@ -268,7 +268,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>6</div>
                 <div css={styles.stepText}>
-                  <h5>AI Fitment &amp; Direct Job Matching</h5>
+                  <h4>AI Fitment &amp; Direct Job Matching</h4>
                   <p>Matched directly to partner openings saving 20+ days of manual searching.</p>
                 </div>
               </div>
@@ -276,7 +276,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>7</div>
                 <div css={styles.stepText}>
-                  <h5>Apply &amp; Get Hired</h5>
+                  <h4>Apply &amp; Get Hired</h4>
                   <p>1-click application submission with instant recruiter notifications.</p>
                 </div>
               </div>
@@ -284,7 +284,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>8</div>
                 <div css={styles.stepText}>
-                  <h5>Referral Cash Earnings (₹20,000 – ₹50,000 Cash Prize)</h5>
+                  <h4>Referral Cash Earnings (₹20,000 – ₹50,000 Cash Prize)</h4>
                   <p>Refer friends to UDEN and earn <strong>₹20,000 – ₹50,000 cash prize</strong> per successful referral placement.</p>
                 </div>
               </div>
@@ -305,7 +305,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>1</div>
                 <div css={styles.stepText}>
-                  <h5>AI Talent Discovery &amp; Sourcing</h5>
+                  <h4>AI Talent Discovery &amp; Sourcing</h4>
                   <p>Search 10,000+ candidate profiles pre-assessed for real-world code readiness.</p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>2</div>
                 <div css={styles.stepText}>
-                  <h5>Automated Fitment Score Analysis</h5>
+                  <h4>Automated Fitment Score Analysis</h4>
                   <p>Save 100+ hours of manual screening with algorithmic candidate rankings.</p>
                 </div>
               </div>
@@ -321,7 +321,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>3</div>
                 <div css={styles.stepText}>
-                  <h5>Hire with Confidence</h5>
+                  <h4>Hire with Confidence</h4>
                   <p>Conduct 1-click interview drives with zero placement commissions.</p>
                 </div>
               </div>
@@ -330,7 +330,7 @@ const DualValueProposition = () => {
               <div css={styles.freeUpskillingHighlight}>
                 <Award size={28} style={{ flexShrink: 0 }} />
                 <div>
-                  <h5>100% FREE Upskilling for Hired Talent</h5>
+                  <h4>100% FREE Upskilling for Hired Talent</h4>
                   <p>We train your hired candidates on your specific tech stack at zero cost to your company.</p>
                 </div>
               </div>
@@ -338,7 +338,7 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>5</div>
                 <div css={styles.stepText}>
-                  <h5>Grow High-Performing Teams</h5>
+                  <h4>Grow High-Performing Teams</h4>
                   <p>Accelerate time-to-productivity with pre-aligned engineering talent.</p>
                 </div>
               </div>
