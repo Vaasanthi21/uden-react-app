@@ -2,5 +2,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://uden.tech/sitemap.xml
+Sitemap: https://uden.tech/sitemap.html
