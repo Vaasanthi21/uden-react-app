@@ -41,6 +41,7 @@ const styles = {
   `,
   roadmapImg: css`
     width: 100%;
+    aspect-ratio: 420 / 260;
     max-height: 320px;
     object-fit: contain;
     border-radius: 24px;
