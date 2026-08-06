@@ -459,7 +459,7 @@ export default function MatchingEngine() {
             <div css={styles.profileRow}>
               <div css={styles.avatarBox}>You</div>
               <div>
-                <h4 css={styles.profileName}>Your Profile</h4>
+                <div css={styles.profileName}>Your Profile</div>
                 <p css={styles.profileSub}>Frontend Engineer · Learning path active</p>
               </div>
             </div>
@@ -527,7 +527,7 @@ export default function MatchingEngine() {
                 <div css={styles.jobInitial(job.gradient)}>{job.initial}</div>
                 <div css={styles.jobMeta}>
                   <div css={styles.jobTitleRow}>
-                    <h4 className="job-title" css={styles.jobTitle}>{job.title}</h4>
+                    <div className="job-title" css={styles.jobTitle}>{job.title}</div>
                     <span css={styles.fitBadge}>{job.fit}% fit</span>
                   </div>
                   <div className="job-sub" css={styles.jobSub}>

@@ -655,7 +655,7 @@ export default function HeroArchitectured() {
                 <div css={styles.mainCanvas}>
                   <div css={styles.welcomeBanner}>
                     <div>
-                      <h3 style={{ fontSize: '18px', fontWeight: 800, margin: 0, color: '#1E293B' }}>Welcome back, Ananya 👋</h3>
+                      <div style={{ fontSize: '18px', fontWeight: 800, margin: 0, color: '#1E293B' }}>Welcome back, Ananya 👋</div>
                       <p>Continue your career transformation journey.</p>
                     </div>
                     <span css={styles.ptsPill}>✨ 12,400 Points</span>
