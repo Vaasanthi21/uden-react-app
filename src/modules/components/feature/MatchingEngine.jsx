@@ -459,7 +459,7 @@ export default function MatchingEngine() {
             <div css={styles.profileRow}>
               <div css={styles.avatarBox}>You</div>
               <div>
-                <h3 css={styles.profileName}>Your Profile</h3>
+                <h4 css={styles.profileName}>Your Profile</h4>
                 <p css={styles.profileSub}>Frontend Engineer · Learning path active</p>
               </div>
             </div>

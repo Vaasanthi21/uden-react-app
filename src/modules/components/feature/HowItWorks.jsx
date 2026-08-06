@@ -603,7 +603,7 @@ export default function HowItWorks() {
             </div>
 
             <div css={styles.phoneFooterText}>
-              <h4>Register on <span>UDEN</span></h4>
+              <h3>Register on <span>UDEN</span></h3>
               <div className="pillsRow">
                 <span>Profile</span> | <span>Interests</span> | <span>Aspirations</span>
               </div>
