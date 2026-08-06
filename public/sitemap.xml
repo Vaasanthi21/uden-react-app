@@ -4,58 +4,55 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
   <url>
-    <loc>https://www.uden.tech/</loc>
+    <loc>https://uden.tech/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/create-account</loc>
+    <loc>https://uden.tech/job-seekers</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/login</loc>
+    <loc>https://uden.tech/for-campus</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/contact-us</loc>
+    <loc>https://uden.tech/find-talent</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/terms-and-conditions</loc>
+    <loc>https://uden.tech/government-partner</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/privacy-policy/how-it-works</loc>
+    <loc>https://uden.tech/hr-service-join</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/set-up</loc>
+    <loc>https://uden.tech/find-opportunity</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/unauthorized-user</loc>
+    <loc>https://uden.tech/contact-us</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/page-not-found</loc>
+    <loc>https://uden.tech/sitemap.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.uden.tech/partner</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/job-seeker</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/company</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/contact</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/about</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/become-partner</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/find-talent-form</loc>
-  </url>
-  <url>
-    <loc>https://www.uden.tech/find-opportunity</loc>
+    <loc>https://cps.uden.tech/log_in</loc>
+    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
   </url>
 </urlset>
