@@ -5,29 +5,30 @@ import './App.css';
 import { AppRoutes } from './utils/consts/routes';
 import Layout from './modules/components/layout/Layout';
 import Home from './modules/pages/Home/Home';
-import Companies from './modules/pages/Companies/Companies';
-import JobSeekers from './modules/pages/JobSeekers/JobSeekers';
-import UpskillingPartners from './modules/pages/UpskillingPartners/UpskillingPartners';
-import AboutUs from './modules/pages/AboutUs/AboutUs';
-import ContactUs from './modules/pages/ContactUs/ContactUs';
-import KnowMoreForm from './modules/pages/KnowMoreForm/KnowMoreForm';
-import AuthSignupPortal from './modules/pages/KnowMoreForm/components/AuthSignupPortal';
-import FindOpportunityPage from './modules/pages/KnowMoreForm/components/FindOpportunityPage';
-import FindTalentPage from './modules/pages/KnowMoreForm/components/FindTalentPage';
-import CampusPartnerFormPage from './modules/pages/KnowMoreForm/components/CampusPartnerFormPage';
-import HRServicesJoinPage from './modules/pages/KnowMoreForm/components/HRServicesJoinPage';
-import GovernmentPartnerFormPage from './modules/pages/KnowMoreForm/components/GovernmentPartnerFormPage';
-import PrivacyPolicy from './modules/pages/PrivacyPolicy/PrivacyPolicy';
-import TermsAndConditions from './modules/pages/TermsAndConditions/TermsAndConditions';
-import HRServices from './modules/pages/HRServices/HRServices';
-import Blogs from './modules/pages/Blogs/Blogs';
-import { Blog } from './modules/pages/Blogs/childrens/Blog/Blog';
-import FlutterApp from './modules/pages/FlutterApp/FlutterApp';
-import Error404 from './modules/pages/404/404';
-import Campus from './modules/pages/CampusPlacement/campus';
-import Benefits from './modules/pages/CampusPlacement/benefits';
-import GovernmentPartnership from './modules/pages/Government/GovernmentPartnership';
-import FaqPage from './modules/pages/Faq/Faq';
+
+// Route Code-Splitting with React.lazy for 90+ Performance
+const Companies = React.lazy(() => import('./modules/pages/Companies/Companies'));
+const JobSeekers = React.lazy(() => import('./modules/pages/JobSeekers/JobSeekers'));
+const UpskillingPartners = React.lazy(() => import('./modules/pages/UpskillingPartners/UpskillingPartners'));
+const AboutUs = React.lazy(() => import('./modules/pages/AboutUs/AboutUs'));
+const ContactUs = React.lazy(() => import('./modules/pages/ContactUs/ContactUs'));
+const KnowMoreForm = React.lazy(() => import('./modules/pages/KnowMoreForm/KnowMoreForm'));
+const AuthSignupPortal = React.lazy(() => import('./modules/pages/KnowMoreForm/components/AuthSignupPortal'));
+const FindOpportunityPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/FindOpportunityPage'));
+const FindTalentPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/FindTalentPage'));
+const CampusPartnerFormPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/CampusPartnerFormPage'));
+const HRServicesJoinPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/HRServicesJoinPage'));
+const GovernmentPartnerFormPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/GovernmentPartnerFormPage'));
+const PrivacyPolicy = React.lazy(() => import('./modules/pages/PrivacyPolicy/PrivacyPolicy'));
+const TermsAndConditions = React.lazy(() => import('./modules/pages/TermsAndConditions/TermsAndConditions'));
+const HRServices = React.lazy(() => import('./modules/pages/HRServices/HRServices'));
+const Blogs = React.lazy(() => import('./modules/pages/Blogs/Blogs'));
+const Blog = React.lazy(() => import('./modules/pages/Blogs/childrens/Blog/Blog'));
+const FlutterApp = React.lazy(() => import('./modules/pages/FlutterApp/FlutterApp'));
+const Error404 = React.lazy(() => import('./modules/pages/404/404'));
+const Campus = React.lazy(() => import('./modules/pages/CampusPlacement/campus'));
+const GovernmentPartnership = React.lazy(() => import('./modules/pages/Government/GovernmentPartnership'));
+const FaqPage = React.lazy(() => import('./modules/pages/Faq/Faq'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -66,9 +67,10 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Layout/>}>
-            <Route index element={<Home />} />
+        <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#FAFAFA' }} />}>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route index element={<Home />} />
 
             <Route path={AppRoutes.APP+"/*"} element={<FlutterApp />} />
 
@@ -114,6 +116,7 @@ function App() {
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
+        </React.Suspense>
       </div>
     </ErrorBoundary>
   );
