@@ -431,7 +431,7 @@ export default function SuccessTerminal() {
                   <div key={i} css={styles.hireCard}>
                     <div css={styles.avatarInitial(h.color)}>{h.name[0]}</div>
                     <div css={styles.hireInfo}>
-                      <h4 css={styles.hireName}>{h.name}</h4>
+                      <div css={styles.hireName}>{h.name}</div>
                       <p css={styles.hireRole}>{h.role}</p>
                     </div>
                     <span css={styles.matchBadge}>{h.badge}</span>
