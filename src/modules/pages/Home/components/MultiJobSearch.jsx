@@ -374,6 +374,7 @@ const MultiJobSearch = () => {
               decoding="async"
               width="420"
               height="260"
+              style={{ width: '100%', maxWidth: '420px', height: 'auto', aspectRatio: '420 / 260' }}
               css={styles.roadmapImg} 
               className="uden-card-hover" 
             />
