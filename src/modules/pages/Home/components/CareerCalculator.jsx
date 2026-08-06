@@ -9,9 +9,9 @@ import { HomeConst } from '../Home.Const';
 
 let CareerGrowthImg;
 try {
-  CareerGrowthImg = require('assets/images/career-growth.jpg');
+  CareerGrowthImg = require('assets/images/career-growth.webp');
 } catch (e) {
-  CareerGrowthImg = process.env.PUBLIC_URL + '/images/career-growth.jpg';
+  CareerGrowthImg = process.env.PUBLIC_URL + '/images/career-growth.webp';
 }
 
 const styles = {
