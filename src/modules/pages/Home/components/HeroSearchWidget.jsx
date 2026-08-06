@@ -239,8 +239,11 @@ const HeroSearchWidget = () => {
         <form onSubmit={handleSearch} css={styles.searchForm}>
           <div css={styles.inputBox}>
             <Search size={18} color="#4B638C" />
+            <label htmlFor="hero-search-query" style={{ display: 'none' }}>Search Query</label>
             <input 
+              id="hero-search-query"
               type="text" 
+              aria-label="Search Query"
               placeholder={activeTab === 'candidate' ? "Search skills e.g., React, Node.js, Data Science..." : "Search job roles e.g., Frontend Dev, Product Manager..."}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -249,7 +252,8 @@ const HeroSearchWidget = () => {
 
           <div css={styles.inputBox}>
             <Briefcase size={18} color="#4B638C" />
-            <select defaultValue="all">
+            <label htmlFor="hero-exp-select" style={{ display: 'none' }}>Experience Filter</label>
+            <select id="hero-exp-select" aria-label="Experience Filter" defaultValue="all">
               <option value="all">Experience: All Levels</option>
               <option value="fresher">Fresher / 0-1 Years</option>
               <option value="mid">Mid Level (2-4 Years)</option>
@@ -259,7 +263,8 @@ const HeroSearchWidget = () => {
 
           <div css={styles.inputBox}>
             <MapPin size={18} color="#4B638C" />
-            <select defaultValue="remote">
+            <label htmlFor="hero-loc-select" style={{ display: 'none' }}>Location Filter</label>
+            <select id="hero-loc-select" aria-label="Location Filter" defaultValue="remote">
               <option value="remote">Location: Remote / Any</option>
               <option value="india">India (Tier-1 Cities)</option>
               <option value="abroad">Global / Overseas</option>

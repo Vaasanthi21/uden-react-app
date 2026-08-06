@@ -177,10 +177,10 @@ const styles = {
   `,
   stepContent: css`
     flex: 1;
-    h5 {
+    h4 {
       font-size: 14px;
-      font-weight: 800;
-      color: #0F172A;
+      font-weight: 700;
+      color: #1E293B;
       margin: 0 0 2px 0;
     }
     p {

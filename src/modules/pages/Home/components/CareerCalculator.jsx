@@ -218,8 +218,10 @@ const CareerCalculator = () => {
           {/* Column 1: Domain & Role Selectors */}
           <div css={styles.formCol}>
             <div css={styles.fieldGroup}>
-              <label>Select Domain / Field:</label>
+              <label htmlFor="calc-domain-select">Select Domain / Field:</label>
               <select 
+                id="calc-domain-select"
+                aria-label="Select Domain or Field"
                 value={selectedDomain} 
                 onChange={(e) => setSelectedDomain(e.target.value)}
               >
@@ -230,8 +232,8 @@ const CareerCalculator = () => {
             </div>
 
             <div css={styles.fieldGroup}>
-              <label>Target Job Roles:</label>
-              <select>
+              <label htmlFor="calc-target-roles">Target Job Roles:</label>
+              <select id="calc-target-roles" aria-label="Target Job Roles">
                 {currentData.roles.map((role, idx) => (
                   <option key={idx} value={role}>{role}</option>
                 ))}

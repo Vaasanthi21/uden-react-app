@@ -664,21 +664,18 @@ export default function HeroArchitectured() {
                   <div css={styles.widgetsGrid}>
                     
                     {/* Widget 1: AI Interview Simulation */}
+                    {/* Widget 1: Practice Points */}
                     <div css={styles.widgetBox}>
-                      <div css={styles.wTitle}>AI Interview Simulation</div>
-                      <div css={styles.wSub}>10 JD-aligned mock interviews</div>
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <button style={{ background: '#F55825', color: '#FFF', border: 'none', borderRadius: '10px', padding: '4px 10px', fontSize: '10px', fontWeight: 800 }}>Start Practice</button>
-                        <Bot size={20} color="#F55825" />
-                      </div>
+                      <div css={styles.wTitle}>Practice Points</div>
+                      <span style={{ background: '#FFFBEB', color: '#B45309', fontSize: '10px', padding: '3px 8px', borderRadius: '10px', fontWeight: 800 }}>✨ 12,400 Points</span>
                     </div>
 
                     {/* Widget 2: Resume Score */}
                     <div css={styles.widgetBox}>
                       <div css={styles.wTitle}>Resume Score</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ fontSize: '18px', fontWeight: 900, color: '#F55825' }}>85</span>
-                        <span style={{ fontSize: '10px', color: '#16A34A', fontWeight: 700 }}>Great! Strong Resume</span>
+                        <span style={{ fontSize: '18px', fontWeight: 900, color: '#D93805' }}>85</span>
+                        <span style={{ fontSize: '10px', color: '#15803D', fontWeight: 700 }}>Great! Strong Resume</span>
                       </div>
                     </div>
 
@@ -715,7 +712,7 @@ export default function HeroArchitectured() {
                 </div>
                 <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', padding: '6px', borderRadius: '8px' }}>
                   <span style={{ fontSize: '9px', color: '#64748B' }}>Resume Score</span>
-                  <div style={{ fontWeight: 900, color: '#16A34A', fontSize: '14px' }}>85 / 100</div>
+                  <div style={{ fontWeight: 900, color: '#15803D', fontSize: '14px' }}>85 / 100</div>
                 </div>
               </div>
             </div>

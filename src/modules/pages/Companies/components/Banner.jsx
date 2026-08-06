@@ -287,8 +287,8 @@ const CompaniesBanner = () => {
             <form onSubmit={handleRequestSubmit}>
               <div css={styles.formGroup}>
                 <div css={styles.field}>
-                  <label>Primary Tech Role:</label>
-                  <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <label htmlFor="company-banner-role">Primary Tech Role:</label>
+                  <select id="company-banner-role" aria-label="Primary Tech Role" value={role} onChange={(e) => setRole(e.target.value)}>
                     <option value="fullstack">Fullstack / React & Node.js Dev</option>
                     <option value="cloud">Cloud Engineer & DevOps (AWS/Azure)</option>
                     <option value="ai">AI / Data Science & Python Engineer</option>
@@ -298,8 +298,8 @@ const CompaniesBanner = () => {
                 </div>
 
                 <div css={styles.field}>
-                  <label>Required Experience Level:</label>
-                  <select defaultValue="mid">
+                  <label htmlFor="company-banner-exp">Required Experience Level:</label>
+                  <select id="company-banner-exp" aria-label="Required Experience Level" defaultValue="mid">
                     <option value="fresher">Pre-Assessed Fresher (0-1 Yrs)</option>
                     <option value="mid">Mid-Senior (2-5 Yrs)</option>
                     <option value="lead">Lead Architect (5+ Yrs)</option>

@@ -258,8 +258,8 @@ const HRServicesBanner = () => {
             <form onSubmit={handleConsultationSubmit}>
               <div css={styles.formGroup}>
                 <div css={styles.field}>
-                  <label>Primary HR Need:</label>
-                  <select value={serviceType} onChange={(e) => setServiceType(e.target.value)}>
+                  <label htmlFor="hr-banner-service">Primary HR Need:</label>
+                  <select id="hr-banner-service" aria-label="Primary HR Need" value={serviceType} onChange={(e) => setServiceType(e.target.value)}>
                     <option value="outsourcing">Recruitment Process Outsourcing (RPO)</option>
                     <option value="verification">Background & Skill Verification</option>
                     <option value="payroll">Payroll & Statutory Compliance</option>
@@ -268,8 +268,8 @@ const HRServicesBanner = () => {
                 </div>
 
                 <div css={styles.field}>
-                  <label>Team Hiring Volume:</label>
-                  <select defaultValue="10-50">
+                  <label htmlFor="hr-banner-volume">Team Hiring Volume:</label>
+                  <select id="hr-banner-volume" aria-label="Team Hiring Volume" defaultValue="10-50">
                     <option value="1-10">1 - 10 Hires / Month</option>
                     <option value="10-50">10 - 50 Hires / Month</option>
                     <option value="50+">50+ Enterprise Cohorts</option>

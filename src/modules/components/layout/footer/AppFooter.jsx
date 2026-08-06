@@ -43,7 +43,7 @@ const AppFooter = () => {
       <Divider style={{backgroundColor:"white",margin:'0'}} />
       <Box height='30px' />
         <Grid container  direction="row" justifyContent="space-between">
-          <Typography css={styles.copyrightText} color="textSecondary" variant="subtitle1" style={{color:'white'}}>
+          <Typography css={styles.copyrightText} color="textSecondary" component="p" variant="body2" style={{color:'white'}}>
             {data.FOOTER_COPYRIGHT}
           </Typography>
           <Grid item style={{borderBlockColor:'white',borderColor:"white"}}>

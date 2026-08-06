@@ -11,7 +11,9 @@ const Layout = () => {
     <div>
         <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent="space-between" sx={{ overflowY: 'visible' }}>
             <AppHeader/>
-            <Outlet/>
+            <main id="main-content" style={{ width: '100%', flex: '1 0 auto' }}>
+              <Outlet/>
+            </main>
             <AppFooter/>
             <KidiChatbot/>
         </Box>

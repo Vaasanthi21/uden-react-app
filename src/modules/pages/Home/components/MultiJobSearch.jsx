@@ -397,8 +397,11 @@ const MultiJobSearch = () => {
           <form onSubmit={handleSearchSubmit} css={styles.inputGrid}>
             <div css={styles.inputPill}>
               <Search size={18} color="#4B638C" />
+              <label htmlFor="multi-search-title" style={{ display: 'none' }}>Search Job Title or Skills</label>
               <input 
+                id="multi-search-title"
                 type="text" 
+                aria-label="Search Job Title or Skills"
                 placeholder="Search title, skills (e.g. React, Python)"
                 value={roleQuery}
                 onChange={(e) => setRoleQuery(e.target.value)}
@@ -407,8 +410,11 @@ const MultiJobSearch = () => {
 
             <div css={styles.inputPill}>
               <MapPin size={18} color="#4B638C" />
+              <label htmlFor="multi-search-location" style={{ display: 'none' }}>Job Location</label>
               <input 
+                id="multi-search-location"
                 type="text" 
+                aria-label="Job Location"
                 placeholder="Location (e.g. Bengaluru)"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
@@ -417,7 +423,13 @@ const MultiJobSearch = () => {
 
             <div css={styles.inputPill}>
               <Filter size={18} color="#4B638C" />
-              <select value={workModel} onChange={(e) => setWorkModel(e.target.value)}>
+              <label htmlFor="multi-work-model-select" style={{ display: 'none' }}>Work Model Filter</label>
+              <select 
+                id="multi-work-model-select"
+                aria-label="Work Model Filter" 
+                value={workModel} 
+                onChange={(e) => setWorkModel(e.target.value)}
+              >
                 <option value="all">All Work Models</option>
                 <option value="remote">Remote / WFH</option>
                 <option value="hybrid">Hybrid</option>
