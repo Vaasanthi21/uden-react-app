@@ -203,6 +203,8 @@ const SliderItem = (props) => {
             alt={props?.title || 'UDEN Feature'} 
             loading="lazy"
             decoding="async"
+            width="450"
+            height="240"
             css={styles.imgBox}
           />
         </div>

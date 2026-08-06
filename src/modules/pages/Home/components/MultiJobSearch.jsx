@@ -372,6 +372,8 @@ const MultiJobSearch = () => {
               alt="AI Career Companion & Roadmap" 
               loading="lazy"
               decoding="async"
+              width="420"
+              height="260"
               css={styles.roadmapImg} 
               className="uden-card-hover" 
             />
