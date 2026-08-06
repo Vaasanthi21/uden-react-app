@@ -31,6 +31,7 @@ const Drawer = ({ props }) => {
 
     // Dropdown state
     const [campusOpen, setCampusOpen] = useState(false);
+    const [jobSeekersOpen, setJobSeekersOpen] = useState(false);
 
     return (
         <Box component="nav">
@@ -61,64 +62,27 @@ const Drawer = ({ props }) => {
                     <Divider />
                     <List>
                         {data.Tabs.Names.map((name, index) => {
-                            if (name === "Campus Placements") {
-                                return (
-                                    <React.Fragment key={index}>
-                                        <ListItem disablePadding>
-                                            <ListItemButton
-                                                css={styles.tabsMobile({ isCurrent: ((!route) ? false : data.Tabs.Routes[index].includes(route)) })}
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Prevents menu from closing
-                                                    setCampusOpen(!campusOpen);
-                                                }}
-                                                sx={{ textAlign: 'center' }}
-                                            >
-                                                <ListItemIcon>
-                                                    {data.Tabs.Icons[index]}
-                                                </ListItemIcon>
-                                                <ListItemText primary={name} css={styles.tabsMobileText} />
-                                                {campusOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                                            </ListItemButton>
-                                        </ListItem>
-
-                                        <Collapse in={campusOpen} timeout="auto" unmountOnExit>
-                                            <List component="div" disablePadding>
-                                                <ListItem disablePadding>
-                                                    <ListItemButton href="/campus" sx={{ pl: 4 }}>
-                                                        <ListItemText primary="For Campus" />
-                                                    </ListItemButton>
-                                                </ListItem>
-                                                <ListItem disablePadding>
-                                                    <ListItemButton href="/benefits" sx={{ pl: 4 }}>
-                                                        <ListItemText primary="For Students" />
-                                                    </ListItemButton>
-                                                </ListItem>
-                                            </List>
-                                        </Collapse>
-                                    </React.Fragment>
-                                );
-                            } else {
-                                return (
-                                    <ListItem key={index} disablePadding>
-                                        <ListItemButton
-                                            css={styles.tabsMobile({ isCurrent: ((!route) ? false : data.Tabs.Routes[index].includes(route)) })}
-                                            href={data.Tabs.Routes[index]}
-                                            onClick={props.closeDrawer} // Close menu on normal clicks
-                                            sx={{ textAlign: 'center' }}
-                                        >
-                                            <ListItemIcon>
-                                                {data.Tabs.Icons[index]}
-                                            </ListItemIcon>
-                                            <ListItemText primary={name} css={styles.tabsMobileText} />
-                                        </ListItemButton>
-                                    </ListItem>
-                                );
-                            }
+                            const linkRoute = data.Tabs.Routes[index] === AppRoutes.CAMPUS_PLACEMENTS ? AppRoutes.FOR_CAMPUS : data.Tabs.Routes[index];
+                            return (
+                                <ListItem key={index} disablePadding>
+                                    <ListItemButton
+                                        css={styles.tabsMobile({ isCurrent: ((!route) ? false : linkRoute.includes(route)) })}
+                                        href={linkRoute}
+                                        onClick={props.closeDrawer} // Close menu on normal clicks
+                                        sx={{ textAlign: 'center' }}
+                                    >
+                                        <ListItemIcon>
+                                            {data.Tabs.Icons[index]}
+                                        </ListItemIcon>
+                                        <ListItemText primary={name} css={styles.tabsMobileText} />
+                                    </ListItemButton>
+                                </ListItem>
+                            );
                         })}
                     </List>
 
                     <Spacer height />
-                    <Button href="https://cps.uden.tech/" variant="contained" css={styles.signupButtonMobile} size="large">
+                    <Button href="https://cps.uden.tech/log_in" target="_blank" rel="noopener noreferrer" onClick={props.closeDrawer} variant="contained" css={styles.signupButtonMobile} size="large">
                         {data.ButtonStrings.SIGNUP_SIGNIN}
                     </Button>
 

@@ -1,4 +1,4 @@
-import { AppAssets } from "../../../utils/consts/app_assets";
+import { AppAssets } from "utils/consts/app_assets";
 
 
 

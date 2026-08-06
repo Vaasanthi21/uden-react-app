@@ -1,7 +1,7 @@
-import FIND_TALENT from  '../../../assets/images/find-talent.png'
-import FIND_OPPORTUNITY from  '../../../assets/images/find-opportunity.png'
-import BECOME_PARTNER from  '../../../assets/images/become-partner.png'
-import TRANSFORM_YOUR_HR from  '../../../assets/images/hr-services/know-more.png'
+import FIND_TALENT from  'assets/images/find-talent.png'
+import FIND_OPPORTUNITY from  'assets/images/find-opportunity.png'
+import BECOME_PARTNER from  'assets/images/become-partner.png'
+import TRANSFORM_YOUR_HR from  'assets/images/hr-services/know-more.png'
 
 
 

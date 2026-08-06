@@ -1,34 +1,62 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
-// eslint-disable-next-line 
-import React from 'react';
+import { jsx } from '@emotion/react';
 
-
-import Spacer from '../../components/Spacer';
 import CompaniesBanner from './components/Banner';
 import CompaniesFeature from './components/Feature';
 import CompaniesKnowMore from './components/KnowMore';
 import CompaniesTestimonial from './components/Testimonial';
 import CompaniesTrustedBrand from './components/TrustedBrand';
 import CompaniesWorkFlow from './components/WorkFlow';
-import {CompaniesStyles as styles} from './styles/Companies.Styles'; 
-
+import TalentPoolPreview from './components/TalentPoolPreview';
+import CompanyHiringInfographic from './components/CompanyHiringInfographic';
+import FaqPage from '../Faq/Faq';
+import { CompaniesStyles as styles } from './styles/Companies.Styles';
 
 const Companies = () => {
   return (
-    <>
-        <CompaniesBanner/>
-        <CompaniesTrustedBrand/>
-        <Spacer height/>
-        <CompaniesWorkFlow css={styles.workFlow}/>
-        <Spacer height/>
-        <CompaniesFeature css={styles.features}/>
-        <Spacer height/>
-        <CompaniesTestimonial/>
-        <CompaniesKnowMore/>
-    </>
-  )
-}
+    <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
+      {/* 1. Hero Employer Talent Request Banner */}
+      <CompaniesBanner />
 
-export default Companies
+      {/* 2. Smarter Hiring & Free Upskilling Corporate Infographic */}
+      <CompanyHiringInfographic />
+
+      {/* 3. Corporate Hiring Partner Brands */}
+      <div style={{ padding: '36px 0', borderBottom: '1px solid #E2E8F0', background: '#F8FAFC' }}>
+        <CompaniesTrustedBrand />
+      </div>
+
+      {/* 3. 4-Step Interactive Hiring Workflow */}
+      <div style={{ padding: '70px 0' }}>
+        <CompaniesWorkFlow css={styles.workFlow} />
+      </div>
+
+      {/* 4. Enterprise Hiring Guarantees & Features */}
+      <div style={{ padding: '70px 0', background: '#F8FAFC' }}>
+        <CompaniesFeature css={styles.features} />
+      </div>
+
+      {/* 5. Pre-Assessed Candidate Talent Spotlight */}
+      <div style={{ padding: '70px 0' }}>
+        <TalentPoolPreview />
+      </div>
+
+      {/* 6. HR & Recruiter Testimonials */}
+      <div style={{ padding: '70px 0', background: '#FEF5D8' }}>
+        <CompaniesTestimonial />
+      </div>
+
+      {/* 7. Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
+
+      {/* 8. Fast-Track Talent Hiring CTA */}
+      <CompaniesKnowMore />
+    </div>
+  );
+};
+
+export default Companies;

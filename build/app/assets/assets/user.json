@@ -1,0 +1,9 @@
+{
+  "error_type": "string",
+  "error_code": "string",
+  "error_message": "string",
+  "error_traceback": "string",
+  "source": "string",
+  "device_id": "string",
+  "device_model": "string"
+}

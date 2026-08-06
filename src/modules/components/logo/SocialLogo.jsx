@@ -1,6 +1,6 @@
 import { Facebook, Instagram, LinkedIn } from '@mui/icons-material'
 import { Box, IconButton} from '@mui/material'
-import { AppStrigs } from '../../../utils/consts/strings'
+import { AppStrigs } from '../../../utils/consts/strings';
 
 const SocialLogo = props => {
     

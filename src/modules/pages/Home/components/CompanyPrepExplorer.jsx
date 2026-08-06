@@ -1,0 +1,413 @@
+import React, { useState } from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
+import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkles, Play, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { HomeConst } from '../Home.Const';
+import { AppRoutes } from 'utils/consts/routes';
+
+let MentorGuidanceImage, AiRobotTeamImage, FaqSupportDeskImage, StudentRoadmapImage;
+try {
+  const illustrations = require('utils/consts/uploaded_illustrations');
+  MentorGuidanceImage = illustrations.MentorGuidanceImage;
+  AiRobotTeamImage = illustrations.AiRobotTeamImage;
+  FaqSupportDeskImage = illustrations.FaqSupportDeskImage;
+  StudentRoadmapImage = illustrations.StudentRoadmapImage;
+} catch (e) {
+  MentorGuidanceImage = null;
+  AiRobotTeamImage = null;
+  FaqSupportDeskImage = null;
+  StudentRoadmapImage = null;
+}
+
+const styles = {
+  container: css`
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  `,
+  topMentorCard: css`
+    background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%);
+    border: 1.5px solid rgba(75, 99, 140, 0.3);
+    border-radius: 24px;
+    padding: 32px 40px;
+    margin-bottom: 44px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 36px;
+    align-items: center;
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.08);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+  `,
+  mentorImg: css`
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  `,
+  header: css`
+    text-align: center;
+    margin-bottom: 44px;
+
+    h2 {
+      font-size: 34px;
+      font-weight: 900;
+      color: #1E293B;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+
+      span {
+        color: #F55825;
+      }
+    }
+
+    p {
+      color: #64748B;
+      font-size: 16px;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+  `,
+  badgeTag: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(75, 99, 140, 0.1);
+    color: #4B638C;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    border: 1px solid rgba(75, 99, 140, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  `,
+
+  /* COMPANY TABS */
+  tabsRow: css`
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  `,
+  companyTab: (active) => css`
+    padding: 14px 28px;
+    border-radius: 32px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    border: 2px solid ${active ? '#F55825' : '#E2E8F0'};
+    background: ${active ? '#F55825' : '#FFFFFF'};
+    color: ${active ? '#FFFFFF' : '#334155'};
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: ${active ? '0 8px 22px -6px rgba(245, 88, 37, 0.35)' : 'none'};
+
+    &:hover {
+      border-color: #F55825;
+      color: ${active ? '#FFFFFF' : '#F55825'};
+      transform: translateY(-2px);
+    }
+  `,
+
+  /* ROUNDS GRID */
+  roundsGrid: css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+    }
+  `,
+  roundCard: css`
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 12px 32px rgba(75, 99, 140, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #4B638C;
+      box-shadow: 0 20px 44px rgba(75, 99, 140, 0.15);
+    }
+  `,
+  illustrationCardBanner: css`
+    width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    background: #FFFDF0;
+    padding: 6px;
+    border: 1px solid rgba(247, 188, 8, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  `,
+  roundHeader: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  `,
+  roundBadge: css`
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(75, 99, 140, 0.12);
+    color: #4B638C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 900;
+  `,
+  roundTitle: css`
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E293B;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  `,
+  roundDesc: css`
+    font-size: 14.5px;
+    color: #64748B;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  `,
+  resourceList: css`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  `,
+  resourceItem: css`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #334155;
+  `,
+  aiMockCard: css`
+    background: linear-gradient(135deg, #FFFDF0 0%, #FFFDF7 100%);
+    border: 1.5px solid rgba(247, 188, 8, 0.6);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 16px 36px rgba(75, 99, 140, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #F55825;
+      box-shadow: 0 20px 48px rgba(245, 88, 37, 0.2);
+    }
+  `,
+  startBtn: css`
+    width: 100%;
+    background: #F55825;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(245, 88, 37, 0.25);
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: #D94616;
+    }
+  `,
+  accessBtn: css`
+    width: 100%;
+    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1;
+    color: #1E293B;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border-color: #4B638C;
+      color: #4B638C;
+      background: #FFFFFF;
+    }
+  `
+};
+
+const roundCardImages = [
+  FaqSupportDeskImage,
+  StudentRoadmapImage,
+  AiRobotTeamImage
+];
+
+const CompanyPrepExplorer = () => {
+  const [selectedCompanyId, setSelectedCompanyId] = useState('deloitte');
+  const navigate = useNavigate();
+  const prepData = HomeConst.CompanyInterviewPrep;
+
+  const currentCompany = prepData.companies.find(c => c.id === selectedCompanyId) || prepData.companies[0];
+
+  return (
+    <div css={styles.container} className="uden-fade-in">
+      {/* 1-on-1 Mentor Guidance Top Feature Banner */}
+      {MentorGuidanceImage && (
+        <div css={styles.topMentorCard} className="uden-card-hover">
+          <img src={MentorGuidanceImage} alt="1-on-1 Mentor Guidance & Live Prep" css={styles.mentorImg} />
+          <div>
+            <div css={styles.badgeTag} className="uden-float-anim">
+              <Users size={14} color="#F7BC08" />
+              1-ON-1 MENTORSHIP & GROUP PREP
+            </div>
+            <h3 style={{ fontSize: '24px', fontWeight: '900', color: '#1E293B', marginBottom: '10px' }}>
+              Learn Directly from Industry Experts & Crack Target Selection Rounds
+            </h3>
+            <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', marginBottom: '20px' }}>
+              Get personal guidance from experienced mentors who have cleared selection rounds at Deloitte, TCS NQT, and Amazon SDE.
+            </p>
+            <button css={styles.accessBtn} style={{ background: '#F55825', color: '#FFFFFF', border: 'none' }} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+              Book 1-on-1 Mentor Session
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div css={styles.header}>
+        <div css={styles.badgeTag} className="uden-float-anim">
+          <Sparkles size={14} color="#F7BC08" />
+          COMPANY-SPECIFIC ROUND PREP & PYQs ENGINE
+        </div>
+        <h2>{prepData.title}</h2>
+        <p>{prepData.subtitle}</p>
+      </div>
+
+      <div css={styles.tabsRow}>
+        {prepData.companies.map((comp) => (
+          <button 
+            key={comp.id}
+            css={styles.companyTab(selectedCompanyId === comp.id)}
+            onClick={() => setSelectedCompanyId(comp.id)}
+          >
+            <Award size={18} />
+            {comp.name} ({comp.avgPackage})
+          </button>
+        ))}
+      </div>
+
+      <div css={styles.roundsGrid} className="uden-tab-anim" key={selectedCompanyId}>
+        {currentCompany.rounds.map((rnd, idx) => {
+          const isAiVideoRound = idx === 2;
+          const cardImg = roundCardImages[idx];
+
+          return isAiVideoRound ? (
+            <div key={idx} css={styles.aiMockCard} className="uden-card-hover">
+              <div>
+                {cardImg && (
+                  <img src={cardImg} alt={rnd.title} css={styles.illustrationCardBanner} />
+                )}
+                <div css={styles.roundHeader}>
+                  <div css={styles.roundBadge}>{rnd.roundNum}</div>
+                  <span style={{ fontSize: '11px', fontWeight: '800', background: '#F55825', color: '#FFF', padding: '4px 10px', borderRadius: '8px' }}>
+                    AI VIDEO SIMULATOR
+                  </span>
+                </div>
+                <h3 css={styles.roundTitle}>{rnd.title}</h3>
+                <p css={styles.roundDesc}>{rnd.description}</p>
+
+                <div css={styles.resourceList}>
+                  <div css={styles.resourceItem}>
+                    <Bot size={18} color="#4B638C" />
+                    <span>{rnd.pyqCount}</span>
+                  </div>
+                  <div css={styles.resourceItem}>
+                    <Video size={18} color="#4B638C" />
+                    <span>{rnd.videoCount}</span>
+                  </div>
+                </div>
+              </div>
+
+              <button css={styles.startBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+                <Play size={16} />
+                Launch AI Video Mock Interview
+              </button>
+            </div>
+          ) : (
+            <div key={idx} css={styles.roundCard} className="uden-card-hover">
+              <div>
+                {cardImg && (
+                  <img src={cardImg} alt={rnd.title} css={styles.illustrationCardBanner} />
+                )}
+                <div css={styles.roundHeader}>
+                  <div css={styles.roundBadge}>{rnd.roundNum}</div>
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: '#64748B' }}>SELECTION ROUND</span>
+                </div>
+                <h3 css={styles.roundTitle}>{rnd.title}</h3>
+                <p css={styles.roundDesc}>{rnd.description}</p>
+
+                <div css={styles.resourceList}>
+                  <div css={styles.resourceItem}>
+                    <FileText size={18} color="#4B638C" />
+                    <span>{rnd.pyqCount}</span>
+                  </div>
+                  <div css={styles.resourceItem}>
+                    <Video size={18} color="#4B638C" />
+                    <span>{rnd.videoCount}</span>
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                css={styles.accessBtn}
+                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+              >
+                Access Round Prep & PYQs
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default CompanyPrepExplorer;

@@ -1,30 +1,37 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
-// eslint-disable-next-line
-import React from 'react'
+import { jsx } from '@emotion/react';
 
-import { UpskillingPartnersStyles as styles } from './styles/UpskillingPartners.Styles';
-import UpskillingPartnersBanner from './components/Banner';
-import UpskillingPartnersFeatures from './components/Features';
-import UpskillingPartnersTestimonial from './components/Testimonial';
-import UpskillingPartnersTrustedBrand from './components/TrustedBrand';
-import UpskillingPartnersKnowMore from './components/KnowMore';
 import Spacer from '../../components/Spacer';
-
+import UpskillingBanner from './components/Banner';
+import CourseRadar from './components/CourseRadar';
+import UpskillingFeatures from './components/Features';
+import UpskillingKnowMore from './components/KnowMore';
+import UpskillingTrustedBrand from './components/TrustedBrand';
 
 const UpskillingPartners = () => {
   return (
-    <>
-      <UpskillingPartnersBanner/>
-      <UpskillingPartnersTrustedBrand />
-      <Spacer height/>
-      <UpskillingPartnersFeatures css={styles.features}/>
-      <Spacer height/>
-      <UpskillingPartnersTestimonial/>
-      <UpskillingPartnersKnowMore/>
-    </>
-  )
-}
+    <div style={{ width: '100%', overflowX: 'hidden' }}>
+      {/* 1. Split Diagonal Dark Charcoal Hero with Course Search */}
+      <UpskillingBanner />
 
-export default UpskillingPartners
+      {/* 2. Accredited Partner Brands */}
+      <UpskillingTrustedBrand />
+      <Spacer height />
+
+      {/* 3. Interactive Accredited Course Radar */}
+      <CourseRadar />
+      <Spacer height />
+
+      {/* 4. Partner Value Propositions */}
+      <UpskillingFeatures />
+      <Spacer height />
+
+      {/* 5. Partner Onboarding CTA Banner */}
+      <UpskillingKnowMore />
+    </div>
+  );
+};
+
+export default UpskillingPartners;

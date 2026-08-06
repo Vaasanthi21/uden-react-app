@@ -1,0 +1,22 @@
+# UDEN — Unified Development & Employment Network
+
+> UDEN (https://uden.tech) is an AI-powered talent assessment, upskilling, and campus recruitment platform bridging the gap between students, job seekers, corporate recruiters, educational institutions, and government skill development missions.
+
+## Core Services & Platform Modules
+- **Campus Placement Accelerator**: Enables colleges & TPO officers to host automated placement drives, generate NAAC/NBA analytics, and match students with 150+ corporate recruiters.
+- **Pre-Vetted Corporate Talent Finder**: Allows enterprise recruiters to discover candidate profiles mapped to exact technical skill stacks with 48-hour shortlist SLA.
+- **Government & State Skill Mission Integration**: GeM-ready, DPIIT-recognized platform for scaling mission-wide student placement tracking across state colleges and skill development centers.
+- **AI Skill Gap Analysis & Mock Interview Assistant**: Provides 8-axis technical skill radar evaluations and automated video mock interview feedback.
+
+## Key Routes & Pages
+- Home: https://uden.tech/
+- Job Seekers & Students: https://uden.tech/job-seekers
+- For Colleges & Campus Partners: https://uden.tech/for-campus
+- Corporate Recruiters: https://uden.tech/find-talent
+- Government Skill Missions: https://uden.tech/government-partner
+- HR Services: https://uden.tech/hr-service-join
+- Candidate Opportunity Registration: https://uden.tech/find-opportunity
+- Contact Us: https://uden.tech/contact-us
+
+## Authentication & Candidate Portal
+- CPS Portal: https://cps.uden.tech/log_in

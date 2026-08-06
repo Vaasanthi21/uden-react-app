@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { AppColors } from "../../../../utils/consts/app_colors";
+import { AppColors } from "utils/consts/app_colors";
 
 export const Error404Styles = {
     error:css({

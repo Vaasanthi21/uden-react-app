@@ -1,15 +1,16 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
-import { Box, Card, Grid, Typography } from '@mui/material'
+import { Box, Card, Grid, Typography } from '@mui/material';
 
 import { FeatureStyles as styles} from './Feature.Styles';
 
 const FeatureCard = (props) => {
     const data = props.data;
-    const stacked = props?.stacked==='true'?true:false
-    const visible = props?.visible==='false'?false:true
-    const expanded = props?.expanded==='true'?null:{xs:10,sm:8,md:5.5,lg:5,xl:3.5}
+    const stacked = props?.stacked==='true'?true:false;
+    const visible = props?.visible==='false'?false:true;
+    const expanded = props?.expanded==='true'?null:{xs:10,sm:8,md:5.5,lg:5,xl:3.5};
   return (
     <Grid {...props} css={styles.featureCard({stacked})} className='feature-main-grid' item  {...expanded}>
         <Box display={visible?'block':'none'} sx={{height:{xs:'500px',md:'550px'},position:'relative'}}>
@@ -31,7 +32,7 @@ const FeatureCard = (props) => {
             </Card>
         </Box>
     </Grid >
-  )
-}
+  );
+};
 
-export default FeatureCard
+export default FeatureCard;

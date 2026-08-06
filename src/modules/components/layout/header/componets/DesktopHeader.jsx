@@ -1,88 +1,91 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from '@emotion/react';
-// eslint-disable-next-line
-import React, { useState } from 'react'; // Add useState
+import { jsx } from '@emotion/react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu'; // Add Menu
-import MenuItem from '@mui/material/MenuItem'; // Add MenuItem
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Badge from '@mui/material/Badge';
+import { useNavigate } from 'react-router-dom';
 
 import Logo from '../../../logo/Logo';
-import {HeaderStyles as styles} from '../styles/Header.Style';
+import { HeaderStyles as styles } from '../styles/Header.Style';
 import { HeaderConst } from '../header.const';
 import { AppRoutes } from '../../../../../utils/consts/routes';
-import { Badge } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // Add useNavigate
 
-const DesktopHeader = ({...props}) => {
-  const navigate = useNavigate(); // Add navigation
-  const [anchorEl, setAnchorEl] = useState(null); // State for dropdown
-  const hooks = props?.hooks??null;
+const DesktopHeader = ({ ...props }) => {
+  const navigate = useNavigate();
+  const [jobSeekersAnchorEl, setJobSeekersAnchorEl] = useState(null);
+  const hooks = props?.hooks ?? null;
   const data = HeaderConst;
 
-  // Dropdown handling functions
-  const handleCampusPlacementsClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleJobSeekersClick = (event) => {
+    setJobSeekersAnchorEl(event.currentTarget);
   };
 
-  const handleCampusPlacementsClose = () => {
-    setAnchorEl(null);
+  const handleJobSeekersClose = () => {
+    setJobSeekersAnchorEl(null);
   };
 
-  const handleCampusPlacementsNavigate = (route) => {
-    navigate(route);
-    handleCampusPlacementsClose();
+  const handleJobSeekersNavigate = (targetRoute) => {
+    navigate(targetRoute);
+    handleJobSeekersClose();
   };
 
   return (
     <>
-      <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }}/>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {data.Tabs.Names.map((names, index) => (
-              names === HeaderConst.Tabs.Names[4] ? ( // Campus Placements index
-                <div key={index}>
-                  <Button
-                    startIcon={data.Tabs.Icons[index]}
-                    onClick={handleCampusPlacementsClick}
-                    css={styles.tabsDesktop({isCurrent:false})}
-                  >
-                    {names}
-                  </Button>
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleCampusPlacementsClose}
-                  >
-                    <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_CAMPUS)}>
-                      For Campus
-                    </MenuItem>
-                    <MenuItem onClick={() => handleCampusPlacementsNavigate(AppRoutes.FOR_STUDENTS)}>
-                      For Students
-                    </MenuItem>
-                  </Menu>
-                </div>
-              ) : (
-                <Badge key={index} invisible={data?.Tabs?.Badge[index]?false:true} badgeContent={data?.Tabs?.Badge[index]} color="primary">
-                  <Button
-                    startIcon={data.Tabs.Icons[index]}
-                    css={styles.tabsDesktop({isCurrent:((!hooks.route)?false:data.Tabs.Routes[index].includes(hooks.route))})}
-                    href={data.Tabs.Routes[index]}
-                  >
-                    {names}
-                  </Button>
-                </Badge>
-              )
-          ))}
+      <Logo css={styles.logoDesktop} sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+        {data.Tabs.Names.map((names, index) => {
+          const route = data.Tabs.Routes[index];
+          const isCurrent = Boolean(hooks?.route && route && route.includes(hooks.route));
+          const hasBadge = Boolean(data?.Tabs?.Badge[index]);
+          const isJobSeekers = route === AppRoutes.JOB_SEEKERS;
+
+          return (
+            <React.Fragment key={index}>
+              <Badge
+                invisible={!hasBadge}
+                badgeContent={data?.Tabs?.Badge[index]}
+                sx={{
+                  '& .MuiBadge-badge': {
+                    backgroundColor: '#F55825',
+                    color: '#FFFFFF',
+                    fontSize: '9.5px',
+                    fontWeight: '900',
+                    height: '16px',
+                    minWidth: '28px',
+                    borderRadius: '8px',
+                    top: 0,
+                    right: 12,
+                    boxShadow: '0 2px 6px rgba(245, 88, 37, 0.4)'
+                  }
+                }}
+              >
+                <Button
+                  startIcon={data.Tabs.Icons[index]}
+                  css={styles.tabsDesktop({ isCurrent })}
+                  href={route === AppRoutes.CAMPUS_PLACEMENTS ? AppRoutes.FOR_CAMPUS : route}
+                >
+                  <span style={{ textAlign: 'center', lineHeight: 1.2 }}>{names}</span>
+                </Button>
+              </Badge>
+            </React.Fragment>
+          );
+        })}
       </Box>
+
       <Button
-    sx={{ display: { xs: 'none', md: 'flex' } }}href="https://cps.uden.tech/"variant="contained"css={styles.signupButtonDesktop}size="small"target="_blank" // optional: opens in new tab
->
-    {data.ButtonStrings.SIGNUP_SIGNIN}
-  </Button>
-
+        sx={{ display: { xs: 'none', md: 'flex' } }}
+        onClick={() => { window.open('https://cps.uden.tech/log_in', '_blank', 'noopener,noreferrer'); }}
+        variant="contained"
+        css={styles.signupButtonDesktop}
+      >
+        {data.ButtonStrings.SIGNUP_SIGNIN}
+      </Button>
     </>
-  )
-}
+  );
+};
 
-export default DesktopHeader
+export default DesktopHeader;

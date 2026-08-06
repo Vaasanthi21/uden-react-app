@@ -1,439 +1,599 @@
 import React, { useState, useEffect } from 'react';
-import CompanyWorkFlow from "../../../assets/images/company-work-flow.png";
-import Picture1 from "../../../assets/images/flowcharts/Picture1.jpg";
-import Picture2 from "../../../assets/images/flowcharts/Picture2.jpg";
-import Picture3 from "../../../assets/images/flowcharts/Picture3.jpg";
-import Dimensions from"../../../assets/images/flowcharts/Dimensions.png";
-import Amazon from "../../../assets/images/flowcharts/Amazon.webp";
-import Microsoft from "../../../assets/images/flowcharts/Microsoft.webp";
-import NVLogo_2D from "../../../assets/images/flowcharts/NVLogo_2D.jpg";
-import placementAlgoImage from "../../../assets/images/flowcharts/placementAlgoImage.png";
-import { radioClasses } from '@mui/material';
-const Campus = () => { 
-    const [formData, setState] = useState({
-        institution: '',
-        email: ''
-    });
-    const [selectedTestimonial, setSelectedTestimonial] = useState(null); // Modal state
-    const [expanded, setExpanded] = useState(null);
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react';
+import { Building2, Sparkles, Award, ArrowRight, CheckCircle2, Star, Quote } from 'lucide-react';
+import Dimensions from "assets/images/flowcharts/Dimensions.png";
+import Amazon from "assets/images/flowcharts/Amazon.webp";
+import Microsoft from "assets/images/flowcharts/Microsoft.webp";
+import NVLogo_2D from "assets/images/flowcharts/NVLogo_2D.jpg";
+import placementAlgoImage from "assets/images/flowcharts/placementAlgoImage.png";
+import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
+import MatchingEngine from '../../components/feature/MatchingEngine';
+import SuccessTerminal from '../../components/feature/SuccessTerminal';
+import HeroArchitectured from '../../components/feature/HeroArchitectured';
 
-    const handleChange = (e) => {
-        setState({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-    const sponsors = [
-        { id: 1, image: Amazon, alt: "Amazon" },
-        { id: 2, image: Microsoft, alt: "Microsoft" },
-        { id: 3, image: NVLogo_2D, alt: "Nvidia" },
-    ];
+import ScrollReveal from '../../components/layout/ScrollReveal';
+import FaqPage from '../Faq/Faq';
+import TpoAccreditationDashboard from '../../components/feature/TpoAccreditationDashboard';
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Thank you for your interest! We will be in touch soon.');
-        setState({ institution: '', email: '' });
-    };
+const styles = {
+  heroOuter: css`
+    background: linear-gradient(135deg, #FEF5D8 0%, #FFFDF7 100%);
+    padding: 64px 16px 50px 16px;
+    color: #1E293B;
+    border-bottom: 4px solid #DA532C;
+  `,
+  container: css`
+    max-width: 1200px;
+    margin: 0 auto;
+  `,
+  heroGrid: css`
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  `,
+  badgeTag: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(218, 83, 44, 0.12);
+    color: #DA532C;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    border: 1px solid rgba(218, 83, 44, 0.25);
+    text-transform: uppercase;
+  `,
+  heroTitle: css`
+    font-size: 42px;
+    font-weight: 900;
+    color: #1E293B;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
 
-useEffect(() => {
-    const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-}, []);
+    span {
+      color: #DA532C;
+    }
 
-    const testimonials = [
-        {
-            name: "Palak Jain",
-            role: "Audit Senior, Deloitte",
-            text: "UDEN helped me with the interview preparation and mock interviews which helped build my confidence to tackle the interviewer's questions. Thanks to their team I cracked Delloitte's interview. ",
-            image: Picture1
-        },
-        {
-            name: "Pankaj Sharma",
-            role: "Assistant Manager - Antlia",
-            text: "As a fresher, it was difficult to find jobs. But the team at UDEN guided me to upskill, helped me with the interview process and connected me to the Company directly for the interview. I finally got the offer and now I am hopeful for a bright future. ",
-            image: Picture2
-        },
-        {
-            name: "Alekhya",
-            role: "Analyst, AON",
-            text: "I got a job at a prestigious MNC as an Analyst through UDEN after completing my training in Data Science. The team at UDEN is very supportive and they were constantly in touch with me throughout the process of recruitment until the day of joining. I am thankful to UDEN for their continuous support in getting me a great head start in my career.",
-            image: Picture3
-        }
-    ];
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+  `,
+  heroSub: css`
+    font-size: 16.5px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-weight: 500;
+  `,
+  formCard: css`
+    background: #FFFFFF;
+    border: 2px solid #DA532C;
+    border-radius: 20px;
+    padding: 32px;
+    color: #1E293B;
+    box-shadow: 0 16px 36px rgba(218, 83, 44, 0.15);
+  `,
+  formTitle: css`
+    font-size: 20px;
+    font-weight: 800;
+    color: #1E293B;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  `,
+  formSub: css`
+    font-size: 13px;
+    color: #64748B;
+    margin-bottom: 24px;
+  `,
+  input: css`
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1.5px solid #CBD5E1;
+    font-size: 14px;
+    color: #1E293B;
+    outline: none;
+    box-sizing: border-box;
+    font-weight: 600;
+
+    &:focus {
+      border-color: #DA532C;
+    }
+  `,
+  submitBtn: css`
+    width: 100%;
+    background: #DA532C;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #B83D1B;
+    }
+  `,
+
+  /* OUR SPONSORS SECTION */
+  sponsorsSection: css`
+    background: #FEF5D8;
+    padding: 50px 16px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 176, 32, 0.3);
+    border-bottom: 1px solid rgba(255, 176, 32, 0.3);
+  `,
+  sponsorsHeading: css`
+    font-size: 34px;
+    font-weight: 900;
+    color: #DA532C;
+    margin-bottom: 36px;
+  `,
+  sponsorsCardsGrid: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+  `,
+  sponsorCard: css`
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 24px 36px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E2E8F0;
+    height: 90px;
+    min-width: 160px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(218, 83, 44, 0.15);
+      border-color: #DA532C;
+    }
+
+    img {
+      max-height: 54px;
+      max-width: 160px;
+      object-fit: contain;
+    }
+  `,
+
+  /* TESTIMONIALS SECTION */
+  testimonialsSection: css`
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 16px;
+  `,
+  testimonialsHeading: css`
+    font-size: 34px;
+    font-weight: 900;
+    color: #DA532C;
+    text-align: center;
+    margin-bottom: 40px;
+  `,
+  testimonialsGrid: css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  `,
+  testimonialCard: css`
+    background: #FFFDF7;
+    border: 1.5px solid rgba(255, 176, 32, 0.35);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(218, 83, 44, 0.12);
+      border-color: #DA532C;
+    }
+  `,
+  quoteMsg: css`
+    font-size: 14.5px;
+    color: #334155;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 24px;
+    font-weight: 500;
+  `,
+  profileRow: css`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  `,
+  avatar: css`
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #DA532C;
+    object-fit: cover;
+    background: #F1F5F9;
+  `,
+  candidateName: css`
+    font-size: 15px;
+    font-weight: 800;
+    color: #DA532C;
+    margin: 0;
+  `,
+  candidateRole: css`
+    font-size: 12.5px;
+    color: #64748B;
+    margin: 2px 0 0 0;
+    font-weight: 600;
+  `,
+
+  tableSection: css`
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 16px;
+  `,
+  sectionHeader: css`
+    text-align: center;
+    margin-bottom: 36px;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #64748B;
+      font-size: 15px;
+    }
+  `,
+  table: css`
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid #E2E8F0;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+
+    th {
+      background: #DA532C;
+      color: #FFFFFF;
+      padding: 16px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+      font-size: 14.5px;
+      font-weight: 600;
+      background: #FFFFFF;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  `,
+  highlightCol: css`
+    color: #DA532C !important;
+    font-weight: 800 !important;
+  `,
+  gridSection: css`
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+
+    @media (max-width: 860px) {
+      grid-template-columns: 1fr;
+    }
+  `,
+  featureCard: css`
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+
+    h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 14px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: #64748B;
+      line-height: 1.6;
+      margin: 0;
+    }
+  `
+};
+
+const testimonialsList = [
+  {
+    id: 1,
+    quote: '"UDEN helped me with the interview preparation and mock interviews which helped build my confidence to tackle the interviewer’s questions. Thanks to their team I cracked Deloitte’s interview."',
+    name: 'Palak Jain',
+    role: 'Audit Senior, Deloitte',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80'
+  },
+  {
+    id: 2,
+    quote: '"As a fresher, it was difficult to find jobs. But the team at UDEN guided me to understand industry expectations and secured my placement fast."',
+    name: 'Pankaj Sharma',
+    role: 'Assistant Manager - Antlia',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&auto=format&fit=crop&q=80'
+  },
+  {
+    id: 3,
+    quote: '"I got a job at a prestigious organization like AON through UDEN after completing their upskilling curriculum."',
+    name: 'Alekhya',
+    role: 'Analyst, AON',
+    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80'
+  }
+];
+
+const Campus = () => {
+  const [formData, setFormData] = useState({ institution: '', email: '' });
+
+  useEffect(() => {
+    document.title = "Campus & Programs | UDEN";
     
-    const styles = {
-        root: {
-            "--primary-color": " #F15A24", 
-            "--secondary-color": "#FEF5D8",
-            "--text-color": "#1f2937",
-            "--light-bg": "#FEF5D8",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        container: {
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 20px",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        hero: { 
-            display: "block",
-            background: "linear-gradient(135deg,hsl(14, 100.00%, 97.50%) 0%,#fff9dd 100%)",
-            padding: "2em 0 4em",
-            textAlign: "center",
-            borderBottom: "4px solid var(--primary-color)",
-        },     
-        heroTitle: {
-            fontSize: "50px",
-            marginBottom: "1.5rem",
-            color: "#F15A24",
-            fontFamily: "Helvetica, Arial, sans-serif",
-            fontWeight: "bold",
-        },
-        heading: {
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        featuresGrid: {
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "2rem",
-            padding: "3rem 0",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        featureCard: {
-            background: "white",
-            padding: "2rem",
-            borderRadius: "10px",
-            boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-            transition: "transform 0.3s ease",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        mediaPlaceholder: {
-            background: "rgb(255, 255, 255)",  
-            borderRadius: "8px",
-            textAlign: "center",
-            margin: "2rem 0",
-            minHeight: "500px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#754321",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        registrationBox: {
-            background: "var(--light-bg)",
-            padding: "2rem",
-            borderRadius: "10px",
-            margin: "3rem auto",
-            maxWidth: "600px",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        input: {
-            width: "100%",
-            padding: "12px",
-            margin: "10px 0",
-            border: "2px solid #F15A24", 
-            borderRadius: "10px",
-            fontSize: "16px",
-            boxSizing: "border-box",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        ctaButton: {
-            background: "var(--primary-color)",
-            color: "white",
-            padding: "15px 30px",
-            border: "none",
-            borderRadius: "10px",
-            fontSize: "1.1rem",
-            cursor: "pointer",
-            transition: "background 0.3s ease",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        preCode: {
-            background: "#54200d", 
-            color: "#fff5f2",
-            padding: "1rem",
-            borderRadius: "8px",
-            overflowX: "auto",
-            margin: "1.5rem 0",
-            whiteSpace: "pre-wrap",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        blockquote: {
-            fontStyle: "italic", 
-            borderLeft: "4px solid var(--primary-color)", 
-            paddingLeft: "1.5rem",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        },
-        cite: {
-            display: "block", 
-            marginTop: "1rem", 
-            fontWeight: "bold",
-            fontFamily: "Helvetica, Arial, sans-serif",
-        }
+    const setMeta = (name, content, isProp = false) => {
+      const selector = isProp ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (isProp) el.setAttribute('property', name);
+        else el.setAttribute('name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
     };
 
-    return (
-        <div style={styles.root}>
-            <section style={styles.hero}>
-                <div style={styles.container}>
-                    <h1 style={styles.heroTitle}>Revolutionizing Campus Placements with Uden</h1>
-                    <p className="lead" style={{ fontFamily: "'Poppins', sans-serif" }}>AI-Driven Automation for Modern Educational Institutions</p>           
-                    <div style={styles.mediaPlaceholder}>
-                        [Embed 90-second explainer video showing dashboard interface]
-                    </div>
-                </div>
-            </section>
+    setMeta('description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.");
+    setMeta('og:type', 'website', true);
+    setMeta('og:url', 'https://uden.tech/campus', true);
+    setMeta('og:title', 'Campus & Programs | UDEN', true);
+    setMeta('og:description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.", true);
+    setMeta('og:image', 'https://uden.tech/og-banner.png', true);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', 'Campus & Programs | UDEN');
+    setMeta('twitter:description', "Explore UDEN's campus programs, placement tracking, and AI-powered career tools for your institution.");
 
-            <section style={styles.container}>
-                <div style={styles.featuresGrid}>
-                <div style={styles.featureCard}>
-                <h3 style={{fontFamily: "Helvetica, Arial, sans-serif",color: " #ed500d", fontSize: "2em" }}>AI-Curated Company Profiles</h3>
-                    
-                    <div style={{ ...styles.mediaPlaceholder, minHeight: "200px" }}>
-                        <img 
-                            src={Dimensions}
-                            alt="12 Dimensions of Company Analysis"
-                            style={{ width: "100%", height: "auto", objectFit: "cover",transition: "transform 0.4s ease-in-out",     borderRadius:"10px"}}
-                            onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.12)"} 
-                            onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}   />
-                    </div>
-                    
-                    <p>Our neural networks analyze multiple recruitment dimensions...</p>
-                </div>
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://uden.tech/campus');
+  }, []);
 
-                <div style={styles.featureCard}>
-                <h3 style={{ fontFamily: "Helvetica, Arial, sans-serif",color: " #ed500d", fontSize: "2em"}}>Predictive Analytics Engine</h3> 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Thank you! Our Institutional Partnerships lead will get in touch shortly.');
+    setFormData({ institution: '', email: '' });
+  };
 
-                        <img 
-                        src={placementAlgoImage} 
-                        alt="Placement Prediction Algorithm" 
-                        style={{ width: "100%",height: "auto", marginTop: "10px", borderRadius: "8px",transition: "transform 0.4s ease-in-out",}} 
-                            onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.12)"} 
-                            onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}   
-                        />
-                    </div>
+  return (
+    <div style={{ width: '100%', overflowX: 'hidden' }}>
+      {/* 0. Student Potential Architectured & Interactive Skills Snapshot */}
+      <HeroArchitectured />
 
-                </div>
-            </section>
-            {/* Results Section */}
-            <section style={{ maxWidth: "1200px", margin: "3rem auto", padding: "0 20px", fontFamily: "Helvetica, Arial, sans-serif", }}>
-            <h2 style={{ fontFamily: "Helvetica, Arial, sans-serif",color: " #ed500d", fontSize: "2em" }}>Transformative Benefits</h2>
-                <table style={{ width: "100%", borderCollapse: "collapse", margin: "2rem 0", fontFamily: "Helvetica, Arial, sans-serif", }}>
-                <thead>
-                    <tr>
-                    <th style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left", background: "#f3f4f6", color: "#ed500d" }}>Metric</th>
-                    <th style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left", background: "#f3f4f6", color: "#ed500d" }}>Pre-Uden</th>
-                    <th style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left", background: "#f3f4f6", color: "#ed500d" }}>Post-Uden</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>Avg. companies/student</td>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>2.1</td>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>5.7</td>
-                    </tr>
-                    <tr>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>Placement conversion</td>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>68%</td>
-                    <td style={{ border: "1px solid #ed500d", padding: "12px", textAlign: "left" }}>89%</td>
-                    </tr>
-                </tbody>
-                </table>
-            </section>
+      {/* 1. Hero Institutional Banner & Registration Form */}
+      <div css={styles.heroOuter}>
+        <div css={styles.container}>
+          <div css={styles.heroGrid}>
+            <div>
+              <div css={styles.badgeTag}>
+                <Sparkles size={14} />
+                INSTITUTIONAL PLACEMENT AUTOMATION
+              </div>
+              <h1 css={styles.heroTitle}>
+                Revolutionizing Campus Placements <span>with UDEN</span>
+              </h1>
+              <p css={styles.heroSub}>
+                AI-driven recruitment automation, predictive placement analytics, and direct corporate drive connections for modern universities.
+              </p>
+            </div>
 
+            <div css={styles.formCard}>
+              <div css={styles.formTitle}>
+                <Building2 size={20} color="#DA532C" />
+                Partner College Portal
+              </div>
+              <p css={styles.formSub}>Register your university to activate UDEN's Campus Placement Drive software.</p>
 
-            <section style={styles.container}>
-                <div style={styles.registrationBox}>
-                <h3 style={{ fontFamily: "Helvetica, Arial, sans-serif",color: " #ed500d", fontSize: "2em" }}>Create Your Campus Placement Portal</h3>
-                    <form onSubmit={handleSubmit}>
-                        <input 
-                            type="text" 
-                            name="institution"
-                            value={formData.institution}
-                            onChange={handleChange}
-                            placeholder="Institution Name" 
-                            style={styles.input} 
-                            required
-                        />
-                        <input 
-                            type="email" 
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Official Email ID" 
-                            style={styles.input} 
-                            required
-                        />
-                        <button style={styles.ctaButton} type="submit">
-                            Activate Free Trial →
-                        </button>
-                    </form>
-                </div>
-            </section>
-            {/* Process Visualization */}
-            <section style={{ maxWidth: "1200px", margin: "3rem auto", padding: "0 20px" }}>
-                <div style={{ 
-                            background: "rgb(255, 255, 255)", 
-                            borderRadius: "8px", 
-                            padding: window.innerWidth <= 768 ? "1rem" : "2rem",  
-                            textAlign: "center", 
-                            minHeight: window.innerWidth <= 768 ? "250px" : "400px",  
-                            display: "flex", 
-                            alignItems: "center", 
-                            justifyContent: "center", 
-                            color: "#64748b"
-                        }}>
-                    <img 
-                        src={CompanyWorkFlow} 
-                        alt="Company JD Analysis Process Flow" 
-                        style={{ 
-                            width: window.innerWidth <= 768 ? "90%" : "100%",  
-                            maxWidth: window.innerWidth <= 768 ? "100%" : "800px",  
-                            height: "auto",  
-                            borderRadius: "8px", 
-                            objectFit: "contain",
-                            display: "block",
-                            margin: "0 auto",
-                            padding: "0.5rem"
-                        }} 
-                    />
-                </div>
-</section>
-        
-<section style={{ textAlign: "center", padding: "3rem 0", background: "#fff5d8" }}>
-    <h2 style={{ color: " #F15A24", fontSize: "2.5rem", marginBottom: "1rem", fontFamily: "Helvetica, Arial, sans-serif" }}>Our Sponsors</h2>
-    <div style={{ display: "flex", gap: "2rem", padding: "20px", justifyContent: "center" }}>
-        {sponsors.map((sponsor, index) => (
-            <div key={sponsor.id} style={{ 
-                width: "150px", height: "100px",display: "flex",alignItems: "center",justifyContent: "center"
-            }}>
-                <img 
-                    src={sponsor.image} 
-                    alt={sponsor.alt} 
-                    style={{ 
-                        maxWidth: "100%", maxHeight: "100%", objectFit: "contain" 
-                    }} 
+              <form onSubmit={handleSubmit}>
+                <input 
+                  type="text"
+                  placeholder="Institution / College Name"
+                  value={formData.institution}
+                  onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                  css={styles.input}
+                  required
                 />
+                <input 
+                  type="email"
+                  placeholder="Official University Email ID"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  css={styles.input}
+                  required
+                />
+                <button type="submit" css={styles.submitBtn}>
+                  Activate Campus Portal
+                  <ArrowRight size={18} />
+                </button>
+              </form>
             </div>
-        ))}
-    </div>
-</section>
-        {/* Testimonials Section */}
-        <section style={{ margin: "4rem auto", textAlign: "center", maxWidth: "1200px" }}>
-                <h2 style={{ color: " #ed500d", fontSize: "2.5rem", marginBottom: "2rem", fontFamily: "Helvetica, Arial, sans-serif" }}>Testimonials</h2>
-                
-                <div style={{ 
-                    display: "flex", overflowX: "auto", gap: "2rem", padding: "20px", scrollBehavior: "smooth",maxWidth: "100%",scrollSnapType: "x mandatory",
-                }}>
-                    {testimonials.map((testimonial, index) => (
-                        <div 
-                            key={index} 
-                            onClick={() => setSelectedTestimonial(testimonial)}
-                            style={{
-                                background: "#fff5d8",
-                                padding: isMobile ? "1rem" : "2rem",
-                                borderRadius: "12px",
-                                boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-                                minWidth: isMobile ? "90%" : "400px",
-                                maxWidth: isMobile ? "90%" : "450px",
-                                textAlign: isMobile ? "center" : "left",
-                                fontSize: isMobile ? "14px" : "16px",
-                                cursor: "pointer",
-                                scrollSnapAlign: "center",
-                                
-                                scrollSnapAlign: "center",
-                    transition: "transform 0.3s ease",
-                                
-                            }}
-                            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                        >
-                                
-                            <p style={{ fontStyle: "italic", color: " #333" }}>
-                                "{testimonial.text ? testimonial.text.substring(0, 80) : "No testimonial available"}..."
-                            </p>
-
-                            <div style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}>
-                                <img src={testimonial.image} alt={testimonial.name}
-                                    style={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "12px" }} />
-                                <div>
-                                    <strong style={{ color: "#ed500d" }}>- {testimonial.name} </strong>
-                                    <p style={{ fontSize: "14px", margin: "0", color: "#666" }}>– {testimonial.role}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-            {/* Popup Modal */}
-            {selectedTestimonial && (
-            <div 
-                style={{
-                    position: "fixed",
-                    top: 0, left: 0,
-                    width: "100%", height: "100%",
-                    background: "rgba(0, 0, 0, 0.5)",
-                    display: "flex", justifyContent: "center", alignItems: "center",
-                    backdropFilter: "blur(5px)", zIndex: 1000,
-                    
-                }} 
-                onClick={() => setSelectedTestimonial(null)}
-            >
-                <div 
-                    style={{
-                        background: "#fff",
-                        padding: "2rem 2rem",
-                        borderRadius: "12px",
-                        maxWidth: "300px",  
-                        width: "90%", 
-                        textAlign: "center",
-                        position: "relative",
-                        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-                        margin: "0 auto",
-                        display: "flex", flexDirection: "column", alignItems: "center",
-                    }} 
-                    onClick={(e) => e.stopPropagation()}
-                >
-                    <button 
-                        onClick={() => setSelectedTestimonial(null)}
-                        style={{
-                            position: "absolute", top: "10px", right: "15px",
-                            border: "none", background: "transparent",
-                            fontSize: "1.5rem", cursor: "pointer"
-                        }}>
-                        ✖
-                    </button>
-                    <p style={{ 
-                        fontStyle: "italic", 
-                        color: "#333", 
-                        fontSize: window.innerWidth <= 768 ? "14px" : "16px",
-                        maxWidth: "90%",
-                        lineHeight: "1.6" 
-                    }}>
-                        {selectedTestimonial.text}
-                    </p>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "1rem" }}>
-                        {selectedTestimonial.image && (
-                            <img src={selectedTestimonial.image} alt={selectedTestimonial.name} 
-                                style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "12px" }} />
-                        )}
-                        <div>
-                            <strong style={{ color: "#ed500d" }}>{selectedTestimonial.name}</strong>
-                            <p style={{ fontSize: "12px", margin: "0", color: "#666" }}>{selectedTestimonial.role}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )}
-
+          </div>
         </div>
-    );
+      </div>
+
+      {/* 2. OUR SPONSORS SECTION */}
+      <div css={styles.sponsorsSection}>
+        <h2 css={styles.sponsorsHeading}>Our Sponsors</h2>
+        <div css={styles.sponsorsCardsGrid}>
+          <div css={styles.sponsorCard}>
+            <img src={Amazon} alt="powered by AWS" />
+          </div>
+          <div css={styles.sponsorCard}>
+            <img src={Microsoft} alt="Microsoft for Startups" />
+          </div>
+          <div css={styles.sponsorCard}>
+            <img src={NVLogo_2D} alt="NVIDIA" />
+          </div>
+        </div>
+      </div>
+
+      {/* 2.5 Student Feature Odyssey: Learning Path & Superpowers */}
+      <ScrollReveal threshold={0.1}>
+        <FeatureOdyssey />
+      </ScrollReveal>
+
+      {/* 2.8 Student AI Matching Engine */}
+      <ScrollReveal threshold={0.1}>
+        <MatchingEngine />
+      </ScrollReveal>
+
+      {/* 2.9 Student Success Terminal & Ticker */}
+      <ScrollReveal threshold={0.1}>
+        <SuccessTerminal />
+      </ScrollReveal>
+
+      {/* 3. TESTIMONIALS SECTION */}
+      <div css={styles.testimonialsSection}>
+        <h2 css={styles.testimonialsHeading}>Testimonials</h2>
+        <div css={styles.testimonialsGrid}>
+          {testimonialsList.map((t) => (
+            <div key={t.id} css={styles.testimonialCard}>
+              <div css={styles.quoteMsg}>{t.quote}</div>
+              <div css={styles.profileRow}>
+                <img src={t.avatar} alt={t.name} css={styles.avatar} />
+                <div>
+                  <h4 css={styles.candidateName}>- {t.name}</h4>
+                  <p css={styles.candidateRole}>- {t.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 4. Transformative Benefits Comparison Table */}
+      <div css={styles.tableSection}>
+        <div css={styles.sectionHeader}>
+          <h2>Transformative Campus Placement Metrics</h2>
+          <p>See how partnering with UDEN elevates student placement offers and average CTCs.</p>
+        </div>
+
+        <table css={styles.table}>
+          <thead>
+            <tr>
+              <th>Key Placement Metric</th>
+              <th>Pre-UDEN Average</th>
+              <th>Post-UDEN Partnership</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Avg. Corporate Drives / Student</td>
+              <td>2.1 Drives</td>
+              <td css={styles.highlightCol}>5.7 Drives (+170%)</td>
+            </tr>
+            <tr>
+              <td>On-Campus Placement Conversion Rate</td>
+              <td>68% Conversion</td>
+              <td css={styles.highlightCol}>89% Conversion (+21%)</td>
+            </tr>
+            <tr>
+              <td>Average Student CTC Package</td>
+              <td>₹4.5L / yr</td>
+              <td css={styles.highlightCol}>₹8.2L / yr (+82%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* 5. Neural Network & Algorithm Feature Grid */}
+      <div css={styles.gridSection}>
+        <div css={styles.featureCard}>
+          <h3>AI-Curated Company Profiles</h3>
+          <img src={Dimensions} alt="12 Dimensions of Company Analysis" />
+          <p>Our neural networks analyze 12 distinct corporate recruitment dimensions to match student skill profiles with hiring requirements.</p>
+        </div>
+
+        <div css={styles.featureCard}>
+          <h3>Predictive Placement Analytics Engine</h3>
+          <img src={placementAlgoImage} alt="Placement Prediction Algorithm" />
+          <p>Predictive algorithms track candidate skill acquisition, mock interview readiness, and shortlist probabilities in real-time.</p>
+        </div>
+      </div>
+
+      {/* TPO Accreditation & Job Listings Dashboard */}
+      <TpoAccreditationDashboard />
+
+      {/* Frequently Asked Questions */}
+      <div style={{ padding: '70px 0', background: '#FFFFFF' }}>
+        <FaqPage />
+      </div>
+    </div>
+  );
 };
 
 export default Campus;

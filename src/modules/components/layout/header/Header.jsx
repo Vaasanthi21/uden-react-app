@@ -1,3 +1,4 @@
+import React from 'react';
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from '@emotion/react';
@@ -9,7 +10,6 @@ import {HeaderStyles as styles} from './styles/Header.Style';
 import DesktopHeader from './componets/DesktopHeader';
 import MobileHeader from './componets/MobileHeader';
 import { useHeaderHooks } from './hooks/header.hooks';
-
 
 function AppHeader(props) {
   const headerHooks = useHeaderHooks;
@@ -24,7 +24,5 @@ function AppHeader(props) {
     </AppBar>
   );
 }
+
 export default AppHeader;
-
-
-

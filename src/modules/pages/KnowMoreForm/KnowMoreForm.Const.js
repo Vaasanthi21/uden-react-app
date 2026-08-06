@@ -1,8 +1,8 @@
 import { Approval, Business, Email, Engineering, Groups, Person, Phone, Place, Public, Title, Work } from "@mui/icons-material";
 import { InputAdornment, Link, Typography } from "@mui/material";
-import { AppAssets } from "../../../utils/consts/app_assets";
-import { AppRoutes } from "../../../utils/consts/routes";
-import { getValidator } from "../../../utils/helper";
+import { AppAssets } from "utils/consts/app_assets";
+import { AppRoutes } from "utils/consts/routes";
+import { getValidator } from "utils/helper";
 
 
 const fields = {
