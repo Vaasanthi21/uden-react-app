@@ -1,24 +1,18 @@
-# UDEN — Unified Development & Employment Network
+# UDEN
 
-> [UDEN](https://uden.tech/) is an AI-powered talent assessment, upskilling, and campus recruitment platform bridging the gap between students, job seekers, corporate recruiters, educational institutions, and government skill development missions.
+> UDEN (Unified Development and Employment Network) is an AI-powered career readiness and placement platform bridging students, colleges, and recruiters across India — with a focus on Tier 2 and Tier 3 institutions. UDEN provides AI interview practice, resume optimization, placement automation, and smart hiring tools. Operated by Digverve Solutions Pvt. Ltd.
 
-## Core Platform Services & Stakeholder Modules
-- [Campus Placement Accelerator](https://uden.tech/for-campus): Enables colleges & TPO officers to host automated placement drives, generate NAAC/NBA analytics, and match students with 150+ corporate recruiters.
-- [Pre-Vetted Corporate Talent Finder](https://uden.tech/find-talent): Allows enterprise recruiters to discover candidate profiles mapped to exact technical skill stacks with 48-hour shortlist SLA.
-- [Government & State Skill Missions](https://uden.tech/government-partner): GeM-ready, DPIIT-recognized platform for scaling mission-wide student placement tracking across state colleges and skill development centers.
-- [AI Skill Gap Analysis & Job Seekers](https://uden.tech/job-seekers): Provides 8-axis technical skill radar evaluations, AI video mock interview feedback, and ₹20,000–₹50,000 cash prize referral rewards.
-- [HR Services & Recruitment](https://uden.tech/hr-service-join): Corporate RPO, background verification, payroll compliance, and custom cohort training.
+## For Students
+- [Students Overview](https://uden.tech/students): AI interview prep, resume tools, career readiness & placement prep for college students.
 
-## Core Platform Links & Navigation
-- [Home](https://uden.tech/)
-- [Job Seekers & Students](https://uden.tech/job-seekers)
-- [Campus Partners & Institutions](https://uden.tech/for-campus)
-- [Find Talent & Hire Candidates](https://uden.tech/find-talent)
-- [Government Skill Missions](https://uden.tech/government-partner)
-- [HR Services](https://uden.tech/hr-service-join)
-- [Find Opportunity & Registration](https://uden.tech/find-opportunity)
-- [Contact UDEN](https://uden.tech/contact-us)
-- [Visual HTML Sitemap](https://uden.tech/sitemap.html)
+## For Jobseekers
+- [Jobseekers Overview](https://uden.tech/jobseekers): AI job matching, resume tools for freshers, and off-campus applications.
 
-## Candidate Portal & Authentication
-- [CPS Candidate Portal Login](https://cps.uden.tech/log_in)
+## For Colleges & TPOs
+- [Colleges Overview](https://uden.tech/colleges): Placement cell automation, employability analytics, and NAAC/NBA audit reporting.
+
+## For Recruiters
+- [Recruiters Overview](https://uden.tech/recruiters): Hiring pipeline from Tier 2/3 colleges, pre-vetted candidate sourcing, and 48-hour shortlist SLA.
+
+## About
+- [About UDEN](https://uden.tech/about): Company background, credentials (Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT, NSRCEL IIM Bangalore).
