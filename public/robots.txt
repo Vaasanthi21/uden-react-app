@@ -43,4 +43,4 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://uden.tech/sitemap.xml
-Sitemap: https://uden.tech/sitemap.html
+Sitemap: https://uden.tech/llms.txt

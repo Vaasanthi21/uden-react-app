@@ -47,26 +47,51 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Schema Markup JSON-LD (LLM Visibility Playbook Section 5) -->
+    <!-- Schema Markup JSON-LD (LLM & SEO Dominance Blueprint) -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "UDEN",
-      "alternateName": "Unified Development and Employment Network",
-      "url": "https://uden.tech",
-      "logo": "https://uden.tech/favicon-512x512.png",
-      "description": "AI-powered career readiness and placement platform bridging students, colleges, and recruiters across India — with a focus on Tier 2 and Tier 3 institutions.",
-      "sameAs": [
-        "https://www.linkedin.com/company/uden-tech",
-        "https://twitter.com/udentech"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bengaluru",
-        "addressRegion": "Karnataka",
-        "addressCountry": "IN"
-      }
+      "@context": "https://schema.org/",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://uden.tech/#organization",
+          "name": "UDEN",
+          "alternateName": "Unified Development and Employment Network",
+          "url": "https://uden.tech",
+          "logo": "https://uden.tech/og-banner.png",
+          "description": "UDEN bridges Students, Jobseekers, Colleges, and Recruiters through AI-powered career intelligence, interview preparation, resume optimization, placement automation, and smart hiring.",
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=co.arya.xxzis",
+            "https://www.linkedin.com/company/uden-tech"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://uden.tech/#website",
+          "url": "https://uden.tech",
+          "name": "UDEN",
+          "publisher": {
+            "@id": "https://uden.tech/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "UDEN AI Career Platform",
+          "operatingSystem": "Web, Android, iOS",
+          "applicationCategory": "EducationalApplication, BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
     }
     </script>
 

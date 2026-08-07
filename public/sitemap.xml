@@ -1,58 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+              http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- Core Platform Landing Page -->
   <url>
     <loc>https://uden.tech/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Audience Persona Landing Routes -->
+  <url>
+    <loc>https://uden.tech/students</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/jobseekers</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/colleges</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/recruiters</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Product & Service Modules -->
   <url>
     <loc>https://uden.tech/job-seekers</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://uden.tech/for-campus</loc>
-    <priority>0.9</priority>
+    <loc>https://uden.tech/companies</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/upskilling-partners</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/hr-services</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/government-partnership</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/campus-placements</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Persona Lead Generation Forms -->
+  <url>
+    <loc>https://uden.tech/find-opportunity</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://uden.tech/find-talent</loc>
-    <priority>0.9</priority>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://uden.tech/government-partner</loc>
+    <loc>https://uden.tech/campus-partner-form</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://uden.tech/hr-service-join</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Knowledge & GEO Resources -->
+  <url>
+    <loc>https://uden.tech/blogs</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uden.tech/find-opportunity</loc>
+    <loc>https://uden.tech/llms.txt</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://uden.tech/faq</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uden.tech/about-us</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uden.tech/contact-us</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://uden.tech/sitemap.html</loc>
     <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Legal & Terms -->
+  <url>
+    <loc>https://uden.tech/privacy-policy</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cps.uden.tech/log_in</loc>
-    <priority>0.9</priority>
+    <loc>https://uden.tech/terms-and-conditions</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Auth Portal -->
+  <url>
+    <loc>https://uden.tech/login</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
