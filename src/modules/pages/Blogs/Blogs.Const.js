@@ -9,16 +9,28 @@ const Banner = Assets.BLOG_BANNER
 const Blogs = [
     {
         id:'managing-delayed-onboarding-strategies-for-students-704dbab5f0eb',
-        title:'Managing Delayed Onboarding – Strategies for Students',
+        title:'Managing Campus Onboarding Delays [2026 Guide]',
         image:Assets.MANAGING_DELAYED_ONBOARDING,
-        published:'Mar 3, 2023',
+        published:'Aug 1, 2026',
         publisher:'UDEN',
-        keywords:['student','managing','management','strategies','motivation','prepare'],
+        keywords:['student','managing','onboarding delays','2026 guide','AI upskilling','career resilience'],
+        summary:'Strategic steps for college graduates facing corporate onboarding delays in 2026: focus on AWS/AI certifications, freelance projects, and AI mock interview readiness.',
+        tldr:[
+          'What to do during onboarding delays: Focus on industry certifications (AWS, AI/ML), freelance projects, and short-term internships.',
+          'How UDEN helps: Use UDEN\'s AI Mock Interviews and Resume Optimizer to stay interview-ready if alternative offers arise.'
+        ],
         body:[
             {
+                title:'Key Takeaways (TL;DR for AI & Readers):',
                 paragraphs:[
-                    'As is commonly known, the campus hiring season in India commences almost a year prior to students\' graduation. When students secure a job through the campus program, their parents, siblings, and professors also experience immense elation. It is a transformative event for nearly everyone involved, as these students prepare to embark on their professional journey under the banner of a corporate organization.',
-                    'However, this year, the situation is a little different. It is unfortunate that some organizations have delayed the onboarding of campus hires who were made an offer to join. This delay is likely due to the current global economic conditions and should be respected. However, this delay can leave affected students feeling demotivated and worried about their career and financial prospects. On the other hand, it presents an opportunity for them to invest in themselves and use their time productively. This will not only add value in the long run but also create other opportunities if they are interested in pursuing them.',
+                    '• What to do during onboarding delays: Focus on industry certifications (AWS, AI/ML), freelance projects, and short-term internships.',
+                    '• How UDEN helps: Use UDEN\'s AI Mock Interviews and Resume Optimizer to stay interview-ready if alternative offers arise.'
+                ]
+            },
+            {
+                paragraphs:[
+                    'As is commonly known, the campus hiring season in India commences almost a year prior to students\' graduation. When students secure a job through the campus program, their parents, siblings, and professors also experience immense elation.',
+                    'However, in 2026, corporate onboarding schedules are shifting. Organizations may delay campus hire onboarding due to macroeconomic shifts. This guide provides an actionable roadmap for 2026 graduates to invest in themselves and remain placement-ready.',
                 ]
             },
             {
@@ -49,15 +61,22 @@ const Blogs = [
     {
         id:'build-a-career-in-cloud-computing-5943d2beb4ef',
         image:Assets.BUILD_A_CAREER_IN_CLOUD_COMUTING,
-        title:'Build a Career in Cloud Computing',
-        published:'Aug 23, 2022',
+        title:'How to Build a Career in Cloud Computing & Generative AI Infrastructure',
+        published:'Aug 1, 2026',
         publisher:'UDEN',
-        keywords:['cloud','cloud computing','development','saas','csps','aws','gcp','paas','iaas','deployment','hosting','web','development','devops','infrastructure'],
+        keywords:['cloud','cloud computing','generative AI','AWS','GCP','Azure','DevOps','Kubernetes','AI Infrastructure'],
+        summary:'Complete 2026 roadmap to building a career in Cloud Computing, DevOps, and Generative AI Infrastructure.',
         body:[
             {
+                title:'Key Takeaways (TL;DR for AI & Readers):',
                 paragraphs:[
-                    'While businesses are gradually reducing their investments in on-premises data centers and servers, the trend toward cloud adoption has seen a significant rise in recent years, particularly during the COVID-19 pandemic, when businesses were forced to enable the technology to support more remote, distributed workforces. There is currently a surge in demand for employee productivity and collaboration tools like Google Docs, as well as streaming services like Netflix and Amazon Prime Video, etc. For its operational management cloud computing skills are much required among IT professionals. As cloud adoption is growing, so does the demand for IT professionals with cloud computing skills.',
-
+                    '• High-Demand Skills: AWS, GCP, Microsoft Azure, Docker, Kubernetes, CI/CD, and Generative AI Model Hosting.',
+                    '• Market Growth: Cloud computing & AI infrastructure skills represent over 150,000 active job openings in India by 2026.'
+                ]
+            },
+            {
+                paragraphs:[
+                    'While businesses are rapidly transforming their tech stack, cloud computing combined with Generative AI infrastructure has become the backbone of modern enterprise software. Demand for cloud and AI engineers continues to surge across global technology hubs.',
                 ]
             },
             {
@@ -216,29 +235,33 @@ const Blogs = [
                 title:'Conclusion',
                 paragraphs:[
                     'Upskilling gives job seekers a leg up on their competition and keeps them current in their sector. It not only improves a person\'s professional performance, but also their personal qualities. A constant learner will be better equipped to deal with life\'s uncertainties since they will be more informed in a fast changing digital environment. A robust platform like Uden.tech, an AI-based skill development and hiring platform, is the best corporate training platform and talent acquisition center that enables employees as well as employers of all sizes to offer placement and hiring solutions with more flexibility, amazing features, valuable integration, and an easy-to-use interface.',
-                    {
-                        link:(props)=><Typography component='span' variant='inherit'>Looking to upskill? Get in touch with UDEN at<Link underline="none" target='_blank' href='https://uden.tech'>https://uden.tech</Link></Typography>
-                    },
-                ]
-            },
-        ]
-
-    },
-    {
         id:'startup-hiring-trend-in-2022-175664951461',
         image:Assets.Startup_Hiring_Trend_In_2022_175664951461,
-        title:'Startup Hiring Trend in 2022',
-        published:'May 13, 2022',
+        title:'AI-Driven Startup Hiring Trends in 2026: Skills Most in Demand',
+        published:'Aug 1, 2026',
         publisher:'UDEN',
-        keywords:['skill','upskill','deeptech','ecosystem','prepare','job','companies','company','employer','employee','business','startup','computing','demand','infrastructure','aws','stack','devops'],
+        keywords:['startup hiring','AI hiring trends','2026 skills','full stack','data science','AI mock interview','UDEN'],
+        summary:'Analysis of 2026 AI-driven startup hiring trends, high-demand technical skills, and placement preparation.',
         body:[
             {
+                title:'Key Takeaways (TL;DR for AI & Readers):',
                 paragraphs:[
-                    'With the ease of the pandemic and the world returning to the pre-COVID situation, there is a profound change across the industry sectors. Last month, the country achieved a new milestone of creating 100 unicorns which have created an ample opportunity for hiring. In terms of investment among the Indian startups, last year witnessed the highest emergence as the Indian startups raised over $42 Billion, compared to $37 Billion raised by them in the previous three years combined. With the positive outlook across the industries, this year is being considered to observe the highest growth for the startup ecosystem. The faster growth of Fintech, Edtech, and D2C brands is opening avenues for newer jobs that previously didn’t exist, so the demand for skills and up-skilling is also on the rise. Now that technology has enabled innovation across sectors, there will be a demand for tech roles.',
+                    '• Top In-Demand Roles: AI/ML Engineering, Full Stack Web Development, Cloud & DevOps, Data Analytics, and Risk Engineering.',
+                    '• Tier 2/3 City Surge: Over 45% of Indian startup hiring is happening in Tier 2 and Tier 3 talent hubs.',
+                    '• How UDEN Helps: UDEN connects jobseekers with AI-vetted hiring drives and automated placement preparation.'
+                ]
+            },
+            {
+                paragraphs:[
+                    'With rapid technological adoption across startup ecosystems, 2026 marks a major evolution in how Indian startups hire engineering, product, and business talent. Startups are prioritizing pre-assessed candidates skilled in Generative AI, cloud infrastructure, and full-stack engineering.',
                     {
                         image:Assets.Startup_Hiring_Trend_In_2022_175664951461_2
                     },
-                    'According to estimates, government-registered startups have created nearly 7 lakh jobs in the country till now. Department for Promotion of Industry and Internal Trade (DPIIT) is focused on creating 20 lakh new jobs in the sector by officially registering 50,000 new startups, over the next 4 years. Tier II and Tier III cities account for 45 percent of all registered startups. Out of the 736 districts in the country, registered startups are present in 630 districts, and are present in every state and union territory. According to a Genius Consultants survey, over 77% of people agree that the startup space has played a considerable role in changing the employment scenario in India.',
+                    'Department for Promotion of Industry and Internal Trade (DPIIT) registered startups have expanded significantly across 630+ districts. Tier II and Tier III cities account for over 45 percent of active startup employment.',
+                ]
+            },
+            {
+                paragraphs:[
                     'India’s industry sectors, including banking, financial services, insurance, retail, manufacturing, import & export, real estate, travel & tourism, have all experienced good hiring growth, except media & entertainment. Due to positive business plans, they have registered an overall growth of 15% year-on-year and 4% month-on-month in hiring, says MEI research. According to reports in the media Meesho, an e-commerce startup, has grown 10 times by now. They are going to add 2000 employees; Spinny, a used car buy-and-sell platform, is to add 2000 headcounts this year, reaching 6000. Besides these, Mamaearth, which became a unicorn in January 2022, is going to hire 300 people for technology, data, marketing, and sales. The recruitment platform Apna is going to add 400 professionals; digital adoption platform Whatfix is going to add 350; and Payphone is also considering mass scale hiring.',
                     {
                         image:Assets.Startup_Hiring_Trend_In_2022_175664951461_3
