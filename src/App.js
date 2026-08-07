@@ -74,11 +74,20 @@ function App() {
 
             <Route path={AppRoutes.APP+"/*"} element={<FlutterApp />} />
 
-            {/* Core Audience Persona Routes */}
+            {/* Core Audience Persona Routes & URL Aliases */}
             <Route path="/students" element={<JobSeekers />} />
             <Route path="/jobseekers" element={<JobSeekers />} />
             <Route path="/colleges" element={<Campus />} />
             <Route path="/recruiters" element={<Companies />} />
+
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/cotact-us" element={<ContactUs />} />
+            <Route path="/upskilling-partners" element={<UpskillingPartners />} />
+            <Route path="/upskillig-partners" element={<UpskillingPartners />} />
+            <Route path="/government-partnership" element={<GovernmentPartnership />} />
+            <Route path="/government" element={<GovernmentPartnership />} />
+            <Route path="/campus-placements" element={<Campus />} />
+            <Route path="/campus-placement" element={<Campus />} />
 
             <Route path={AppRoutes.COMPANIES} element={<Companies />} />
             <Route path={AppRoutes.JOB_SEEKERS} element={<JobSeekers />} />
