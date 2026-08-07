@@ -5,15 +5,18 @@ import { jsx, css } from '@emotion/react';
 import { Play, Sparkles, Clock, CheckCircle2, GraduationCap, Building2, X, Monitor, ShieldCheck } from 'lucide-react';
 
 let CareerVideoMP4;
+let CampusVideoMP4;
 let CandidateSnapshotImg;
 let CampusSnapshotImg;
 
 try {
   CareerVideoMP4 = require('assets/images/career-growth-video.mp4');
+  CampusVideoMP4 = require('assets/images/campus-placement-video.mp4');
   CandidateSnapshotImg = require('assets/images/checklist-completed.jpg');
   CampusSnapshotImg = require('assets/images/flowcharts/1Flowchart.png');
 } catch (e) {
   CareerVideoMP4 = process.env.PUBLIC_URL + '/images/career-growth-video.mp4';
+  CampusVideoMP4 = process.env.PUBLIC_URL + '/images/campus-placement-video.mp4';
   CandidateSnapshotImg = process.env.PUBLIC_URL + '/images/checklist-completed.jpg';
   CampusSnapshotImg = process.env.PUBLIC_URL + '/images/flowcharts/1Flowchart.png';
 }
@@ -390,7 +393,7 @@ export default function ExplanatoryVideoSuite() {
             <button css={styles.closeBtn} onClick={() => setIsVideoModalOpen(false)}>
               <X size={20} />
             </button>
-            <video controls autoPlay src={CareerVideoMP4}>
+            <video controls autoPlay src={activeTab === 'campus' ? CampusVideoMP4 : CareerVideoMP4}>
               Your browser does not support the video tag.
             </video>
           </div>
