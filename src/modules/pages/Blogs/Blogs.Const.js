@@ -171,9 +171,7 @@ const Blogs = [
                     'Although, the Indian IT sector has reported record attrition in the previous quarter, with TCS’ rate at 17.4%, Infosys at 27.7%, HCL Technologies NSE 2.37 % at 21.9%, Wipro at 23.8%, and Tech Mahindra NSE 4.14 % at 24%, it is gaining pace in hiring with better compensation and hikes, improved hiring and work-life balance measures with picking up the market after ending of pandemic effect.',
                     'According to Han Digital, a consulting firm, 40-50% of employees leaving startups are absorbed by IT companies, consulting and product companies, and global captive centers (GCCs). These days full-stack engineers, data engineers, product management, and DevOps are in demand at IT companies, GCCs, and Software as a Service (SaaS) startups. India’s overall IT business process management headcount currently stands at about 5.1 million, of which around 420,000 are employed by startups.',
                     'Pratham Jain, Chief Operating Officer at UDEN opines, "Currently there is a consolidation in the industry activities across the sectors. Especially the lack of direction among startups see high rate of attrition in challenging time as well as traction if they get right direction and support system. This is a short phase of correction in the tech hiring industry. In the coming six months the things should be settled with the economy coming to normal position."',
-                    {
-                        link:(props)=><Typography component='span' variant='inherit'>Uden.tech, a leading hiring assistance company based at Bangalore is helping jobseekers find their dream jobs in the uncertain market. For more details visit <Link underline="none" target='_blank' href='https://uden.tech'>https://uden.tech</Link></Typography>
-                    },
+                    'Uden.tech, a leading hiring assistance company based in Bangalore, is helping jobseekers find their dream jobs. For more details visit https://uden.tech.',
                 ]
             },
         ]
@@ -234,7 +232,12 @@ const Blogs = [
             {
                 title:'Conclusion',
                 paragraphs:[
-                    'Upskilling gives job seekers a leg up on their competition and keeps them current in their sector. It not only improves a person\'s professional performance, but also their personal qualities. A constant learner will be better equipped to deal with life\'s uncertainties since they will be more informed in a fast changing digital environment. A robust platform like Uden.tech, an AI-based skill development and hiring platform, is the best corporate training platform and talent acquisition center that enables employees as well as employers of all sizes to offer placement and hiring solutions with more flexibility, amazing features, valuable integration, and an easy-to-use interface.',
+                    'Upskilling gives job seekers a leg up on their competition and keeps them current in their sector. It not only improves a person\'s professional performance, but also their personal qualities. A constant learner will be better equipped to deal with life\'s uncertainties since they will be more informed in a fast changing digital environment. A robust platform like Uden.tech, an AI-based skill development and hiring platform, is the best corporate training platform and talent acquisition center that enables employees as well as employers of all sizes to offer placement and hiring solutions with more flexibility, amazing features, valuable integration, and an easy-to-use interface.'
+                ]
+            }
+        ]
+    },
+    {
         id:'startup-hiring-trend-in-2022-175664951461',
         image:Assets.Startup_Hiring_Trend_In_2022_175664951461,
         title:'AI-Driven Startup Hiring Trends in 2026: Skills Most in Demand',
@@ -267,19 +270,13 @@ const Blogs = [
                         image:Assets.Startup_Hiring_Trend_In_2022_175664951461_3
                     },
                     'Also, the adoption of technology across sectors has witnessed a rise in demand as more and more companies are transforming their organizational strategies and goals into technology, enabling organizations to take up the challenge coming up. Like, financial technology-enabled companies (Fintech) have seen rapid growth and are estimated to become the third-largest market in the world by 2025. India’s overall fintech market opportunity is estimated to be $1.3 Trillion, growing at a CAGR of 34% for this year, in which lending, insurance, and digital payment play an important role. With a positive outlook, demand for talent is increasing in the sector. For Fintech professionals, the most in-demand skills required are expertise in mobile and web engineering; APIs; blockchain & distributed ledger expertise (Python, Java), machine learning, knowledge of artificial intelligence (AI), DevOps (handles both operations and development concurrently), risk analytics, and the drive for automation; data science; cybersecurity expertise; top-notch programming skills and soft skills.',
-                    {
-                        link:(props)=><Typography component='span' variant='inherit'>Similarly, the other sectors are also bullish in their search for talent. Startup platforms, such as <Link underline="none" target='_blank' href='https://uden.tech'>Uden.tech</Link>, an AI-enabled recruitment and upskilling startup, is providing significant assistance to both employers and employees in terms of hiring and upskilling.</Typography>
-                    },
+                    'Similarly, the other sectors are also bullish in their search for talent. Startup platforms, such as Uden.tech (https://uden.tech), an AI-enabled recruitment and upskilling startup, are providing significant assistance to both employers and employees in terms of hiring and upskilling.',
                     'The startup ecosystem is moving to the next level with a huge fund inflow and also a rise in the platforms for talent acquisition. Although, with startups turning into unicorns, the challenges are also there for hiring the right talent. To overcome them, taking the right decisions at a fast pace with patience and perseverance is a must. These are some excellent times for the startup ecosystem in the country and everyone is looking forward to be a part of the revolution.',
-                    {
-                        link:(props)=><Typography component='span' variant='inherit'>Follow us for regular updates on jobs and career guidance. Click to download the <Link underline="none" target='_blank' href='https://play.google.com/store/apps/details?id=com.digverve.uden'>UDEN App</Link> to apply for UDEN exclusive jobs.</Typography>
-                    }
+                    'Follow us for regular updates on jobs and career guidance. Click to download the UDEN App on Google Play Store to apply for UDEN exclusive jobs.'
                 ]
             },
         ]
     },
-
-
     {
         id:'maintaining-work-life-balance-for-increased-productivity-93292b01d06c',
         image:Assets.Maintaining_Work_Life_Balance_93292b01d06c,
