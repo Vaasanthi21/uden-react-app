@@ -1,0 +1,21 @@
+# UDEN
+
+> UDEN (Unified Development and Employment Network) is an AI-powered career readiness and placement platform bridging students, colleges, and recruiters across India — with a focus on Tier 2 and Tier 3 institutions. UDEN provides AI interview practice, resume optimization, placement automation, and smart hiring tools. Operated by Digverve Solutions Pvt. Ltd.
+
+## For Students
+- [Students Overview](https://uden.tech/students): AI interview prep, resume tools, career readiness & placement prep for college students.
+
+## For Jobseekers
+- [Jobseekers Overview](https://uden.tech/jobseekers): AI job matching, resume tools for freshers, and off-campus applications.
+
+## For Colleges & TPOs
+- [Colleges Overview](https://uden.tech/colleges): Placement cell automation, employability analytics, and NAAC/NBA audit reporting.
+
+## For Recruiters
+- [Recruiters Overview](https://uden.tech/recruiters): Hiring pipeline from Tier 2/3 colleges, pre-vetted candidate sourcing, and 48-hour shortlist SLA.
+
+## About
+- [About UDEN](https://uden.tech/about): Company background, credentials (Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT, NSRCEL IIM Bangalore).
+
+## Login & Portal
+- [Login Portal](https://cps.uden.tech/log_in): UDEN Campus Placement System & Student Login Portal.
