@@ -349,17 +349,16 @@ export default function ExplanatoryVideoSuite() {
 
         {/* Video Card Showcase */}
         <div css={styles.videoCardGrid} className="uden-fade-in">
-          <div 
-            css={styles.videoThumbnailBox}
-            onClick={() => setIsVideoModalOpen(true)}
-          >
-            <img src={currentData.image} alt="Platform Video Walkthrough Thumbnail" />
-            <div css={styles.playOverlayBtn}>
-              <Play size={28} style={{ marginLeft: '4px' }} />
-            </div>
-            <div css={styles.durationBadge}>
-              <Clock size={14} /> 90 Sec Explainer Video
-            </div>
+          <div css={styles.videoThumbnailBox}>
+            <video 
+              key={activeTab}
+              controls 
+              preload="metadata"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}
+              src={activeTab === 'campus' ? CampusVideoMP4 : CareerVideoMP4}
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div css={styles.contentCol}>
@@ -380,7 +379,7 @@ export default function ExplanatoryVideoSuite() {
               onClick={() => setIsVideoModalOpen(true)}
               className="uden-pulse-btn"
             >
-              <Play size={16} /> Watch 90-Sec Video Walkthrough
+              <Play size={16} /> Watch Fullscreen Video Walkthrough
             </button>
           </div>
         </div>
