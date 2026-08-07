@@ -16,7 +16,7 @@ export const FooterConst = {
                 isDisabled:false,
             },
             {
-                NAME:"For Parters",
+                NAME:"For Partners",
                 LINK:AppRoutes.UPSKILLING_PARTNERS,
                 isDisabled:false,
             },

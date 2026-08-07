@@ -218,7 +218,7 @@ const styles = {
     height: 340px;
     margin: 0 auto;
 
-    @media (max-width: 639px) {
+    @media (max-width: 979px) {
       display: none;
     }
   `,
@@ -240,11 +240,11 @@ const styles = {
   mobileVerticalStack: css`
     display: none;
     width: 100%;
-    max-width: 480px;
+    max-width: 580px;
     flex-direction: column;
     gap: 16px;
 
-    @media (max-width: 639px) {
+    @media (max-width: 979px) {
       display: flex;
     }
   `,

@@ -23,7 +23,7 @@ const PrivacyPolicy = React.lazy(() => import('./modules/pages/PrivacyPolicy/Pri
 const TermsAndConditions = React.lazy(() => import('./modules/pages/TermsAndConditions/TermsAndConditions'));
 const HRServices = React.lazy(() => import('./modules/pages/HRServices/HRServices'));
 const Blogs = React.lazy(() => import('./modules/pages/Blogs/Blogs'));
-const Blog = React.lazy(() => import('./modules/pages/Blogs/childrens/Blog/Blog'));
+const Blog = React.lazy(() => import('./modules/pages/Blogs/childrens/Blog/Blog').then(m => ({ default: m.default || m.Blog })));
 const FlutterApp = React.lazy(() => import('./modules/pages/FlutterApp/FlutterApp'));
 const Error404 = React.lazy(() => import('./modules/pages/404/404'));
 const Campus = React.lazy(() => import('./modules/pages/CampusPlacement/campus'));

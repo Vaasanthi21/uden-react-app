@@ -33,3 +33,5 @@ export const Blog = () => {
     </Box>
   )
 }
+
+export default Blog;
