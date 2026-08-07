@@ -150,7 +150,7 @@
 
   <!-- Auth Portal -->
   <url>
-    <loc>https://uden.tech/login</loc>
+    <loc>https://cps.uden.tech/log_in</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

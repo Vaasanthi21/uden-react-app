@@ -16,3 +16,6 @@
 
 ## About
 - [About UDEN](https://uden.tech/about): Company background, credentials (Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT, NSRCEL IIM Bangalore).
+
+## Login & Portal
+- [Login Portal](https://cps.uden.tech/log_in): UDEN Campus Placement System & Student Login Portal.
