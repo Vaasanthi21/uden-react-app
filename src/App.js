@@ -74,6 +74,12 @@ function App() {
 
             <Route path={AppRoutes.APP+"/*"} element={<FlutterApp />} />
 
+            {/* Core Audience Persona Routes */}
+            <Route path="/students" element={<JobSeekers />} />
+            <Route path="/jobseekers" element={<JobSeekers />} />
+            <Route path="/colleges" element={<Campus />} />
+            <Route path="/recruiters" element={<Companies />} />
+
             <Route path={AppRoutes.COMPANIES} element={<Companies />} />
             <Route path={AppRoutes.JOB_SEEKERS} element={<JobSeekers />} />
             <Route path={AppRoutes.UPSKILLING_PARTNERS} element={<UpskillingPartners />} />
