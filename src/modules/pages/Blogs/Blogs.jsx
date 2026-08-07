@@ -15,11 +15,11 @@ const Blogs = () => {
     <div>
       <BlogsBanner css={styles.banner} />
 
-      {/* AI Creative Studio Callout Bar */}
+      {/* AI Creative Studio Callout Bar (UDEN Brand Theme) */}
       <Container maxWidth="lg" style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Box
           style={{
-            background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)',
+            background: 'linear-gradient(135deg, #FFFDF9 0%, #FFF3EC 100%)',
             borderRadius: '16px',
             padding: '20px 28px',
             display: 'flex',
@@ -27,18 +27,18 @@ const Blogs = () => {
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '16px',
-            boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
-            border: '1px solid #334155'
+            boxShadow: '0 8px 24px rgba(245, 88, 37, 0.08)',
+            border: '1.5px solid #FDE4D8'
           }}
         >
-          <Box display="flex" alignItems="center" gap="12px">
+          <Box display="flex" alignItems="center" gap="14px">
             <Box
               style={{
-                width: '42px',
-                height: '42px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '12px',
-                background: 'rgba(245, 88, 37, 0.2)',
-                border: '1px solid #F55825',
+                background: 'rgba(245, 88, 37, 0.12)',
+                border: '1px solid rgba(245, 88, 37, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -48,10 +48,10 @@ const Blogs = () => {
               <Sparkles size={22} />
             </Box>
             <Box>
-              <Typography style={{ color: '#FFFFFF', fontWeight: 800, fontSize: '18px' }}>
+              <Typography style={{ color: '#1E293B', fontWeight: 800, fontSize: '18px' }}>
                 UDEN Creative Studio OS
               </Typography>
-              <Typography style={{ color: '#94A3B8', fontWeight: 600, fontSize: '13px' }}>
+              <Typography style={{ color: '#64748B', fontWeight: 600, fontSize: '13.5px' }}>
                 Generate SEO &amp; GEO optimized blog articles using AI
               </Typography>
             </Box>
