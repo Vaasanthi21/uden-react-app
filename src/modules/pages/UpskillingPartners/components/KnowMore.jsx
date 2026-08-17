@@ -85,6 +85,7 @@ const styles = {
 
 const UpskillingKnowMore = () => {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.container}>
@@ -102,7 +103,7 @@ const UpskillingKnowMore = () => {
 
         <button 
           css={styles.ctaBtn}
-          onClick={() => navigate(AppRoutes.BECOME_PARTNER)}
+          onClick={() => openModal('demo')}
         >
           Join as Upskilling Partner
           <ArrowRight size={18} />

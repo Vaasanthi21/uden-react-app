@@ -193,7 +193,7 @@ const HRServicesFeature = (props) => {
   const solutions = data.features || [];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   useEffect(() => {
     if (isPaused || solutions.length === 0) return;
@@ -280,7 +280,7 @@ const HRServicesFeature = (props) => {
 
             <button 
               css={styles.consultBtn}
-              onClick={() => navigate(AppRoutes.HR_SERVICE_JOIN)}
+              onClick={() => openModal('contact')}
             >
               Get Solution
               <ArrowRight size={14} />

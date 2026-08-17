@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from 'modules/components/modal/FormModalContext';
 
 const styles = {
   container: css`
@@ -85,6 +86,7 @@ const styles = {
 
 const HRServicesKnowMore = () => {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.container}>
@@ -102,7 +104,7 @@ const HRServicesKnowMore = () => {
 
         <button 
           css={styles.ctaBtn}
-          onClick={() => navigate(AppRoutes.HR_SERVICE_JOIN)}
+          onClick={() => openModal('contact')}
         >
           Get Started Now
           <ArrowRight size={18} />

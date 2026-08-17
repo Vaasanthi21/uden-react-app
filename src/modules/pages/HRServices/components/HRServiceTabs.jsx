@@ -220,7 +220,7 @@ const HRServiceTabs = () => {
 
           <button 
             css={styles.actionBtn}
-            onClick={() => navigate(AppRoutes.HR_SERVICE_JOIN)}
+            onClick={() => openModal('contact')}
           >
             Request HR Consultation
             <ArrowRight size={16} />

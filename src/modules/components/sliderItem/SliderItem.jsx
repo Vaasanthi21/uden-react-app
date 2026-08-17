@@ -156,8 +156,10 @@ const SliderItem = (props) => {
         openModal('apply');
       } else if (href.includes('hr-service')) {
         openModal('contact');
+      } else if (href.includes('become-partner') || href.includes('campus-partner') || href.includes('partner')) {
+        openModal('demo');
       } else {
-        navigate(href);
+        openModal('getStarted');
       }
     } else {
       openModal('getStarted');
