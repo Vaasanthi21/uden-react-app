@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { Search, Sparkles, Briefcase, MapPin, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 const styles = {
   container: css`
@@ -196,13 +197,14 @@ const HeroSearchWidget = () => {
   const [activeTab, setActiveTab] = useState('candidate');
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (activeTab === 'candidate') {
-      navigate(AppRoutes.FIND_TALENT);
+      openModal('getStarted', { query });
     } else {
-      navigate(AppRoutes.FIND_OPPORTUNITY);
+      openModal('apply', { query });
     }
   };
 
@@ -279,10 +281,10 @@ const HeroSearchWidget = () => {
 
         <div css={styles.tagsRow}>
           <span>Popular Searches:</span>
-          <div css={styles.tagChip} onClick={() => navigate(AppRoutes.FIND_TALENT)}>React 18 Devs</div>
-          <div css={styles.tagChip} onClick={() => navigate(AppRoutes.FIND_TALENT)}>Python AI Engineer</div>
-          <div css={styles.tagChip} onClick={() => navigate(AppRoutes.FIND_TALENT)}>Pre-Assessed Freshers</div>
-          <div css={styles.tagChip} onClick={() => navigate(AppRoutes.HR_SERVICES)}>HR Outsourcing</div>
+          <div css={styles.tagChip} onClick={() => openModal('getStarted')}>React 18 Devs</div>
+          <div css={styles.tagChip} onClick={() => openModal('getStarted')}>Python AI Engineer</div>
+          <div css={styles.tagChip} onClick={() => openModal('getStarted')}>Pre-Assessed Freshers</div>
+          <div css={styles.tagChip} onClick={() => openModal('contact')}>HR Outsourcing</div>
         </div>
       </div>
     </div>

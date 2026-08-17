@@ -109,6 +109,10 @@ function App() {
 
             {/* Persona Lead Generation Forms */}
             <Route path={AppRoutes.FIND_TALENT} element={<FindTalentPage />} />
+            <Route path="/find_talent" element={<FindTalentPage />} />
+            <Route path="/findtalent" element={<FindTalentPage />} />
+            <Route path="/hire-talent" element={<FindTalentPage />} />
+            <Route path="/hire_talent" element={<FindTalentPage />} />
             <Route path="/campus-partner-form" element={<CampusPartnerFormPage />} />
             <Route path={AppRoutes.HR_SERVICE_JOIN} element={<HRServicesJoinPage />} />
             <Route path="/government-partner-form" element={<GovernmentPartnerFormPage />} />

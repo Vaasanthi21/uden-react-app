@@ -248,6 +248,7 @@ const styles = {
 
 const RecruiterVettedHub = () => {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.container}>
@@ -280,7 +281,7 @@ const RecruiterVettedHub = () => {
             </li>
           </ul>
 
-          <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_TALENT)}>
+          <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => openModal('getStarted')}>
             Request Candidate Profiles
             <ArrowRight size={18} />
           </button>
