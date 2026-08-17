@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { Search, Sparkles, ShieldCheck, Clock, ArrowRight, Users, CheckCircle2, Building2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 let RecruitmentTeamImage;
 try {
@@ -220,11 +221,11 @@ const styles = {
 
 const CompaniesBanner = () => {
   const [role, setRole] = useState('fullstack');
-  const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   const handleRequestSubmit = (e) => {
     e.preventDefault();
-    navigate(AppRoutes.FIND_TALENT);
+    openModal('getStarted', { role });
   };
 
   return (
@@ -232,7 +233,6 @@ const CompaniesBanner = () => {
       <div css={styles.container}>
         {/* Left Column Text, Illustration Picture & Value Proposition */}
         <div>
-          {/* Picture moved above the headline */}
           {RecruitmentTeamImage && (
             <img 
               src={RecruitmentTeamImage} 
@@ -252,7 +252,7 @@ const CompaniesBanner = () => {
           </h1>
 
           <p css={styles.subtitle}>
-            Access top 1% pre-assessed software engineers, cloud architects, and data experts across India & global markets. Zero sourcing fee until you hire.
+            Access top 1% pre-assessed software engineers, cloud architects, and data experts across India &amp; global markets. Zero sourcing fee until you hire.
           </p>
 
           <div css={styles.bulletGrid}>
@@ -289,11 +289,11 @@ const CompaniesBanner = () => {
                 <div css={styles.field}>
                   <label htmlFor="company-banner-role">Primary Tech Role:</label>
                   <select id="company-banner-role" aria-label="Primary Tech Role" value={role} onChange={(e) => setRole(e.target.value)}>
-                    <option value="fullstack">Fullstack / React & Node.js Dev</option>
-                    <option value="cloud">Cloud Engineer & DevOps (AWS/Azure)</option>
-                    <option value="ai">AI / Data Science & Python Engineer</option>
+                    <option value="fullstack">Fullstack / React &amp; Node.js Dev</option>
+                    <option value="cloud">Cloud Engineer &amp; DevOps (AWS/Azure)</option>
+                    <option value="ai">AI / Data Science &amp; Python Engineer</option>
                     <option value="mobile">Mobile App Developer (Flutter / React Native)</option>
-                    <option value="qa">QA Automation & SDET Engineer</option>
+                    <option value="qa">QA Automation &amp; SDET Engineer</option>
                   </select>
                 </div>
 

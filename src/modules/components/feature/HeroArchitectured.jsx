@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
+import { useFormModal } from '../modal/FormModalContext';
 
 const floatAnim = keyframes`
   0% { transform: translateY(0px); }
@@ -59,51 +60,51 @@ const styles = {
   badgeTag: css`
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background: #FFF5F0;
+    border: 1px solid #FFDECB;
     color: #F55825;
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
-    margin-bottom: 20px;
-    border: 1px solid #FFDDD1;
-    align-self: flex-start;
-    letter-spacing: 0.3px;
+    margin-bottom: 18px;
+    width: fit-content;
   `,
   title: css`
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 900;
-    color: #1E293B;
-    line-height: 1.14;
-    margin: 0 0 18px 0;
-    letter-spacing: -1.2px;
+    color: #0B1739;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
 
     span {
       color: #F55825;
     }
 
-    @media (max-width: 768px) {
-      font-size: 32px;
-      letter-spacing: -0.5px;
+    @media (max-width: 640px) {
+      font-size: 30px;
     }
   `,
   subtitle: css`
     font-size: 16px;
     color: #475569;
-    line-height: 1.65;
-    margin-bottom: 28px;
-    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 26px;
 
     .hl-student { color: #F55825; font-weight: 700; }
     .hl-college { color: #2563EB; font-weight: 700; }
     .hl-recruiter { color: #16A34A; font-weight: 700; }
+
+    @media (max-width: 640px) {
+      font-size: 14.5px;
+    }
   `,
   ctaRow: css`
     display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 18px;
     flex-wrap: wrap;
   `,
   primaryBtn: css`
@@ -112,7 +113,7 @@ const styles = {
     border: none;
     padding: 15px 32px;
     border-radius: 30px;
-    font-size: 15.5px;
+    font-size: 15px;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
@@ -218,25 +219,13 @@ const styles = {
     margin-bottom: 12px;
     font-size: 15px;
     font-weight: 900;
-    color: #1E293B;
   `,
   cardList: css`
     display: flex;
     flex-direction: column;
     gap: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #334155;
   `,
   cardItem: css`
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  `,
-
-  /* RIGHT HAND DASHBOARD & PHONE MOCKUP PREVIEW */
-  previewWrapper: css`
-    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -606,7 +595,7 @@ export default function HeroArchitectured() {
               {/* For Recruiters Card */}
               <div 
                 css={styles.recruiterCard}
-                onClick={() => navigate(AppRoutes.FIND_TALENT)}
+                onClick={() => openModal('getStarted')}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>
