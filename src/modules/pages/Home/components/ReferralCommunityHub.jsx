@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { DollarSign, Users, ArrowRight, CheckCircle2, Gift, Share2, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 let TeamCollaborationImage;
 try {
@@ -330,7 +331,7 @@ const ReferralCommunityHub = () => {
 
       {/* 3. BOTTOM CENTERED BUTTON */}
       <div css={styles.bottomBtnWrap}>
-        <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+        <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => openModal('apply')}>
           Refer Friends &amp; Earn ₹20,000 – ₹50,000 Cash Prize
           <ArrowRight size={18} />
         </button>

@@ -6,6 +6,7 @@ import { BookOpen, Video, FileText, Bot, Award, ArrowRight, CheckCircle2, Sparkl
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 let MentorGuidanceImage, AiRobotTeamImage, FaqSupportDeskImage, StudentRoadmapImage;
 try {
@@ -303,7 +304,7 @@ const CompanyPrepExplorer = () => {
             <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: '1.6', marginBottom: '20px' }}>
               Get personal guidance from experienced mentors who have cleared selection rounds at Deloitte, TCS NQT, and Amazon SDE.
             </p>
-            <button css={styles.accessBtn} style={{ background: '#F55825', color: '#FFFFFF', border: 'none' }} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+            <button css={styles.accessBtn} style={{ background: '#F55825', color: '#FFFFFF', border: 'none' }} onClick={() => openModal('apply')}>
               Book 1-on-1 Mentor Session
               <ArrowRight size={16} />
             </button>
@@ -365,7 +366,7 @@ const CompanyPrepExplorer = () => {
                 </div>
               </div>
 
-              <button css={styles.startBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+              <button css={styles.startBtn} className="uden-pulse-btn" onClick={() => openModal('apply')}>
                 <Play size={16} />
                 Launch AI Video Mock Interview
               </button>
@@ -397,7 +398,7 @@ const CompanyPrepExplorer = () => {
 
               <button 
                 css={styles.accessBtn}
-                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+                onClick={() => openModal('apply')}
               >
                 Access Round Prep & PYQs
                 <ArrowRight size={16} />

@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { Search, MapPin, Sparkles, ArrowRight, Globe, Filter, DollarSign, Users, Clock, Compass } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 import { CareerGrowthImage, ChecklistCompletedImage, JobTeamImage } from 'utils/consts/uploaded_illustrations';
 
@@ -343,10 +344,11 @@ const MultiJobSearch = () => {
   const [location, setLocation] = useState('');
   const [workModel, setWorkModel] = useState('all');
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    navigate(AppRoutes.FIND_OPPORTUNITY);
+    openModal('apply', { roleQuery, location });
   };
 
   return (
@@ -479,8 +481,8 @@ const MultiJobSearch = () => {
                   ))}
                 </div>
               </div>
-              <button css={styles.applyBtn} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
-                Prepare & Apply Now
+              <button css={styles.applyBtn} onClick={() => openModal('apply')}>
+                Prepare &amp; Apply Now
                 <ArrowRight size={16} />
               </button>
             </div>

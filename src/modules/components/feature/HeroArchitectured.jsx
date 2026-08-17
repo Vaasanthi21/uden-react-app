@@ -532,7 +532,7 @@ export default function HeroArchitectured() {
             <div css={styles.ctaRow}>
               <button 
                 css={styles.primaryBtn}
-                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+                onClick={() => openModal('getStarted')}
                 className="uden-pulse-btn"
               >
                 Get Started Free
@@ -541,7 +541,7 @@ export default function HeroArchitectured() {
 
               <button 
                 css={styles.secondaryBtn}
-                onClick={() => navigate('/campus-partner-form')}
+                onClick={() => openModal('demo')}
               >
                 <Calendar size={16} color="#F55825" />
                 Book a Demo
@@ -559,7 +559,7 @@ export default function HeroArchitectured() {
               {/* For Students Card */}
               <div 
                 css={styles.studentCard}
-                onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+                onClick={() => openModal('apply')}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>
@@ -577,7 +577,7 @@ export default function HeroArchitectured() {
               {/* For Colleges Card */}
               <div 
                 css={styles.collegeCard}
-                onClick={() => navigate('/campus-partner-form')}
+                onClick={() => openModal('demo')}
                 style={{ cursor: 'pointer' }}
               >
                 <div css={styles.cardHeader}>

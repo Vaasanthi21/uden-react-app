@@ -6,6 +6,7 @@ import { ArrowRight, Building2, Award, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { HomeConst } from '../Home.Const';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
 
 const styles = {
   section: css`
@@ -150,7 +151,7 @@ const StudentPlaced = () => {
 
         <button 
           css={styles.ctaLink}
-          onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+          onClick={() => openModal('apply')}
         >
           View Success Stories
           <ArrowRight size={15} />
