@@ -520,6 +520,7 @@ const styles = {
 
 export default function HeroArchitectured() {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.heroOuter}>

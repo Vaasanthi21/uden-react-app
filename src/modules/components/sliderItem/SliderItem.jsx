@@ -4,6 +4,7 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useFormModal } from '../modal/FormModalContext';
 
 const styles = {
   cardOuter: css`
@@ -142,12 +143,24 @@ const styles = {
 
 const SliderItem = (props) => {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
   const darksubtitle = props?.darksubtitle;
 
   const handleActionClick = (e) => {
+    e.preventDefault();
     if (props?.action?.href) {
-      e.preventDefault();
-      navigate(props.action.href);
+      const href = props.action.href;
+      if (href.includes('find-talent')) {
+        openModal('getStarted');
+      } else if (href.includes('find-opportunity')) {
+        openModal('apply');
+      } else if (href.includes('hr-service')) {
+        openModal('contact');
+      } else {
+        navigate(href);
+      }
+    } else {
+      openModal('getStarted');
     }
   };
 
