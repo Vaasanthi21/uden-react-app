@@ -1,16 +1,14 @@
-stages:          # List of stages for jobs, and their order of execution
+stages:
   - build
   - test
   - deploy
-
 
 variables:
   APP_PATH: '$CI_PROJECT_DIR'
   OUTPUT_PATH: '$CI_PROJECT_DIR/build'
 
-
-deploy-development:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+deploy-development:
+  stage: deploy
   environment: development
   variables:
     API_TOKEN: $DEPLOYMENT_TOKEN_DEV
@@ -21,8 +19,8 @@ deploy-development:      # This job runs in the deploy stage.
   only:
     - development
 
-deploy-production:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+deploy-production:
+  stage: deploy
   environment: production
   variables:
     API_TOKEN: $DEPLOYMENT_TOKEN
@@ -31,4 +29,6 @@ deploy-production:      # This job runs in the deploy stage.
     - echo "Deploying Production application..."
     - echo "Production Application successfully deployed."
   only:
-  - master
+    - master
+    - vasanthi
+    - v3-production-release
