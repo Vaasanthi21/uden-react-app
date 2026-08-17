@@ -56,6 +56,8 @@ const styles = {
   leftCol: css`
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 10;
   `,
   badgeTag: css`
     display: inline-flex;
@@ -106,6 +108,8 @@ const styles = {
     gap: 14px;
     margin-bottom: 18px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 20;
   `,
   primaryBtn: css`
     background: #F55825;
@@ -230,6 +234,14 @@ const styles = {
     display: flex;
     justify-content: center;
     align-items: center;
+  `,
+  previewWrapper: css`
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
   `,
   desktopMockup: css`
     width: 100%;
@@ -380,17 +392,19 @@ const styles = {
   /* FLOATING SMARTPHONE MOCKUP OVERLAY */
   mobileOverlay: css`
     position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 175px;
+    bottom: 10px;
+    right: 10px;
+    width: 170px;
     background: #000000;
     border-radius: 28px;
     padding: 8px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border: 3px solid #334155;
     animation: ${floatAnim} 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
 
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
       display: none;
     }
   `,
