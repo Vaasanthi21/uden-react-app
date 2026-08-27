@@ -149,7 +149,37 @@ const FormModal = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API endpoint POST request (Growth OS CRM LP-002)
+    // HubSpot Lead & Contact Integration Tracking
+    try {
+      if (window._hsq) {
+        const identifyData = {};
+        if (formData.email) identifyData.email = formData.email;
+        if (formData.name) {
+          const parts = formData.name.trim().split(' ');
+          identifyData.firstname = parts[0] || formData.name;
+          identifyData.lastname = parts.slice(1).join(' ') || '';
+        }
+        if (formData.mobile) identifyData.phone = formData.mobile;
+        if (formData.college) identifyData.company = formData.college;
+        if (formData.role) identifyData.jobtitle = formData.role;
+        if (formData.message) identifyData.message = formData.message;
+
+        window._hsq.push(["identify", identifyData]);
+
+        const eventNames = {
+          demo: "Book a Demo Request Submission",
+          getStarted: "Get Started Request Submission",
+          contact: "Talk to Team / HR Solution Inquiry Submission",
+          apply: "Student Placement Application Submission"
+        };
+        const eventId = eventNames[formType] || "Quick Form Submission";
+
+        window._hsq.push(["trackEvent", { id: eventId }]);
+      }
+    } catch (err) {
+      console.log("HubSpot modal tracking error:", err);
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
