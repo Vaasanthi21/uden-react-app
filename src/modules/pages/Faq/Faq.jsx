@@ -5,6 +5,8 @@ import { jsx, css } from '@emotion/react';
 import { ChevronDown, ChevronUp, Search, Sparkles, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../components/modal/FormModalContext';
+
 
 let FaqSupportDeskImage;
 try {
@@ -209,6 +211,7 @@ const FaqPage = () => {
   const [openId, setOpenId] = useState('q1');
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   const filteredFaqs = faqItems.filter(
     (item) =>
@@ -274,7 +277,7 @@ const FaqPage = () => {
           <div css={styles.ctaCard} className="uden-card-hover">
             <h3>Still have questions?</h3>
             <p>Talk to our career onboarding team or explore our dedicated stakeholder guidelines.</p>
-            <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+            <button css={styles.ctaBtn} className="uden-pulse-btn" onClick={() => openModal('contact')}>
               Get in Touch with UDEN
               <ArrowRight size={16} />
             </button>
