@@ -5,6 +5,8 @@ import { jsx, css } from '@emotion/react';
 import { Users, FileCheck, ShieldCheck, UserCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
+
 
 const styles = {
   section: css`
@@ -182,6 +184,7 @@ const serviceTabsData = [
 const HRServiceTabs = () => {
   const [activeTab, setActiveTab] = useState('staffing');
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
   const currentService = serviceTabsData.find((t) => t.id === activeTab) || serviceTabsData[0];
 
   return (

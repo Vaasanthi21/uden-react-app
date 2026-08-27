@@ -6,6 +6,8 @@ import { ChevronLeft, ChevronRight, Sparkles, ArrowRight, Target, TrendingUp, Us
 import HRServicesConst from '../HRServices.Const';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
+
 
 const styles = {
   section: css`

@@ -5,6 +5,8 @@ import { jsx, css } from '@emotion/react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { useFormModal } from '../../../components/modal/FormModalContext';
+
 
 const styles = {
   container: css`

@@ -272,6 +272,7 @@ const styles = {
 
 const ReferralCommunityHub = () => {
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.container} className="uden-fade-in">

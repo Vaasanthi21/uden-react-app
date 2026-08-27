@@ -120,6 +120,7 @@ const styles = {
 const StudentPlaced = () => {
   const data = HomeConst.StudentPlaced;
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
 
   return (
     <div css={styles.section}>

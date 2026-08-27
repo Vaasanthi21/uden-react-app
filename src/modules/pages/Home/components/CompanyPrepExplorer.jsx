@@ -283,6 +283,7 @@ const roundCardImages = [
 const CompanyPrepExplorer = () => {
   const [selectedCompanyId, setSelectedCompanyId] = useState('deloitte');
   const navigate = useNavigate();
+  const { openModal } = useFormModal();
   const prepData = HomeConst.CompanyInterviewPrep;
 
   const currentCompany = prepData.companies.find(c => c.id === selectedCompanyId) || prepData.companies[0];
