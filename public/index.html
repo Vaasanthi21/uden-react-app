@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#F55825" />
     <meta name="msapplication-TileColor" content="#F55825" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://uden.tech" />
+    <link rel="canonical" id="canonical-url" href="https://uden.tech" />
 
     <!-- Google Analytics 4 (GA4 gtag.js - property: uden-f001c ID: G-4GE9MBR83P) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GE9MBR83P"></script>
@@ -98,7 +98,45 @@
           "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "USD"
+            "priceCurrency": "INR"
+          }
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://uden.tech/colleges#educational-organization",
+          "name": "UDEN Campus Placement Network",
+          "url": "https://uden.tech/colleges",
+          "description": "Campus Placement System (CPS) and automated employability accreditation reporting for higher education institutions."
+        },
+        {
+          "@type": "JobPosting",
+          "title": "Senior React & Fullstack Developer",
+          "datePosted": "2026-08-15",
+          "validThrough": "2026-12-31",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "UDEN Partner Network",
+            "sameAs": "https://uden.tech"
+          },
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "addressCountry": "IN"
+            }
+          },
+          "baseSalary": {
+            "@type": "MonetaryAmount",
+            "currency": "INR",
+            "value": {
+              "@type": "QuantitativeValue",
+              "minValue": 750000,
+              "maxValue": 1200000,
+              "unitText": "YEAR"
+            }
           }
         }
       ]

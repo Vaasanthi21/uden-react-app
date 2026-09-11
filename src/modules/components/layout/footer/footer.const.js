@@ -57,9 +57,9 @@ export const FooterConst = {
                 isDisabled:false,
             },
             {
-                NAME:"Careers",
-                LINK:AppRoutes.CAREERS,
-                isDisabled:true,
+                NAME:"Placement Report 2026",
+                LINK:AppRoutes.PLACEMENT_REPORT,
+                isDisabled:false,
             },
             {
                 NAME:"Community Forum",
@@ -67,9 +67,9 @@ export const FooterConst = {
                 isDisabled:true,
             },
             {
-                NAME:"Learning Lab",
-                LINK:AppRoutes.LEARNING_LAB,
-                isDisabled:true,
+                NAME:"SEO & Growth Hub",
+                LINK:AppRoutes.SEO_PLAN,
+                isDisabled:false,
             }
 
         ],

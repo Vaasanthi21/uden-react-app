@@ -18,9 +18,13 @@ const Paragraph = (props) => {
       <Typography key={itemIndex} variant='h6' className='paragraph-title' >{item.title}</Typography>
       {item.paragraphs.map((para, paraIndex) =>
           <Box mb={4} key={"para"+paraIndex.toString()}>
-            {typeof para==='string'?
-            <Typography key={paraIndex} variant='body1' className='paragraph' >{para}</Typography>
-            :para?.link && <Typography key={"paraLink"+paraIndex.toString()} variant='body1' className='paragraph' >{para?.link()}</Typography>}
+            {React.isValidElement(para) ? (
+              <Typography key={paraIndex} variant='body1' className='paragraph'>{para}</Typography>
+            ) : typeof para === 'string' ? (
+              <Typography key={paraIndex} variant='body1' className='paragraph'>{para}</Typography>
+            ) : para?.link && (
+              <Typography key={"paraLink"+paraIndex.toString()} variant='body1' className='paragraph'>{para?.link()}</Typography>
+            )}
             {para?.image && <Box component='img' maxHeight='400px' width='100%'  src={para.image} alt={para.image}/>}
             {para?.bullets && <Box>
               {para?.bullets?.title && <Typography variant='body1' className='sub-paragraph-title' >{para?.bullets?.title}</Typography>}

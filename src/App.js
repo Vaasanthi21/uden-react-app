@@ -29,6 +29,8 @@ const Error404 = React.lazy(() => import('./modules/pages/404/404'));
 const Campus = React.lazy(() => import('./modules/pages/CampusPlacement/campus'));
 const GovernmentPartnership = React.lazy(() => import('./modules/pages/Government/GovernmentPartnership'));
 const FaqPage = React.lazy(() => import('./modules/pages/Faq/Faq'));
+const PlacementReport = React.lazy(() => import('./modules/pages/PlacementReport/PlacementReport'));
+const SeoPlanDashboard = React.lazy(() => import('./modules/pages/SeoPlan/SeoPlanDashboard'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -98,6 +100,8 @@ function App() {
 
             <Route path={AppRoutes.BLOGS} element={<Blogs/>}/>
             <Route path={AppRoutes.BLOGS+"/:id"}  element={<Blog/>} />
+            <Route path={AppRoutes.PLACEMENT_REPORT} element={<PlacementReport />} />
+            <Route path={AppRoutes.SEO_PLAN} element={<SeoPlanDashboard />} />
           
             <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
             <Route path={AppRoutes.CAMPUS_PLACEMENTS} element={<Campus />} />

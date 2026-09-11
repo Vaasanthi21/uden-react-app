@@ -23,10 +23,23 @@ const FIND_OPPORTUNITY = "/find-opportunity";
 const BECOME_PARTNER = "/become-partner";
 const HR_SERVICE_JOIN = "/hr-service-join";
 
+const STUDENTS = "/students";
+const JOBSEEKERS = "/jobseekers";
+const COLLEGES = "/colleges";
+const RECRUITERS = "/recruiters";
+const PLACEMENT_REPORT = "/reports/tier-2-3-placement-report-2026";
+const SEO_PLAN = "/seo-plan";
+
 const APP = "/app";
 
 export const AppRoutes = {
     HOME,
+    STUDENTS,
+    JOBSEEKERS,
+    COLLEGES,
+    RECRUITERS,
+    PLACEMENT_REPORT,
+    SEO_PLAN,
     COMPANIES,
     JOB_SEEKERS,
     UPSKILLING_PARTNERS,

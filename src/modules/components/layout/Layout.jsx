@@ -7,10 +7,12 @@ import AppFooter from './footer/AppFooter';
 import KidiChatbot from '../KidiChatbot';
 import { FormModalProvider } from '../modal/FormModalContext';
 import FormModal from '../modal/FormModal';
+import SEOHead from '../seo/SEOHead';
 
 const Layout = () => {
   return (
     <FormModalProvider>
+      <SEOHead />
       <Box minHeight="100vh" display="flex" flexDirection="column" justifyContent="space-between" sx={{ overflowY: 'visible' }}>
         <AppHeader/>
         <main id="main-content" style={{ width: '100%', flex: '1 0 auto' }}>
