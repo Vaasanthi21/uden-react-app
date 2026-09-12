@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "route": "/about",
-      "redirect": "/about-us",
+      "route": "/about-us",
+      "redirect": "/about",
       "statusCode": 301
     },
     {

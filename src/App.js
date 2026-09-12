@@ -103,7 +103,8 @@ function App() {
             <Route path={AppRoutes.PLACEMENT_REPORT} element={<PlacementReport />} />
             <Route path={AppRoutes.SEO_PLAN} element={<SeoPlanDashboard />} />
           
-            <Route path={AppRoutes.ABOUT_US} element={<AboutUs />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path={AppRoutes.CAMPUS_PLACEMENTS} element={<Campus />} />
             <Route path={AppRoutes.FOR_CAMPUS} element={<Campus />} />
             <Route path={AppRoutes.FOR_STUDENTS} element={<JobSeekers />} />

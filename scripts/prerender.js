@@ -66,7 +66,7 @@ const renderFooter = () => `
       <div>
         <h4 style="color: #FFFFFF; font-size: 16px; margin-bottom: 12px; font-weight: 700;">Company & Legal</h4>
         <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
-          <li><a href="https://uden.tech/about-us" style="color: #94A3B8; text-decoration: none;">About Us</a></li>
+          <li><a href="https://uden.tech/about" style="color: #94A3B8; text-decoration: none;">About Us</a></li>
           <li><a href="https://uden.tech/contact-us" style="color: #94A3B8; text-decoration: none;">Contact Support</a></li>
           <li><a href="https://uden.tech/faq" style="color: #94A3B8; text-decoration: none;">Frequently Asked Questions</a></li>
           <li><a href="https://uden.tech/privacy-policy" style="color: #94A3B8; text-decoration: none;">Privacy Policy</a></li>
@@ -173,7 +173,7 @@ const blogArticles = [
     displayDate: 'Aug 1, 2026',
     publisher: 'UDEN',
     keywords: ['student', 'managing', 'onboarding delays', '2026 guide', 'AI upskilling', 'career resilience'],
-    summary: 'Strategic steps for college graduates facing corporate onboarding delays in 2026: focus on AWS/AI certifications, freelance projects, and AI mock interview readiness.',
+    summary: 'Facing a delayed job offer? Focus on AWS/AI certifications, freelance projects, and AI mock interview readiness while you wait to onboard.',
     tldr: [
       'What to do during onboarding delays: Focus on industry certifications (AWS, AI/ML), freelance projects, and short-term internships.',
       'How UDEN helps: Use UDEN\'s AI Mock Interviews and Resume Optimizer to stay interview-ready if alternative offers arise.'
@@ -212,7 +212,7 @@ const blogArticles = [
     displayDate: 'Aug 1, 2026',
     publisher: 'UDEN',
     keywords: ['cloud', 'cloud computing', 'generative AI', 'AWS', 'GCP', 'Azure', 'DevOps', 'Kubernetes', 'AI Infrastructure'],
-    summary: 'Complete 2026 roadmap to building a career in Cloud Computing, DevOps, and Generative AI Infrastructure.',
+    summary: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.',
     tldr: [
       'High-Demand Skills: AWS, GCP, Microsoft Azure, Docker, Kubernetes, CI/CD, and Generative AI Model Hosting.',
       'Market Growth: Cloud computing & AI infrastructure skills represent over 150,000 active job openings in India by 2026.'
@@ -335,12 +335,12 @@ const blogArticles = [
   },
   {
     id: 'startup-hiring-trend-in-2022-175664951461',
-    title: 'AI-Driven Startup Hiring Trends in 2026: Skills Most in Demand',
+    title: 'AI-Driven Startup Hiring Trends 2026: Top Skills',
     published: '2026-08-01',
     displayDate: 'Aug 1, 2026',
     publisher: 'UDEN',
     keywords: ['startup hiring', 'AI hiring trends', '2026 skills', 'full stack', 'data science', 'AI mock interview', 'UDEN'],
-    summary: 'Analysis of 2026 AI-driven startup hiring trends, high-demand technical skills, and placement preparation.',
+    summary: 'Startups in Tier 2/3 cities are hiring AI/ML, full-stack and DevOps engineers with 45%+ growth. See which skills are in demand.',
     tldr: [
       'Top In-Demand Roles: AI/ML Engineering, Full Stack Web Development, Cloud & DevOps, Data Analytics, and Risk Engineering.',
       'Tier 2/3 City Surge: Over 45% of Indian startup hiring is happening in Tier 2 and Tier 3 talent hubs.',
@@ -406,9 +406,9 @@ const corePages = [
   {
     route: '/students',
     canonical: 'https://uden.tech/students',
-    title: 'Students Career Readiness & AI Mock Interviews | UDEN',
-    description: 'Get placement-ready with 24x7 AI mock interviews, resume optimization, 8-axis skill radar assessments, and ₹20,000–₹50,000 referral cash prizes.',
-    keywords: 'UDEN students, AI mock interview, placement readiness, resume optimizer, Tier 2 college jobs, campus hiring prep',
+    title: 'AI Mock Interviews & Placement Prep for Students | UDEN',
+    description: '24x7 AI mock interviews, resume optimization & 8-axis skill radar for Tier 2/3 college students. Win ₹20K–50K referral rewards.',
+    keywords: 'AI mock interviews, placement prep, Tier 2 college students, resume optimization, 8-axis skill radar, referral rewards, UDEN',
     renderContent: () => `
       <main style="max-width: 1100px; margin: 0 auto; padding: 40px 24px;">
         <div style="text-align: center; margin-bottom: 40px;">
@@ -468,9 +468,9 @@ const corePages = [
   {
     route: '/jobseekers',
     canonical: 'https://uden.tech/jobseekers',
-    title: 'Jobseekers Off-Campus Placements & Tech Hiring | UDEN',
-    description: 'Find your dream tech job with algorithmic fitment scoring, pre-assessed shortlists across 100,000+ opportunities, and 1-click applications.',
-    keywords: 'UDEN jobseekers, off-campus jobs, tech hiring India, fresher jobs, referral rewards, algorithmic fitment',
+    title: 'AI Job Matching for First-Time Jobseekers | UDEN',
+    description: 'AI-matched career guidance and fitment scoring across 100,000+ job openings. Apply off-campus in 1 click with UDEN.',
+    keywords: 'AI job matching, first-time jobseekers, career guidance, fitment scoring, off-campus jobs, UDEN',
     renderContent: () => `
       <main style="max-width: 1100px; margin: 0 auto; padding: 40px 24px;">
         <div style="text-align: center; margin-bottom: 40px;">
@@ -505,9 +505,9 @@ const corePages = [
   {
     route: '/colleges',
     canonical: 'https://uden.tech/colleges',
-    title: 'Campus Placement System (CPS) for Colleges & TPOs | UDEN',
-    description: 'Automate college placement drives, generate 1-click NAAC & NBA accreditation reports, and connect students with 150+ corporate hiring partners.',
-    keywords: 'UDEN colleges, campus placement system, TPO software, NAAC accreditation placement, NBA audit placement, college placement automation',
+    title: 'Campus Placement Automation (CPS) for TPOs & Colleges | UDEN',
+    description: 'Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.',
+    keywords: 'campus placement automation, CPS, TPOs, colleges, NAAC accreditation, NBA reports, recruiters, UDEN',
     renderContent: () => `
       <main style="max-width: 1100px; margin: 0 auto; padding: 40px 24px;">
         <div style="text-align: center; margin-bottom: 40px;">
@@ -542,9 +542,9 @@ const corePages = [
   {
     route: '/recruiters',
     canonical: 'https://uden.tech/recruiters',
-    title: 'Hire Pre-Vetted Campus Talent within 48 Hours | UDEN',
-    description: 'Source job-ready Tier 2 & 3 tech talent with AI skill radar verification, 48-hour shortlists, and zero-risk post-hire upskilling support.',
-    keywords: 'UDEN recruiters, hire tech talent, campus recruitment India, pre-vetted engineers, Tier 2 college hiring, 48 hour shortlist',
+    title: 'Hire Pre-Vetted Tier 2/3 Tech Talent | UDEN for Recruiters',
+    description: 'Hire job-ready tech talent from Tier 2/3 colleges with a 48-hour shortlist SLA and zero-risk post-hire upskilling.',
+    keywords: 'hire pre-vetted talent, Tier 2/3 tech talent, recruiters, 48-hour shortlist SLA, post-hire upskilling, UDEN',
     renderContent: () => `
       <main style="max-width: 1100px; margin: 0 auto; padding: 40px 24px;">
         <div style="text-align: center; margin-bottom: 40px;">
@@ -655,21 +655,27 @@ const corePages = [
     `
   },
   {
-    route: '/about-us',
-    canonical: 'https://uden.tech/about-us',
-    title: 'About Us | UDEN — Unified Development & Employment Network',
-    description: 'Learn about UDEN, backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT, and NSRCEL IIM Bangalore.',
-    keywords: 'About UDEN, Digverve Solutions, Microsoft for Startups, NVIDIA Inception, edtech placement India',
+    route: '/about',
+    canonical: 'https://uden.tech/about',
+    title: 'About UDEN — Unified Development and Employment Network',
+    description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.',
+    keywords: 'About UDEN, Unified Development and Employment Network, AI career readiness, Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT',
     renderContent: () => `
       <main style="max-width: 1000px; margin: 0 auto; padding: 40px 24px;">
-        <h1 style="font-size: 38px; color: #0F172A; font-weight: 800;">About UDEN (Unified Development and Employment Network)</h1>
+        <h1 style="font-size: 38px; color: #0F172A; font-weight: 800; margin: 16px 0;">About UDEN — Unified Development and Employment Network</h1>
         <p style="font-size: 18px; color: #475569; line-height: 1.6;">
           UDEN is an AI-powered career readiness and campus recruitment platform bridging students, higher education institutions, and corporate employers across India—with an unapologetic focus on Tier 2, Tier 3, and rural engineering talent.
         </p>
         <section style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 24px; border-radius: 12px; margin: 32px 0;">
-          <h3 style="color: #0F172A; margin-top: 0;">Institutional Backing & Recognition</h3>
-          <p style="color: #475569; line-height: 1.6;">
+          <h3 style="color: #0F172A; margin-top: 0; font-size: 20px;">Institutional Backing & Recognition</h3>
+          <p style="color: #475569; line-height: 1.6; margin-bottom: 0;">
             UDEN (operated by Digverve Solutions Pvt. Ltd.) is recognized and supported by <strong>Microsoft for Startups Founders Hub, NVIDIA Inception Program, AWS EdStart, DPIIT (Startup India), and NSRCEL IIM Bangalore</strong>.
+          </p>
+        </section>
+        <section style="margin: 32px 0;">
+          <h2 style="color: #0F172A; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Our Mission & Vision</h2>
+          <p style="color: #475569; line-height: 1.6;">
+            To create an AI/ML powered ecosystem where the right talent gets guidance to access the world's best opportunities. UDEN facilitates algorithmic fitment between candidate capabilities and business demand, minimizing onboarding costs with our hire-and-train methodology.
           </p>
         </section>
       </main>
@@ -858,7 +864,7 @@ const corePages = [
 const escAttr = (str) => String(str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Master function to generate prerendered HTML file for a route
-function generatePage({ route, canonical, title, description, keywords, ogType = 'website', breadcrumbJsonLd, articleJsonLd, bodyHtml }) {
+function generatePage({ route, canonical, title, description, keywords, ogType = 'website', ogImage, breadcrumbJsonLd, articleJsonLd, bodyHtml }) {
   let html = baseTemplate;
 
   // 0. Ensure explicit <meta charset="utf-8"> is the first tag in <head>
@@ -889,14 +895,17 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
   }
 
   // 4. Replace OpenGraph & Twitter Tags
+  const finalOgImage = ogImage || 'https://uden.tech/og-banner.png';
   html = html.replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:title" content="${escAttr(title)}" />`);
   html = html.replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:description" content="${escAttr(description)}" />`);
   html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:url" content="${escAttr(canonical)}" />`);
   html = html.replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:type" content="${escAttr(ogType)}" />`);
+  html = html.replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${escAttr(finalOgImage)}" />`);
 
   html = html.replace(/<meta\s+property="twitter:title"\s+content="[^"]*"\s*\/?>/i, `<meta property="twitter:title" content="${escAttr(title)}" />`);
   html = html.replace(/<meta\s+property="twitter:description"\s+content="[^"]*"\s*\/?>/i, `<meta property="twitter:description" content="${escAttr(description)}" />`);
   html = html.replace(/<meta\s+property="twitter:url"\s+content="[^"]*"\s*\/?>/i, `<meta property="twitter:url" content="${escAttr(canonical)}" />`);
+  html = html.replace(/<meta\s+property="twitter:image"\s+content="[^"]*"\s*\/?>/i, `<meta property="twitter:image" content="${escAttr(finalOgImage)}" />`);
 
   // 5. Inject Structured JSON-LD Schemas before </head>
   let extraScripts = '';
@@ -977,29 +986,30 @@ corePages.forEach(page => {
   writeRouteFile(page.route, html);
 });
 
-// Also create alias folder for /about -> /about-us
-const aboutPage = corePages.find(p => p.route === '/about-us');
-if (aboutPage) {
-  const htmlAbout = generatePage({
-    route: '/about',
-    canonical: 'https://uden.tech/about-us',
-    title: aboutPage.title,
-    description: aboutPage.description,
-    keywords: aboutPage.keywords,
-    ogType: 'website',
-    breadcrumbJsonLd: buildBreadcrumbJsonLd('/about-us', 'About Us'),
-    bodyHtml: aboutPage.renderContent()
-  });
-  writeRouteFile('/about', htmlAbout);
-}
-
 // 2. Prerender All 8 Dynamic Blog Articles
+const customBlogMeta = {
+  'managing-delayed-onboarding-strategies-for-students-704dbab5f0eb': {
+    title: 'Managing Campus Onboarding Delays [2026 Guide] | UDEN',
+    description: 'Facing a delayed job offer? Focus on AWS/AI certifications, freelance projects, and AI mock interview readiness while you wait to onboard.'
+  },
+  'build-a-career-in-cloud-computing-5943d2beb4ef': {
+    title: 'How to Build a Career in Cloud Computing & GenAI | UDEN',
+    description: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.'
+  },
+  'startup-hiring-trend-in-2022-175664951461': {
+    title: 'AI-Driven Startup Hiring Trends 2026: Top Skills | UDEN',
+    description: 'Startups in Tier 2/3 cities are hiring AI/ML, full-stack and DevOps engineers with 45%+ growth. See which skills are in demand.'
+  }
+};
+
 blogArticles.forEach(article => {
   const route = `/blogs/${article.id}`;
   const canonical = `https://uden.tech/blogs/${article.id}`;
-  const pageTitle = `${article.title} | UDEN Blog`;
-  const description = article.summary;
+  const custom = customBlogMeta[article.id];
+  const pageTitle = custom ? custom.title : `${article.title} | UDEN Career Insights`;
+  const description = custom ? custom.description : article.summary;
   const keywords = article.keywords.join(', ');
+  const ogImage = article.image ? (article.image.startsWith('http') ? article.image : `https://uden.tech${article.image}`) : 'https://uden.tech/og-banner.png';
 
   const breadcrumb = buildBreadcrumbJsonLd(route, article.title);
 
@@ -1007,9 +1017,10 @@ blogArticles.forEach(article => {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": article.title,
-    "description": article.summary,
+    "description": description,
     "datePublished": article.published,
     "dateModified": article.published,
+    "image": ogImage,
     "author": {
       "@type": "Organization",
       "name": article.publisher,
@@ -1085,6 +1096,7 @@ blogArticles.forEach(article => {
     description,
     keywords,
     ogType: 'article',
+    ogImage,
     breadcrumbJsonLd: breadcrumb,
     articleJsonLd,
     bodyHtml

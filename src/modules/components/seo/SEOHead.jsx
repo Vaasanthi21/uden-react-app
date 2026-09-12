@@ -27,7 +27,8 @@ const canonicalMap = {
   '/government-partnership': 'https://uden.tech/government-partnership',
   '/government': 'https://uden.tech/government-partnership',
   '/hr-services': 'https://uden.tech/hr-services',
-  '/about-us': 'https://uden.tech/about-us',
+  '/about': 'https://uden.tech/about',
+  '/about-us': 'https://uden.tech/about',
   '/contact-us': 'https://uden.tech/contact-us',
   '/cotact-us': 'https://uden.tech/contact-us',
   '/faq': 'https://uden.tech/faq',
@@ -52,20 +53,20 @@ const routeMetadata = {
     description: 'UDEN connects Tier 2/3 students with AI mock interviews & campus hiring. 2,500+ placed across 150+ partners.'
   },
   '/students': {
-    title: 'Students Career Readiness & AI Mock Interviews | UDEN',
-    description: 'Get placement-ready with 24x7 AI mock interviews, resume optimization, 8-axis skill radar assessments, and ₹20,000–₹50,000 referral cash prizes.'
+    title: 'AI Mock Interviews & Placement Prep for Students | UDEN',
+    description: '24x7 AI mock interviews, resume optimization & 8-axis skill radar for Tier 2/3 college students. Win ₹20K–50K referral rewards.'
   },
   '/jobseekers': {
-    title: 'Jobseekers Off-Campus Placements & Tech Hiring | UDEN',
-    description: 'Find your dream tech job with algorithmic fitment scoring, pre-assessed shortlists across 100,000+ opportunities, and 1-click applications.'
+    title: 'AI Job Matching for First-Time Jobseekers | UDEN',
+    description: 'AI-matched career guidance and fitment scoring across 100,000+ job openings. Apply off-campus in 1 click with UDEN.'
   },
   '/colleges': {
-    title: 'Campus Placement System (CPS) for Colleges & TPOs | UDEN',
-    description: 'Automate college placement drives, generate 1-click NAAC & NBA accreditation reports, and connect students with 150+ corporate hiring partners.'
+    title: 'Campus Placement Automation (CPS) for TPOs & Colleges | UDEN',
+    description: 'Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.'
   },
   '/recruiters': {
-    title: 'Hire Pre-Vetted Campus Talent within 48 Hours | UDEN',
-    description: 'Source job-ready Tier 2 & 3 tech talent with AI skill radar verification, 48-hour shortlists, and zero-risk post-hire upskilling support.'
+    title: 'Hire Pre-Vetted Tier 2/3 Tech Talent | UDEN for Recruiters',
+    description: 'Hire job-ready tech talent from Tier 2/3 colleges with a 48-hour shortlist SLA and zero-risk post-hire upskilling.'
   },
   '/blogs': {
     title: 'Career & Tech Hiring Insights Blog | UDEN',
@@ -79,9 +80,13 @@ const routeMetadata = {
     title: 'SEO Boost Plan & 100 Backlink Directory Tracker | UDEN.tech',
     description: 'Internal growth dashboard tracking UDEN\'s 90-day SEO boost plan, canonical consistency, and 100-site backlink directory submissions.'
   },
+  '/about': {
+    title: 'About UDEN — Unified Development and Employment Network',
+    description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.'
+  },
   '/about-us': {
-    title: 'About Us | UDEN — Unified Development & Employment Network',
-    description: 'Learn about UDEN, backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT, and NSRCEL IIM Bangalore.'
+    title: 'About UDEN — Unified Development and Employment Network',
+    description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.'
   },
   '/contact-us': {
     title: 'Contact UDEN | Bengaluru & Ranchi Regional Hubs',

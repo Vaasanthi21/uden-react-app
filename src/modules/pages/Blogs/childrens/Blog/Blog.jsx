@@ -19,7 +19,49 @@ export const Blog = () => {
 
   React.useEffect(() => {
     if (!data || !data.title) return;
-    document.title = `${data.title} | UDEN`;
+    
+    const blogMetaOverrides = {
+      'managing-delayed-onboarding-strategies-for-students-704dbab5f0eb': {
+        title: 'Managing Campus Onboarding Delays [2026 Guide] | UDEN',
+        description: 'Facing a delayed job offer? Focus on AWS/AI certifications, freelance projects, and AI mock interview readiness while you wait to onboard.'
+      },
+      'build-a-career-in-cloud-computing-5943d2beb4ef': {
+        title: 'How to Build a Career in Cloud Computing & GenAI | UDEN',
+        description: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.'
+      },
+      'startup-hiring-trend-in-2022-175664951461': {
+        title: 'AI-Driven Startup Hiring Trends 2026: Top Skills | UDEN',
+        description: 'Startups in Tier 2/3 cities are hiring AI/ML, full-stack and DevOps engineers with 45%+ growth. See which skills are in demand.'
+      }
+    };
+
+    const override = blogMetaOverrides[id];
+    const postTitle = override ? override.title : `${data.title} | UDEN Career Insights`;
+    const postDescription = override ? override.description : (data.summary || data.title);
+    const postImage = data.image ? `https://uden.tech${data.image}` : "https://uden.tech/og-banner.png";
+    const postCanonical = `https://uden.tech/blogs/${id}`;
+
+    document.title = postTitle;
+
+    const setMeta = (nameAttr, nameVal, content) => {
+      let el = document.querySelector(`meta[${nameAttr}="${nameVal}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(nameAttr, nameVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    setMeta("name", "description", postDescription);
+    setMeta("property", "og:title", postTitle);
+    setMeta("property", "og:description", postDescription);
+    setMeta("property", "og:url", postCanonical);
+    setMeta("property", "og:image", postImage);
+    setMeta("property", "twitter:title", postTitle);
+    setMeta("property", "twitter:description", postDescription);
+    setMeta("property", "twitter:url", postCanonical);
+    setMeta("property", "twitter:image", postImage);
 
     let canonical = document.querySelector("link[rel='canonical']");
     if (!canonical) {
@@ -27,7 +69,7 @@ export const Blog = () => {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", `https://uden.tech/blogs/${id}`);
+    canonical.setAttribute("href", postCanonical);
 
     let schemaScript = document.getElementById("blogposting-schema");
     if (!schemaScript) {
@@ -40,7 +82,7 @@ export const Blog = () => {
       "@context": "https://schema.org/",
       "@type": "BlogPosting",
       "headline": data.title,
-      "image": data.image ? `https://uden.tech${data.image}` : "https://uden.tech/assets/logo.png",
+      "image": postImage,
       "author": {
         "@type": "Organization",
         "name": "UDEN"
@@ -50,12 +92,12 @@ export const Blog = () => {
         "name": "UDEN",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://uden.tech/assets/logo.png"
+          "url": "https://uden.tech/og-banner.png"
         }
       },
       "datePublished": "2026-08-01",
       "dateModified": "2026-08-01",
-      "description": data.summary || data.title
+      "description": postDescription
     };
     schemaScript.text = JSON.stringify(schemaData);
   }, [id, data]);
