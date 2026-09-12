@@ -9,7 +9,15 @@ if (!fs.existsSync(BASE_HTML_FILE)) {
   process.exit(1);
 }
 
-const baseTemplate = fs.readFileSync(BASE_HTML_FILE, 'utf8');
+// Ensure base index.html has canonical <meta charset="utf-8"> and read as utf-8
+let rawBaseTemplate = fs.readFileSync(BASE_HTML_FILE, 'utf8');
+if (/<meta\s+charset=[^>]+>/i.test(rawBaseTemplate)) {
+  rawBaseTemplate = rawBaseTemplate.replace(/<meta\s+charset=[^>]+>/i, '<meta charset="utf-8">');
+} else {
+  rawBaseTemplate = rawBaseTemplate.replace(/<head[^>]*>/i, '$&\n    <meta charset="utf-8">');
+}
+fs.writeFileSync(BASE_HTML_FILE, rawBaseTemplate, 'utf8');
+const baseTemplate = rawBaseTemplate;
 
 // Global navigation header for server-rendered HTML
 const renderHeader = () => `
@@ -852,6 +860,13 @@ const escAttr = (str) => String(str || '').replace(/"/g, '&quot;').replace(/</g,
 // Master function to generate prerendered HTML file for a route
 function generatePage({ route, canonical, title, description, keywords, ogType = 'website', breadcrumbJsonLd, articleJsonLd, bodyHtml }) {
   let html = baseTemplate;
+
+  // 0. Ensure explicit <meta charset="utf-8"> is the first tag in <head>
+  if (/<meta\s+charset=[^>]+>/i.test(html)) {
+    html = html.replace(/<meta\s+charset=[^>]+>/i, '<meta charset="utf-8">');
+  } else {
+    html = html.replace(/<head[^>]*>/i, '$&\n  <meta charset="utf-8">');
+  }
 
   // 1. Replace <title>
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escAttr(title)}</title>`);
