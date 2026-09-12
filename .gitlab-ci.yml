@@ -46,7 +46,6 @@ deploy-production:
   environment: production
   variables:
     API_TOKEN: $DEPLOYMENT_TOKEN
-    DEPLOYMENT_ENVIRONMENT: "Production"
     BRANCH: "master"
     PROD_BRANCH: "master"
     SKIP_APP_BUILD: "true"
