@@ -3,9 +3,7 @@ stages:
   - deploy
 
 variables:
-  APP_PATH: '$CI_PROJECT_DIR'
-  OUTPUT_PATH: '$CI_PROJECT_DIR/build'
-  ARTIFACT_PATH: '$CI_PROJECT_DIR/build'
+  APP_PATH: '$CI_PROJECT_DIR/build'
   CONFIG_PATH: '$CI_PROJECT_DIR/build'
   SKIP_APP_BUILD: 'true'
   VERBOSE: 'true'
@@ -18,11 +16,9 @@ build-production:
     - npm install --legacy-peer-deps
     - DISABLE_ESLINT_PLUGIN=true CI=false npm run build
     - cp staticwebapp.config.json build/staticwebapp.config.json || true
-    - cp build/index.html ./index.html || true
   artifacts:
     paths:
       - build/
-      - index.html
     expire_in: 1 hour
   only:
     - master
@@ -33,15 +29,13 @@ deploy-development:
   variables:
     API_TOKEN: $DEPLOYMENT_TOKEN_DEV
     DEPLOYMENT_ENVIRONMENT: "Development"
+    BRANCH: "development"
     SKIP_APP_BUILD: "true"
-    APP_PATH: '$CI_PROJECT_DIR'
-    OUTPUT_PATH: '$CI_PROJECT_DIR/build'
-    ARTIFACT_PATH: '$CI_PROJECT_DIR/build'
+    APP_PATH: '$CI_PROJECT_DIR/build'
     CONFIG_PATH: '$CI_PROJECT_DIR/build'
   image: registry.gitlab.com/static-web-apps/azure-static-web-apps-deploy
   script:
     - echo "Deploying Development application..."
-    - cp -r build/* ./ || true
     - bash /entrypoint.sh
     - echo "Development Application successfully deployed."
   only:
@@ -53,16 +47,15 @@ deploy-production:
   variables:
     API_TOKEN: $DEPLOYMENT_TOKEN
     DEPLOYMENT_ENVIRONMENT: "Production"
+    BRANCH: "master"
+    PROD_BRANCH: "master"
     SKIP_APP_BUILD: "true"
     VERBOSE: "true"
-    APP_PATH: '$CI_PROJECT_DIR'
-    OUTPUT_PATH: '$CI_PROJECT_DIR/build'
-    ARTIFACT_PATH: '$CI_PROJECT_DIR/build'
+    APP_PATH: '$CI_PROJECT_DIR/build'
     CONFIG_PATH: '$CI_PROJECT_DIR/build'
   image: registry.gitlab.com/static-web-apps/azure-static-web-apps-deploy
   script:
-    - echo "Deploying Production application to Azure Static Web Apps..."
-    - cp -r build/* ./ || true
+    - echo "Deploying Production application from build/ directory to Azure Static Web Apps..."
     - bash /entrypoint.sh
     - echo "Production Application successfully deployed."
   only:
