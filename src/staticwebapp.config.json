@@ -49,6 +49,166 @@
       "route": "/government",
       "redirect": "/government-partnership",
       "statusCode": 301
+    },
+    {
+      "route": "/students",
+      "rewrite": "/students.html"
+    },
+    {
+      "route": "/students/",
+      "rewrite": "/students/index.html"
+    },
+    {
+      "route": "/jobseekers",
+      "rewrite": "/jobseekers.html"
+    },
+    {
+      "route": "/jobseekers/",
+      "rewrite": "/jobseekers/index.html"
+    },
+    {
+      "route": "/colleges",
+      "rewrite": "/colleges.html"
+    },
+    {
+      "route": "/colleges/",
+      "rewrite": "/colleges/index.html"
+    },
+    {
+      "route": "/recruiters",
+      "rewrite": "/recruiters.html"
+    },
+    {
+      "route": "/recruiters/",
+      "rewrite": "/recruiters/index.html"
+    },
+    {
+      "route": "/reports/tier-2-3-placement-report-2026",
+      "rewrite": "/reports/tier-2-3-placement-report-2026.html"
+    },
+    {
+      "route": "/reports/tier-2-3-placement-report-2026/",
+      "rewrite": "/reports/tier-2-3-placement-report-2026/index.html"
+    },
+    {
+      "route": "/seo-plan",
+      "rewrite": "/seo-plan.html"
+    },
+    {
+      "route": "/seo-plan/",
+      "rewrite": "/seo-plan/index.html"
+    },
+    {
+      "route": "/about-us",
+      "rewrite": "/about-us.html"
+    },
+    {
+      "route": "/about-us/",
+      "rewrite": "/about-us/index.html"
+    },
+    {
+      "route": "/contact-us",
+      "rewrite": "/contact-us.html"
+    },
+    {
+      "route": "/contact-us/",
+      "rewrite": "/contact-us/index.html"
+    },
+    {
+      "route": "/faq",
+      "rewrite": "/faq.html"
+    },
+    {
+      "route": "/faq/",
+      "rewrite": "/faq/index.html"
+    },
+    {
+      "route": "/privacy-policy",
+      "rewrite": "/privacy-policy.html"
+    },
+    {
+      "route": "/privacy-policy/",
+      "rewrite": "/privacy-policy/index.html"
+    },
+    {
+      "route": "/terms-and-conditions",
+      "rewrite": "/terms-and-conditions.html"
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "rewrite": "/terms-and-conditions/index.html"
+    },
+    {
+      "route": "/blogs",
+      "rewrite": "/blogs.html"
+    },
+    {
+      "route": "/blogs/",
+      "rewrite": "/blogs/index.html"
+    },
+    {
+      "route": "/blogs/tier-2-3-college-placement-report-2026",
+      "rewrite": "/blogs/tier-2-3-college-placement-report-2026.html"
+    },
+    {
+      "route": "/blogs/tier-2-3-college-placement-report-2026/",
+      "rewrite": "/blogs/tier-2-3-college-placement-report-2026/index.html"
+    },
+    {
+      "route": "/blogs/managing-delayed-onboarding-strategies-for-students-704dbab5f0eb",
+      "rewrite": "/blogs/managing-delayed-onboarding-strategies-for-students-704dbab5f0eb.html"
+    },
+    {
+      "route": "/blogs/managing-delayed-onboarding-strategies-for-students-704dbab5f0eb/",
+      "rewrite": "/blogs/managing-delayed-onboarding-strategies-for-students-704dbab5f0eb/index.html"
+    },
+    {
+      "route": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef",
+      "rewrite": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef.html"
+    },
+    {
+      "route": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef/",
+      "rewrite": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef/index.html"
+    },
+    {
+      "route": "/blogs/upskilling-and-reskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1",
+      "rewrite": "/blogs/upskilling-and-reskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1.html"
+    },
+    {
+      "route": "/blogs/upskilling-and-reskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1/",
+      "rewrite": "/blogs/upskilling-and-reskilling-the-essentials-for-a-thriving-deepTech-ecosystem-06773fb88dd1/index.html"
+    },
+    {
+      "route": "/blogs/indian-it-sector-facilitates-jobs-in-funding-winter-3845113ef856",
+      "rewrite": "/blogs/indian-it-sector-facilitates-jobs-in-funding-winter-3845113ef856.html"
+    },
+    {
+      "route": "/blogs/indian-it-sector-facilitates-jobs-in-funding-winter-3845113ef856/",
+      "rewrite": "/blogs/indian-it-sector-facilitates-jobs-in-funding-winter-3845113ef856/index.html"
+    },
+    {
+      "route": "/blogs/upskilling-the-new-age-growth-hack-a8bbdb8ccc86",
+      "rewrite": "/blogs/upskilling-the-new-age-growth-hack-a8bbdb8ccc86.html"
+    },
+    {
+      "route": "/blogs/upskilling-the-new-age-growth-hack-a8bbdb8ccc86/",
+      "rewrite": "/blogs/upskilling-the-new-age-growth-hack-a8bbdb8ccc86/index.html"
+    },
+    {
+      "route": "/blogs/startup-hiring-trend-in-2022-175664951461",
+      "rewrite": "/blogs/startup-hiring-trend-in-2022-175664951461.html"
+    },
+    {
+      "route": "/blogs/startup-hiring-trend-in-2022-175664951461/",
+      "rewrite": "/blogs/startup-hiring-trend-in-2022-175664951461/index.html"
+    },
+    {
+      "route": "/blogs/maintaining-work-life-balance-for-increased-productivity-93292b01d06c",
+      "rewrite": "/blogs/maintaining-work-life-balance-for-increased-productivity-93292b01d06c.html"
+    },
+    {
+      "route": "/blogs/maintaining-work-life-balance-for-increased-productivity-93292b01d06c/",
+      "rewrite": "/blogs/maintaining-work-life-balance-for-increased-productivity-93292b01d06c/index.html"
     }
   ],
   "navigationFallback": {
@@ -56,7 +216,11 @@
     "exclude": [
       "/images/*.{png,jpg,gif,svg}",
       "/static/*",
-      "/*.{ico,png,json,txt,xml,csv,pdf,html}"
+      "/*.{ico,png,json,txt,xml,csv,pdf,html}",
+      "/**/*.html",
+      "/**/*.json",
+      "/**/*.xml",
+      "/**/*.csv"
     ]
   },
   "mimeTypes": {

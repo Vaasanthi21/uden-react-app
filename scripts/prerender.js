@@ -928,9 +928,19 @@ function writeRouteFile(routePath, htmlContent) {
     fs.mkdirSync(targetDir, { recursive: true });
   }
 
+  // 1. Write directory index (build/<route>/index.html) for trailing slash requests
   const targetFile = path.join(targetDir, 'index.html');
   fs.writeFileSync(targetFile, htmlContent, 'utf8');
   console.log(`[Prerender] Generated: ${targetFile.replace(BUILD_DIR, 'build')}`);
+
+  // 2. Also write flat clean URL file (build/<route>.html) for non-trailing slash requests
+  // Azure Static Web Apps clean URLs directly serves <route>.html when /<route> is requested!
+  if (cleanRoute) {
+    const flatFile = path.join(BUILD_DIR, `${cleanRoute}.html`);
+    fs.mkdirSync(path.dirname(flatFile), { recursive: true });
+    fs.writeFileSync(flatFile, htmlContent, 'utf8');
+    console.log(`[Prerender] Generated: ${flatFile.replace(BUILD_DIR, 'build')}`);
+  }
 }
 
 console.log('[Prerender] Starting static pre-rendering for all routes and blog posts...');
