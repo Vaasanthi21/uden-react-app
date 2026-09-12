@@ -917,16 +917,16 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
     ${renderFooter()}
   `;
 
-  // 7. Inject into <noscript> (replace existing homepage snapshot)
-  const noscriptBlock = `<noscript>\n${completeLayout}\n</noscript>`;
+  // 7. Replace any existing <noscript> block with a clean standard fallback to eliminate content duplication
+  const cleanNoscript = `<noscript>You need to enable JavaScript to run this app.</noscript>`;
   if (html.includes('<noscript>')) {
-    html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, noscriptBlock);
+    html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, cleanNoscript);
   } else {
-    html = html.replace('<div id="root">', `${noscriptBlock}\n    <div id="root">`);
+    html = html.replace(/<div\s+id="root">/i, `${cleanNoscript}\n    <div id="root">`);
   }
 
-  // 8. ALSO Inject into <div id="root"> so non-JS scrapers that ignore <noscript> (e.g. curl, LLM text parsers) see real page content immediately
-  html = html.replace('<div id="root"></div>', `<div id="root">${completeLayout}</div>`);
+  // 8. Inject the single canonical prerendered semantic layout into <div id="root">
+  html = html.replace(/<div\s+id="root">\s*<\/div>/i, `<div id="root">${completeLayout}</div>`);
 
   return html;
 }
