@@ -54,13 +54,9 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
-      "/images/*.{png,jpg,gif,svg}",
+      "/images/*",
       "/static/*",
-      "/*.{ico,png,json,txt,xml,csv,pdf,html}",
-      "/**/*.html",
-      "/**/*.json",
-      "/**/*.xml",
-      "/**/*.csv"
+      "/*.{ico,png,json,txt,xml,csv,pdf,html}"
     ]
   },
   "mimeTypes": {
