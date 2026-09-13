@@ -2,10 +2,8 @@
   "routes": [
     {
       "route": "/about-us",
-      "rewrite": "/about-us.html",
-      "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
-      }
+      "redirect": "/about",
+      "statusCode": 301
     },
     {
       "route": "/about",

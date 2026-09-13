@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import './App.css';
 import { AppRoutes } from './utils/consts/routes';
@@ -104,7 +104,7 @@ function App() {
             <Route path={AppRoutes.SEO_PLAN} element={<SeoPlanDashboard />} />
           
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/about-us" element={<Navigate to="/about" replace />} />
             <Route path={AppRoutes.CAMPUS_PLACEMENTS} element={<Campus />} />
             <Route path={AppRoutes.FOR_CAMPUS} element={<Campus />} />
             <Route path={AppRoutes.FOR_STUDENTS} element={<JobSeekers />} />
