@@ -62,7 +62,7 @@ const routeMetadata = {
   },
   '/colleges': {
     title: 'Campus Placement Automation (CPS) for TPOs & Colleges | UDEN',
-    description: 'Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.'
+    description: "Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN's CPS."
   },
   '/recruiters': {
     title: 'Hire Pre-Vetted Tier 2/3 Tech Talent | UDEN for Recruiters',

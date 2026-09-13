@@ -690,7 +690,7 @@ const corePages = [
     route: '/colleges',
     canonical: 'https://uden.tech/colleges',
     title: 'Campus Placement Automation (CPS) for TPOs & Colleges | UDEN',
-    description: 'Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.',
+    description: "Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN's CPS.",
     keywords: 'campus placement automation, CPS, TPOs, colleges, NAAC accreditation, NBA reports, recruiters, UDEN',
     renderContent: () => `
       <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
@@ -737,9 +737,9 @@ const corePages = [
   {
     route: '/recruiters',
     canonical: 'https://uden.tech/recruiters',
-    title: 'Hire Pre-Vetted, Job-Ready Tech Talent in 48 Hours | UDEN',
-    description: 'Access top 1% pre-assessed software engineers, cloud architects, and data experts across India & global markets with 48-hour shortlist SLA.',
-    keywords: 'hire pre-vetted talent, job ready tech talent, recruiters, 48-hour shortlist SLA, IT recruitment India, Tier 2/3 tech talent, UDEN',
+    title: 'Hire Pre-Vetted Tier 2/3 Tech Talent | UDEN for Recruiters',
+    description: 'Hire job-ready tech talent from Tier 2/3 colleges with a 48-hour shortlist SLA and zero-risk post-hire upskilling.',
+    keywords: 'hire pre-vetted talent, Tier 2/3 tech talent, recruiters, 48-hour shortlist SLA, post-hire upskilling, UDEN',
     renderContent: () => `
       <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
         <!-- Hero Section -->
