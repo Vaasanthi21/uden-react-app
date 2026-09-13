@@ -11,8 +11,6 @@ import placementAlgoImage from "assets/images/flowcharts/placementAlgoImage.png"
 import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
-import HeroArchitectured from '../../components/feature/HeroArchitectured';
-
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import FaqPage from '../Faq/Faq';
 import TpoAccreditationDashboard from '../../components/feature/TpoAccreditationDashboard';
@@ -397,9 +395,6 @@ const Campus = () => {
 
   return (
     <div style={{ width: '100%', overflowX: 'hidden' }}>
-      {/* 0. Student Potential Architectured & Interactive Skills Snapshot */}
-      <HeroArchitectured />
-
       {/* 1. Hero Institutional Banner & Registration Form */}
       <div css={styles.heroOuter}>
         <div css={styles.container}>
@@ -410,10 +405,10 @@ const Campus = () => {
                 INSTITUTIONAL PLACEMENT AUTOMATION
               </div>
               <h1 css={styles.heroTitle}>
-                Revolutionizing Campus Placements <span>with UDEN</span>
+                Campus Placement Automation (CPS) <span>for TPOs &amp; Colleges</span>
               </h1>
               <p css={styles.heroSub}>
-                AI-driven recruitment automation, predictive placement analytics, and direct corporate drive connections for modern universities.
+                Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.
               </p>
             </div>
 
