@@ -248,7 +248,7 @@ const CompaniesBanner = () => {
           </div>
 
           <h1 css={styles.title}>
-            Hire Pre-Vetted, <span>Job-Ready Tech Talent</span> in 48 Hours
+            Hire Pre-Vetted <span>Tier 2/3 Tech Talent</span>
           </h1>
 
           <p css={styles.subtitle}>

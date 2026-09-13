@@ -746,7 +746,7 @@ const corePages = [
         <div style="background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%); border-radius: 24px; padding: 48px; border: 1.5px solid rgba(75, 99, 140, 0.25); margin-bottom: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center;">
           <div>
             <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(75, 99, 140, 0.1); color: #4B638C; padding: 6px 18px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid rgba(75, 99, 140, 0.25); text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.5px;">ENTERPRISE TALENT ACQUISITION</span>
-            <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.18; margin: 0 0 16px 0; letter-spacing: -0.8px;">Hire Pre-Vetted, <span style="color: #F55825;">Job-Ready Tech Talent</span> in 48 Hours</h1>
+            <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.18; margin: 0 0 16px 0; letter-spacing: -0.8px;">Hire Pre-Vetted <span style="color: #F55825;">Tier 2/3 Tech Talent</span></h1>
             <p style="font-size: 16px; color: #475569; line-height: 1.65; margin-bottom: 28px; font-weight: 500;">Access top 1% pre-assessed software engineers, cloud architects, and data experts across India &amp; global markets. Zero sourcing fee until you hire.</p>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
               <a href="https://uden.tech/find-talent" style="background: #F55825; color: #FFFFFF; padding: 14px 28px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(245,88,37,0.25);">Post Hiring Requisition &rarr;</a>
