@@ -407,6 +407,124 @@ const blogArticles = [
 // Core pages metadata and rich semantic content
 const corePages = [
   {
+    route: '/',
+    canonical: 'https://uden.tech/',
+    title: 'UDEN — AI Placement & Career Platform in India',
+    description: 'UDEN connects Tier 2/3 students with AI mock interviews & campus hiring. 2,500+ placed across 150+ partners.',
+    keywords: 'UDEN, UDEN.tech, AI Career Matching, Campus Placement System, AI Interview Practice, Resume Builder, Placement Automation, Student Placement, Recruiter Shortlist, Higher Education Tech, EdTech India, Tier 2 College Placement',
+    renderContent: () => `
+      <main style="max-width: 1240px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
+        <!-- Hero Section: FOLD 1: THE HOOK & VISION -->
+        <div style="background: linear-gradient(180deg, #FFFDF7 0%, #FFFFFF 100%); border-radius: 24px; padding: 48px; border: 1.5px solid #FEF5D8; margin-bottom: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center;">
+          <div>
+            <span style="display: inline-flex; align-items: center; gap: 6px; background: #FFF5F0; border: 1px solid #FFDECB; color: #F55825; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; margin-bottom: 18px; text-transform: uppercase;">
+              ✨ AI-First Campus Placement System (CPS)
+            </span>
+            <h1 style="font-size: 42px; font-weight: 900; color: #0B1739; line-height: 1.15; letter-spacing: -1px; margin: 0 0 16px 0;">
+              AI-Powered Career Transformation <span style="color: #F55825;">Platform</span>
+            </h1>
+            <p style="font-size: 16px; color: #475569; line-height: 1.6; margin-bottom: 26px;">
+              Bridging <strong style="color: #F55825;">Students</strong>, <strong style="color: #2563EB;">Colleges</strong> and <strong style="color: #16A34A;">Recruiters</strong> through AI-powered career intelligence, interview preparation, resume optimization, placement automation and smart hiring.
+            </p>
+
+            <div style="display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap;">
+              <a href="https://uden.tech/find-opportunity" style="background: #F55825; color: #FFFFFF; padding: 14px 32px; border-radius: 30px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(245,88,37,0.28);">Get Started Free &rarr;</a>
+              <a href="https://uden.tech/campus-partner-form" style="background: #FFFFFF; color: #1E293B; border: 1.5px solid #CBD5E1; padding: 14px 28px; border-radius: 30px; font-size: 15px; font-weight: 800; text-decoration: none;">Book a Demo</a>
+            </div>
+
+            <div style="font-size: 13px; font-weight: 700; color: #64748B; margin-bottom: 28px;">
+              🛡️ <span style="color: #1E293B; font-weight: 800;">Trusted by 100+ Colleges</span> &bull; <span>70+ Recruiters</span> &bull; <span>Thousands of Students</span>
+            </div>
+
+            <!-- Triad Grid: 3 Stakeholder Hubs -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+              <div style="background: #FFF7ED; border: 1.5px solid #FFEDD5; border-radius: 16px; padding: 16px;">
+                <div style="font-size: 14px; font-weight: 800; color: #F55825; margin-bottom: 4px;">🎓 For Students</div>
+                <p style="font-size: 12px; color: #475569; margin: 0 0 8px; line-height: 1.4;">24x7 AI Mock Interviews, 8-Axis Skill Radar &amp; 100k+ Jobs.</p>
+                <a href="https://uden.tech/students" style="color: #F55825; font-size: 12px; font-weight: 800; text-decoration: none;">Explore Students &rarr;</a>
+              </div>
+              <div style="background: #EFF6FF; border: 1.5px solid #DBEAFE; border-radius: 16px; padding: 16px;">
+                <div style="font-size: 14px; font-weight: 800; color: #2563EB; margin-bottom: 4px;">🏛️ For Colleges</div>
+                <p style="font-size: 12px; color: #475569; margin: 0 0 8px; line-height: 1.4;">Automate Placement Drives &amp; 1-Click NAAC/NBA Reports.</p>
+                <a href="https://uden.tech/colleges" style="color: #2563EB; font-size: 12px; font-weight: 800; text-decoration: none;">Explore Colleges &rarr;</a>
+              </div>
+              <div style="background: #F0FDF4; border: 1.5px solid #DCFCE7; border-radius: 16px; padding: 16px;">
+                <div style="font-size: 14px; font-weight: 800; color: #16A34A; margin-bottom: 4px;">🏢 For Recruiters</div>
+                <p style="font-size: 12px; color: #475569; margin: 0 0 8px; line-height: 1.4;">48-Hour Shortlist SLA &amp; Pre-Assessed Tech Talent.</p>
+                <a href="https://uden.tech/recruiters" style="color: #16A34A; font-size: 12px; font-weight: 800; text-decoration: none;">Hire Talent &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Dashboard Terminal Mockup -->
+          <div style="background: #0F172A; border: 2px solid #334155; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px -15px rgba(30,41,59,0.35); color: #FFFFFF;">
+            <div style="background: #0B132B; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155;">
+              <div style="display: flex; gap: 6px;">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #EF4444; display: inline-block;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #F59E0B; display: inline-block;"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+              </div>
+              <div style="font-size: 12px; font-weight: 800; color: #94A3B8;">UDEN PLATFORM SUITE &bull; LIVE RADAR</div>
+            </div>
+            <div style="padding: 24px;">
+              <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-weight: 800; font-size: 14px; color: #FFFFFF;">Alex Sharma (Fullstack Engineer)</span>
+                  <span style="background: #10B981; color: #FFFFFF; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 800;">96% Match</span>
+                </div>
+                <div style="font-size: 12.5px; color: #94A3B8;">Verified Recruiter Shortlist: <strong style="color: #F55825;">Deloitte Tech</strong> (₹9.2L Package)</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; text-align: center;">
+                  <div style="font-size: 18px; font-weight: 900; color: #F55825;">48 Hrs</div>
+                  <div style="font-size: 11px; color: #94A3B8;">Interview SLA</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; text-align: center;">
+                  <div style="font-size: 18px; font-weight: 900; color: #10B981;">Audit Ready</div>
+                  <div style="font-size: 11px; color: #94A3B8;">NAAC/NBA Reports</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Platform Benchmark Metrics -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 48px;">
+          <div style="background: #FFFFFF; border: 1.5px solid rgba(247,188,8,0.4); border-radius: 18px; padding: 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="font-size: 32px; font-weight: 900; color: #1E293B;">2,500<span style="color: #F55825;">+</span></div>
+            <div style="font-size: 13px; color: #64748B; font-weight: 700;">Placed Graduates</div>
+          </div>
+          <div style="background: #FFFFFF; border: 1.5px solid rgba(247,188,8,0.4); border-radius: 18px; padding: 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="font-size: 32px; font-weight: 900; color: #1E293B;">90<span style="color: #F55825;">%+</span></div>
+            <div style="font-size: 13px; color: #64748B; font-weight: 700;">Offer Conversion</div>
+          </div>
+          <div style="background: #FFFFFF; border: 1.5px solid rgba(247,188,8,0.4); border-radius: 18px; padding: 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="font-size: 32px; font-weight: 900; color: #1E293B;">150<span style="color: #F55825;">+</span></div>
+            <div style="font-size: 13px; color: #64748B; font-weight: 700;">Hiring Partners</div>
+          </div>
+          <div style="background: #FFFFFF; border: 1.5px solid rgba(247,188,8,0.4); border-radius: 18px; padding: 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+            <div style="font-size: 32px; font-weight: 900; color: #1E293B;">21<span style="color: #F55825;">+</span></div>
+            <div style="font-size: 13px; color: #64748B; font-weight: 700;">University Partners</div>
+          </div>
+        </div>
+
+        <!-- Dual Value Proposition -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+          <div style="background: #FFFDF7; border: 1.5px solid #FEF5D8; border-radius: 20px; padding: 32px;">
+            <h3 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 14px;">Students &amp; Job Seekers</h3>
+            <p style="color: #475569; line-height: 1.6; margin-bottom: 16px;">Practice with AI mock interviews, optimize your ATS resume, and earn ₹20,000–₹50,000 cash rewards by referring qualified peers.</p>
+            <a href="https://uden.tech/students" style="color: #F55825; font-weight: 800; text-decoration: none;">Learn About Student Prep &rarr;</a>
+          </div>
+          <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 20px; padding: 32px;">
+            <h3 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 14px;">Colleges &amp; Placement Cells</h3>
+            <p style="color: #475569; line-height: 1.6; margin-bottom: 16px;">Centralize on-campus and pooled drives, invite 150+ corporate employers, and export instant NAAC/NBA placement audit reports.</p>
+            <a href="https://uden.tech/colleges" style="color: #2563EB; font-weight: 800; text-decoration: none;">Learn About Campus Automation &rarr;</a>
+          </div>
+        </div>
+      </main>
+    `
+  },
+  {
     route: '/students',
     canonical: 'https://uden.tech/students',
     title: 'AI Mock Interviews & Placement Prep for Students | UDEN',
@@ -619,19 +737,19 @@ const corePages = [
   {
     route: '/recruiters',
     canonical: 'https://uden.tech/recruiters',
-    title: 'Hire Pre-Vetted Tier 2/3 Tech Talent | UDEN for Recruiters',
-    description: 'Hire job-ready tech talent from Tier 2/3 colleges with a 48-hour shortlist SLA and zero-risk post-hire upskilling.',
-    keywords: 'hire pre-vetted talent, Tier 2/3 tech talent, recruiters, 48-hour shortlist SLA, post-hire upskilling, UDEN',
+    title: 'Hire Pre-Vetted, Job-Ready Tech Talent in 48 Hours | UDEN',
+    description: 'Access top 1% pre-assessed software engineers, cloud architects, and data experts across India & global markets with 48-hour shortlist SLA.',
+    keywords: 'hire pre-vetted talent, job ready tech talent, recruiters, 48-hour shortlist SLA, IT recruitment India, Tier 2/3 tech talent, UDEN',
     renderContent: () => `
       <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
         <!-- Hero Section -->
-        <div style="background: linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%); border-radius: 24px; padding: 48px; border: 1.5px solid #9333EA; margin-bottom: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center;">
+        <div style="background: linear-gradient(135deg, #FFFDF7 0%, #FFFDF0 100%); border-radius: 24px; padding: 48px; border: 1.5px solid rgba(75, 99, 140, 0.25); margin-bottom: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center;">
           <div>
-            <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(147,51,234,0.1); color: #9333EA; padding: 6px 16px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid rgba(147,51,234,0.25); text-transform: uppercase; margin-bottom: 18px;">FOR CORPORATE RECRUITERS</span>
-            <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.2; margin: 0 0 16px;">Hire Pre-Vetted Tier 2/3 Tech Talent <span style="color: #9333EA;">| UDEN for Recruiters</span></h1>
-            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">Hire job-ready tech talent from Tier 2/3 colleges with a 48-hour shortlist SLA and zero-risk post-hire upskilling.</p>
+            <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(75, 99, 140, 0.1); color: #4B638C; padding: 6px 18px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid rgba(75, 99, 140, 0.25); text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.5px;">ENTERPRISE TALENT ACQUISITION</span>
+            <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.18; margin: 0 0 16px 0; letter-spacing: -0.8px;">Hire Pre-Vetted, <span style="color: #F55825;">Job-Ready Tech Talent</span> in 48 Hours</h1>
+            <p style="font-size: 16px; color: #475569; line-height: 1.65; margin-bottom: 28px; font-weight: 500;">Access top 1% pre-assessed software engineers, cloud architects, and data experts across India &amp; global markets. Zero sourcing fee until you hire.</p>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <a href="https://uden.tech/find-talent" style="background: #9333EA; color: #FFFFFF; padding: 14px 28px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(147,51,234,0.25);">Post Hiring Requisition &rarr;</a>
+              <a href="https://uden.tech/find-talent" style="background: #F55825; color: #FFFFFF; padding: 14px 28px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(245,88,37,0.25);">Post Hiring Requisition &rarr;</a>
               <a href="https://uden.tech/reports/tier-2-3-placement-report-2026" style="background: #FFFFFF; color: #1E293B; border: 2px solid #CBD5E1; padding: 12px 24px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none;">View 2026 Salary Trends</a>
             </div>
           </div>
