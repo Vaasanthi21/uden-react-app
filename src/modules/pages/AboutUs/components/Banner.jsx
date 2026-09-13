@@ -151,7 +151,7 @@ const AboutBanner = () => {
             OUR PURPOSE &amp; MISSION
           </div>
           <h1 css={styles.title}>
-            Unifying <span>Development &amp; Employment</span> Across the Globe
+            Unified <span>Development &amp; Employment</span> Across the Globe
           </h1>
           <p css={styles.subtitle}>
             UDEN (Unified Development and Employment Network) bridges the gap between ambitious talent, accredited upskilling academies, and enterprise employers through algorithmic matching.

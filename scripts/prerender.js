@@ -856,21 +856,49 @@ const corePages = [
     description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.',
     keywords: 'About UDEN, Unified Development and Employment Network, AI career readiness, Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT',
     renderContent: () => `
-      <main style="max-width: 1000px; margin: 0 auto; padding: 40px 24px;">
-        <h1 style="font-size: 38px; color: #0F172A; font-weight: 800; margin: 16px 0;">About UDEN — Unified Development and Employment Network</h1>
-        <p style="font-size: 18px; color: #475569; line-height: 1.6;">
-          UDEN is an AI-powered career readiness and campus recruitment platform bridging students, higher education institutions, and corporate employers across India—with an unapologetic focus on Tier 2, Tier 3, and rural engineering talent.
-        </p>
-        <section style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 24px; border-radius: 12px; margin: 32px 0;">
-          <h3 style="color: #0F172A; margin-top: 0; font-size: 20px;">Institutional Backing & Recognition</h3>
-          <p style="color: #475569; line-height: 1.6; margin-bottom: 0;">
-            UDEN (operated by Digverve Solutions Pvt. Ltd.) is recognized and supported by <strong>Microsoft for Startups Founders Hub, NVIDIA Inception Program, AWS EdStart, DPIIT (Startup India), and NSRCEL IIM Bangalore</strong>.
+      <main style="max-width: 1100px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
+        <!-- Hero Mission Statement Banner -->
+        <div style="background: linear-gradient(135deg, #FFFDF7 0%, #FFF3E0 100%); border-radius: 24px; padding: 48px 24px; border: 2px solid #FFE0B2; margin-bottom: 48px; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 88, 37, 0.12); color: #F55825; padding: 6px 18px; border-radius: 20px; font-size: 13px; font-weight: 800; margin-bottom: 20px; border: 1px solid rgba(245, 88, 37, 0.25); text-transform: uppercase; letter-spacing: 0.5px;">
+            OUR PURPOSE &amp; MISSION
+          </div>
+          <h1 style="font-size: 42px; font-weight: 900; color: #1E293B; line-height: 1.25; margin: 0 0 16px 0; letter-spacing: -0.8px;">
+            Unified <span style="color: #F55825;">Development &amp; Employment</span> Across the Globe
+          </h1>
+          <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 36px; max-width: 780px; margin-left: auto; margin-right: auto;">
+            UDEN (Unified Development and Employment Network) bridges the gap between ambitious talent, accredited upskilling academies, and enterprise employers through algorithmic matching.
           </p>
-        </section>
-        <section style="margin: 32px 0;">
-          <h2 style="color: #0F172A; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Our Mission & Vision</h2>
-          <p style="color: #475569; line-height: 1.6;">
-            To create an AI/ML powered ecosystem where the right talent gets guidance to access the world's best opportunities. UDEN facilitates algorithmic fitment between candidate capabilities and business demand, minimizing onboarding costs with our hire-and-train methodology.
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
+            <div style="background: #FFFFFF; border: 1.5px solid #FDE68A; border-radius: 18px; padding: 24px; text-align: center; box-shadow: 0 10px 25px -5px rgba(245, 88, 37, 0.08);">
+              <div style="font-size: 34px; font-weight: 900; color: #F55825; margin-bottom: 4px;">25,000+</div>
+              <div style="font-size: 13px; color: #64748B; font-weight: 700;">Students Assessed</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1.5px solid #FDE68A; border-radius: 18px; padding: 24px; text-align: center; box-shadow: 0 10px 25px -5px rgba(245, 88, 37, 0.08);">
+              <div style="font-size: 34px; font-weight: 900; color: #F55825; margin-bottom: 4px;">150+</div>
+              <div style="font-size: 13px; color: #64748B; font-weight: 700;">Corporate Partners</div>
+            </div>
+            <div style="background: #FFFFFF; border: 1.5px solid #FDE68A; border-radius: 18px; padding: 24px; text-align: center; box-shadow: 0 10px 25px -5px rgba(245, 88, 37, 0.08);">
+              <div style="font-size: 34px; font-weight: 900; color: #F55825; margin-bottom: 4px;">98%</div>
+              <div style="font-size: 13px; color: #64748B; font-weight: 700;">Placement Success Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official About UDEN Vision Section -->
+        <section style="margin: 48px 0;">
+          <h2 style="font-size: 32px; font-weight: 900; color: #F55825; margin-bottom: 20px;">About UDEN</h2>
+          <p style="font-size: 16px; color: #334155; line-height: 1.75; margin-bottom: 20px;">
+            To create an AI/ML powered ecosystem where the right talent gets guidance to access World's best opportunities. The platform facilitates an algorithmic fitment between the profile of the Talent and what global Companies require to meet their business demand.
+          </p>
+          <p style="font-size: 16px; color: #334155; line-height: 1.75; margin-bottom: 20px;">
+            UDEN platform ensures all companies get deserving and aspiring talents for their teams with a minimum effort toward the recruitment process. It helps minimize the cost of onboarding with our "Hire only Trained" model through process, IP's.
+          </p>
+          <p style="font-size: 16px; color: #334155; line-height: 1.75; margin-bottom: 20px;">
+            UDEN platform serves as an unbiased and neutral agency to rate/review and guide training and upskilling institutions based on industry requirements. It will be the one-stop solution for all job and course-related suggestions for job seekers and students.
+          </p>
+          <p style="font-size: 16px; color: #334155; line-height: 1.75; margin-bottom: 20px;">
+            UDEN (operated by Digverve Solutions Pvt. Ltd.) is recognized and supported by <strong>Microsoft for Startups Founders Hub, NVIDIA Inception Program, AWS EdStart, DPIIT (Startup India), and NSRCEL IIM Bangalore</strong>.
           </p>
         </section>
       </main>
