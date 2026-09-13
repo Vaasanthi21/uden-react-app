@@ -92,23 +92,26 @@ export const Blog = () => {
     const schemaData = {
       "@context": "https://schema.org/",
       "@type": "BlogPosting",
-      "headline": data.title,
+      "headline": postTitle,
       "image": postImage,
       "author": {
         "@type": "Organization",
-        "name": "UDEN"
+        "name": data.publisher || "UDEN",
+        "url": "https://uden.tech"
       },
       "publisher": {
         "@type": "Organization",
         "name": "UDEN",
+        "url": "https://uden.tech",
         "logo": {
           "@type": "ImageObject",
           "url": "https://uden.tech/og-banner.png"
         }
       },
-      "datePublished": "2026-08-01",
-      "dateModified": "2026-08-01",
-      "description": postDescription
+      "datePublished": data.published || "2026-08-01",
+      "dateModified": data.published || "2026-08-01",
+      "description": postDescription,
+      "articleBody": (data.sections && data.sections[0] ? data.sections[0].paragraphs?.join(' ') : '') || data.summary || postDescription
     };
     schemaScript.text = JSON.stringify(schemaData);
   }, [id, data]);

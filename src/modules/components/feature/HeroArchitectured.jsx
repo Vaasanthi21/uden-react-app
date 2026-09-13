@@ -541,7 +541,7 @@ export default function HeroArchitectured() {
             </h1>
 
             <p css={styles.subtitle}>
-              Bridging <span className="hl-student">Students</span>, <span className="hl-college">Colleges</span> and <span className="hl-recruiter">Recruiters</span> through AI-powered career intelligence, interview preparation, resume optimization, placement automation and smart hiring.
+              UDEN (Unified Development and Employment Network) is India&apos;s leading AI career readiness and campus placement platform, bridging <span className="hl-student">Students</span>, <span className="hl-college">Colleges</span>, and <span className="hl-recruiter">Recruiters</span> through 24x7 AI mock interviews, automated drive scheduling, and 48-hour hiring shortlists.
             </p>
 
             <div css={styles.ctaRow}>

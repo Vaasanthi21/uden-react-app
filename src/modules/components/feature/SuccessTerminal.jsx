@@ -409,9 +409,9 @@ export default function SuccessTerminal() {
             <Trophy size={14} color="#F7BC08" />
             THE SUCCESS TERMINAL
           </div>
-          <h1 css={styles.title}>
+          <h2 css={styles.title}>
             From learning to <span>doing.</span>
-          </h1>
+          </h2>
           <p css={styles.subtitle}>
             Real people, real matches, real offers. Join the narrative of professional evolution.
           </p>

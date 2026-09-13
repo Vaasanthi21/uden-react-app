@@ -445,9 +445,9 @@ export default function MatchingEngine() {
             <Sparkles size={14} color="#F7BC08" />
             THE MATCHING ENGINE
           </div>
-          <h1 css={styles.title}>
+          <h2 css={styles.title}>
             Lines of light connect your skills to <span>real jobs.</span>
-          </h1>
+          </h2>
           <p css={styles.subtitle}>
             Our AI reads your path, scores every opportunity, and shows you exactly where you fit — and what to build next.
           </p>

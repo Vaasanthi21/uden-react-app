@@ -2,9 +2,15 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   getOrganizationSchema,
-  getEducationalOrganizationSchema,
-  getJobPostingSchemas,
-  getFaqSchema,
+  getWebsiteSchema,
+  getStudentsServiceSchema,
+  getStudentsFaqSchema,
+  getJobseekersServiceSchema,
+  getJobseekersFaqSchema,
+  getCollegesEducationalOrgSchema,
+  getCollegesServiceSchema,
+  getCollegesFaqSchema,
+  getRecruitersServiceSchema,
   getBreadcrumbSchema
 } from './PlatformSchemas';
 
@@ -163,6 +169,7 @@ export const SEOHead = () => {
       document.title = meta.title;
     }
 
+    setMetaTag('name', 'title', meta.title);
     setMetaTag('name', 'description', meta.description);
     setMetaTag('property', 'og:title', meta.title);
     setMetaTag('property', 'og:description', meta.description);
@@ -171,13 +178,35 @@ export const SEOHead = () => {
     setMetaTag('property', 'twitter:description', meta.description);
     setMetaTag('property', 'twitter:url', canonicalUrl);
 
-    // 4. Inject Unified JSON-LD Schemas
+    // 4. Clean up any stale or route-specific schema scripts
+    const removeElementById = (id) => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    };
+    removeElementById('uden-job-postings-schema');
+    removeElementById('uden-service-schema');
+    removeElementById('uden-faq-schema');
+    removeElementById('uden-edu-org-schema');
+
+    // 5. Inject Scoped JSON-LD Schemas
     try {
       injectJsonLdScript('uden-org-schema', getOrganizationSchema());
-      injectJsonLdScript('uden-edu-org-schema', getEducationalOrganizationSchema());
-      injectJsonLdScript('uden-job-postings-schema', getJobPostingSchemas());
-      injectJsonLdScript('uden-faq-schema', getFaqSchema());
+      injectJsonLdScript('uden-website-schema', getWebsiteSchema());
       injectJsonLdScript('uden-breadcrumb-schema', getBreadcrumbSchema(pathname));
+
+      if (pathname === '/students' || pathname === '/benefits') {
+        injectJsonLdScript('uden-service-schema', getStudentsServiceSchema());
+        injectJsonLdScript('uden-faq-schema', getStudentsFaqSchema());
+      } else if (pathname === '/jobseekers' || pathname === '/job-seekers') {
+        injectJsonLdScript('uden-service-schema', getJobseekersServiceSchema());
+        injectJsonLdScript('uden-faq-schema', getJobseekersFaqSchema());
+      } else if (pathname === '/colleges' || pathname === '/campus' || pathname === '/campus-placements') {
+        injectJsonLdScript('uden-edu-org-schema', getCollegesEducationalOrgSchema());
+        injectJsonLdScript('uden-service-schema', getCollegesServiceSchema());
+        injectJsonLdScript('uden-faq-schema', getCollegesFaqSchema());
+      } else if (pathname === '/recruiters' || pathname === '/companies') {
+        injectJsonLdScript('uden-service-schema', getRecruitersServiceSchema());
+      }
     } catch (err) {
       console.warn('Error injecting SEO schemas:', err);
     }

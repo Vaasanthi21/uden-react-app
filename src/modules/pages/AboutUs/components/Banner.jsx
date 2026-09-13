@@ -154,7 +154,7 @@ const AboutBanner = () => {
             Unified <span>Development &amp; Employment</span> Across the Globe
           </h1>
           <p css={styles.subtitle}>
-            UDEN (Unified Development and Employment Network) bridges the gap between ambitious talent, accredited upskilling academies, and enterprise employers through algorithmic matching.
+            UDEN (Unified Development and Employment Network, operated by Digverve Solutions Pvt. Ltd.) is an AI-powered career readiness and placement automation platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart, and DPIIT, bridging ambitious talent, colleges, and enterprise employers through algorithmic matching.
           </p>
 
           <div css={styles.statsGrid}>

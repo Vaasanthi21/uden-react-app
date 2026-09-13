@@ -408,7 +408,7 @@ const Campus = () => {
                 Campus Placement Automation (CPS) <span>for TPOs &amp; Colleges</span>
               </h1>
               <p css={styles.heroSub}>
-                Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.
+                UDEN delivers Campus Placement System (CPS) automation for college Training and Placement Officers (TPOs) across India, automating recruitment drives, generating instant NAAC and NBA accreditation audit reports, and connecting students directly to 150+ corporate hiring partners.
               </p>
             </div>
 

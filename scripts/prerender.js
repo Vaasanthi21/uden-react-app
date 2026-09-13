@@ -16,7 +16,16 @@ if (/<meta\s+charset=[^>]+>/i.test(rawBaseTemplate)) {
 } else {
   rawBaseTemplate = rawBaseTemplate.replace(/<head[^>]*>/i, '$&\n    <meta charset="utf-8">');
 }
-fs.writeFileSync(BASE_HTML_FILE, rawBaseTemplate, 'utf8');
+
+// Clean any previous prerender injections from baseTemplate
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?BreadcrumbList[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?BlogPosting[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?Service[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?FAQPage[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?EducationalOrganization[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?JobPosting[\s\S]*?<\/script>/gi, '');
+rawBaseTemplate = rawBaseTemplate.replace(/<div\s+id="root">[\s\S]*?<\/div>/i, '<div id="root"></div>');
+
 const baseTemplate = rawBaseTemplate;
 
 // Global navigation header for server-rendered HTML matching redesign
@@ -115,6 +124,207 @@ const buildBreadcrumbJsonLd = (pathname, pageTitle) => {
     "@type": "BreadcrumbList",
     "itemListElement": items
   };
+};
+
+// Scoped page schemas per route
+const scopedSchemas = {
+  '/students': [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://uden.tech/students#service",
+      "name": "UDEN Student Placement Prep & AI Mock Interviews",
+      "serviceType": "AI Career Readiness & Placement Preparation",
+      "provider": {
+        "@id": "https://uden.tech/#organization"
+      },
+      "description": "24x7 AI mock interviews, ATS resume optimization, and 8-axis skill radar evaluations for Tier 2 and Tier 3 college students, with ₹20,000–₹50,000 referral rewards.",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "College Students and Fresh Graduates"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does UDEN's AI mock interview work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UDEN's AI simulates realistic technical and HR interview rounds with voice and video evaluations, assessing candidates across an 8-axis skill radar including algorithmic coding, spoken clarity, and problem formulation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is UDEN free for students?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, UDEN offers 100% free registration, AI mock interviews, resume scoring, and campus placement access for college students."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the 8-axis skill radar on UDEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 8-axis skill radar provides multi-dimensional feedback on technical proficiency, problem-solving speed, code readability, voice confidence, and system design readiness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do student referral rewards work on UDEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Students can refer qualified peers from their colleges to open hiring drives on UDEN and earn ₹20,000 to ₹50,000 cash rewards upon successful candidate placement."
+          }
+        }
+      ]
+    }
+  ],
+  '/jobseekers': [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://uden.tech/jobseekers#service",
+      "name": "UDEN AI Job Matching & Off-Campus Hiring",
+      "serviceType": "Job Matching & Placement Assistance",
+      "provider": {
+        "@id": "https://uden.tech/#organization"
+      },
+      "description": "AI-matched career guidance, fitment scoring across 100,000+ job openings, and 1-click off-campus applications for first-time jobseekers.",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "First-Time Jobseekers and Early-Career Engineers"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does UDEN match jobseekers with tech jobs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UDEN uses AI fitment scoring to match jobseekers' verified skill profiles against 100,000+ active job openings, bypassing automated ATS resume filters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can first-time jobseekers apply off-campus with UDEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, first-time jobseekers can apply in 1-click to off-campus hiring drives and direct recruiter requisitions with guaranteed 48-hour shortlist reviews."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the candidate referral rewards on UDEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jobseekers can refer friends and peers to hiring drives and earn ₹20,000 to ₹50,000 cash prizes when their referrals are successfully placed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any cost for jobseekers to use UDEN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, UDEN is 100% free for jobseekers to create profiles, take AI mock interviews, and apply for jobs."
+          }
+        }
+      ]
+    }
+  ],
+  '/colleges': [
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "@id": "https://uden.tech/colleges#educational-organization",
+      "name": "UDEN Campus Placement & Higher Education Network",
+      "url": "https://uden.tech/colleges",
+      "parentOrganization": {
+        "@id": "https://uden.tech/#organization"
+      },
+      "description": "Empowers college Training and Placement Officers (TPOs) across India with an automated Campus Placement System (CPS), instant NAAC & NBA accreditation reporting, and corporate recruiter connections.",
+      "areaServed": "IN"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://uden.tech/colleges#service",
+      "name": "UDEN Campus Placement System (CPS)",
+      "serviceType": "Campus Placement Automation & Accreditation Reporting",
+      "provider": {
+        "@id": "https://uden.tech/#organization"
+      },
+      "description": "Centralized placement drive management, automated student eligibility screening, and 1-click NAAC/NBA accreditation audit reporting for colleges and universities.",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "Training and Placement Officers (TPOs), College Deans & Administrators"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can training and placement cells (TPOs) automate campus drives?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UDEN CPS centralizes drive scheduling, student registration, eligibility filtering, and company interview tracking into a single unified dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does UDEN help colleges generate NAAC and NBA accreditation reports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UDEN automatically compiles student participation records, offer letters, median CTC metrics, and company visitation logs into 1-click audit-ready NAAC and NBA reports."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can colleges invite their existing hiring partners to UDEN CPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, institutions can manage their existing campus recruiters while tapping into UDEN's network of 150+ active enterprise employers."
+          }
+        }
+      ]
+    }
+  ],
+  '/recruiters': [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://uden.tech/recruiters#service",
+      "name": "UDEN Recruiter Solutions & Pre-Vetted Tech Talent",
+      "serviceType": "Recruitment & Technical Talent Acquisition",
+      "provider": {
+        "@id": "https://uden.tech/#organization"
+      },
+      "description": "Access pre-assessed software engineering, cloud, and data talent from Tier 2 and Tier 3 colleges across India with a 48-hour shortlist SLA and zero sourcing fees until hire.",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Corporate Recruiters, Engineering Hiring Managers, Talent Acquisition Teams"
+      },
+      "termsOfService": "48-Hour Shortlist SLA, Zero Sourcing Fee Until Hire, Zero-Risk Post-Hire Upskilling Support"
+    }
+  ]
 };
 
 // All 8 dynamic blog posts with complete content fidelity
@@ -424,7 +634,7 @@ const corePages = [
               AI-Powered Career Transformation <span style="color: #F55825;">Platform</span>
             </h1>
             <p style="font-size: 16px; color: #475569; line-height: 1.6; margin-bottom: 26px;">
-              Bridging <strong style="color: #F55825;">Students</strong>, <strong style="color: #2563EB;">Colleges</strong> and <strong style="color: #16A34A;">Recruiters</strong> through AI-powered career intelligence, interview preparation, resume optimization, placement automation and smart hiring.
+              UDEN (Unified Development and Employment Network) is India's leading AI career readiness and campus placement platform, bridging <strong style="color: #F55825;">Students</strong>, <strong style="color: #2563EB;">Colleges</strong>, and <strong style="color: #16A34A;">Recruiters</strong> through 24x7 AI mock interviews, automated drive scheduling, and 48-hour hiring shortlists.
             </p>
 
             <div style="display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap;">
@@ -537,7 +747,7 @@ const corePages = [
           <div>
             <span style="display: inline-flex; align-items: center; gap: 8px; background: #FEF5D8; color: #F55825; padding: 6px 16px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid #F7BC08; text-transform: uppercase; margin-bottom: 18px;">STUDENT PLACEMENT & AI PREP</span>
             <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.2; margin: 0 0 16px;">AI Mock Interviews & Placement Prep for <span style="color: #F55825;">Students</span></h1>
-            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">24x7 AI mock interviews, resume optimization & 8-axis skill radar for Tier 2/3 college students. Win ₹20K–50K referral rewards.</p>
+            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">UDEN offers 24x7 AI mock interviews, resume optimization, and skill assessment for Tier 2/3 college students, with ₹20,000–₹50,000 referral rewards.</p>
             
             <!-- 4 Benchmark Stats Cards -->
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px;">
@@ -625,7 +835,7 @@ const corePages = [
           <div>
             <span style="display: inline-flex; align-items: center; gap: 8px; background: #FEF5D8; color: #F55825; padding: 6px 16px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid #F7BC08; text-transform: uppercase; margin-bottom: 18px;">AI JOB MATCHING & CAREER ACCELERATOR</span>
             <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.2; margin: 0 0 16px;">AI Job Matching for <span style="color: #F55825;">First-Time Jobseekers</span></h1>
-            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">AI-matched career guidance and fitment scoring across 100,000+ job openings. Apply off-campus in 1 click with UDEN.</p>
+            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">UDEN provides AI-matched career guidance, fitment scoring across 100,000+ job openings, and 1-click off-campus applications for first-time jobseekers, with ₹20,000–₹50,000 candidate referral rewards.</p>
             
             <!-- 4 Benchmark Stats Cards -->
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px;">
@@ -699,7 +909,7 @@ const corePages = [
           <div>
             <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(218,83,44,0.12); color: #DA532C; padding: 6px 16px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid rgba(218,83,44,0.25); text-transform: uppercase; margin-bottom: 18px;">INSTITUTIONAL PLACEMENT AUTOMATION</span>
             <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.2; margin: 0 0 16px;">Campus Placement Automation (CPS) <span style="color: #DA532C;">for TPOs &amp; Colleges</span></h1>
-            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">Automate placement drives, generate instant NAAC/NBA accreditation reports, and connect students to 150+ recruiters with UDEN’s CPS.</p>
+            <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 28px;">UDEN delivers Campus Placement System (CPS) automation for college Training and Placement Officers (TPOs) across India, automating recruitment drives, generating instant NAAC and NBA accreditation audit reports, and connecting students directly to 150+ corporate hiring partners.</p>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
               <a href="https://uden.tech/campus-partner-form" style="background: #DA532C; color: #FFFFFF; padding: 14px 28px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(218,83,44,0.25);">Request College Demo &rarr;</a>
               <a href="https://uden.tech/reports/tier-2-3-placement-report-2026" style="background: #FFFFFF; color: #1E293B; border: 2px solid #CBD5E1; padding: 12px 24px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none;">View Placement Benchmarks</a>
@@ -747,7 +957,7 @@ const corePages = [
           <div>
             <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(75, 99, 140, 0.1); color: #4B638C; padding: 6px 18px; border-radius: 20px; font-size: 12.5px; font-weight: 800; border: 1px solid rgba(75, 99, 140, 0.25); text-transform: uppercase; margin-bottom: 16px; letter-spacing: 0.5px;">ENTERPRISE TALENT ACQUISITION</span>
             <h1 style="font-size: 40px; font-weight: 900; color: #1E293B; line-height: 1.18; margin: 0 0 16px 0; letter-spacing: -0.8px;">Hire Pre-Vetted <span style="color: #F55825;">Tier 2/3 Tech Talent</span></h1>
-            <p style="font-size: 16px; color: #475569; line-height: 1.65; margin-bottom: 28px; font-weight: 500;">Access top 1% pre-assessed software engineers, cloud architects, and data experts across India &amp; global markets. Zero sourcing fee until you hire.</p>
+            <p style="font-size: 16px; color: #475569; line-height: 1.65; margin-bottom: 28px; font-weight: 500;">UDEN connects enterprise recruiters and high-growth companies with pre-vetted tech talent from Tier 2 and Tier 3 colleges across India, backed by an 8-axis AI skill radar, a 48-hour shortlist SLA, and zero sourcing fees until you hire.</p>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
               <a href="https://uden.tech/find-talent" style="background: #F55825; color: #FFFFFF; padding: 14px 28px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 20px rgba(245,88,37,0.25);">Post Hiring Requisition &rarr;</a>
               <a href="https://uden.tech/reports/tier-2-3-placement-report-2026" style="background: #FFFFFF; color: #1E293B; border: 2px solid #CBD5E1; padding: 12px 24px; border-radius: 28px; font-size: 15px; font-weight: 800; text-decoration: none;">View 2026 Salary Trends</a>
@@ -866,7 +1076,7 @@ const corePages = [
             Unified <span style="color: #F55825;">Development &amp; Employment</span> Across the Globe
           </h1>
           <p style="font-size: 16.5px; color: #475569; line-height: 1.65; margin-bottom: 36px; max-width: 780px; margin-left: auto; margin-right: auto;">
-            UDEN (Unified Development and Employment Network) bridges the gap between ambitious talent, accredited upskilling academies, and enterprise employers through algorithmic matching.
+            UDEN (Unified Development and Employment Network, operated by Digverve Solutions Pvt. Ltd.) is an AI-powered career readiness and placement automation platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart, and DPIIT, bridging ambitious talent, colleges, and enterprise employers through algorithmic matching.
           </p>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto;">
@@ -1087,14 +1297,21 @@ const corePages = [
 const escAttr = (str) => String(str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Master function to generate prerendered HTML file for a route
-function generatePage({ route, canonical, title, description, keywords, ogType = 'website', ogImage, breadcrumbJsonLd, articleJsonLd, bodyHtml }) {
+function generatePage({ route, canonical, title, description, keywords, ogType = 'website', ogImage, breadcrumbJsonLd, pageSchemas = [], articleJsonLd, bodyHtml }) {
   let html = baseTemplate;
 
-  // Strip JobPosting schema from base template on non-job pages
-  if (route !== '/find-opportunity') {
-    html = html.replace(/\{\s*"@type":\s*"JobPosting"[\s\S]*?\},\s*/g, '');
-    html = html.replace(/,\s*\{\s*"@type":\s*"JobPosting"[\s\S]*?\}/g, '');
+  // Strip JobPosting schema from base template on all pages
+  html = html.replace(/\{\s*"@type":\s*"JobPosting"[\s\S]*?\},\s*/g, '');
+  html = html.replace(/,\s*\{\s*"@type":\s*"JobPosting"[\s\S]*?\}/g, '');
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?JobPosting[\s\S]*?<\/script>/gi, '');
+
+  // Strip EducationalOrganization from base template if route is not /colleges
+  if (route !== '/colleges') {
+    html = html.replace(/<script type="application\/ld\+json">[\s\S]*?EducationalOrganization[\s\S]*?<\/script>/gi, '');
   }
+
+  // Strip generic FAQPage from base template (scoped FAQPage is injected specifically via pageSchemas)
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?FAQPage[\s\S]*?<\/script>/gi, '');
 
   // 0. Ensure explicit <meta charset="utf-8"> is the first tag in <head>
   if (/<meta\s+charset=[^>]+>/i.test(html)) {
@@ -1141,6 +1358,11 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
   if (breadcrumbJsonLd) {
     extraScripts += `\n    <script type="application/ld+json">\n    ${JSON.stringify(breadcrumbJsonLd, null, 2)}\n    </script>`;
   }
+  if (pageSchemas && pageSchemas.length) {
+    pageSchemas.forEach(schema => {
+      extraScripts += `\n    <script type="application/ld+json">\n    ${JSON.stringify(schema, null, 2)}\n    </script>`;
+    });
+  }
   if (articleJsonLd) {
     extraScripts += `\n    <script type="application/ld+json">\n    ${JSON.stringify(articleJsonLd, null, 2)}\n    </script>`;
   }
@@ -1164,7 +1386,7 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
   }
 
   // 8. Inject the single canonical prerendered semantic layout into <div id="root">
-  html = html.replace(/<div\s+id="root">\s*<\/div>/i, `<div id="root">${completeLayout}</div>`);
+  html = html.replace(/<div\s+id="root">[\s\S]*?<\/div>/i, `<div id="root">${completeLayout}</div>`);
 
   return html;
 }
@@ -1201,6 +1423,7 @@ console.log('[Prerender] Starting static pre-rendering for all routes and blog p
 // 1. Prerender Core Platform & Marketing Pages
 corePages.forEach(page => {
   const breadcrumb = buildBreadcrumbJsonLd(page.route, page.title.split('|')[0].trim());
+  const pageSchemas = scopedSchemas[page.route] || [];
   const html = generatePage({
     route: page.route,
     canonical: page.canonical,
@@ -1209,6 +1432,7 @@ corePages.forEach(page => {
     keywords: page.keywords,
     ogType: 'website',
     breadcrumbJsonLd: breadcrumb,
+    pageSchemas,
     bodyHtml: page.renderContent()
   });
 
@@ -1268,7 +1492,8 @@ blogArticles.forEach(article => {
       "@type": "WebPage",
       "@id": canonical
     },
-    "keywords": article.keywords
+    "keywords": article.keywords,
+    "articleBody": (article.sections && article.sections[0] ? article.sections[0].paragraphs.join(' ') : '') || article.summary
   };
 
   const bodyHtml = `

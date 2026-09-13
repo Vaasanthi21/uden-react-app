@@ -252,7 +252,7 @@ const CompaniesBanner = () => {
           </h1>
 
           <p css={styles.subtitle}>
-            Access top 1% pre-assessed software engineers, cloud architects, and data experts across India &amp; global markets. Zero sourcing fee until you hire.
+            UDEN connects enterprise recruiters and high-growth companies with pre-vetted tech talent from Tier 2 and Tier 3 colleges across India, backed by an 8-axis AI skill radar, a 48-hour shortlist SLA, and zero sourcing fees until you hire.
           </p>
 
           <div css={styles.bulletGrid}>

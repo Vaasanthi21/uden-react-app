@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import { Sparkles, ArrowRight, CheckCircle2, Star, ShieldCheck, UserCheck, TrendingUp, Building } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
 
 let JobTeamImage;
@@ -288,7 +288,8 @@ const styles = {
 
 const JobSeekerBanner = () => {
   const navigate = useNavigate();
-  const path = (typeof window !== 'undefined' ? window.location.pathname : '').toLowerCase();
+  const location = useLocation();
+  const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
   const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
 
   const badgeText = isStudents ? 'STUDENT PLACEMENT & AI PREP' : 'AI JOB MATCHING & CAREER ACCELERATOR';
@@ -298,9 +299,9 @@ const JobSeekerBanner = () => {
     <>AI Job Matching for <span>First-Time Jobseekers</span></>
   );
   const subtitleText = isStudents ? (
-    '24x7 AI mock interviews, resume optimization & 8-axis skill radar for Tier 2/3 college students. Win ₹20K–50K referral rewards.'
+    'UDEN offers 24x7 AI mock interviews, resume optimization, and skill assessment for Tier 2/3 college students, with ₹20,000–₹50,000 referral rewards.'
   ) : (
-    'AI-matched career guidance and fitment scoring across 100,000+ job openings. Apply off-campus in 1 click with UDEN.'
+    'UDEN provides AI-matched career guidance, fitment scoring across 100,000+ job openings, and 1-click off-campus applications for first-time jobseekers, with ₹20,000–₹50,000 candidate referral rewards.'
   );
 
   const primaryBtnText = isStudents ? 'Start Free AI Mock Interview' : 'Search 100,000+ Jobs';
