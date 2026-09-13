@@ -27,7 +27,7 @@ const canonicalMap = {
   '/government-partnership': 'https://uden.tech/government-partnership',
   '/government': 'https://uden.tech/government-partnership',
   '/hr-services': 'https://uden.tech/hr-services',
-  '/about': 'https://uden.tech/about-us',
+  '/about': 'https://uden.tech/about',
   '/about-us': 'https://uden.tech/about-us',
   '/contact-us': 'https://uden.tech/contact-us',
   '/cotact-us': 'https://uden.tech/contact-us',

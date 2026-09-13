@@ -656,7 +656,7 @@ const corePages = [
   },
   {
     route: '/about',
-    canonical: 'https://uden.tech/about-us',
+    canonical: 'https://uden.tech/about',
     title: 'About UDEN — Unified Development and Employment Network',
     description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.',
     keywords: 'About UDEN, Unified Development and Employment Network, AI career readiness, Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT',

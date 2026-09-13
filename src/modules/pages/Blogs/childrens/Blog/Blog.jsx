@@ -3,7 +3,7 @@
 import {jsx} from '@emotion/react';
 // eslint-disable-next-line
 import React from 'react'
-import { Box, Divider, Grid, } from '@mui/material'
+import { Box, Divider, Grid, Button, Typography } from '@mui/material'
 
 import Spacer from '../../../../components/Spacer'
 import BlogBody from './components/BlogBody'
@@ -18,7 +18,10 @@ export const Blog = () => {
   const {id,data} = hooks;
 
   React.useEffect(() => {
-    if (!data || !data.title) return;
+    if (!data || !data.title) {
+      document.title = 'UDEN Career Insights | Article';
+      return;
+    }
     
     const blogMetaOverrides = {
       'managing-delayed-onboarding-strategies-for-students-704dbab5f0eb': {
@@ -26,6 +29,14 @@ export const Blog = () => {
         description: 'Facing a delayed job offer? Focus on AWS/AI certifications, freelance projects, and AI mock interview readiness while you wait to onboard.'
       },
       'build-a-career-in-cloud-computing-5943d2beb4ef': {
+        title: 'How to Build a Career in Cloud Computing & GenAI | UDEN',
+        description: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.'
+      },
+      'builda-career-in-cloud-computing-5943d2beb4ef': {
+        title: 'How to Build a Career in Cloud Computing & GenAI | UDEN',
+        description: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.'
+      },
+      'builda-career-in-cloud-computing5943d2beb4ef': {
         title: 'How to Build a Career in Cloud Computing & GenAI | UDEN',
         description: 'Master AWS, GCP, Azure, Docker, Kubernetes and generative AI model hosting to access 150,000+ cloud computing jobs.'
       },
@@ -101,6 +112,26 @@ export const Blog = () => {
     };
     schemaScript.text = JSON.stringify(schemaData);
   }, [id, data]);
+
+  if (!data) {
+    return (
+      <Box css={BlogStyles.main} sx={{ py: 10, textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography variant="h4" sx={{ fontWeight: 800, color: '#1E293B', mb: 2 }}>
+          Article Not Found
+        </Typography>
+        <Typography variant="body1" sx={{ color: '#64748B', mb: 4, maxWidth: '500px', mx: 'auto' }}>
+          The article you are looking for does not exist or may have been moved.
+        </Typography>
+        <Button 
+          variant="contained" 
+          href="/blogs" 
+          sx={{ background: '#F55825', borderRadius: '12px', px: 4, py: 1.5, fontWeight: 700, textTransform: 'none', '&:hover': { background: '#D94616' } }}
+        >
+          Browse All Articles
+        </Button>
+      </Box>
+    );
+  }
 
   return (
     <Box css={BlogStyles.main} >

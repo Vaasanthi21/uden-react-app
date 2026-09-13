@@ -5,11 +5,12 @@ import Share from '../../../../../components/Share'
 import Spacer from '../../../../../components/Spacer'
 
 const BlogTitle = (props) => {
-    const data = props.data
+    const data = props.data;
+    if (!data) return null;
   return (
     <Box {...props}>
       <Grid container item xs={12} className='blogtitle-image-container'>
-        <Box maxHeight='400px'  maxWidth='100%'  component='img' src={data.image} alt={data.image} />
+        <Box maxHeight='400px'  maxWidth='100%'  component='img' src={data.image} alt={data.image || 'Blog Cover'} />
       </Grid>
         <Spacer height/>
         <Typography className='blogtitle-title' variant='h3' >{data.title}</Typography>

@@ -288,6 +288,26 @@ const styles = {
 
 const JobSeekerBanner = () => {
   const navigate = useNavigate();
+  const path = (typeof window !== 'undefined' ? window.location.pathname : '').toLowerCase();
+  const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
+
+  const badgeText = isStudents ? 'STUDENT PLACEMENT & AI PREP' : 'AI JOB MATCHING & CAREER ACCELERATOR';
+  const heading = isStudents ? (
+    <>AI Mock Interviews &amp; Placement Prep for <span>Students</span></>
+  ) : (
+    <>AI Job Matching for <span>First-Time Jobseekers</span></>
+  );
+  const subtitleText = isStudents ? (
+    '24x7 AI mock interviews, resume optimization & 8-axis skill radar for Tier 2/3 college students. Win ₹20K–50K referral rewards.'
+  ) : (
+    'AI-matched career guidance and fitment scoring across 100,000+ job openings. Apply off-campus in 1 click with UDEN.'
+  );
+
+  const primaryBtnText = isStudents ? 'Start Free AI Mock Interview' : 'Search 100,000+ Jobs';
+  const primaryBtnAction = () => navigate('/find-opportunity');
+
+  const secondaryBtnText = isStudents ? 'Explore 2026 Placement Report' : 'AI Student Career Prep';
+  const secondaryBtnAction = () => navigate(isStudents ? '/reports/tier-2-3-placement-report-2026' : '/students');
 
   return (
     <div css={styles.heroOuter} className="uden-fade-in">
@@ -296,15 +316,15 @@ const JobSeekerBanner = () => {
         <div>
           <div css={styles.badgeTag} className="uden-float-anim">
             <Sparkles size={14} color="#F7BC08" />
-            CANDIDATE CAREER PLATFORM
+            {badgeText}
           </div>
 
           <h1 css={styles.title}>
-            Land High-Paying Tech Jobs & <span>Work with Global Companies</span>
+            {heading}
           </h1>
 
           <p css={styles.subtitle}>
-            Get AI-assessed on top in-demand skills, close profile gaps with accredited upskilling tracks, and get hired directly by 150+ top companies in India & abroad.
+            {subtitleText}
           </p>
 
           <div css={styles.statsGrid}>
@@ -339,6 +359,16 @@ const JobSeekerBanner = () => {
                 <div css={styles.statLabel}>Offer Conversion</div>
               </div>
             </div>
+          </div>
+
+          <div css={styles.ctaButtonGroup}>
+            <button type="button" css={styles.primaryBtn} onClick={primaryBtnAction}>
+              {primaryBtnText}
+              <ArrowRight size={18} />
+            </button>
+            <button type="button" css={styles.secondaryBtn} onClick={secondaryBtnAction}>
+              {secondaryBtnText}
+            </button>
           </div>
         </div>
 

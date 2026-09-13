@@ -18,8 +18,6 @@ import FeatureOdyssey from '../../components/feature/FeatureOdyssey';
 import ExplanatoryVideoSuite from '../../components/feature/ExplanatoryVideoSuite';
 import MatchingEngine from '../../components/feature/MatchingEngine';
 import SuccessTerminal from '../../components/feature/SuccessTerminal';
-import HeroArchitectured from '../../components/feature/HeroArchitectured';
-import Slider from '../Home/components/Slider';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import FaqPage from '../Faq/Faq';
 
@@ -575,13 +573,7 @@ const JobSeekers = () => {
 
   return (
     <div style={{ width: '100%', overflowX: 'hidden', background: '#FFFFFF' }}>
-      {/* 0. Hero Carousel Slides */}
-      <Slider autoplay={true} />
-
-      {/* 1. Hero Potential Architectured & Interactive Skills Snapshot */}
-      <HeroArchitectured />
-
-      {/* 2. Hero Candidate Career Banner */}
+      {/* 1. Hero Candidate Career Banner */}
       <JobSeekerBanner />
 
       {/* 2.5 Side-by-Side Dual Infographic: Students (3rd Year) vs Experienced Professionals */}

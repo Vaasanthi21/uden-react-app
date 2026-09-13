@@ -15,6 +15,26 @@
       }
     },
     {
+      "route": "/blogs/builda-career-in-cloud-computing5943d2beb4ef",
+      "redirect": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef",
+      "statusCode": 301
+    },
+    {
+      "route": "/blogs/builda-career-in-cloud-computing-5943d2beb4ef",
+      "redirect": "/blogs/build-a-career-in-cloud-computing-5943d2beb4ef",
+      "statusCode": 301
+    },
+    {
+      "route": "/blogs/managing-delayed-onboarding-strategies-for-students704dbab5f0eb",
+      "redirect": "/blogs/managing-delayed-onboarding-strategies-for-students-704dbab5f0eb",
+      "statusCode": 301
+    },
+    {
+      "route": "/blogs/startup-hiring-trend-in-2022175664951461",
+      "redirect": "/blogs/startup-hiring-trend-in-2022-175664951461",
+      "statusCode": 301
+    },
+    {
       "route": "/campus",
       "redirect": "/colleges",
       "statusCode": 301
