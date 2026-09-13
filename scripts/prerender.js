@@ -66,7 +66,7 @@ const renderFooter = () => `
       <div>
         <h4 style="color: #FFFFFF; font-size: 16px; margin-bottom: 12px; font-weight: 700;">Company & Legal</h4>
         <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
-          <li><a href="https://uden.tech/about" style="color: #94A3B8; text-decoration: none;">About Us</a></li>
+          <li><a href="https://uden.tech/about-us" style="color: #94A3B8; text-decoration: none;">About Us</a></li>
           <li><a href="https://uden.tech/contact-us" style="color: #94A3B8; text-decoration: none;">Contact Support</a></li>
           <li><a href="https://uden.tech/faq" style="color: #94A3B8; text-decoration: none;">Frequently Asked Questions</a></li>
           <li><a href="https://uden.tech/privacy-policy" style="color: #94A3B8; text-decoration: none;">Privacy Policy</a></li>
@@ -656,7 +656,34 @@ const corePages = [
   },
   {
     route: '/about',
-    canonical: 'https://uden.tech/about',
+    canonical: 'https://uden.tech/about-us',
+    title: 'About UDEN — Unified Development and Employment Network',
+    description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.',
+    keywords: 'About UDEN, Unified Development and Employment Network, AI career readiness, Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT',
+    renderContent: () => `
+      <main style="max-width: 1000px; margin: 0 auto; padding: 40px 24px;">
+        <h1 style="font-size: 38px; color: #0F172A; font-weight: 800; margin: 16px 0;">About UDEN — Unified Development and Employment Network</h1>
+        <p style="font-size: 18px; color: #475569; line-height: 1.6;">
+          UDEN is an AI-powered career readiness and campus recruitment platform bridging students, higher education institutions, and corporate employers across India—with an unapologetic focus on Tier 2, Tier 3, and rural engineering talent.
+        </p>
+        <section style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 24px; border-radius: 12px; margin: 32px 0;">
+          <h3 style="color: #0F172A; margin-top: 0; font-size: 20px;">Institutional Backing & Recognition</h3>
+          <p style="color: #475569; line-height: 1.6; margin-bottom: 0;">
+            UDEN (operated by Digverve Solutions Pvt. Ltd.) is recognized and supported by <strong>Microsoft for Startups Founders Hub, NVIDIA Inception Program, AWS EdStart, DPIIT (Startup India), and NSRCEL IIM Bangalore</strong>.
+          </p>
+        </section>
+        <section style="margin: 32px 0;">
+          <h2 style="color: #0F172A; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Our Mission & Vision</h2>
+          <p style="color: #475569; line-height: 1.6;">
+            To create an AI/ML powered ecosystem where the right talent gets guidance to access the world's best opportunities. UDEN facilitates algorithmic fitment between candidate capabilities and business demand, minimizing onboarding costs with our hire-and-train methodology.
+          </p>
+        </section>
+      </main>
+    `
+  },
+  {
+    route: '/about-us',
+    canonical: 'https://uden.tech/about-us',
     title: 'About UDEN — Unified Development and Employment Network',
     description: 'UDEN is an AI-powered career readiness and placement platform backed by Microsoft for Startups, NVIDIA Inception, AWS EdStart and DPIIT.',
     keywords: 'About UDEN, Unified Development and Employment Network, AI career readiness, Microsoft for Startups, NVIDIA Inception, AWS EdStart, DPIIT',
