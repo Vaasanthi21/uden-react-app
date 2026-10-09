@@ -4,8 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { jsx } from '@emotion/react';
 import { 
   Play, 
-  CheckCircle2, 
-  Circle, 
   ChevronDown, 
   ChevronUp, 
   ArrowRight, 
@@ -25,14 +23,6 @@ import { useFormModal } from '../../components/modal/FormModalContext';
 const Tutorials = () => {
   const [activeModuleId, setActiveModuleId] = useState(1);
   const [openFaqIndices, setOpenFaqIndices] = useState([0]); // First FAQ open by default
-  const [completedModules, setCompletedModules] = useState(() => {
-    try {
-      const saved = localStorage.getItem('uden_completed_tutorials');
-      return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      return [];
-    }
-  });
 
   const workspaceRef = useRef(null);
   const videoPlayerRef = useRef(null);
@@ -61,23 +51,7 @@ const Tutorials = () => {
     }
   };
 
-  // Save completion state
-  useEffect(() => {
-    try {
-      localStorage.setItem('uden_completed_tutorials', JSON.stringify(completedModules));
-    } catch (e) {
-      console.error('Error saving tutorial progress', e);
-    }
-  }, [completedModules]);
-
   const activeModule = TUTORIAL_MODULES.find(m => m.id === activeModuleId) || TUTORIAL_MODULES[0];
-
-  const toggleComplete = (id, e) => {
-    if (e) e.stopPropagation();
-    setCompletedModules(prev => 
-      prev.includes(id) ? prev.filter(mId => mId !== id) : [...prev, id]
-    );
-  };
 
   const handleSelectModule = (id) => {
     setActiveModuleId(id);
@@ -111,10 +85,6 @@ const Tutorials = () => {
       prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
     );
   };
-
-  const completedCount = completedModules.length;
-  const progressPercent = Math.round((completedCount / TUTORIAL_MODULES.length) * 100);
-  const isCurrentCompleted = completedModules.includes(activeModule.id);
 
   return (
     <div css={styles.pageWrapper}>
@@ -196,22 +166,10 @@ const Tutorials = () => {
               </span>
             </div>
 
-            {/* Completion Progress Tracker */}
-            <div css={styles.progressBox}>
-              <div css={styles.progressLabelRow}>
-                <span>Your Progress</span>
-                <span>{completedCount} of {TUTORIAL_MODULES.length} ({progressPercent}%)</span>
-              </div>
-              <div css={styles.progressBarTrack}>
-                <div css={styles.progressBarFill(progressPercent)} />
-              </div>
-            </div>
-
             {/* List of 8 Video Modules */}
             <ul css={styles.moduleList}>
               {TUTORIAL_MODULES.map((module) => {
                 const isActive = module.id === activeModuleId;
-                const isDone = completedModules.includes(module.id);
                 return (
                   <li 
                     key={module.id} 
@@ -234,21 +192,10 @@ const Tutorials = () => {
                         {module.title}
                       </span>
                       <div className="tagsRow">
-                        <span css={styles.levelBadge(module.level)}>
-                          {module.level}
-                        </span>
                         <span css={styles.durationText}>
                           {module.duration}
                         </span>
                       </div>
-                    </div>
-
-                    <div 
-                      css={styles.moduleCheckIcon(isDone)}
-                      onClick={(e) => toggleComplete(module.id, e)}
-                      title={isDone ? "Mark as incomplete" : "Mark as completed"}
-                    >
-                      {isDone ? <CheckCircle2 size={19} /> : <Circle size={19} />}
                     </div>
                   </li>
                 );
@@ -271,27 +218,7 @@ const Tutorials = () => {
                     <Play size={13} fill="#F55825" color="#F55825" />
                     {activeModule.number}
                   </div>
-                  <span css={styles.levelBadge(activeModule.level)}>
-                    {activeModule.level}
-                  </span>
                 </div>
-
-                <button 
-                  css={styles.completeToggleBtn(isCurrentCompleted)}
-                  onClick={() => toggleComplete(activeModule.id)}
-                >
-                  {isCurrentCompleted ? (
-                    <>
-                      <CheckCircle2 size={15} />
-                      Completed
-                    </>
-                  ) : (
-                    <>
-                      <Circle size={15} />
-                      Mark as completed
-                    </>
-                  )}
-                </button>
               </div>
 
               {/* Video Player Box */}
@@ -313,9 +240,6 @@ const Tutorials = () => {
                       onPause={() => setIsPlaying(false)}
                       onEnded={() => {
                         setIsPlaying(false);
-                        if (!completedModules.includes(activeModule.id)) {
-                          toggleComplete(activeModule.id);
-                        }
                       }}
                     >
                       <source src={activeModule.videoUrl} type="video/mp4" />
