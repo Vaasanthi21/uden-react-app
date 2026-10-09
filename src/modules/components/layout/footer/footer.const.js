@@ -70,11 +70,6 @@ export const FooterConst = {
                 NAME:"Community Forum",
                 LINK:AppRoutes.COMMUNITY_FORUM,
                 isDisabled:true,
-            },
-            {
-                NAME:"SEO & Growth Hub",
-                LINK:AppRoutes.SEO_PLAN,
-                isDisabled:false,
             }
 
         ],
@@ -96,5 +91,3 @@ export const FooterConst = {
 
     ],
 }
-
-
