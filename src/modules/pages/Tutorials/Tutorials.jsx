@@ -37,20 +37,27 @@ const Tutorials = () => {
   const workspaceRef = useRef(null);
   const videoPlayerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const { openModal } = useFormModal();
 
   useEffect(() => {
     setIsPlaying(false);
+    setHasStarted(false);
   }, [activeModuleId]);
 
   const handlePlayVideo = () => {
-    if (activeModule.videoUrl) {
-      setIsPlaying(true);
-      setTimeout(() => {
-        if (videoPlayerRef.current) {
-          videoPlayerRef.current.play().catch(e => console.log('Autoplay error', e));
-        }
-      }, 50);
+    if (activeModule.videoUrl && videoPlayerRef.current) {
+      setHasStarted(true);
+      const playPromise = videoPlayerRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch(e => {
+            console.log('Video play error:', e);
+          });
+      }
     }
   };
 
@@ -289,19 +296,46 @@ const Tutorials = () => {
 
               {/* Video Player Box */}
               <div css={styles.playerWrapper}>
-                {activeModule.videoUrl && isPlaying ? (
-                  <video
-                    ref={videoPlayerRef}
-                    key={activeModule.id}
-                    controls
-                    autoPlay
-                    playsInline
-                    poster={activeModule.image}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#000', borderRadius: '18px' }}
-                    src={activeModule.videoUrl}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
+                {activeModule.videoUrl ? (
+                  <div css={styles.videoPlayerContainer}>
+                    <video
+                      ref={videoPlayerRef}
+                      key={`${activeModule.id}-${activeModule.videoUrl}`}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={activeModule.image}
+                      css={styles.videoElement}
+                      onPlay={() => {
+                        setIsPlaying(true);
+                        setHasStarted(true);
+                      }}
+                      onPause={() => setIsPlaying(false)}
+                      onEnded={() => {
+                        setIsPlaying(false);
+                        if (!completedModules.includes(activeModule.id)) {
+                          toggleComplete(activeModule.id);
+                        }
+                      }}
+                    >
+                      <source src={activeModule.videoUrl} type="video/mp4" />
+                      {activeModule.fallbackVideoUrl && activeModule.fallbackVideoUrl !== activeModule.videoUrl && (
+                        <source src={activeModule.fallbackVideoUrl} type="video/mp4" />
+                      )}
+                      Your browser does not support the video tag.
+                    </video>
+
+                    {!hasStarted && (
+                      <div css={styles.playerOverlay} onClick={handlePlayVideo}>
+                        <div className="playBtnCircle" css={styles.playBtnCircle}>
+                          <Play size={28} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
+                        </div>
+                        <div css={styles.comingSoonPill} style={{ background: '#F55825', borderColor: '#F55825', color: '#FFFFFF' }}>
+                          WATCH VIDEO
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <>
                     <img 
@@ -309,12 +343,12 @@ const Tutorials = () => {
                       alt={activeModule.title} 
                       css={styles.playerImage} 
                     />
-                    <div css={styles.playerOverlay} onClick={handlePlayVideo}>
-                      <div className="playBtnCircle" css={styles.playBtnCircle}>
+                    <div css={styles.playerOverlay} style={{ cursor: 'default' }}>
+                      <div className="playBtnCircle" css={styles.playBtnCircle} style={{ opacity: 0.6, cursor: 'not-allowed' }}>
                         <Play size={28} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
                       </div>
                       <div css={styles.comingSoonPill}>
-                        {activeModule.videoUrl ? 'WATCH VIDEO' : 'VIDEO COMING SOON'}
+                        VIDEO COMING SOON
                       </div>
                     </div>
                   </>

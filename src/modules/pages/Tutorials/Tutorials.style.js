@@ -577,6 +577,25 @@ export const styles = {
     justify-content: center;
   `,
 
+  videoPlayerContainer: css`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+  `,
+
+  videoElement: css`
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000000;
+    border-radius: 18px;
+    display: block;
+  `,
+
   playerImage: css`
     width: 100%;
     height: 100%;
