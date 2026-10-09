@@ -9,7 +9,13 @@ import video7Img from '../../../assets/tutorials/video_7_ai_job_matcher.png';
 import video8Img from '../../../assets/tutorials/video_8_career_journey.png';
 
 import video1MP4Asset from '../../../assets/tutorials/WelcometoUden.mp4';
+import video2MP4Asset from '../../../assets/tutorials/UDEN_Video2_Profile_and_Resume_Tutorial.mp4';
 import video3MP4Asset from '../../../assets/tutorials/ResumeAnalysis.mp4';
+import video4MP4Asset from '../../../assets/tutorials/AiInterviewCoach.mp4';
+import video5MP4Asset from '../../../assets/tutorials/PointsReferralSystem.mp4';
+import video6MP4Asset from '../../../assets/tutorials/JobAgentPro.mp4';
+import video7MP4Asset from '../../../assets/tutorials/AiJobMatcher.mp4';
+import video8MP4Asset from '../../../assets/tutorials/FinalVideoCareer.mp4';
 
 const resolveVideo = (asset, fallback) => {
   if (typeof asset === 'string' && asset.trim().length > 0) return asset;
@@ -18,7 +24,13 @@ const resolveVideo = (asset, fallback) => {
 };
 
 export const video1Url = resolveVideo(video1MP4Asset, '/assets/tutorials/WelcometoUden.mp4');
+export const video2Url = resolveVideo(video2MP4Asset, '/assets/tutorials/UDEN_Video2_Profile_and_Resume_Tutorial.mp4');
 export const video3Url = resolveVideo(video3MP4Asset, '/assets/tutorials/ResumeAnalysis.mp4');
+export const video4Url = resolveVideo(video4MP4Asset, '/assets/tutorials/AiInterviewCoach.mp4');
+export const video5Url = resolveVideo(video5MP4Asset, '/assets/tutorials/PointsReferralSystem.mp4');
+export const video6Url = resolveVideo(video6MP4Asset, '/assets/tutorials/JobAgentPro.mp4');
+export const video7Url = resolveVideo(video7MP4Asset, '/assets/tutorials/AiJobMatcher.mp4');
+export const video8Url = resolveVideo(video8MP4Asset, '/assets/tutorials/FinalVideoCareer.mp4');
 
 export const TUTORIAL_HERO_DATA = {
   badge: "UDEN TUTORIAL SERIES",
@@ -90,6 +102,8 @@ export const TUTORIAL_MODULES = [
     level: "Beginner",
     duration: "6 mins",
     image: video2Img,
+    videoUrl: video2Url,
+    fallbackVideoUrl: '/assets/tutorials/UDEN_Video2_Profile_and_Resume_Tutorial.mp4',
     summary: "How your profile and resume builder work together, switching templates, and exporting an ATS-ready resume.",
     about: [
       "Your Profile is the central hub for maintaining all of your career information in UDEN. This video demonstrates how filling in your profile once powers the rest of your experience across the platform.",
@@ -178,6 +192,8 @@ export const TUTORIAL_MODULES = [
     level: "Intermediate",
     duration: "7 mins",
     image: video4Img,
+    videoUrl: video4Url,
+    fallbackVideoUrl: '/assets/tutorials/AiInterviewCoach.mp4',
     summary: "Explain the complete AI interview journey without splitting booking, requests, and interview-taking into separate videos.",
     about: [
       "The AI Interview Coach provides a realistic, low-pressure interview simulator tailored to your target job role. Rather than fragmenting booking, role requests, and practice into multiple steps, this video covers the complete end-to-end interview journey.",
@@ -221,6 +237,8 @@ export const TUTORIAL_MODULES = [
     level: "Intermediate",
     duration: "5 mins",
     image: video5Img,
+    videoUrl: video5Url,
+    fallbackVideoUrl: '/assets/tutorials/PointsReferralSystem.mp4',
     summary: "Make the points system and referral rewards transparent so users understand how points are used and earned.",
     about: [
       "Transparency around points and rewards is essential for maximizing your value on UDEN. This video demonstrates exactly how points are consumed, where to track them, and how to earn both points and cash rewards through our referral program.",
@@ -265,6 +283,8 @@ export const TUTORIAL_MODULES = [
     level: "Advanced",
     duration: "8 mins",
     image: video6Img,
+    videoUrl: video6Url,
+    fallbackVideoUrl: '/assets/tutorials/JobAgentPro.mp4',
     summary: "Introduce the complete Job Agent Pro workflow so users understand how it supports their job search and preparation.",
     about: [
       "Job Agent Pro is your dedicated co-pilot that bridges preparation and real hiring. This walkthrough demonstrates how to pick a target role and follow a structured career roadmap tailored to current industry standards.",
@@ -309,6 +329,8 @@ export const TUTORIAL_MODULES = [
     level: "Intermediate",
     duration: "5 mins",
     image: video7Img,
+    videoUrl: video7Url,
+    fallbackVideoUrl: '/assets/tutorials/AiJobMatcher.mp4',
     summary: "Explain how users can discover relevant jobs based on their profile and resume.",
     about: [
       "Finding the right role among hundreds of listings can be overwhelming. AI Job Matcher eliminates the guesswork by analyzing your complete profile and resume against live vacancies on UDEN.",
@@ -349,6 +371,8 @@ export const TUTORIAL_MODULES = [
     level: "Advanced",
     duration: "9 mins",
     image: video8Img,
+    videoUrl: video8Url,
+    fallbackVideoUrl: '/assets/tutorials/FinalVideoCareer.mp4',
     summary: "The whole platform as one journey — from profile and resume through matching, preparation, application and interview practice.",
     about: [
       "This final video connects everything together and follows one user through the entire UDEN journey: logging in, completing the Profile, building the resume, then analysing and improving it.",

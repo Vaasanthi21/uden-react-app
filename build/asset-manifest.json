@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.67deeb0c.css",
-    "main.js": "/static/js/main.b711801d.js",
+    "main.js": "/static/js/main.34a7227f.js",
     "static/js/236.8bb27eb3.chunk.js": "/static/js/236.8bb27eb3.chunk.js",
     "static/js/425.ec9b77e2.chunk.js": "/static/js/425.ec9b77e2.chunk.js",
     "static/js/850.b6c9b88b.chunk.js": "/static/js/850.b6c9b88b.chunk.js",
@@ -25,16 +25,22 @@
     "static/js/824.a462e0bd.chunk.js": "/static/js/824.a462e0bd.chunk.js",
     "static/js/456.7dfeb1bc.chunk.js": "/static/js/456.7dfeb1bc.chunk.js",
     "static/js/103.c05113cc.chunk.js": "/static/js/103.c05113cc.chunk.js",
-    "static/js/857.3ed4c0a4.chunk.js": "/static/js/857.3ed4c0a4.chunk.js",
+    "static/js/121.a0946d07.chunk.js": "/static/js/121.a0946d07.chunk.js",
     "static/js/787.138252b6.chunk.js": "/static/js/787.138252b6.chunk.js",
     "static/js/259.f9c98338.chunk.js": "/static/js/259.f9c98338.chunk.js",
     "static/js/918.12de41d3.chunk.js": "/static/js/918.12de41d3.chunk.js",
     "static/js/330.4701c7b8.chunk.js": "/static/js/330.4701c7b8.chunk.js",
     "static/js/70.335e0b6b.chunk.js": "/static/js/70.335e0b6b.chunk.js",
     "static/js/807.355d70eb.chunk.js": "/static/js/807.355d70eb.chunk.js",
+    "static/media/FinalVideoCareer.mp4": "/static/media/FinalVideoCareer.2901ece48cd617ac8218.mp4",
+    "static/media/UDEN_Video2_Profile_and_Resume_Tutorial.mp4": "/static/media/UDEN_Video2_Profile_and_Resume_Tutorial.5c42b79667633183d567.mp4",
+    "static/media/AiInterviewCoach.mp4": "/static/media/AiInterviewCoach.fa15ef1f881cff4f2909.mp4",
+    "static/media/PointsReferralSystem.mp4": "/static/media/PointsReferralSystem.3e0a2d5bde7b0cfbe711.mp4",
     "static/media/ResumeAnalysis.mp4": "/static/media/ResumeAnalysis.6e52e74fc463e2fb1229.mp4",
+    "static/media/AiJobMatcher.mp4": "/static/media/AiJobMatcher.fdd6e1cbed587500f04a.mp4",
     "static/media/campus-placement-video.mp4": "/static/media/campus-placement-video.41479fad84286c2d3261.mp4",
     "static/media/career-growth-video.mp4": "/static/media/career-growth-video.87ba62b9b3b2741c3920.mp4",
+    "static/media/JobAgentPro.mp4": "/static/media/JobAgentPro.f4dc47818e3c33e46543.mp4",
     "static/media/WelcometoUden.mp4": "/static/media/WelcometoUden.1c272863edba01711517.mp4",
     "static/media/ParseGif.gif": "/static/media/ParseGif.1a23972af438b1561be0.gif",
     "static/media/upskilling-the-new-age-growth-hack-a8bbdb8ccc86-2.jpeg": "/static/media/upskilling-the-new-age-growth-hack-a8bbdb8ccc86-2.c4b4aa73caf7bb6827ad.jpeg",
@@ -127,7 +133,7 @@
     "static/media/contact-banner.png": "/static/media/contact-banner.48b694310cc507c8bcb3.png",
     "index.html": "/index.html",
     "main.67deeb0c.css.map": "/static/css/main.67deeb0c.css.map",
-    "main.b711801d.js.map": "/static/js/main.b711801d.js.map",
+    "main.34a7227f.js.map": "/static/js/main.34a7227f.js.map",
     "236.8bb27eb3.chunk.js.map": "/static/js/236.8bb27eb3.chunk.js.map",
     "425.ec9b77e2.chunk.js.map": "/static/js/425.ec9b77e2.chunk.js.map",
     "850.b6c9b88b.chunk.js.map": "/static/js/850.b6c9b88b.chunk.js.map",
@@ -151,7 +157,7 @@
     "824.a462e0bd.chunk.js.map": "/static/js/824.a462e0bd.chunk.js.map",
     "456.7dfeb1bc.chunk.js.map": "/static/js/456.7dfeb1bc.chunk.js.map",
     "103.c05113cc.chunk.js.map": "/static/js/103.c05113cc.chunk.js.map",
-    "857.3ed4c0a4.chunk.js.map": "/static/js/857.3ed4c0a4.chunk.js.map",
+    "121.a0946d07.chunk.js.map": "/static/js/121.a0946d07.chunk.js.map",
     "787.138252b6.chunk.js.map": "/static/js/787.138252b6.chunk.js.map",
     "259.f9c98338.chunk.js.map": "/static/js/259.f9c98338.chunk.js.map",
     "918.12de41d3.chunk.js.map": "/static/js/918.12de41d3.chunk.js.map",
@@ -161,6 +167,6 @@
   },
   "entrypoints": [
     "static/css/main.67deeb0c.css",
-    "static/js/main.b711801d.js"
+    "static/js/main.34a7227f.js"
   ]
 }
