@@ -1,5 +1,4 @@
 stages:
-  - build
   - deploy
 
 variables:
@@ -7,21 +6,6 @@ variables:
   CONFIG_PATH: '$CI_PROJECT_DIR/build'
   SKIP_APP_BUILD: 'true'
   VERBOSE: 'true'
-
-build-production:
-  stage: build
-  image: node:20-alpine
-  script:
-    - echo "Building application and generating pre-rendered static routes..."
-    - npm install --legacy-peer-deps || true
-    - DISABLE_ESLINT_PLUGIN=true CI=false npm run build || true
-    - cp staticwebapp.config.json build/staticwebapp.config.json || true
-  artifacts:
-    paths:
-      - build/
-    expire_in: 1 hour
-  only:
-    - master
 
 deploy-development:
   stage: deploy
@@ -54,11 +38,9 @@ deploy-production:
     CONFIG_PATH: '$CI_PROJECT_DIR/build'
   image: registry.gitlab.com/static-web-apps/azure-static-web-apps-deploy
   script:
-    - echo "Deploying Production application from build/ directory to Azure Static Web Apps..."
+    - echo "Deploying Production application from pre-built build/ directory to Azure Static Web Apps..."
+    - ls -la $APP_PATH
     - bash /entrypoint.sh
     - echo "Production Application successfully deployed."
   only:
     - master
-
-
-
