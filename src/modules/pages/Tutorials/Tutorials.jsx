@@ -35,7 +35,24 @@ const Tutorials = () => {
   });
 
   const workspaceRef = useRef(null);
+  const videoPlayerRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const { openModal } = useFormModal();
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, [activeModuleId]);
+
+  const handlePlayVideo = () => {
+    if (activeModule.videoUrl) {
+      setIsPlaying(true);
+      setTimeout(() => {
+        if (videoPlayerRef.current) {
+          videoPlayerRef.current.play().catch(e => console.log('Autoplay error', e));
+        }
+      }, 50);
+    }
+  };
 
   // Save completion state
   useEffect(() => {
@@ -272,19 +289,36 @@ const Tutorials = () => {
 
               {/* Video Player Box */}
               <div css={styles.playerWrapper}>
-                <img 
-                  src={activeModule.image} 
-                  alt={activeModule.title} 
-                  css={styles.playerImage} 
-                />
-                <div css={styles.playerOverlay}>
-                  <div className="playBtnCircle" css={styles.playBtnCircle}>
-                    <Play size={28} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
-                  </div>
-                  <div css={styles.comingSoonPill}>
-                    VIDEO COMING SOON
-                  </div>
-                </div>
+                {activeModule.videoUrl && isPlaying ? (
+                  <video
+                    ref={videoPlayerRef}
+                    key={activeModule.id}
+                    controls
+                    autoPlay
+                    playsInline
+                    poster={activeModule.image}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#000', borderRadius: '18px' }}
+                    src={activeModule.videoUrl}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <>
+                    <img 
+                      src={activeModule.image} 
+                      alt={activeModule.title} 
+                      css={styles.playerImage} 
+                    />
+                    <div css={styles.playerOverlay} onClick={handlePlayVideo}>
+                      <div className="playBtnCircle" css={styles.playBtnCircle}>
+                        <Play size={28} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
+                      </div>
+                      <div css={styles.comingSoonPill}>
+                        {activeModule.videoUrl ? 'WATCH VIDEO' : 'VIDEO COMING SOON'}
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Title & Short Summary */}

@@ -8,6 +8,13 @@ import video6Img from '../../../assets/tutorials/video_6_job_agent_pro.png';
 import video7Img from '../../../assets/tutorials/video_7_ai_job_matcher.png';
 import video8Img from '../../../assets/tutorials/video_8_career_journey.png';
 
+let video1MP4;
+try {
+  video1MP4 = require('../../../assets/tutorials/WelcometoUden.mp4');
+} catch (e) {
+  video1MP4 = process.env.PUBLIC_URL + '/assets/tutorials/WelcometoUden.mp4';
+}
+
 export const TUTORIAL_HERO_DATA = {
   badge: "UDEN TUTORIAL SERIES",
   titlePrefix: "Learn UDEN, ",
@@ -35,6 +42,7 @@ export const TUTORIAL_MODULES = [
     level: "Beginner",
     duration: "5 mins",
     image: video1Img,
+    videoUrl: video1MP4,
     summary: "Why UDEN exists, the tools it puts in one place, how subscriptions and points work, and where to find every major feature.",
     about: [
       "UDEN brings career preparation and job search into one place. This opening video is a guided tour of the platform: you sign in, land on the main dashboard, and see how the navigation is organised around the tools you will use most.",
