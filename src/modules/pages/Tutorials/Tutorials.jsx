@@ -13,10 +13,9 @@ import {
   Sparkles, 
   Zap, 
   Video, 
-  Clock, 
   Bot, 
-  BookOpen, 
-  Check
+  Check,
+  SlidersHorizontal
 } from 'lucide-react';
 import { TUTORIAL_HERO_DATA, TUTORIAL_MODULES } from './tutorials.data';
 import { styles } from './Tutorials.style';
@@ -59,7 +58,7 @@ const Tutorials = () => {
   const handleSelectModule = (id) => {
     setActiveModuleId(id);
     setOpenFaqIndices([0]);
-    if (window.innerWidth < 880 && workspaceRef.current) {
+    if (window.innerWidth < 900 && workspaceRef.current) {
       workspaceRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
@@ -158,10 +157,10 @@ const Tutorials = () => {
         </div>
       </section>
 
-      {/* MAIN TWO-COLUMN TUTORIAL WORKSPACE */}
+      {/* MAIN TUTORIAL WORKSPACE */}
       <section css={styles.mainSection} id="tutorial-workspace" ref={workspaceRef}>
         <div css={styles.mainGrid}>
-          {/* LEFT COLUMN: SIDEBAR */}
+          {/* LEFT COLUMN: STATIC / STICKY SIDEBAR */}
           <aside css={styles.sidebar}>
             <div css={styles.sidebarHeader}>
               <div css={styles.sidebarTitleWrap}>
@@ -177,7 +176,7 @@ const Tutorials = () => {
             <div css={styles.progressBox}>
               <div css={styles.progressLabelRow}>
                 <span>Your Progress</span>
-                <span>{completedCount} of {TUTORIAL_MODULES.length} completed ({progressPercent}%)</span>
+                <span>{completedCount} of {TUTORIAL_MODULES.length} ({progressPercent}%)</span>
               </div>
               <div css={styles.progressBarTrack}>
                 <div css={styles.progressBarFill(progressPercent)} />
@@ -195,13 +194,19 @@ const Tutorials = () => {
                     css={styles.moduleItem(isActive)}
                     onClick={() => handleSelectModule(module.id)}
                   >
-                    <img 
-                      src={module.image} 
-                      alt={module.title} 
-                      css={styles.moduleThumb} 
-                    />
+                    <div css={styles.moduleThumbWrap}>
+                      <img 
+                        src={module.image} 
+                        alt={module.title} 
+                        css={styles.moduleThumb} 
+                      />
+                      <span css={styles.moduleNumberBadgeCorner}>
+                        {module.id}
+                      </span>
+                    </div>
+
                     <div css={styles.moduleMeta}>
-                      <span className="title" title={module.title}>
+                      <span className={`title ${isActive ? 'activeTitle' : ''}`} title={module.title}>
                         {module.title}
                       </span>
                       <div className="tagsRow">
@@ -213,133 +218,125 @@ const Tutorials = () => {
                         </span>
                       </div>
                     </div>
+
                     <div 
                       css={styles.moduleCheckIcon(isDone)}
                       onClick={(e) => toggleComplete(module.id, e)}
                       title={isDone ? "Mark as incomplete" : "Mark as completed"}
                     >
-                      {isDone ? <CheckCircle2 size={20} /> : <Circle size={20} />}
+                      {isDone ? <CheckCircle2 size={19} /> : <Circle size={19} />}
                     </div>
                   </li>
                 );
               })}
             </ul>
+
+            {/* Bottom scroll down indicator */}
+            <div css={styles.sidebarFooterIndicator}>
+              <ChevronDown size={18} />
+            </div>
           </aside>
 
-          {/* RIGHT COLUMN: ACTIVE MODULE WORKSPACE */}
-          <main css={styles.workspaceCard}>
-            {/* Top Bar */}
-            <div css={styles.topBar}>
-              <div css={styles.topBarLeft}>
-                <div css={styles.moduleNumberBadge}>
-                  <Play size={13} fill="#F55825" color="#F55825" />
-                  {activeModule.number}
+          {/* RIGHT COLUMN: SCROLLABLE CONTENT CARDS */}
+          <div css={styles.rightColumn}>
+            {/* CARD 1: VIDEO PLAYER & CONTROLS */}
+            <div css={styles.videoPlayerCard}>
+              <div css={styles.topBar}>
+                <div css={styles.topBarLeft}>
+                  <div css={styles.moduleNumberBadge}>
+                    <Play size={13} fill="#F55825" color="#F55825" />
+                    {activeModule.number}
+                  </div>
+                  <span css={styles.levelBadge(activeModule.level)}>
+                    {activeModule.level}
+                  </span>
                 </div>
-                <span css={styles.levelBadge(activeModule.level)}>
-                  {activeModule.level}
-                </span>
-              </div>
 
-              {/* Is Tutorial Completed Button */}
-              <button 
-                css={styles.completeToggleBtn(isCurrentCompleted)}
-                onClick={() => toggleComplete(activeModule.id)}
-              >
-                {isCurrentCompleted ? (
-                  <>
-                    <CheckCircle2 size={16} />
-                    Completed
-                  </>
-                ) : (
-                  <>
-                    <Circle size={16} />
-                    Mark as completed
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Video Player Display */}
-            <div css={styles.playerWrapper}>
-              <img 
-                src={activeModule.image} 
-                alt={activeModule.title} 
-                css={styles.playerImage} 
-              />
-              <div css={styles.playerOverlay}>
-                <div className="playBtnCircle" css={styles.playBtnCircle}>
-                  <Play size={30} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
-                </div>
-                <div css={styles.comingSoonPill}>
-                  VIDEO COMING SOON
-                </div>
-              </div>
-            </div>
-
-            {/* Title & Short Description */}
-            <div css={styles.titleArea}>
-              <h1>{activeModule.title}</h1>
-              <p>{activeModule.summary}</p>
-            </div>
-
-            {/* Navigation & Walkthrough Header */}
-            <div css={styles.navControlsBar}>
-              <span css={styles.navGuideText}>
-                Prefer reading? The full walkthrough is below.
-              </span>
-              <div css={styles.navButtonsGroup}>
                 <button 
-                  css={styles.navPrevBtn(activeModuleId === 1)}
-                  onClick={handlePrev}
-                  disabled={activeModuleId === 1}
+                  css={styles.completeToggleBtn(isCurrentCompleted)}
+                  onClick={() => toggleComplete(activeModule.id)}
                 >
-                  <ArrowLeft size={16} />
-                  Previous
-                </button>
-                <button 
-                  css={styles.navNextBtn}
-                  onClick={handleNext}
-                >
-                  {activeModuleId === TUTORIAL_MODULES.length ? 'Finish Series' : 'Next video'}
-                  <ArrowRight size={16} />
+                  {isCurrentCompleted ? (
+                    <>
+                      <CheckCircle2 size={15} />
+                      Completed
+                    </>
+                  ) : (
+                    <>
+                      <Circle size={15} />
+                      Mark as completed
+                    </>
+                  )}
                 </button>
               </div>
-            </div>
 
-            {/* Two-Column Details Walkthrough */}
-            <div css={styles.detailsSection}>
-              {/* Left Column: About & What it covers */}
-              <div css={styles.leftDetailsCol}>
-                <div>
-                  <h3 css={styles.sectionHeading}>About this video</h3>
-                  <div css={styles.aboutParagraphs}>
-                    {activeModule.about.map((para, idx) => (
-                      <p key={idx}>{para}</p>
-                    ))}
+              {/* Video Player Box */}
+              <div css={styles.playerWrapper}>
+                <img 
+                  src={activeModule.image} 
+                  alt={activeModule.title} 
+                  css={styles.playerImage} 
+                />
+                <div css={styles.playerOverlay}>
+                  <div className="playBtnCircle" css={styles.playBtnCircle}>
+                    <Play size={28} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
+                  </div>
+                  <div css={styles.comingSoonPill}>
+                    VIDEO COMING SOON
                   </div>
                 </div>
-
-                <div>
-                  <h3 css={styles.sectionHeading}>What this video covers</h3>
-                  <p css={styles.sectionSubtitle}>The walkthrough you will see on screen</p>
-                  <ol css={styles.coversList}>
-                    {activeModule.covers.map((step, idx) => (
-                      <li key={idx} css={styles.coverStepItem}>
-                        <span css={styles.stepNumberBadge}>{idx + 1}</span>
-                        <span>{step}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
               </div>
 
-              {/* Right Column: Key Takeaways */}
-              <div css={styles.rightDetailsCol}>
-                <h3 css={styles.sectionHeading}>Key takeaways</h3>
+              {/* Title & Short Summary */}
+              <div css={styles.titleArea}>
+                <h1>{activeModule.title}</h1>
+                <p>{activeModule.summary}</p>
+              </div>
+
+              {/* Navigation Controls */}
+              <div css={styles.navControlsBar}>
+                <span css={styles.navGuideText}>
+                  Prefer reading? The full walkthrough is below.
+                </span>
+                <div css={styles.navButtonsGroup}>
+                  <button 
+                    css={styles.navPrevBtn(activeModuleId === 1)}
+                    onClick={handlePrev}
+                    disabled={activeModuleId === 1}
+                  >
+                    <ArrowLeft size={15} />
+                    Previous
+                  </button>
+                  <button 
+                    css={styles.navNextBtn}
+                    onClick={handleNext}
+                  >
+                    {activeModuleId === TUTORIAL_MODULES.length ? 'Finish Series' : 'Next video'}
+                    <ArrowRight size={15} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 2 ROW: ABOUT THIS VIDEO (LEFT) + KEY TAKEAWAYS (RIGHT) */}
+            <div css={styles.aboutAndTakeawaysRow}>
+              {/* About this video card */}
+              <div css={styles.aboutCard}>
+                <h3>About this video</h3>
+                {activeModule.about.map((para, idx) => (
+                  <p key={idx}>{para}</p>
+                ))}
+              </div>
+
+              {/* Key takeaways card */}
+              <div css={styles.takeawaysCard}>
+                <h3>Key takeaways</h3>
                 <ul css={styles.takeawaysList}>
                   {activeModule.takeaways.map((takeaway, idx) => (
                     <li key={idx} css={styles.takeawayItem}>
-                      <span className="dot"></span>
+                      <span className="iconCircle">
+                        <Check size={13} strokeWidth={3} />
+                      </span>
                       <span>{takeaway}</span>
                     </li>
                   ))}
@@ -347,11 +344,35 @@ const Tutorials = () => {
               </div>
             </div>
 
-            {/* FREQUENTLY ASKED QUESTIONS */}
-            <div css={styles.faqContainer}>
-              <div>
-                <h3 css={styles.sectionHeading}>Frequently asked questions</h3>
-                <p css={styles.sectionSubtitle}>Common queries for "{activeModule.title}"</p>
+            {/* CARD 3: WHAT THIS VIDEO COVERS */}
+            <div css={styles.coversCard}>
+              <div css={styles.cardHeaderWithIcon}>
+                <div className="iconBox">
+                  <SlidersHorizontal size={20} />
+                </div>
+                <div className="titleWrap">
+                  <h3>What this video covers</h3>
+                  <span>The walkthrough you will see on screen</span>
+                </div>
+              </div>
+
+              <ol css={styles.coversList}>
+                {activeModule.covers.map((step, idx) => (
+                  <li key={idx} css={styles.coverStepItem}>
+                    <span css={styles.stepNumberBadge}>{idx + 1}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            {/* CARD 4: FREQUENTLY ASKED QUESTIONS */}
+            <div css={styles.faqsCard}>
+              <div css={styles.cardHeaderWithIcon}>
+                <div className="titleWrap">
+                  <h3>Frequently asked questions</h3>
+                  <span>Common queries for "{activeModule.title}"</span>
+                </div>
               </div>
 
               {activeModule.faqs.map((faq, index) => {
@@ -380,7 +401,7 @@ const Tutorials = () => {
               })}
             </div>
 
-            {/* AI ASSISTANT CARD (Product Manager: "How We should keep this using ai") */}
+            {/* CARD 5: AI MENTOR CARD */}
             <div css={styles.aiCard}>
               <div className="content">
                 <h4>
@@ -401,7 +422,7 @@ const Tutorials = () => {
                 Ask ChatGPT Pro
               </button>
             </div>
-          </main>
+          </div>
         </div>
       </section>
     </div>
