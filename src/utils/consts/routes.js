@@ -30,6 +30,7 @@ const COLLEGES = "/colleges";
 const RECRUITERS = "/recruiters";
 const PLACEMENT_REPORT = "/reports/tier-2-3-placement-report-2026";
 const SEO_PLAN = "/seo-plan";
+const TUTORIALS = "/tutorials";
 
 const APP = "/app";
 
@@ -41,6 +42,7 @@ export const AppRoutes = {
     RECRUITERS,
     PLACEMENT_REPORT,
     SEO_PLAN,
+    TUTORIALS,
     COMPANIES,
     JOB_SEEKERS,
     UPSKILLING_PARTNERS,

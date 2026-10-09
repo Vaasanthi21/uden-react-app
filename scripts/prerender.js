@@ -1290,6 +1290,24 @@ const corePages = [
         <p style="font-size: 18px; color: #475569; line-height: 1.6;">Deploy scalable placement readiness and AI mock evaluations across public colleges and district skill centers.</p>
       </main>
     `
+  },
+  {
+    route: '/tutorials',
+    canonical: 'https://uden.tech/tutorials',
+    title: 'Learn UDEN, Step by Step — Platform Video Tutorials | UDEN',
+    description: '8 short video tutorials walking through every major UDEN feature: Profile, Resume Builder, Resume Analysis, AI Interview Coach, Points & Referrals, Job Agent Pro, AI Job Matcher, and Complete Career Journey.',
+    keywords: 'UDEN tutorials, platform walkthrough, AI Interview Coach guide, Resume Builder tutorial, Resume Analysis guide, Job Agent Pro guide, UDEN points system',
+    renderContent: () => `
+      <main style="max-width: 1240px; margin: 0 auto; padding: 48px 24px; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;">
+        <div style="background: linear-gradient(180deg, #FFF9F5 0%, #FFFFFF 100%); border-radius: 24px; padding: 48px; border: 1.5px solid #FEE7DA; margin-bottom: 40px;">
+          <span style="display: inline-flex; align-items: center; gap: 6px; background: #FFF0E8; color: #F55825; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase;">
+            ⚡ UDEN TUTORIAL SERIES
+          </span>
+          <h1 style="font-size: 42px; font-weight: 900; color: #1E293B; margin: 16px 0 12px;">Learn UDEN, <span style="color: #F55825;">step by step</span></h1>
+          <p style="font-size: 16.5px; color: #475569; line-height: 1.6; max-width: 680px;">8 short videos that walk you through every major UDEN feature — what it is for, where to find it and how the main workflow runs.</p>
+        </div>
+      </main>
+    `
   }
 ];
 

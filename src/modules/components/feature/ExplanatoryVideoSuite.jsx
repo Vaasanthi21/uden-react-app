@@ -374,13 +374,33 @@ export default function ExplanatoryVideoSuite() {
               ))}
             </div>
 
-            <button 
-              css={styles.watchNowBtn}
-              onClick={() => setIsVideoModalOpen(true)}
-              className="uden-pulse-btn"
-            >
-              <Play size={16} /> Watch Fullscreen Video Walkthrough
-            </button>
+            <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <button 
+                css={styles.watchNowBtn}
+                onClick={() => setIsVideoModalOpen(true)}
+                className="uden-pulse-btn"
+              >
+                <Play size={16} /> Watch Fullscreen Video
+              </button>
+              <a 
+                href="/tutorials"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: '#F55825',
+                  fontWeight: '800',
+                  fontSize: '14px',
+                  textDecoration: 'none',
+                  padding: '12px 18px',
+                  borderRadius: '24px',
+                  background: '#FFF5F0',
+                  border: '1.5px solid #FFDECB'
+                }}
+              >
+                8-Part Tutorial Series &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -57,6 +57,11 @@ export const FooterConst = {
                 isDisabled:false,
             },
             {
+                NAME:"Video Tutorials",
+                LINK:AppRoutes.TUTORIALS,
+                isDisabled:false,
+            },
+            {
                 NAME:"Placement Report 2026",
                 LINK:AppRoutes.PLACEMENT_REPORT,
                 isDisabled:false,

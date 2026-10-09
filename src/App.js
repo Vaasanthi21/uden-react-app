@@ -31,6 +31,7 @@ const GovernmentPartnership = React.lazy(() => import('./modules/pages/Governmen
 const FaqPage = React.lazy(() => import('./modules/pages/Faq/Faq'));
 const PlacementReport = React.lazy(() => import('./modules/pages/PlacementReport/PlacementReport'));
 const SeoPlanDashboard = React.lazy(() => import('./modules/pages/SeoPlan/SeoPlanDashboard'));
+const Tutorials = React.lazy(() => import('./modules/pages/Tutorials/Tutorials'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -102,6 +103,11 @@ function App() {
             <Route path={AppRoutes.BLOGS+"/:id"}  element={<Blog/>} />
             <Route path={AppRoutes.PLACEMENT_REPORT} element={<PlacementReport />} />
             <Route path={AppRoutes.SEO_PLAN} element={<SeoPlanDashboard />} />
+            <Route path={AppRoutes.TUTORIALS} element={<Tutorials />} />
+            <Route path="/tutorials" element={<Tutorials />} />
+            <Route path="/tutorial" element={<Tutorials />} />
+            <Route path="/guides" element={<Tutorials />} />
+            <Route path="/user-guide" element={<Tutorials />} />
           
             <Route path="/about" element={<AboutUs />} />
             <Route path="/about-us" element={<Navigate to="/about" replace />} />

@@ -1,0 +1,411 @@
+import React, { useState, useEffect, useRef } from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
+import { 
+  Play, 
+  CheckCircle2, 
+  Circle, 
+  ChevronDown, 
+  ChevronUp, 
+  ArrowRight, 
+  ArrowLeft, 
+  Sparkles, 
+  Zap, 
+  Video, 
+  Clock, 
+  Bot, 
+  BookOpen, 
+  Check
+} from 'lucide-react';
+import { TUTORIAL_HERO_DATA, TUTORIAL_MODULES } from './tutorials.data';
+import { styles } from './Tutorials.style';
+import SEOHead from '../../components/seo/SEOHead';
+import { useFormModal } from '../../components/modal/FormModalContext';
+
+const Tutorials = () => {
+  const [activeModuleId, setActiveModuleId] = useState(1);
+  const [openFaqIndices, setOpenFaqIndices] = useState([0]); // First FAQ open by default
+  const [completedModules, setCompletedModules] = useState(() => {
+    try {
+      const saved = localStorage.getItem('uden_completed_tutorials');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  const workspaceRef = useRef(null);
+  const { openModal } = useFormModal();
+
+  // Save completion state
+  useEffect(() => {
+    try {
+      localStorage.setItem('uden_completed_tutorials', JSON.stringify(completedModules));
+    } catch (e) {
+      console.error('Error saving tutorial progress', e);
+    }
+  }, [completedModules]);
+
+  const activeModule = TUTORIAL_MODULES.find(m => m.id === activeModuleId) || TUTORIAL_MODULES[0];
+
+  const toggleComplete = (id, e) => {
+    if (e) e.stopPropagation();
+    setCompletedModules(prev => 
+      prev.includes(id) ? prev.filter(mId => mId !== id) : [...prev, id]
+    );
+  };
+
+  const handleSelectModule = (id) => {
+    setActiveModuleId(id);
+    setOpenFaqIndices([0]);
+    if (window.innerWidth < 880 && workspaceRef.current) {
+      workspaceRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeModuleId > 1) {
+      handleSelectModule(activeModuleId - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeModuleId < TUTORIAL_MODULES.length) {
+      handleSelectModule(activeModuleId + 1);
+    }
+  };
+
+  const scrollToWorkspace = () => {
+    setActiveModuleId(1);
+    if (workspaceRef.current) {
+      workspaceRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndices(prev => 
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    );
+  };
+
+  const completedCount = completedModules.length;
+  const progressPercent = Math.round((completedCount / TUTORIAL_MODULES.length) * 100);
+  const isCurrentCompleted = completedModules.includes(activeModule.id);
+
+  return (
+    <div css={styles.pageWrapper}>
+      <SEOHead 
+        title="UDEN Video Tutorials — Step-by-Step Platform Guide"
+        description="Explore 8 short videos and complete walkthroughs covering UDEN features: Profile, Resume Builder, Resume Analysis, AI Interview Coach, Points, Job Agent Pro, AI Job Matcher, and Career Journey."
+      />
+
+      {/* HERO SECTION */}
+      <section css={styles.heroSection}>
+        <div css={styles.heroContainer}>
+          {/* Left Text */}
+          <div css={styles.heroLeft}>
+            <div css={styles.badgePill}>
+              <Zap size={14} />
+              {TUTORIAL_HERO_DATA.badge}
+            </div>
+
+            <h1 css={styles.heroTitle}>
+              {TUTORIAL_HERO_DATA.titlePrefix}
+              <span>{TUTORIAL_HERO_DATA.titleHighlight}</span>
+            </h1>
+
+            <p css={styles.heroSubtitle}>
+              {TUTORIAL_HERO_DATA.subtitle}
+            </p>
+
+            <div css={styles.featuresGrid}>
+              {TUTORIAL_HERO_DATA.features.map((feature, idx) => (
+                <div key={idx} css={styles.featureItem}>
+                  <Check size={16} className="icon" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div css={styles.heroCtaRow}>
+              <button css={styles.startBtn} onClick={scrollToWorkspace}>
+                {TUTORIAL_HERO_DATA.ctaText}
+                <ArrowRight size={17} />
+              </button>
+              <span css={styles.heroSecondaryText}>
+                {TUTORIAL_HERO_DATA.secondaryText}
+              </span>
+            </div>
+          </div>
+
+          {/* Right Card */}
+          <div css={styles.heroRightCard}>
+            <div css={styles.heroCardBadge}>
+              <Video size={14} color="#F55825" />
+              {TUTORIAL_HERO_DATA.cardBadge}
+            </div>
+            <img 
+              src={TUTORIAL_HERO_DATA.cardImage} 
+              alt="UDEN Platform Career Journey" 
+              css={styles.heroCardImg}
+            />
+            <div css={styles.heroCardCaption}>
+              <span className="dot"></span>
+              {TUTORIAL_HERO_DATA.cardCaption}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN TWO-COLUMN TUTORIAL WORKSPACE */}
+      <section css={styles.mainSection} id="tutorial-workspace" ref={workspaceRef}>
+        <div css={styles.mainGrid}>
+          {/* LEFT COLUMN: SIDEBAR */}
+          <aside css={styles.sidebar}>
+            <div css={styles.sidebarHeader}>
+              <div css={styles.sidebarTitleWrap}>
+                <h3>Video modules</h3>
+                <p>Follow the series in order</p>
+              </div>
+              <span css={styles.sidebarBadge}>
+                {TUTORIAL_MODULES.length} videos
+              </span>
+            </div>
+
+            {/* Completion Progress Tracker */}
+            <div css={styles.progressBox}>
+              <div css={styles.progressLabelRow}>
+                <span>Your Progress</span>
+                <span>{completedCount} of {TUTORIAL_MODULES.length} completed ({progressPercent}%)</span>
+              </div>
+              <div css={styles.progressBarTrack}>
+                <div css={styles.progressBarFill(progressPercent)} />
+              </div>
+            </div>
+
+            {/* List of 8 Video Modules */}
+            <ul css={styles.moduleList}>
+              {TUTORIAL_MODULES.map((module) => {
+                const isActive = module.id === activeModuleId;
+                const isDone = completedModules.includes(module.id);
+                return (
+                  <li 
+                    key={module.id} 
+                    css={styles.moduleItem(isActive)}
+                    onClick={() => handleSelectModule(module.id)}
+                  >
+                    <img 
+                      src={module.image} 
+                      alt={module.title} 
+                      css={styles.moduleThumb} 
+                    />
+                    <div css={styles.moduleMeta}>
+                      <span className="title" title={module.title}>
+                        {module.title}
+                      </span>
+                      <div className="tagsRow">
+                        <span css={styles.levelBadge(module.level)}>
+                          {module.level}
+                        </span>
+                        <span css={styles.durationText}>
+                          {module.duration}
+                        </span>
+                      </div>
+                    </div>
+                    <div 
+                      css={styles.moduleCheckIcon(isDone)}
+                      onClick={(e) => toggleComplete(module.id, e)}
+                      title={isDone ? "Mark as incomplete" : "Mark as completed"}
+                    >
+                      {isDone ? <CheckCircle2 size={20} /> : <Circle size={20} />}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
+
+          {/* RIGHT COLUMN: ACTIVE MODULE WORKSPACE */}
+          <main css={styles.workspaceCard}>
+            {/* Top Bar */}
+            <div css={styles.topBar}>
+              <div css={styles.topBarLeft}>
+                <div css={styles.moduleNumberBadge}>
+                  <Play size={13} fill="#F55825" color="#F55825" />
+                  {activeModule.number}
+                </div>
+                <span css={styles.levelBadge(activeModule.level)}>
+                  {activeModule.level}
+                </span>
+              </div>
+
+              {/* Is Tutorial Completed Button */}
+              <button 
+                css={styles.completeToggleBtn(isCurrentCompleted)}
+                onClick={() => toggleComplete(activeModule.id)}
+              >
+                {isCurrentCompleted ? (
+                  <>
+                    <CheckCircle2 size={16} />
+                    Completed
+                  </>
+                ) : (
+                  <>
+                    <Circle size={16} />
+                    Mark as completed
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Video Player Display */}
+            <div css={styles.playerWrapper}>
+              <img 
+                src={activeModule.image} 
+                alt={activeModule.title} 
+                css={styles.playerImage} 
+              />
+              <div css={styles.playerOverlay}>
+                <div className="playBtnCircle" css={styles.playBtnCircle}>
+                  <Play size={30} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
+                </div>
+                <div css={styles.comingSoonPill}>
+                  VIDEO COMING SOON
+                </div>
+              </div>
+            </div>
+
+            {/* Title & Short Description */}
+            <div css={styles.titleArea}>
+              <h1>{activeModule.title}</h1>
+              <p>{activeModule.summary}</p>
+            </div>
+
+            {/* Navigation & Walkthrough Header */}
+            <div css={styles.navControlsBar}>
+              <span css={styles.navGuideText}>
+                Prefer reading? The full walkthrough is below.
+              </span>
+              <div css={styles.navButtonsGroup}>
+                <button 
+                  css={styles.navPrevBtn(activeModuleId === 1)}
+                  onClick={handlePrev}
+                  disabled={activeModuleId === 1}
+                >
+                  <ArrowLeft size={16} />
+                  Previous
+                </button>
+                <button 
+                  css={styles.navNextBtn}
+                  onClick={handleNext}
+                >
+                  {activeModuleId === TUTORIAL_MODULES.length ? 'Finish Series' : 'Next video'}
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+
+            {/* Two-Column Details Walkthrough */}
+            <div css={styles.detailsSection}>
+              {/* Left Column: About & What it covers */}
+              <div css={styles.leftDetailsCol}>
+                <div>
+                  <h3 css={styles.sectionHeading}>About this video</h3>
+                  <div css={styles.aboutParagraphs}>
+                    {activeModule.about.map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 css={styles.sectionHeading}>What this video covers</h3>
+                  <p css={styles.sectionSubtitle}>The walkthrough you will see on screen</p>
+                  <ol css={styles.coversList}>
+                    {activeModule.covers.map((step, idx) => (
+                      <li key={idx} css={styles.coverStepItem}>
+                        <span css={styles.stepNumberBadge}>{idx + 1}</span>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+
+              {/* Right Column: Key Takeaways */}
+              <div css={styles.rightDetailsCol}>
+                <h3 css={styles.sectionHeading}>Key takeaways</h3>
+                <ul css={styles.takeawaysList}>
+                  {activeModule.takeaways.map((takeaway, idx) => (
+                    <li key={idx} css={styles.takeawayItem}>
+                      <span className="dot"></span>
+                      <span>{takeaway}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* FREQUENTLY ASKED QUESTIONS */}
+            <div css={styles.faqContainer}>
+              <div>
+                <h3 css={styles.sectionHeading}>Frequently asked questions</h3>
+                <p css={styles.sectionSubtitle}>Common queries for "{activeModule.title}"</p>
+              </div>
+
+              {activeModule.faqs.map((faq, index) => {
+                const isOpen = openFaqIndices.includes(index);
+                return (
+                  <div key={index} css={styles.faqItem(isOpen)}>
+                    <button 
+                      css={styles.faqHeader(isOpen)} 
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{faq.question}</span>
+                      {isOpen ? (
+                        <ChevronUp size={18} color="#F55825" />
+                      ) : (
+                        <ChevronDown size={18} color="#64748B" />
+                      )}
+                    </button>
+                    {isOpen && (
+                      <div css={styles.faqBody}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* AI ASSISTANT CARD (Product Manager: "How We should keep this using ai") */}
+            <div css={styles.aiCard}>
+              <div className="content">
+                <h4>
+                  <Sparkles size={18} color="#F55825" />
+                  Have doubts about this module? Ask UDEN AI
+                </h4>
+                <p>
+                  Get instant clarifications on "{activeModule.title}", point calculations, or interview advice.
+                </p>
+              </div>
+              <button 
+                css={styles.aiBtn}
+                onClick={() => {
+                  window.open('https://cps.uden.tech/log_in', '_blank', 'noopener,noreferrer');
+                }}
+              >
+                <Bot size={16} />
+                Ask ChatGPT Pro
+              </button>
+            </div>
+          </main>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Tutorials;
