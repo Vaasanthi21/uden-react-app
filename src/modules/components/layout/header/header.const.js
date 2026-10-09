@@ -20,7 +20,6 @@ const ButtonStrings = {
 const Routes = [
     AppRoutes.COMPANIES, 
     AppRoutes.JOB_SEEKERS, 
-    AppRoutes.TUTORIALS,
     AppRoutes.HR_SERVICES,
     AppRoutes.CAMPUS_PLACEMENTS,
     AppRoutes.GOVERNMENT,
@@ -30,7 +29,6 @@ const Routes = [
 const Names = [
     HeaderTabs.COMPANIES, 
     HeaderTabs.JOB_SEEKERS, 
-    HeaderTabs.TUTORIALS,
     HeaderTabs.HR_SERVICES,
     HeaderTabs.CAMPUS_PLACEMENTS,
     HeaderTabs.GOVERNMENT,
@@ -40,14 +38,13 @@ const Names = [
 const Icons = [
     <CorporateFare key="comp" />, 
     <Work key="work" />, 
-    <OndemandVideo key="tut" />,
     <People key="hr" />, 
     <Groups key="campus" />,
     <AccountBalance key="gov" />,
     <ContactPage key="about" />
 ];
 
-const Badge = [null, null, "New", "New", null, null, null];
+const Badge = [null, null, "New", null, null, null];
 
 const Tabs = {
     Routes,
