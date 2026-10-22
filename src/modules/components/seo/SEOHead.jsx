@@ -135,8 +135,18 @@ export const SEOHead = () => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
     } else {
+      // Fire pageview tracking for every page navigation in React SPA
       if (typeof window.fbq === 'function') {
         window.fbq('track', 'PageView');
+      }
+      if (typeof window.gtag === 'function') {
+        window.gtag('config', 'G-4GE9MBR83P', {
+          page_path: pathname,
+          page_title: document.title
+        });
+      }
+      if (typeof window.pumpgtm === 'function') {
+        window.pumpgtm('event', 'page_view');
       }
     }
 
