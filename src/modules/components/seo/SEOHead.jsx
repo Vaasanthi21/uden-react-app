@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   getOrganizationSchema,
@@ -128,8 +128,18 @@ const injectJsonLdScript = (id, data) => {
 export const SEOHead = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  const isFirstMount = useRef(true);
 
   useEffect(() => {
+    // SPA Meta Pixel pageview tracking on subsequent route navigations
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+    } else {
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'PageView');
+      }
+    }
+
     // 1. Determine exact self-referencing canonical URL
     let canonicalUrl;
     if (canonicalMap[pathname]) {
