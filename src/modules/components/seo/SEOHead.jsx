@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { trackAdUserJourney } from '../../../utils/adJourneyTracker';
 import {
   getOrganizationSchema,
   getWebsiteSchema,
@@ -139,6 +140,10 @@ export const SEOHead = () => {
         window.fbq('track', 'PageView');
       }
     }
+
+    // Track ad campaign source, IP address, and page navigation journey
+    const currentMeta = routeMetadata[pathname];
+    trackAdUserJourney(pathname, currentMeta ? currentMeta.title : document.title);
 
     // 1. Determine exact self-referencing canonical URL
     let canonicalUrl;
