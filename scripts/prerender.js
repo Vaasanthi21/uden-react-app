@@ -1395,12 +1395,15 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
     ${renderFooter()}
   `;
 
-  // 7. Replace any existing <noscript> block with a clean standard fallback to eliminate content duplication
+  // 7. Ensure Meta Pixel fallback noscript is present and body crawler snapshot noscript is replaced with standard fallback
+  const metaPixelNoscript = `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=231162558101111&ev=PageView&noscript=1"/></noscript>`;
+  html = html.replace(/<noscript>[\s\S]*?<\/noscript>/gi, '');
+
   const cleanNoscript = `<noscript>You need to enable JavaScript to run this app.</noscript>`;
-  if (html.includes('<noscript>')) {
-    html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, cleanNoscript);
-  } else {
-    html = html.replace(/<div\s+id="root">/i, `${cleanNoscript}\n    <div id="root">`);
+  html = html.replace(/<div\s+id="root">/i, `${cleanNoscript}\n    <div id="root">`);
+
+  if (html.includes('231162558101111')) {
+    html = html.replace(/(fbq\(['"]track['"],\s*['"]PageView['"]\);?\s*<\/script>)/i, `$1\n    ${metaPixelNoscript}`);
   }
 
   // 8. Inject the single canonical prerendered semantic layout into <div id="root">
