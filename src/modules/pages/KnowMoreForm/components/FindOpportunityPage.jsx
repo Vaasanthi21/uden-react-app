@@ -214,6 +214,24 @@ const styles = {
       color: #F55825;
     }
   `,
+  signInPrompt: css`
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    text-align: center;
+    margin-top: -14px;
+    margin-bottom: 20px;
+
+    a {
+      color: #F55825;
+      text-decoration: underline;
+      font-weight: 800;
+
+      &:hover {
+        color: #D94616;
+      }
+    }
+  `,
   formGrid: css`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -336,19 +354,24 @@ const styles = {
 };
 
 export default function FindOpportunityPage() {
+  const getInitialSource = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('utm_source') || '';
+    } catch (e) {
+      return '';
+    }
+  };
+
   const [formData, setFormData] = useState({
     fullName: '',
     workEmail: '',
     phone: '',
     country: 'India',
-    state: '',
-    city: '',
-    zipCode: '',
-    primarySkill: '',
     experience: 'Fresher (0 Years)',
-    referralSource: 'Social Media',
-    agreeTerms: true,
-    agreePrivacy: true
+    referralSource: getInitialSource(),
+    agreeTerms: false,
+    agreePrivacy: false
   });
 
   const [errors, setErrors] = useState({});
@@ -366,15 +389,6 @@ export default function FindOpportunityPage() {
     const phoneClean = formData.phone.replace(/[\s\-\+\(\)]/g, '');
     if (!formData.phone.trim() || phoneClean.length < 8) {
       errs.phone = 'Please enter a valid contact phone number';
-    }
-    if (!formData.state.trim()) {
-      errs.state = 'State is required';
-    }
-    if (!formData.city.trim()) {
-      errs.city = 'City is required';
-    }
-    if (!formData.primarySkill.trim()) {
-      errs.primarySkill = 'Primary skill is required (e.g. React, Java, Python)';
     }
     if (!formData.agreeTerms) {
       errs.agreeTerms = 'You must agree to Terms & Conditions';
@@ -403,16 +417,20 @@ export default function FindOpportunityPage() {
       // HubSpot Lead & Contact Integration Tracking
       try {
         if (window._hsq) {
+          const params = new URLSearchParams(window.location.search);
           window._hsq.push(["identify", {
             email: formData.workEmail,
             firstname: formData.fullName.split(' ')[0] || formData.fullName,
             lastname: formData.fullName.split(' ').slice(1).join(' ') || '',
             phone: formData.phone,
-            city: formData.city,
-            state: formData.state,
             country: formData.country,
-            primary_skill: formData.primarySkill,
-            experience: formData.experience
+            experience: formData.experience,
+            referral_source: formData.referralSource || params.get('utm_source') || '',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || '',
+            utm_content: params.get('utm_content') || '',
+            utm_term: params.get('utm_term') || ''
           }]);
           window._hsq.push(["trackEvent", { id: "Candidate Blueprint Opportunity Submission" }]);
         }
@@ -430,14 +448,10 @@ export default function FindOpportunityPage() {
       workEmail: '',
       phone: '',
       country: 'India',
-      state: '',
-      city: '',
-      zipCode: '',
-      primarySkill: '',
       experience: 'Fresher (0 Years)',
-      referralSource: 'Social Media',
-      agreeTerms: true,
-      agreePrivacy: true
+      referralSource: getInitialSource(),
+      agreeTerms: false,
+      agreePrivacy: false
     });
     setErrors({});
   };
@@ -519,6 +533,13 @@ export default function FindOpportunityPage() {
               Assess <span>•</span> Upskill <span>•</span> Recruit
             </div>
 
+            <div css={styles.signInPrompt}>
+              Already have an account?{' '}
+              <a href="https://cps.uden.tech/log_in" target="_blank" rel="noopener noreferrer">
+                Sign In to Portal
+              </a>
+            </div>
+
             {submitted ? (
               <div style={{ background: '#ECFDF5', border: '1.5px solid #A7F3D0', borderRadius: '20px', padding: '32px 24px', color: '#047857', textAlign: 'center' }}>
                 <CheckCircle2 size={48} color="#10B981" style={{ marginBottom: '12px' }} />
@@ -532,6 +553,12 @@ export default function FindOpportunityPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
+                {/* Hidden fields for HubSpot UTM parameter capture */}
+                <input type="hidden" name="utm_source" value={new URLSearchParams(window.location.search).get('utm_source') || ''} />
+                <input type="hidden" name="utm_medium" value={new URLSearchParams(window.location.search).get('utm_medium') || ''} />
+                <input type="hidden" name="utm_campaign" value={new URLSearchParams(window.location.search).get('utm_campaign') || ''} />
+                <input type="hidden" name="utm_content" value={new URLSearchParams(window.location.search).get('utm_content') || ''} />
+                <input type="hidden" name="utm_term" value={new URLSearchParams(window.location.search).get('utm_term') || ''} />
                 <div css={styles.formGrid}>
                   <div css={styles.formFieldHalf(Boolean(errors.fullName))}>
                     <label htmlFor="opp-fullName">Full Name *</label>
@@ -599,72 +626,6 @@ export default function FindOpportunityPage() {
                     </select>
                   </div>
 
-                  <div css={styles.formFieldHalf(Boolean(errors.state))}>
-                    <label htmlFor="opp-state">State *</label>
-                    <input
-                      id="opp-state"
-                      type="text"
-                      name="state"
-                      placeholder="e.g. Karnataka"
-                      value={formData.state}
-                      onChange={handleChange}
-                      aria-required="true"
-                    />
-                    {errors.state && (
-                      <div css={styles.errorText}>
-                        <AlertCircle size={12} aria-hidden="true" /> {errors.state}
-                      </div>
-                    )}
-                  </div>
-
-                  <div css={styles.formFieldHalf(Boolean(errors.city))}>
-                    <label htmlFor="opp-city">City *</label>
-                    <input
-                      id="opp-city"
-                      type="text"
-                      name="city"
-                      placeholder="e.g. Bengaluru"
-                      value={formData.city}
-                      onChange={handleChange}
-                      aria-required="true"
-                    />
-                    {errors.city && (
-                      <div css={styles.errorText}>
-                        <AlertCircle size={12} aria-hidden="true" /> {errors.city}
-                      </div>
-                    )}
-                  </div>
-
-                  <div css={styles.formFieldHalf(false)}>
-                    <label htmlFor="opp-zipCode">Zip Code</label>
-                    <input
-                      id="opp-zipCode"
-                      type="text"
-                      name="zipCode"
-                      placeholder="e.g. 560001"
-                      value={formData.zipCode}
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div css={styles.formFieldHalf(Boolean(errors.primarySkill))}>
-                    <label htmlFor="opp-primarySkill">Primary Skill *</label>
-                    <input
-                      id="opp-primarySkill"
-                      type="text"
-                      name="primarySkill"
-                      placeholder="e.g. React / Java / Python"
-                      value={formData.primarySkill}
-                      onChange={handleChange}
-                      aria-required="true"
-                    />
-                    {errors.primarySkill && (
-                      <div css={styles.errorText}>
-                        <AlertCircle size={12} aria-hidden="true" /> {errors.primarySkill}
-                      </div>
-                    )}
-                  </div>
-
                   <div css={styles.formFieldHalf(false)}>
                     <label htmlFor="opp-experience">Experience (Years)</label>
                     <select id="opp-experience" name="experience" value={formData.experience} onChange={handleChange}>
@@ -678,7 +639,11 @@ export default function FindOpportunityPage() {
                   <div css={styles.formFieldHalf(false)}>
                     <label htmlFor="opp-referralSource">How learned about UDEN?</label>
                     <select id="opp-referralSource" name="referralSource" value={formData.referralSource} onChange={handleChange}>
+                      <option value="">Select how you learned about UDEN</option>
                       <option value="Social Media">Social Media</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="LinkedIn">LinkedIn</option>
                       <option value="College / Campus">College / Campus</option>
                       <option value="Friend / Referral">Friend / Referral</option>
                       <option value="Search Engine">Search Engine</option>
