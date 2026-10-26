@@ -26,10 +26,13 @@ import {
   TrendingUp,
   Search,
   ExternalLink,
-  Laptop
+  Laptop,
+  Play,
+  Pause
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
+import ScrollReveal from '../../components/layout/ScrollReveal';
 import { AppRoutes } from '../../../utils/consts/routes';
 
 /* KEYFRAME ANIMATIONS FOR SMOOTH TRANSITIONS & HOVER EFFECTS */
@@ -39,14 +42,19 @@ const floatSlow = keyframes`
 `;
 
 const pulseGlow = keyframes`
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.04); }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
 `;
 
 const laserScan = keyframes`
   0% { top: 0%; opacity: 0.8; }
   50% { top: 92%; opacity: 1; }
   100% { top: 0%; opacity: 0.8; }
+`;
+
+const rotateSlow = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 `;
 
 const styles = {
@@ -57,6 +65,18 @@ const styles = {
     color: #1E293B;
     overflow-x: hidden;
     padding-bottom: 76px; /* Space for sticky mobile CTA */
+    position: relative;
+  `,
+  scrollProgressBar: (progress) => css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: ${progress}%;
+    height: 3.5px;
+    background: linear-gradient(90deg, #F55825 0%, #EA580C 50%, #F59E0B 100%);
+    z-index: 1001;
+    transition: width 0.12s ease-out;
+    box-shadow: 0 0 12px rgba(245, 88, 37, 0.7);
   `,
   topBanner: css`
     background: linear-gradient(90deg, #F55825 0%, #D94616 100%);
@@ -73,8 +93,8 @@ const styles = {
     box-shadow: 0 2px 8px rgba(245, 88, 37, 0.25);
   `,
   header: css`
-    background: #FFFFFF;
-    border-bottom: 1px solid #E2E8F0;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
     padding: 14px 28px;
     display: flex;
     align-items: center;
@@ -82,8 +102,9 @@ const styles = {
     position: sticky;
     top: 0;
     z-index: 999;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   `,
   signInBtn: css`
     background: transparent;
@@ -113,6 +134,7 @@ const styles = {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
     align-items: center;
+    position: relative;
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
@@ -124,7 +146,7 @@ const styles = {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FFF5F0;
+    background: rgba(255, 245, 240, 0.9);
     border: 1px solid #FFDECB;
     color: #F55825;
     padding: 8px 18px;
@@ -215,19 +237,20 @@ const styles = {
 
   /* INTERACTIVE HERO ILLUSTRATION MOCKUP (RIGHT COL) */
   heroIllustrationCard: css`
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 28px;
-    border: 1.5px solid #E2E8F0;
-    box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(245, 88, 37, 0.06);
+    border: 1.5px solid rgba(245, 88, 37, 0.25);
+    box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.12), 0 8px 24px rgba(245, 88, 37, 0.12);
     padding: 26px;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(16px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
       transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 32px 64px -14px rgba(245, 88, 37, 0.22);
-      border-color: #FDBA74;
+      box-shadow: 0 32px 64px -14px rgba(245, 88, 37, 0.25);
+      border-color: #F55825;
     }
   `,
   scannerLaser: css`
@@ -363,20 +386,49 @@ const styles = {
     }
   `,
 
-  /* 4 CORE PILLARS WITH RICH VISUAL ILLUSTRATIONS & HOVER EFFECTS */
+  /* 4 CORE PILLARS AS GLASS CARDS WITH ORANGE SHADE */
   featuresSection: css`
     max-width: 1200px;
     margin: 0 auto 70px;
     padding: 0 24px;
+    position: relative;
 
     @media (max-width: 768px) {
       padding: 0 16px;
       margin-bottom: 50px;
     }
   `,
+  ambientOrbLeft: css`
+    position: absolute;
+    top: 60px;
+    left: -40px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 88, 37, 0.22) 0%, rgba(245, 88, 37, 0) 70%);
+    filter: blur(55px);
+    pointer-events: none;
+    z-index: 0;
+    animation: ${pulseGlow} 6s infinite ease-in-out;
+  `,
+  ambientOrbRight: css`
+    position: absolute;
+    bottom: 20px;
+    right: -40px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(251, 146, 60, 0.22) 0%, rgba(245, 88, 37, 0) 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: ${pulseGlow} 7s infinite ease-in-out reverse;
+  `,
   sectionHeading: css`
     text-align: center;
     margin-bottom: 42px;
+    position: relative;
+    z-index: 1;
 
     h2 {
       font-size: 34px;
@@ -403,34 +455,57 @@ const styles = {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
     gap: 24px;
+    position: relative;
+    z-index: 1;
   `,
-  featureCard: css`
-    background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    border-radius: 24px;
+  /* GLASS CARDS WITH ORANGE SHADE */
+  glassFeatureCard: css`
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 245, 240, 0.72) 50%, rgba(254, 237, 230, 0.65) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid rgba(245, 88, 37, 0.24);
+    border-radius: 26px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 32px rgba(245, 88, 37, 0.08), inset 0 1px 1.5px rgba(255, 255, 255, 0.95), inset 0 0 16px rgba(245, 88, 37, 0.04);
     position: relative;
 
     &:hover {
       transform: translateY(-10px) scale(1.02);
-      border-color: #F55825;
-      box-shadow: 0 24px 48px -10px rgba(245, 88, 37, 0.18), 0 4px 12px rgba(0,0,0,0.03);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 233, 0.88) 100%);
+      border-color: rgba(245, 88, 37, 0.65);
+      box-shadow: 0 24px 50px -10px rgba(245, 88, 37, 0.32), 0 0 24px rgba(245, 88, 37, 0.18), inset 0 1px 2px rgba(255, 255, 255, 1);
 
       .featureThumbImg {
-        transform: scale(1.06);
+        transform: scale(1.07);
+      }
+      .glassCardGlow {
+        opacity: 1;
       }
     }
   `,
+  glassCardGlow: css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 88, 37, 0.2) 0%, transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+  `,
   featureThumbBox: css`
     height: 160px;
-    background: #F1F5F9;
+    background: rgba(241, 245, 249, 0.6);
     overflow: hidden;
     position: relative;
+    border-bottom: 1.5px solid rgba(245, 88, 37, 0.14);
 
     .featureThumbImg {
       width: 100%;
@@ -443,7 +518,7 @@ const styles = {
       position: absolute;
       bottom: 12px;
       left: 14px;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(6px);
       color: #FFFFFF;
       font-size: 11px;
@@ -452,6 +527,7 @@ const styles = {
       border-radius: 12px;
       letter-spacing: 0.3px;
       text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   `,
   featureCardBody: css`
@@ -460,6 +536,8 @@ const styles = {
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
   `,
   cardTitle: css`
     font-size: 19px;
@@ -478,16 +556,17 @@ const styles = {
   costTag: css`
     font-size: 12px;
     font-weight: 800;
-    background: #FFF5F0;
+    background: rgba(245, 88, 37, 0.12);
     color: #C2410C;
-    border: 1px solid #FFDECB;
+    border: 1px solid rgba(245, 88, 37, 0.3);
     padding: 5px 12px;
     border-radius: 14px;
     display: inline-block;
     align-self: flex-start;
+    backdrop-filter: blur(4px);
   `,
 
-  /* INTERACTIVE CAROUSEL: ATS RESUME TEMPLATES */
+  /* AUTO-ROTATING CAROUSEL: ATS RESUME TEMPLATES */
   templatesSection: css`
     max-width: 1200px;
     margin: 0 auto 70px;
@@ -499,6 +578,27 @@ const styles = {
       margin-bottom: 50px;
     }
   `,
+  autoRotateBadge: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFF5F0;
+    color: #EA580C;
+    border: 1px solid #FFDECB;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+
+    .greenDot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+  `,
   carouselContainer: css`
     position: relative;
     overflow: hidden;
@@ -507,7 +607,7 @@ const styles = {
   templatesTrack: (offset) => css`
     display: flex;
     gap: 22px;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transform: translateX(-${offset}%);
   `,
   templateSlideCard: css`
@@ -803,14 +903,41 @@ const styles = {
 
 export default function StudentStart() {
   const [openFaq, setOpenFaq] = useState(null);
-  
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   /* Carousel State: Templates */
   const [templateIndex, setTemplateIndex] = useState(0);
   const [isTemplatePaused, setIsTemplatePaused] = useState(false);
+  const [cardsPerView, setCardsPerView] = useState(3);
 
   /* Carousel State: Testimonials */
   const [testimIndex, setTestimIndex] = useState(0);
   const [isTestimPaused, setIsTestimPaused] = useState(false);
+
+  /* Scroll Progress Listener */
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const currentProgress = (window.scrollY / totalHeight) * 100;
+        setScrollProgress(currentProgress);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  /* Viewport resize listener for responsive carousel */
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 640) setCardsPerView(1);
+      else if (window.innerWidth < 960) setCardsPerView(2);
+      else setCardsPerView(3);
+    };
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
 
   /* Set noindex until official ad launch */
   useEffect(() => {
@@ -829,21 +956,22 @@ export default function StudentStart() {
     };
   }, []);
 
-  /* Auto-slide Templates Carousel every 4.5 seconds */
+  /* CONTINUOUS AUTO-ROTATING TEMPLATES CAROUSEL (every 3 seconds) */
   useEffect(() => {
     if (isTemplatePaused) return;
+    const maxSteps = Math.max(1, 5 - cardsPerView + 1);
     const timer = setInterval(() => {
-      setTemplateIndex((prev) => (prev + 1) % 5);
-    }, 4500);
+      setTemplateIndex((prev) => (prev + 1) % maxSteps);
+    }, 3000);
     return () => clearInterval(timer);
-  }, [isTemplatePaused]);
+  }, [isTemplatePaused, cardsPerView]);
 
-  /* Auto-slide Testimonials Carousel every 5 seconds */
+  /* CONTINUOUS AUTO-ROTATING TESTIMONIALS CAROUSEL (every 4.5 seconds) */
   useEffect(() => {
     if (isTestimPaused) return;
     const timer = setInterval(() => {
       setTestimIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 4500);
     return () => clearInterval(timer);
   }, [isTestimPaused]);
 
@@ -970,8 +1098,13 @@ export default function StudentStart() {
     }
   ];
 
+  const maxTemplateSteps = Math.max(1, 5 - cardsPerView + 1);
+
   return (
     <div css={styles.pageWrapper}>
+      {/* Scroll Progress Indicator Bar */}
+      <div css={styles.scrollProgressBar(scrollProgress)} />
+
       {/* Top Launch Offer Banner */}
       <div css={styles.topBanner}>
         <Sparkles size={16} />
@@ -991,232 +1124,262 @@ export default function StudentStart() {
       {/* MAIN HERO SECTION (SPLIT 2-COLUMN WITH LIVE SCANNER ILLUSTRATION) */}
       <section css={styles.heroSection}>
         {/* Left Column: Copy & CTAs */}
-        <div>
-          <div css={styles.badgeTag}>
-            <Zap size={15} /> 70 Free Credits Added on Sign Up • No Card Needed
-          </div>
+        <ScrollReveal delay={50}>
+          <div>
+            <div css={styles.badgeTag}>
+              <Zap size={15} /> 70 Free Credits Added on Sign Up • No Card Needed
+            </div>
 
-          <h1 css={styles.heroTitle}>
-            Will Your Resume Pass the <span>ATS Filter</span>?
-          </h1>
+            <h1 css={styles.heroTitle}>
+              Will Your Resume Pass the <span>ATS Filter</span>?
+            </h1>
 
-          <p css={styles.heroSubtitle}>
-            75% of student resumes are rejected by automated company software before a recruiter ever reads them. 
-            Upload your resume, discover where it falls short, and unlock AI tools engineered to help you crack placement drives.
-          </p>
+            <p css={styles.heroSubtitle}>
+              75% of student resumes are rejected by automated company software before a recruiter ever reads them. 
+              Upload your resume, discover where it falls short, and unlock AI tools engineered to help you crack placement drives.
+            </p>
 
-          <div css={styles.ctaContainer}>
-            <button css={styles.primaryBtn} onClick={() => handleCTAClick('hero')}>
-              Check My Resume Free
-              <ArrowRight size={19} />
-            </button>
-            <div css={styles.btnSubtext}>
-              <ShieldCheck size={16} color="#10B981" />
-              Sign in with Google • Takes 5 seconds • 100% Free to Start
+            <div css={styles.ctaContainer}>
+              <button css={styles.primaryBtn} onClick={() => handleCTAClick('hero')}>
+                Check My Resume Free
+                <ArrowRight size={19} />
+              </button>
+              <div css={styles.btnSubtext}>
+                <ShieldCheck size={16} color="#10B981" />
+                Sign in with Google • Takes 5 seconds • 100% Free to Start
+              </div>
+            </div>
+
+            <div style={{ fontSize: '13px', color: '#64748B', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span>⭐ Made specifically for college students, freshers &amp; jobseekers in India</span>
             </div>
           </div>
-
-          <div style={{ fontSize: '13px', color: '#64748B', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span>⭐ Made specifically for college students, freshers &amp; jobseekers in India</span>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Right Column: Live ATS Scanner & AI Mockup Illustration */}
-        <div css={styles.heroIllustrationCard}>
-          <div css={styles.scannerLaser} />
+        <ScrollReveal delay={150}>
+          <div css={styles.heroIllustrationCard}>
+            <div css={styles.scannerLaser} />
 
-          <div css={styles.mockupHeader}>
-            <div>
-              <div style={{ fontSize: '11px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                LIVE ATS SIMULATION
+            <div css={styles.mockupHeader}>
+              <div>
+                <div style={{ fontSize: '11px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  LIVE ATS SIMULATION
+                </div>
+                <div style={{ fontSize: '17px', fontWeight: 900, color: '#0F172A' }}>
+                  SDE Placement Radar
+                </div>
+                <div style={{ fontSize: '12px', color: '#64748B' }}>
+                  Target: Full Stack &amp; Cloud Drives
+                </div>
               </div>
-              <div style={{ fontSize: '17px', fontWeight: 900, color: '#0F172A' }}>
-                SDE Placement Radar
+
+              <div css={styles.scoreCircle}>
+                <span className="scoreVal">88</span>
+                <span className="scoreLabel">ATS Score</span>
               </div>
-              <div style={{ fontSize: '12px', color: '#64748B' }}>
-                Target: Full Stack &amp; Cloud Drives
+            </div>
+
+            {/* Detected Keywords & Matching Status */}
+            <div style={{ fontSize: '12px', fontWeight: 800, color: '#334155', marginBottom: '8px' }}>
+              Matched Skills &amp; Verifications:
+            </div>
+            <div css={styles.mockupSkillChips}>
+              <span css={styles.mockupChip('pass')}><Check size={12} /> React 18 (STAR verified)</span>
+              <span css={styles.mockupChip('pass')}><Check size={12} /> Python / DSA</span>
+              <span css={styles.mockupChip('pass')}><Check size={12} /> SQL Database</span>
+              <span css={styles.mockupChip('warn')}><TrendingUp size={12} /> AWS Cloud (+5 pts)</span>
+            </div>
+
+            {/* AI Suggestion Box */}
+            <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '14px', padding: '12px 14px', fontSize: '12.5px', color: '#334155' }}>
+              <span style={{ fontWeight: 800, color: '#F55825' }}>AI Tip: </span>
+              Quantify project impact with percentage metrics to increase recruiter interview shortlists by 3.4x.
+            </div>
+
+            {/* Floating AI Agent Status Card */}
+            <div css={styles.aiFloatingCard}>
+              <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(245, 88, 37, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Bot size={20} color="#F55825" />
+              </div>
+              <div>
+                <div style={{ fontSize: '13px', fontWeight: 800 }}>Job Agent Pro Active</div>
+                <div style={{ fontSize: '11.5px', color: '#94A3B8' }}>12 Verified Partner Openings Matched</div>
               </div>
             </div>
-
-            <div css={styles.scoreCircle}>
-              <span className="scoreVal">88</span>
-              <span className="scoreLabel">ATS Score</span>
-            </div>
           </div>
-
-          {/* Detected Keywords & Matching Status */}
-          <div style={{ fontSize: '12px', fontWeight: 800, color: '#334155', marginBottom: '8px' }}>
-            Matched Skills &amp; Verifications:
-          </div>
-          <div css={styles.mockupSkillChips}>
-            <span css={styles.mockupChip('pass')}><Check size={12} /> React 18 (STAR verified)</span>
-            <span css={styles.mockupChip('pass')}><Check size={12} /> Python / DSA</span>
-            <span css={styles.mockupChip('pass')}><Check size={12} /> SQL Database</span>
-            <span css={styles.mockupChip('warn')}><TrendingUp size={12} /> AWS Cloud (+5 pts)</span>
-          </div>
-
-          {/* AI Suggestion Box */}
-          <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '14px', padding: '12px 14px', fontSize: '12.5px', color: '#334155' }}>
-            <span style={{ fontWeight: 800, color: '#F55825' }}>AI Tip: </span>
-            Quantify project impact with percentage metrics to increase recruiter interview shortlists by 3.4x.
-          </div>
-
-          {/* Floating AI Agent Status Card */}
-          <div css={styles.aiFloatingCard}>
-            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(245, 88, 37, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Bot size={20} color="#F55825" />
-            </div>
-            <div>
-              <div style={{ fontSize: '13px', fontWeight: 800 }}>Job Agent Pro Active</div>
-              <div style={{ fontSize: '11.5px', color: '#94A3B8' }}>12 Verified Partner Openings Matched</div>
-            </div>
-          </div>
-        </div>
+        </ScrollReveal>
       </section>
 
-      {/* THE STORYLINE & CONTRAST CARD */}
-      <div css={styles.contrastCard}>
-        <h3 style={{ fontSize: '22px', fontWeight: 900, textAlign: 'center', margin: '0 0 8px', color: '#0F172A' }}>
-          Stop Sending Resumes Into A Black Hole
-        </h3>
-        <p style={{ textAlign: 'center', color: '#64748B', fontSize: '15px', margin: 0 }}>
-          Campus placement competition is brutal. Here is how UDEN levels the playing field for you:
-        </p>
+      {/* THE STORYLINE & CONTRAST CARD WITH SCROLL REVEAL */}
+      <ScrollReveal delay={100}>
+        <div css={styles.contrastCard}>
+          <h3 style={{ fontSize: '22px', fontWeight: 900, textAlign: 'center', margin: '0 0 8px', color: '#0F172A' }}>
+            Stop Sending Resumes Into A Black Hole
+          </h3>
+          <p style={{ textAlign: 'center', color: '#64748B', fontSize: '15px', margin: 0 }}>
+            Campus placement competition is brutal. Here is how UDEN levels the playing field for you:
+          </p>
 
-        <div css={styles.contrastGrid}>
-          <div css={styles.contrastColOld}>
-            <div style={{ color: '#DC2626', fontWeight: 800, fontSize: '15px', marginBottom: '10px' }}>
-              ❌ The Old, Stressful Way
+          <div css={styles.contrastGrid}>
+            <div css={styles.contrastColOld}>
+              <div style={{ color: '#DC2626', fontWeight: 800, fontSize: '15px', marginBottom: '10px' }}>
+                ❌ The Old, Stressful Way
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '18px', color: '#7F1D1D', fontSize: '14px', lineHeight: 1.8 }}>
+                <li>Applying to 50+ companies with the same generic PDF.</li>
+                <li>Filtered out by automated ATS bots within 3 seconds.</li>
+                <li>Stuck on interview prep with no feedback or real practice.</li>
+                <li>Zero visibility into why recruiters rejected your profile.</li>
+              </ul>
             </div>
-            <ul style={{ margin: 0, paddingLeft: '18px', color: '#7F1D1D', fontSize: '14px', lineHeight: 1.8 }}>
-              <li>Applying to 50+ companies with the same generic PDF.</li>
-              <li>Filtered out by automated ATS bots within 3 seconds.</li>
-              <li>Stuck on interview prep with no feedback or real practice.</li>
-              <li>Zero visibility into why recruiters rejected your profile.</li>
-            </ul>
-          </div>
 
-          <div css={styles.contrastColNew}>
-            <div style={{ color: '#16A34A', fontWeight: 800, fontSize: '15px', marginBottom: '10px' }}>
-              ✅ The UDEN AI Advantage
+            <div css={styles.contrastColNew}>
+              <div style={{ color: '#16A34A', fontWeight: 800, fontSize: '15px', marginBottom: '10px' }}>
+                ✅ The UDEN AI Advantage
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '18px', color: '#14532D', fontSize: '14px', lineHeight: 1.8 }}>
+                <li><strong>Instant ATS Score:</strong> Know exactly where your resume lacks before applying.</li>
+                <li><strong>Custom Templates:</strong> Build clean, recruiter-approved resumes effortlessly.</li>
+                <li><strong>Job Agent Pro:</strong> Automated job discovery matching your exact skills.</li>
+                <li><strong>24x7 AI Assistant:</strong> A personal placement mentor available round the clock.</li>
+              </ul>
             </div>
-            <ul style={{ margin: 0, paddingLeft: '18px', color: '#14532D', fontSize: '14px', lineHeight: 1.8 }}>
-              <li><strong>Instant ATS Score:</strong> Know exactly where your resume lacks before applying.</li>
-              <li><strong>Custom Templates:</strong> Build clean, recruiter-approved resumes effortlessly.</li>
-              <li><strong>Job Agent Pro:</strong> Automated job discovery matching your exact skills.</li>
-              <li><strong>24x7 AI Assistant:</strong> A personal placement mentor available round the clock.</li>
-            </ul>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
 
-      {/* THE 4 POWER PILLARS WITH REAL ILLUSTRATIONS & HOVERING CARDS */}
+      {/* THE 4 CORE PILLARS AS GLASS CARDS WITH ORANGE SHADE & SCROLL REVEAL */}
       <section css={styles.featuresSection}>
-        <div css={styles.sectionHeading}>
-          <h2>Everything You Need To Secure Your Offer</h2>
-          <p>Four integrated AI modules built to turn your preparation into confirmed shortlists.</p>
-        </div>
+        {/* Radiant Ambient Background Glow Orbs for Glass Effect */}
+        <div css={styles.ambientOrbLeft} />
+        <div css={styles.ambientOrbRight} />
+
+        <ScrollReveal delay={80}>
+          <div css={styles.sectionHeading}>
+            <h2>Everything You Need To Secure Your Offer</h2>
+            <p>Four integrated AI modules built to turn your preparation into confirmed shortlists.</p>
+          </div>
+        </ScrollReveal>
 
         <div css={styles.featureCardsGrid}>
-          {/* Card 1: ATS Resume Analysis */}
-          <div css={styles.featureCard}>
-            <div css={styles.featureThumbBox}>
-              <img 
-                src={process.env.PUBLIC_URL + '/assets/tutorials/video_3_resume_analysis.png'} 
-                alt="ATS Resume Analysis" 
-                className="featureThumbImg"
-              />
-              <span className="featureOverlayBadge">Instant Diagnostic</span>
-            </div>
-            <div css={styles.featureCardBody}>
-              <div>
-                <h4 css={styles.cardTitle}>ATS Resume Analysis</h4>
-                <p css={styles.cardDesc}>
-                  Upload your resume and get an instant score (0–100). Identify missing keywords, formatting errors, and weak bullet points tailored to target job roles.
-                </p>
+          {/* Card 1: ATS Resume Analysis (Glass with Orange Shade) */}
+          <ScrollReveal delay={100}>
+            <div css={styles.glassFeatureCard}>
+              <div css={styles.glassCardGlow} />
+              <div css={styles.featureThumbBox}>
+                <img 
+                  src={process.env.PUBLIC_URL + '/assets/tutorials/video_3_resume_analysis.png'} 
+                  alt="ATS Resume Analysis" 
+                  className="featureThumbImg"
+                />
+                <span className="featureOverlayBadge">Instant Diagnostic</span>
               </div>
-              <div css={styles.costTag}>Uses 5 Free Points / Scan</div>
+              <div css={styles.featureCardBody}>
+                <div>
+                  <h4 css={styles.cardTitle}>ATS Resume Analysis</h4>
+                  <p css={styles.cardDesc}>
+                    Upload your resume and get an instant score (0–100). Identify missing keywords, formatting errors, and weak bullet points tailored to target job roles.
+                  </p>
+                </div>
+                <div css={styles.costTag}>Uses 5 Free Points / Scan</div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Card 2: AI Resume Builder & Templates */}
-          <div css={styles.featureCard}>
-            <div css={styles.featureThumbBox}>
-              <img 
-                src={process.env.PUBLIC_URL + '/assets/tutorials/video_2_profile_resume.png'} 
-                alt="AI Resume Builder & Templates" 
-                className="featureThumbImg"
-              />
-              <span className="featureOverlayBadge">Build As You Wish</span>
-            </div>
-            <div css={styles.featureCardBody}>
-              <div>
-                <h4 css={styles.cardTitle}>Pro Resume Templates</h4>
-                <p css={styles.cardDesc}>
-                  Choose from modern, ATS-proof resume templates. Customize sections, let AI rewrite your achievements with high-impact action verbs, and export in 1 click.
-                </p>
+          {/* Card 2: AI Resume Builder & Templates (Glass with Orange Shade) */}
+          <ScrollReveal delay={200}>
+            <div css={styles.glassFeatureCard}>
+              <div css={styles.glassCardGlow} />
+              <div css={styles.featureThumbBox}>
+                <img 
+                  src={process.env.PUBLIC_URL + '/assets/tutorials/video_2_profile_resume.png'} 
+                  alt="AI Resume Builder & Templates" 
+                  className="featureThumbImg"
+                />
+                <span className="featureOverlayBadge">Build As You Wish</span>
               </div>
-              <div css={styles.costTag}>Included with Starter &amp; Plan</div>
+              <div css={styles.featureCardBody}>
+                <div>
+                  <h4 css={styles.cardTitle}>Pro Resume Templates</h4>
+                  <p css={styles.cardDesc}>
+                    Choose from modern, ATS-proof resume templates. Customize sections, let AI rewrite your achievements with high-impact action verbs, and export in 1 click.
+                  </p>
+                </div>
+                <div css={styles.costTag}>Included with Starter &amp; Plan</div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Card 3: Job Agent Pro */}
-          <div css={styles.featureCard}>
-            <div css={styles.featureThumbBox}>
-              <img 
-                src={process.env.PUBLIC_URL + '/assets/tutorials/video_6_job_agent_pro.png'} 
-                alt="Job Agent Pro" 
-                className="featureThumbImg"
-              />
-              <span className="featureOverlayBadge">Automated Placement</span>
-            </div>
-            <div css={styles.featureCardBody}>
-              <div>
-                <h4 css={styles.cardTitle}>Job Agent Pro</h4>
-                <p css={styles.cardDesc}>
-                  Your autonomous AI scout that scans 100k+ active tech and corporate openings, connects with 150+ hiring partners, and matches roles directly to your skill radar.
-                </p>
+          {/* Card 3: Job Agent Pro (Glass with Orange Shade) */}
+          <ScrollReveal delay={300}>
+            <div css={styles.glassFeatureCard}>
+              <div css={styles.glassCardGlow} />
+              <div css={styles.featureThumbBox}>
+                <img 
+                  src={process.env.PUBLIC_URL + '/assets/tutorials/video_6_job_agent_pro.png'} 
+                  alt="Job Agent Pro" 
+                  className="featureThumbImg"
+                />
+                <span className="featureOverlayBadge">Automated Placement</span>
               </div>
-              <div css={styles.costTag}>48-Hour Recruiter SLA</div>
+              <div css={styles.featureCardBody}>
+                <div>
+                  <h4 css={styles.cardTitle}>Job Agent Pro</h4>
+                  <p css={styles.cardDesc}>
+                    Your autonomous AI scout that scans 100k+ active tech and corporate openings, connects with 150+ hiring partners, and matches roles directly to your skill radar.
+                  </p>
+                </div>
+                <div css={styles.costTag}>48-Hour Recruiter SLA</div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Card 4: 24x7 AI Career Assistant */}
-          <div css={styles.featureCard}>
-            <div css={styles.featureThumbBox}>
-              <img 
-                src={process.env.PUBLIC_URL + '/assets/tutorials/video_4_interview_coach.png'} 
-                alt="24x7 AI Placement Assistant" 
-                className="featureThumbImg"
-              />
-              <span className="featureOverlayBadge">Like ChatGPT For Careers</span>
-            </div>
-            <div css={styles.featureCardBody}>
-              <div>
-                <h4 css={styles.cardTitle}>24x7 AI Assistant</h4>
-                <p css={styles.cardDesc}>
-                  Ask anything! Get tailored coding interview questions, project explanation scripts, company-specific preparation guides, and real-time placement mentorship.
-                </p>
+          {/* Card 4: 24x7 AI Career Assistant (Glass with Orange Shade) */}
+          <ScrollReveal delay={400}>
+            <div css={styles.glassFeatureCard}>
+              <div css={styles.glassCardGlow} />
+              <div css={styles.featureThumbBox}>
+                <img 
+                  src={process.env.PUBLIC_URL + '/assets/tutorials/video_4_interview_coach.png'} 
+                  alt="24x7 AI Placement Assistant" 
+                  className="featureThumbImg"
+                />
+                <span className="featureOverlayBadge">Like ChatGPT For Careers</span>
               </div>
-              <div css={styles.costTag}>Uses 1 Free Point / Question</div>
+              <div css={styles.featureCardBody}>
+                <div>
+                  <h4 css={styles.cardTitle}>24x7 AI Assistant</h4>
+                  <p css={styles.cardDesc}>
+                    Ask anything! Get tailored coding interview questions, project explanation scripts, company-specific preparation guides, and real-time placement mentorship.
+                  </p>
+                </div>
+                <div css={styles.costTag}>Uses 1 Free Point / Question</div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* INTERACTIVE CAROUSEL: ATS RESUME TEMPLATES ("BUILD AS YOU WISH") */}
+      {/* CONTINUOUS AUTO-ROTATING CAROUSEL: ATS RESUME TEMPLATES ("BUILD AS YOU WISH") */}
       <section css={styles.templatesSection}>
-        <div css={styles.sectionHeading}>
-          <h2>Build Your Resume As You Wish</h2>
-          <p>Explore recruiter-approved ATS templates. Auto-formatted, single-column, and designed to bypass screening bots.</p>
-        </div>
+        <ScrollReveal delay={100}>
+          <div css={styles.sectionHeading}>
+            <div css={styles.autoRotateBadge}>
+              <span className="greenDot" />
+              <span>Auto-Rotating Carousel &bull; Hover to Pause</span>
+            </div>
+            <h2>Build Your Resume As You Wish</h2>
+            <p>Explore recruiter-approved ATS templates. Auto-formatted, single-column, and designed to bypass screening bots.</p>
+          </div>
+        </ScrollReveal>
 
         <div 
           css={styles.carouselContainer}
           onMouseEnter={() => setIsTemplatePaused(true)}
           onMouseLeave={() => setIsTemplatePaused(false)}
         >
-          <div css={styles.templatesTrack((templateIndex * 100) / (window.innerWidth < 640 ? 1 : window.innerWidth < 960 ? 2 : 3))}>
+          <div css={styles.templatesTrack(templateIndex * (100 / cardsPerView))}>
             {templates.map((tpl) => (
               <div 
                 key={tpl.id} 
@@ -1268,17 +1431,17 @@ export default function StudentStart() {
             ))}
           </div>
 
-          {/* Carousel Navigation & Indicators */}
+          {/* Carousel Navigation, Auto-Rotate Indicator & Dots */}
           <div css={styles.carouselControlsRow}>
             <button 
               css={styles.carouselNavBtn} 
-              onClick={() => setTemplateIndex((prev) => (prev - 1 + 5) % 5)}
+              onClick={() => setTemplateIndex((prev) => (prev - 1 + maxTemplateSteps) % maxTemplateSteps)}
               aria-label="Previous template"
             >
               <ChevronLeft size={20} />
             </button>
             <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-              {[0, 1, 2, 3, 4].map((i) => (
+              {Array.from({ length: maxTemplateSteps }).map((_, i) => (
                 <div 
                   key={i} 
                   css={styles.carouselDot(i === templateIndex)} 
@@ -1288,7 +1451,7 @@ export default function StudentStart() {
             </div>
             <button 
               css={styles.carouselNavBtn} 
-              onClick={() => setTemplateIndex((prev) => (prev + 1) % 5)}
+              onClick={() => setTemplateIndex((prev) => (prev + 1) % maxTemplateSteps)}
               aria-label="Next template"
             >
               <ChevronRight size={20} />
@@ -1297,183 +1460,205 @@ export default function StudentStart() {
         </div>
       </section>
 
-      {/* INTERACTIVE CAROUSEL: TESTIMONIALS & PLACEMENT PROOF */}
+      {/* AUTO-ROTATING TESTIMONIALS CAROUSEL & PLACEMENT PROOF */}
       <section css={styles.testimonialsSection}>
-        <div css={styles.sectionHeading}>
-          <h2>2,500+ Students Placed Across 150+ Partners</h2>
-          <p>See how students from engineering &amp; degree colleges cracked dream placements using UDEN AI.</p>
-        </div>
-
-        <div 
-          css={styles.testimonialCard}
-          onMouseEnter={() => setIsTestimPaused(true)}
-          onMouseLeave={() => setIsTestimPaused(false)}
-        >
-          <div style={{ display: 'flex', gap: '4px', marginBottom: '18px' }}>
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Star key={s} size={18} fill="#F59E0B" color="#F59E0B" />
-            ))}
+        <ScrollReveal delay={100}>
+          <div css={styles.sectionHeading}>
+            <h2>2,500+ Students Placed Across 150+ Partners</h2>
+            <p>See how students from engineering &amp; degree colleges cracked dream placements using UDEN AI.</p>
           </div>
+        </ScrollReveal>
 
-          <p style={{ fontSize: '18px', lineHeight: 1.65, fontStyle: 'italic', color: '#F1F5F9', margin: '0 0 28px', minHeight: '80px' }}>
-            "{testimonials[testimIndex].quote}"
-          </p>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.12)', paddingTop: '20px', flexWrap: 'wrap', gap: '14px' }}>
-            <div>
-              <div style={{ fontSize: '17px', fontWeight: 900, color: '#FFFFFF' }}>
-                {testimonials[testimIndex].name}
-              </div>
-              <div style={{ fontSize: '13.5px', color: '#F55825', fontWeight: 700 }}>
-                {testimonials[testimIndex].role} &bull; {testimonials[testimIndex].company} ({testimonials[testimIndex].package})
-              </div>
-              <div style={{ fontSize: '12px', color: '#94A3B8' }}>
-                {testimonials[testimIndex].college}
-              </div>
+        <ScrollReveal delay={150}>
+          <div 
+            css={styles.testimonialCard}
+            onMouseEnter={() => setIsTestimPaused(true)}
+            onMouseLeave={() => setIsTestimPaused(false)}
+          >
+            <div style={{ display: 'flex', gap: '4px', marginBottom: '18px' }}>
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star key={s} size={18} fill="#F59E0B" color="#F59E0B" />
+              ))}
             </div>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <button 
-                css={styles.carouselNavBtn} 
-                style={{ background: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.2)' }}
-                onClick={() => setTestimIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button 
-                css={styles.carouselNavBtn} 
-                style={{ background: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.2)' }}
-                onClick={() => setTestimIndex((prev) => (prev + 1) % testimonials.length)}
-                aria-label="Next testimonial"
-              >
-                <ChevronRight size={18} />
-              </button>
+            <p style={{ fontSize: '18px', lineHeight: 1.65, fontStyle: 'italic', color: '#F1F5F9', margin: '0 0 28px', minHeight: '80px' }}>
+              "{testimonials[testimIndex].quote}"
+            </p>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.12)', paddingTop: '20px', flexWrap: 'wrap', gap: '14px' }}>
+              <div>
+                <div style={{ fontSize: '17px', fontWeight: 900, color: '#FFFFFF' }}>
+                  {testimonials[testimIndex].name}
+                </div>
+                <div style={{ fontSize: '13.5px', color: '#F55825', fontWeight: 700 }}>
+                  {testimonials[testimIndex].role} &bull; {testimonials[testimIndex].company} ({testimonials[testimIndex].package})
+                </div>
+                <div style={{ fontSize: '12px', color: '#94A3B8' }}>
+                  {testimonials[testimIndex].college}
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button 
+                  css={styles.carouselNavBtn} 
+                  style={{ background: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.2)' }}
+                  onClick={() => setTestimIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button 
+                  css={styles.carouselNavBtn} 
+                  style={{ background: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.2)' }}
+                  onClick={() => setTestimIndex((prev) => (prev + 1) % testimonials.length)}
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
-      {/* HOW IT WORKS IN 3 SIMPLE STEPS */}
+      {/* HOW IT WORKS IN 3 SIMPLE STEPS WITH SCROLL REVEAL */}
       <div css={styles.howItWorksBox}>
-        <h3 style={{ fontSize: '26px', fontWeight: 900, margin: '0 0 8px', color: '#0F172A' }}>
-          How It Works in 3 Simple Steps
-        </h3>
-        <p style={{ color: '#64748B', fontSize: '15.5px', margin: 0 }}>
-          Go from zero to interview-ready in under 5 minutes.
-        </p>
+        <ScrollReveal delay={50}>
+          <h3 style={{ fontSize: '26px', fontWeight: 900, margin: '0 0 8px', color: '#0F172A' }}>
+            How It Works in 3 Simple Steps
+          </h3>
+          <p style={{ color: '#64748B', fontSize: '15.5px', margin: 0 }}>
+            Go from zero to interview-ready in under 5 minutes.
+          </p>
+        </ScrollReveal>
 
         <div css={styles.stepsGrid}>
-          <div css={styles.stepCard}>
-            <div css={styles.stepNum}>1</div>
-            <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Sign in with Google</h4>
-            <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-              Your account instantly starts with <strong>70 free credits</strong>. No payment details required.
-            </p>
-          </div>
+          <ScrollReveal delay={100}>
+            <div css={styles.stepCard}>
+              <div css={styles.stepNum}>1</div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Sign in with Google</h4>
+              <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
+                Your account instantly starts with <strong>70 free credits</strong>. No payment details required.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <div css={styles.stepCard}>
-            <div css={styles.stepNum}>2</div>
-            <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Scan or Build Resume</h4>
-            <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-              Upload your existing resume for an ATS score, or build a new one with our pro templates.
-            </p>
-          </div>
+          <ScrollReveal delay={200}>
+            <div css={styles.stepCard}>
+              <div css={styles.stepNum}>2</div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Scan or Build Resume</h4>
+              <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
+                Upload your existing resume for an ATS score, or build a new one with our pro templates.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <div css={styles.stepCard}>
-            <div css={styles.stepNum}>3</div>
-            <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Practice &amp; Get Hired</h4>
-            <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-              Ask the AI assistant interview questions, take an AI mock interview, and let Job Agent Pro find verified openings.
-            </p>
-          </div>
+          <ScrollReveal delay={300}>
+            <div css={styles.stepCard}>
+              <div css={styles.stepNum}>3</div>
+              <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Practice &amp; Get Hired</h4>
+              <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
+                Ask the AI assistant interview questions, take an AI mock interview, and let Job Agent Pro find verified openings.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
 
-      {/* PRICING & 14 NOV LAUNCH COUNTDOWN */}
+      {/* PRICING & 14 NOV LAUNCH COUNTDOWN WITH SCROLL REVEAL */}
       <section css={styles.pricingSection}>
-        <div css={styles.sectionHeading}>
-          <h2>Simple, Transparent Student Pricing</h2>
-          <p>Start free today. Upgrade when you are ready for real mock interviews.</p>
-        </div>
+        <ScrollReveal delay={80}>
+          <div css={styles.sectionHeading}>
+            <h2>Simple, Transparent Student Pricing</h2>
+            <p>Start free today. Upgrade when you are ready for real mock interviews.</p>
+          </div>
+        </ScrollReveal>
 
         <div css={styles.pricingCardsGrid}>
           {/* Free Tier */}
-          <div css={styles.pricingCard(false)}>
-            <div style={{ fontSize: '13px', fontWeight: 800, color: '#64748B', textTransform: 'uppercase' }}>
-              Free Starter
+          <ScrollReveal delay={120}>
+            <div css={styles.pricingCard(false)}>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: '#64748B', textTransform: 'uppercase' }}>
+                Free Starter
+              </div>
+              <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 16px' }}>
+                ₹0 <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ forever</span>
+              </div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 Free Starter Points</li>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Up to 14 ATS Resume Scans</li>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 AI Career Assistant Queries</li>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Valid for 30 Days</li>
+              </ul>
+              <button 
+                css={styles.primaryBtn} 
+                style={{ width: '100%', background: '#F1F5F9', color: '#0F172A', boxShadow: 'none' }}
+                onClick={() => handleCTAClick('pricing_free')}
+              >
+                Get 70 Free Points
+              </button>
             </div>
-            <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 16px' }}>
-              ₹0 <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ forever</span>
-            </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
-              <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 Free Starter Points</li>
-              <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Up to 14 ATS Resume Scans</li>
-              <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 AI Career Assistant Queries</li>
-              <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Valid for 30 Days</li>
-            </ul>
-            <button 
-              css={styles.primaryBtn} 
-              style={{ width: '100%', background: '#F1F5F9', color: '#0F172A', boxShadow: 'none' }}
-              onClick={() => handleCTAClick('pricing_free')}
-            >
-              Get 70 Free Points
-            </button>
-          </div>
+          </ScrollReveal>
 
           {/* Launch Offer Tier */}
-          <div css={styles.pricingCard(true)}>
-            <div css={styles.popularRibbon}>Launch Offer: 60% OFF</div>
-            <div style={{ fontSize: '13px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase' }}>
-              Student Placement Pass
+          <ScrollReveal delay={200}>
+            <div css={styles.pricingCard(true)}>
+              <div css={styles.popularRibbon}>Launch Offer: 60% OFF</div>
+              <div style={{ fontSize: '13px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase' }}>
+                Student Placement Pass
+              </div>
+              <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 4px' }}>
+                ₹200 <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
+              </div>
+              <div style={{ fontSize: '12.5px', color: '#DC2626', fontWeight: 800, marginBottom: '16px' }}>
+                ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
+              </div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>1 Full AI Mock Interview</strong> + Report</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong></li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> AI Resume Builder &amp; Cover Letter Creator</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Job Agent Pro Automated Matching</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Personalized Learning Path Generator</li>
+              </ul>
+              <button 
+                css={styles.primaryBtn} 
+                style={{ width: '100%' }}
+                onClick={() => handleCTAClick('pricing_paid')}
+              >
+                Start for ₹200 Today
+                <ArrowRight size={19} />
+              </button>
             </div>
-            <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 4px' }}>
-              ₹200 <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
-            </div>
-            <div style={{ fontSize: '12.5px', color: '#DC2626', fontWeight: 800, marginBottom: '16px' }}>
-              ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
-            </div>
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
-              <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>1 Full AI Mock Interview</strong> + Report</li>
-              <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong></li>
-              <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> AI Resume Builder &amp; Cover Letter Creator</li>
-              <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Job Agent Pro Automated Matching</li>
-              <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Personalized Learning Path Generator</li>
-            </ul>
-            <button 
-              css={styles.primaryBtn} 
-              style={{ width: '100%' }}
-              onClick={() => handleCTAClick('pricing_paid')}
-            >
-              Start for ₹200 Today
-              <ArrowRight size={19} />
-            </button>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* PLACEMENT FAQ */}
+      {/* PLACEMENT FAQ WITH SCROLL REVEAL */}
       <section css={styles.faqSection}>
-        <div css={styles.sectionHeading}>
-          <h2>Frequently Asked Questions</h2>
-          <p>Everything you need to know about points, plans, and ATS checks.</p>
-        </div>
+        <ScrollReveal delay={80}>
+          <div css={styles.sectionHeading}>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about points, plans, and ATS checks.</p>
+          </div>
+        </ScrollReveal>
 
         {faqs.map((faq, idx) => (
-          <div key={idx} css={styles.faqItem}>
-            <div 
-              css={styles.faqQuestion} 
-              onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-            >
-              <span>{faq.q}</span>
-              {openFaq === idx ? <ChevronUp size={19} color="#F55825" /> : <ChevronDown size={19} color="#94A3B8" />}
-            </div>
-            {openFaq === idx && (
-              <div css={styles.faqAnswer}>
-                {faq.a}
+          <ScrollReveal key={idx} delay={idx * 60}>
+            <div css={styles.faqItem}>
+              <div 
+                css={styles.faqQuestion} 
+                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+              >
+                <span>{faq.q}</span>
+                {openFaq === idx ? <ChevronUp size={19} color="#F55825" /> : <ChevronDown size={19} color="#94A3B8" />}
               </div>
-            )}
-          </div>
+              {openFaq === idx && (
+                <div css={styles.faqAnswer}>
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          </ScrollReveal>
         ))}
       </section>
 
