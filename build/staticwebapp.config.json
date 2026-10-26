@@ -1,6 +1,13 @@
 {
   "routes": [
     {
+      "route": "/start",
+      "rewrite": "/index.html",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      }
+    },
+    {
       "route": "/about-us",
       "redirect": "/about",
       "statusCode": 301

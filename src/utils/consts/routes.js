@@ -24,6 +24,7 @@ const FIND_OPPORTUNITY = "/find-opportunity";
 const BECOME_PARTNER = "/become-partner";
 const HR_SERVICE_JOIN = "/hr-service-join";
 
+const START = "/start";
 const STUDENTS = "/students";
 const JOBSEEKERS = "/jobseekers";
 const COLLEGES = "/colleges";
@@ -36,6 +37,7 @@ const APP = "/app";
 
 export const AppRoutes = {
     HOME,
+    START,
     STUDENTS,
     JOBSEEKERS,
     COLLEGES,

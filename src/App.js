@@ -32,6 +32,7 @@ const FaqPage = React.lazy(() => import('./modules/pages/Faq/Faq'));
 const PlacementReport = React.lazy(() => import('./modules/pages/PlacementReport/PlacementReport'));
 const SeoPlanDashboard = React.lazy(() => import('./modules/pages/SeoPlan/SeoPlanDashboard'));
 const Tutorials = React.lazy(() => import('./modules/pages/Tutorials/Tutorials'));
+const StudentStart = React.lazy(() => import('./modules/pages/StudentStart/StudentStart'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -72,6 +73,9 @@ function App() {
       <div className="App">
         <React.Suspense fallback={<div style={{ minHeight: '100vh', background: '#FAFAFA' }} />}>
           <Routes>
+            {/* Standalone Student Landing Page (P0-09) */}
+            <Route path="/start" element={<StudentStart />} />
+
             <Route path="/" element={<Layout/>}>
               <Route index element={<Home />} />
 
