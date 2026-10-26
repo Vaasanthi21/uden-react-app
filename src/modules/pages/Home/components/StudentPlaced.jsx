@@ -142,7 +142,7 @@ const StudentPlaced = () => {
           </div>
           <div css={styles.pillChip}>
             <Zap size={14} color="#DA532C" />
-            <span><b>98%</b> Success Rate</span>
+            <span><b>13,000+</b> Job Openings</span>
           </div>
           <div css={styles.pillChip}>
             <Award size={14} color="#F59E0B" />

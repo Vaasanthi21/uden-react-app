@@ -140,7 +140,7 @@ const milestones = [
   {
     year: '2026',
     title: '2,500+ Candidate Placements',
-    desc: 'Achieved over 2,500 successful candidate placements with 98% 90-day retention warranty.',
+    desc: 'Connected candidates with 13,000+ verified job openings on the platform.',
     icon: <ShieldCheck size={18} />
   }
 ];

@@ -167,8 +167,8 @@ const AboutBanner = () => {
               <p>Corporate Partners</p>
             </div>
             <div css={styles.statCard}>
-              <h3>98%</h3>
-              <p>Placement Success Rate</p>
+              <h3>13,000+</h3>
+              <p>Job Openings on Platform</p>
             </div>
           </div>
         </div>

@@ -248,8 +248,8 @@ const UpskillingBanner = () => {
               <p>Accredited Programs</p>
             </div>
             <div css={styles.statCard}>
-              <h3>94%</h3>
-              <p>Placement Match Rate</p>
+              <h3>13,000+</h3>
+              <p>Job Openings on Platform</p>
             </div>
             <div css={styles.statCard}>
               <h3>+45%</h3>

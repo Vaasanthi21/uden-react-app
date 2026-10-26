@@ -62,8 +62,8 @@ const MetricsTicker = [
         label: "Curated Upskilling Programs"
     },
     {
-        number: "98%",
-        label: "Placement Success Rate"
+        number: "13,000+",
+        label: "Job Openings on Platform"
     }
 ];
 

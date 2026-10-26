@@ -296,8 +296,8 @@ const GovernmentPartnership = () => {
               <div css={styles.statCard}>
                 <div css={styles.statIcon}><Award size={20} /></div>
                 <div>
-                  <div css={styles.statNum}>98<span>%</span></div>
-                  <div css={styles.statLabel}>Placement Success Rate</div>
+                  <div css={styles.statNum}>13,000<span>+</span></div>
+                  <div css={styles.statLabel}>Job Openings on Platform</div>
                 </div>
               </div>
 

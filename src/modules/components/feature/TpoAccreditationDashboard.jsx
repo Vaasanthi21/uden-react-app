@@ -420,7 +420,7 @@ const TpoAccreditationDashboard = () => {
           <div css={styles.statCard}>
             <div css={styles.statLabel}>Accepted Student Offers</div>
             <div css={styles.statValue}>124</div>
-            <div css={styles.statSub}><CheckCircle2 size={13} /> 89% Overall Placement Rate</div>
+            <div css={styles.statSub}><CheckCircle2 size={13} /> 13,000+ Job Openings on Platform</div>
           </div>
           <div css={styles.statCard}>
             <div css={styles.statLabel}>Shortlisted Candidates</div>
