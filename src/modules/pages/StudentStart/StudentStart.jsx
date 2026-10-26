@@ -37,6 +37,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import { AppRoutes } from '../../../utils/consts/routes';
+import { AppAssets } from '../../../utils/consts/app_assets';
 
 /* KEYFRAME ANIMATIONS FOR SMOOTH TRANSITIONS & HOVER EFFECTS */
 const floatSlow = keyframes`
@@ -1397,34 +1398,34 @@ export default function StudentStart() {
     window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
-  /* TESTIMONIALS DATA */
+  /* TESTIMONIALS DATA (OFFICIAL UDEN LANDING PAGE CANDIDATES & EMPLOYERS) */
   const testimonials = [
     {
-      quote: "My college placement cell warned us that ATS bots reject 70% of resumes. I uploaded mine to UDEN, discovered 8 missing cloud keywords, and fixed them in 15 minutes using the ATS templates. Got shortlisted by Deloitte Digital on day one!",
-      name: "Rohan Verma",
-      package: "₹9.5 LPA",
-      role: "Associate SDE",
-      company: "Deloitte Digital",
-      college: "Tier-2 B.Tech, 2026 Batch",
-      accent: "#2563EB"
+      id: 1,
+      image: AppAssets.HomeAssets.TESTIMONIAL.PALAK_JAIN,
+      quote: "UDEN helped me with the interview preparation, PYQs, and AI video mock interviews which built my confidence. Thanks to their team I cracked Deloitte’s interview.",
+      name: "Palak Jain",
+      role: "Placed at Deloitte",
+      company: "Deloitte",
+      badge: "Verified Candidate"
     },
     {
-      quote: "Whenever I got stuck preparing for technical rounds, the AI doubt solver clarified coding concepts and behavioral STAR answers instantly. Cleared both rounds with confidence!",
-      name: "Priya Sharma",
-      package: "₹7.2 LPA",
-      role: "Digital Systems Engineer",
-      company: "TCS Digital",
-      college: "Tier-3 Institute, Hyderabad",
-      accent: "#059669"
+      id: 2,
+      image: AppAssets.HomeAssets.TESTIMONIAL.PANKAJ_SHARMA,
+      quote: "Searching from lakhs of jobs and following the company-specific round prep guide made all the difference. I cleared TCS Digital with a ₹7.0L package.",
+      name: "Pankaj Sharma",
+      role: "Software Engineer",
+      company: "TCS Digital (₹7.0L Package)",
+      badge: "Placed via UDEN"
     },
     {
-      quote: "Job Agent Pro completely eliminated the stress of filling endless application forms. It matched my Python and AWS projects directly with Accenture recruiters and scheduled my technical round within 48 hours.",
-      name: "Aniket Mukherjee",
-      package: "₹8.0 LPA",
-      role: "Cloud Associate",
-      company: "Accenture",
-      college: "NIT Rourkela Graduate",
-      accent: "#7C3AED"
+      id: 3,
+      image: AppAssets.HomeAssets.TESTIMONIAL.ANANYA_VERMA,
+      quote: "As a hiring manager, UDEN reduced our time-to-hire from 4 weeks to under 48 hours. The pre-assessed AI video interview recordings saved us dozens of screening rounds.",
+      name: "Ananya Verma",
+      role: "Talent Acquisition Director",
+      company: "Enterprise Partner",
+      badge: "Enterprise Employer"
     }
   ];
 
@@ -1965,8 +1966,8 @@ export default function StudentStart() {
       <section css={styles.testimonialsSection}>
         <ScrollReveal delay={100} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div css={styles.sectionHeading}>
-            <h2>2,500+ Students Placed Across 150+ Partners</h2>
-            <p>See how students from engineering &amp; degree colleges cracked dream placements using UDEN AI.</p>
+            <h2>Real Stories from UDEN Candidates &amp; Employers</h2>
+            <p>See how candidates and hiring partners achieve guaranteed career outcomes with UDEN.</p>
           </div>
         </ScrollReveal>
 
@@ -1985,15 +1986,25 @@ export default function StudentStart() {
               "{testimonials[testimIndex].quote}"
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.12)', paddingTop: '20px', flexWrap: 'wrap', gap: '14px' }}>
-              <div>
-                <div style={{ fontSize: '17px', fontWeight: 900, color: '#FFFFFF' }}>
-                  {testimonials[testimIndex].name}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div style={{ width: '52px', height: '52px', borderRadius: '50%', overflow: 'hidden', border: '2px solid #F55825', flexShrink: 0, background: '#1E293B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img 
+                    src={testimonials[testimIndex].image} 
+                    alt={testimonials[testimIndex].name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  />
                 </div>
-                <div style={{ fontSize: '13.5px', color: '#F55825', fontWeight: 700 }}>
-                  {testimonials[testimIndex].role} &bull; {testimonials[testimIndex].company} ({testimonials[testimIndex].package})
-                </div>
-                <div style={{ fontSize: '12px', color: '#94A3B8' }}>
-                  {testimonials[testimIndex].college}
+                <div>
+                  <div style={{ fontSize: '17px', fontWeight: 900, color: '#FFFFFF' }}>
+                    {testimonials[testimIndex].name}
+                  </div>
+                  <div style={{ fontSize: '13.5px', color: '#F55825', fontWeight: 700 }}>
+                    {testimonials[testimIndex].role}
+                  </div>
+                  <div style={{ fontSize: '11.5px', color: '#94A3B8', display: 'inline-flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
+                    <ShieldCheck size={13} color="#10B981" />
+                    <span>{testimonials[testimIndex].badge}</span>
+                  </div>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '10px' }}>
