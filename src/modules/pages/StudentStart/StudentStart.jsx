@@ -27,8 +27,9 @@ import {
   Search,
   ExternalLink,
   Laptop,
-  Play,
-  Pause
+  HelpCircle,
+  LogIn,
+  SlidersHorizontal
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
@@ -52,9 +53,20 @@ const laserScan = keyframes`
   100% { top: 0%; opacity: 0.8; }
 `;
 
-const rotateSlow = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+const shimmer = keyframes`
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+`;
+
+const sparkleTwinkle = keyframes`
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+  50% { transform: scale(1.28) rotate(18deg); opacity: 1; filter: drop-shadow(0 0 8px #FEF08A); }
+`;
+
+const gradientShift = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 `;
 
 const styles = {
@@ -64,8 +76,12 @@ const styles = {
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     color: #1E293B;
     overflow-x: hidden;
-    padding-bottom: 76px; /* Space for sticky mobile CTA */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: relative;
+    margin: 0;
+    padding: 0;
   `,
   scrollProgressBar: (progress) => css`
     position: fixed;
@@ -74,37 +90,100 @@ const styles = {
     width: ${progress}%;
     height: 3.5px;
     background: linear-gradient(90deg, #F55825 0%, #EA580C 50%, #F59E0B 100%);
-    z-index: 1001;
+    z-index: 1005;
     transition: width 0.12s ease-out;
     box-shadow: 0 0 12px rgba(245, 88, 37, 0.7);
   `,
+
+  /* STICKY TOP CONTAINER (ANIMATED BANNER + HEADER TOGETHER) */
+  stickyHeaderWrapper: css`
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  `,
   topBanner: css`
-    background: linear-gradient(90deg, #F55825 0%, #D94616 100%);
+    background: linear-gradient(90deg, #F55825 0%, #EA580C 35%, #D94616 70%, #F55825 100%);
+    background-size: 300% 300%;
+    animation: ${gradientShift} 6s ease infinite;
     color: #FFFFFF;
     text-align: center;
     padding: 10px 16px;
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    box-shadow: 0 2px 8px rgba(245, 88, 37, 0.25);
+  `,
+  shimmerLight: css`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    transform: skewX(-25deg);
+    animation: ${shimmer} 4.5s infinite ease-in-out;
+    pointer-events: none;
+  `,
+  bannerContent: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+
+    @media (max-width: 640px) {
+      font-size: 12px;
+      gap: 6px;
+    }
+  `,
+  animatedSparkleIcon: css`
+    display: inline-flex;
+    align-items: center;
+    animation: ${sparkleTwinkle} 2.5s infinite ease-in-out;
+    color: #FEF08A;
+  `,
+  animatedSparkleIconRight: css`
+    display: inline-flex;
+    align-items: center;
+    animation: ${sparkleTwinkle} 2.5s infinite ease-in-out 1.25s;
+    color: #FEF08A;
+  `,
+  bannerFlameBadge: css`
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #FEF08A;
+  `,
+  bannerText: css`
+    strong {
+      color: #FEF08A;
+      font-weight: 900;
+    }
   `,
   header: css`
-    background: rgba(255, 255, 255, 0.92);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+    padding: 12px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   `,
   signInBtn: css`
     background: transparent;
@@ -129,7 +208,7 @@ const styles = {
   heroSection: css`
     max-width: 1240px;
     margin: 0 auto;
-    padding: 56px 24px 50px;
+    padding: 50px 24px 44px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 40px;
@@ -138,7 +217,7 @@ const styles = {
 
     @media (max-width: 960px) {
       grid-template-columns: 1fr;
-      padding: 36px 18px 36px;
+      padding: 32px 18px 32px;
       text-align: center;
     }
   `,
@@ -599,6 +678,72 @@ const styles = {
       box-shadow: 0 0 8px #10B981;
     }
   `,
+  /* PROCEDURE TO BUILD RESUME GUIDE BOX */
+  procedureGuideBox: css`
+    background: #FFFFFF;
+    border: 1.5px solid #FFDECB;
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin: 0 auto 30px;
+    max-width: 980px;
+    box-shadow: 0 6px 20px rgba(245, 88, 37, 0.06);
+  `,
+  procedureStepsRow: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+  `,
+  procedureStepCard: css`
+    flex: 1;
+    background: #FFFBF9;
+    border: 1px solid #FFEBE0;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+
+    .stepNumBadge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #F55825;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stepTitle {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+    .stepDesc {
+      font-size: 11.5px;
+      color: #64748B;
+      line-height: 1.4;
+    }
+  `,
+  stepSeparatorArrow: css`
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  `,
+
   carouselContainer: css`
     position: relative;
     overflow: hidden;
@@ -610,6 +755,7 @@ const styles = {
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transform: translateX(-${offset}%);
   `,
+  /* UNCLICKABLE TEMPLATE PREVIEW CARD WITH HOVER EFFECT */
   templateSlideCard: css`
     flex: 0 0 calc(33.333% - 15px);
     background: #FFFFFF;
@@ -621,16 +767,12 @@ const styles = {
     justify-content: space-between;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    cursor: pointer;
+    cursor: default; /* UNCLICKABLE AS INSTRUCTED */
 
     &:hover {
       transform: translateY(-8px) scale(1.02);
-      border-color: #2563EB;
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.16);
-
-      .templateAction {
-        color: #2563EB;
-      }
+      border-color: #F55825;
+      box-shadow: 0 20px 40px rgba(245, 88, 37, 0.14);
     }
 
     @media (max-width: 960px) {
@@ -879,13 +1021,17 @@ const styles = {
     }
   `,
 
-  /* COMPLIANT FOOTER */
+  /* CORRECTLY PLACED FULL-WIDTH COMPLIANT FOOTER (NO BOTTOM GAP) */
   footer: css`
     background: #0F172A;
     color: #94A3B8;
-    padding: 40px 20px;
+    padding: 44px 20px 48px;
     text-align: center;
     font-size: 13.5px;
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
 
     a {
       color: #94A3B8;
@@ -897,6 +1043,10 @@ const styles = {
         color: #FFFFFF;
         text-decoration: underline;
       }
+    }
+
+    @media (max-width: 768px) {
+      padding-bottom: 96px; /* Extra padding so fixed mobile CTA never covers footer links */
     }
   `
 };
@@ -1052,7 +1202,7 @@ export default function StudentStart() {
       accent: "#2563EB"
     },
     {
-      quote: "The 24x7 AI Assistant is literally like having a personal senior developer on call. I practiced coding scenarios and STAR behavioral answers at 1 AM before my TCS Digital interview. Cleared both rounds with confidence!",
+      quote: "Whenever I got stuck preparing for technical rounds, the AI doubt solver clarified coding concepts and behavioral STAR answers instantly. Cleared both rounds with confidence!",
       name: "Priya Sharma",
       package: "₹7.2 LPA",
       role: "Digital Systems Engineer",
@@ -1074,7 +1224,7 @@ export default function StudentStart() {
   const faqs = [
     {
       q: 'Is it really free to start?',
-      a: 'Yes, 100%! When you sign in with Google or LinkedIn, your account immediately receives 70 free starter points. You can use these to run multiple ATS resume checks and consult the 24x7 AI career assistant without entering any credit card.'
+      a: 'Yes, 100%! When you sign in with Google or LinkedIn, your account immediately receives 70 free starter points. You can use these to run multiple ATS resume checks and clarify placement doubts without entering any credit card.'
     },
     {
       q: 'What happens when my free points finish?',
@@ -1105,21 +1255,38 @@ export default function StudentStart() {
       {/* Scroll Progress Indicator Bar */}
       <div css={styles.scrollProgressBar(scrollProgress)} />
 
-      {/* Top Launch Offer Banner */}
-      <div css={styles.topBanner}>
-        <Sparkles size={16} />
-        Special Student Launch Offer: Get 70 Free Credits on Sign-Up! ₹200/mo plan ends 14 Nov.
-      </div>
-
-      {/* Minimalist Header */}
-      <header css={styles.header}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Logo style={{ height: '36px' }} />
+      {/* STICKY TOP CONTAINER (ANIMATED BANNER + HEADER TOGETHER) */}
+      <div css={styles.stickyHeaderWrapper}>
+        {/* Animated Launch Offer Banner with Illustrations & Sparkles */}
+        <div css={styles.topBanner}>
+          <div css={styles.shimmerLight} />
+          <div css={styles.bannerContent}>
+            <span css={styles.animatedSparkleIcon}>
+              <Sparkles size={16} />
+            </span>
+            <span css={styles.bannerFlameBadge}>
+              <Zap size={13} />
+              <span>LAUNCH SPECIAL</span>
+            </span>
+            <span css={styles.bannerText}>
+              Special Student Launch Offer: Get <strong>70 Free Starter Credits</strong> on Sign-Up! &bull; <strong>₹200/mo plan</strong> ends 14 Nov!
+            </span>
+            <span css={styles.animatedSparkleIconRight}>
+              <Sparkles size={16} />
+            </span>
+          </div>
         </div>
-        <button css={styles.signInBtn} onClick={() => handleCTAClick('header_signin')}>
-          Sign In to Portal
-        </button>
-      </header>
+
+        {/* Minimalist Header */}
+        <header css={styles.header}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Logo style={{ height: '36px' }} />
+          </div>
+          <button css={styles.signInBtn} onClick={() => handleCTAClick('header_signin')}>
+            Sign In to Portal
+          </button>
+        </header>
+      </div>
 
       {/* MAIN HERO SECTION (SPLIT 2-COLUMN WITH LIVE SCANNER ILLUSTRATION) */}
       <section css={styles.heroSection}>
@@ -1242,7 +1409,7 @@ export default function StudentStart() {
                 <li><strong>Instant ATS Score:</strong> Know exactly where your resume lacks before applying.</li>
                 <li><strong>Custom Templates:</strong> Build clean, recruiter-approved resumes effortlessly.</li>
                 <li><strong>Job Agent Pro:</strong> Automated job discovery matching your exact skills.</li>
-                <li><strong>24x7 AI Assistant:</strong> A personal placement mentor available round the clock.</li>
+                <li><strong>AI Doubt Solver:</strong> Instant answers to clarify all your technical &amp; interview preparation doubts.</li>
               </ul>
             </div>
           </div>
@@ -1335,23 +1502,23 @@ export default function StudentStart() {
             </div>
           </ScrollReveal>
 
-          {/* Card 4: 24x7 AI Career Assistant (Glass with Orange Shade) */}
+          {/* Card 4: AI Doubt Clarification (Glass with Orange Shade - Mentorship removed) */}
           <ScrollReveal delay={400}>
             <div css={styles.glassFeatureCard}>
               <div css={styles.glassCardGlow} />
               <div css={styles.featureThumbBox}>
                 <img 
                   src={process.env.PUBLIC_URL + '/assets/tutorials/video_4_interview_coach.png'} 
-                  alt="24x7 AI Placement Assistant" 
+                  alt="AI Placement Doubt Clearing" 
                   className="featureThumbImg"
                 />
-                <span className="featureOverlayBadge">Like ChatGPT For Careers</span>
+                <span className="featureOverlayBadge">Instant Doubt Clearing</span>
               </div>
               <div css={styles.featureCardBody}>
                 <div>
-                  <h4 css={styles.cardTitle}>24x7 AI Assistant</h4>
+                  <h4 css={styles.cardTitle}>AI Doubt Clarification</h4>
                   <p css={styles.cardDesc}>
-                    Ask anything! Get tailored coding interview questions, project explanation scripts, company-specific preparation guides, and real-time placement mentorship.
+                    Get instant clarification on your placement and technical doubts. Ask questions about coding problems, core concepts, interview patterns, and resume formatting anytime.
                   </p>
                 </div>
                 <div css={styles.costTag}>Uses 1 Free Point / Question</div>
@@ -1361,16 +1528,54 @@ export default function StudentStart() {
         </div>
       </section>
 
-      {/* CONTINUOUS AUTO-ROTATING CAROUSEL: ATS RESUME TEMPLATES ("BUILD AS YOU WISH") */}
+      {/* CONTINUOUS AUTO-ROTATING CAROUSEL: ATS RESUME TEMPLATES */}
       <section css={styles.templatesSection}>
         <ScrollReveal delay={100}>
           <div css={styles.sectionHeading}>
             <div css={styles.autoRotateBadge}>
               <span className="greenDot" />
-              <span>Auto-Rotating Carousel &bull; Hover to Pause</span>
+              <span>Auto-Rotating Preview &bull; Hover to Pause</span>
             </div>
-            <h2>Build Your Resume As You Wish</h2>
+            <h2>Build Your Resume with the Templates</h2>
             <p>Explore recruiter-approved ATS templates. Auto-formatted, single-column, and designed to bypass screening bots.</p>
+          </div>
+
+          {/* PROCEDURE TO BUILD RESUME WITH TEMPLATES GUIDE BOX */}
+          <div css={styles.procedureGuideBox}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: 800, color: '#C2410C', fontSize: '14.5px', marginBottom: '14px' }}>
+              <Sparkles size={17} color="#F55825" />
+              <span>How to Access &amp; Build with These Templates in the Portal:</span>
+            </div>
+
+            <div css={styles.procedureStepsRow}>
+              <div css={styles.procedureStepCard}>
+                <span className="stepNumBadge">1</span>
+                <div>
+                  <div className="stepTitle">Sign In / Log In</div>
+                  <div className="stepDesc">Sign in to your UDEN account (get 70 free credits instantly)</div>
+                </div>
+              </div>
+
+              <ChevronRight size={20} color="#F55825" className="stepSeparatorArrow" />
+
+              <div css={styles.procedureStepCard}>
+                <span className="stepNumBadge">2</span>
+                <div>
+                  <div className="stepTitle">Go to Resume Analysis</div>
+                  <div className="stepDesc">Navigate to the Resume Analysis tab from your portal sidebar</div>
+                </div>
+              </div>
+
+              <ChevronRight size={20} color="#F55825" className="stepSeparatorArrow" />
+
+              <div css={styles.procedureStepCard}>
+                <span className="stepNumBadge">3</span>
+                <div>
+                  <div className="stepTitle">Open Resume Builder</div>
+                  <div className="stepDesc">Select your favorite template &amp; customize it as you wish</div>
+                </div>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
@@ -1381,10 +1586,10 @@ export default function StudentStart() {
         >
           <div css={styles.templatesTrack(templateIndex * (100 / cardsPerView))}>
             {templates.map((tpl) => (
+              /* UNCLICKABLE TEMPLATE PREVIEW CARD (NO LOGIN POPUP/REDIRECT ON CLICK) */
               <div 
                 key={tpl.id} 
                 css={styles.templateSlideCard}
-                onClick={() => handleCTAClick(`template_${tpl.id}`)}
               >
                 <div>
                   <div css={styles.templateVisualMockup(tpl.accent)}>
@@ -1420,12 +1625,23 @@ export default function StudentStart() {
                   </p>
                 </div>
 
+                {/* INFORMATIVE PROCEDURE BADGE INSTEAD OF FRUSTRATING CLICK ACTION */}
                 <div 
-                  className="templateAction" 
-                  style={{ fontSize: '13px', fontWeight: 800, color: '#F55825', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  style={{ 
+                    background: '#F8FAFC', 
+                    border: '1px solid #E2E8F0', 
+                    borderRadius: '12px', 
+                    padding: '8px 12px', 
+                    fontSize: '11.5px', 
+                    color: '#475569', 
+                    fontWeight: 700, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '6px' 
+                  }}
                 >
-                  <span>Build with this Template</span>
-                  <ArrowRight size={15} />
+                  <CheckCircle2 size={14} color="#10B981" />
+                  <span>Available in Portal: Resume Analysis &gt; Resume Builder</span>
                 </div>
               </div>
             ))}
@@ -1558,7 +1774,7 @@ export default function StudentStart() {
               <div css={styles.stepNum}>3</div>
               <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Practice &amp; Get Hired</h4>
               <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-                Ask the AI assistant interview questions, take an AI mock interview, and let Job Agent Pro find verified openings.
+                Clarify technical doubts with the AI assistant, take an AI mock interview, and let Job Agent Pro find verified openings.
               </p>
             </div>
           </ScrollReveal>
@@ -1587,7 +1803,7 @@ export default function StudentStart() {
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 Free Starter Points</li>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Up to 14 ATS Resume Scans</li>
-                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 AI Career Assistant Queries</li>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 AI Doubt &amp; Query Clarifications</li>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Valid for 30 Days</li>
               </ul>
               <button 
@@ -1678,7 +1894,7 @@ export default function StudentStart() {
         </button>
       </div>
 
-      {/* COMPLIANT FOOTER */}
+      {/* CORRECTLY PLACED FULL-WIDTH COMPLIANT FOOTER (NO WHITE GAP) */}
       <footer css={styles.footer}>
         <p style={{ margin: '0 0 12px', fontWeight: 700, color: '#E2E8F0' }}>
           UDEN — Unified Development and Employment Network
