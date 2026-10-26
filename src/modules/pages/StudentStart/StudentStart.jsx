@@ -31,7 +31,13 @@ import {
   LogIn,
   SlidersHorizontal,
   Flame,
-  CheckCircle
+  CheckCircle,
+  BookOpen,
+  Compass,
+  Code,
+  Brain,
+  GraduationCap,
+  ListChecks
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/Logo';
@@ -729,6 +735,252 @@ const styles = {
     backdrop-filter: blur(4px);
   `,
 
+  /* DEDICATED SHOWCASE: JOB AGENT PRO & AI INTERVIEW BOT (ROLE PREPARATION ENGINE) */
+  rolePrepSection: css`
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 75px;
+    padding: 0 24px;
+    position: relative;
+    box-sizing: border-box;
+    @media (max-width: 768px) {
+      padding: 0 16px;
+      margin-bottom: 50px;
+    }
+  `,
+
+  rolePrepHeadingPill: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF5F0;
+    color: #F55825;
+    border: 1px solid #FFDECB;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  `,
+
+  rolePrepGrid: css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+    @media (max-width: 980px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  `,
+
+  rolePrepCard: css`
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 26px;
+    padding: 30px 26px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    &:hover {
+      transform: translateY(-6px);
+      border-color: #F55825;
+      box-shadow: 0 20px 48px rgba(245, 88, 37, 0.14);
+    }
+    @media (max-width: 480px) {
+      padding: 22px 18px;
+    }
+  `,
+
+  rolePrepCardHeader: css`
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1.5px solid #F1F5F9;
+  `,
+
+  rolePrepIconCircle: css`
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #FFF5F0;
+    border: 1.5px solid #FFDECB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #F55825;
+  `,
+
+  rolePrepFeatureBadge: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #C2410C;
+    background: #FFF7ED;
+    border: 1px solid #FFEDD5;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+  `,
+
+  rolePrepCardTitle: css`
+    font-size: 22px;
+    font-weight: 900;
+    color: #0F172A;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  `,
+
+  rolePrepCardSubtitle: css`
+    font-size: 13.5px;
+    color: #64748B;
+    line-height: 1.5;
+    margin: 0;
+  `,
+
+  rolePrepHighlightBox: css`
+    background: #F8FAFC;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  `,
+
+  rolePrepSectionTitle: css`
+    font-size: 13px;
+    font-weight: 800;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  `,
+
+  rolePrepRoundItem: css`
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 12.5px;
+    color: #1E293B;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .roundBadge {
+      background: #F55825;
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  `,
+
+  rolePrepPyqSnippet: css`
+    background: #FFFFFF;
+    border: 1px solid #FED7AA;
+    border-left: 3.5px solid #F55825;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #1E293B;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  `,
+
+  rolePrepLearningStep: css`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #334155;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .stepIcon {
+      color: #10B981;
+      flex-shrink: 0;
+    }
+  `,
+
+  mockInterviewMessageBubble: css`
+    padding: 12px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    &.botMsg {
+      background: #FFF7ED;
+      border: 1.5px solid #FFEDD5;
+      color: #9A3412;
+      border-top-left-radius: 4px;
+    }
+    &.userMsg {
+      background: #F1F5F9;
+      border: 1.5px solid #E2E8F0;
+      color: #1E293B;
+      border-top-right-radius: 4px;
+    }
+    &.evalMsg {
+      background: #ECFDF5;
+      border: 1.5px solid #A7F3D0;
+      color: #065F46;
+    }
+  `,
+
+  rolePrepCardActionBtn: css`
+    background: linear-gradient(135deg, #F55825 0%, #D94616 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 20px;
+    font-size: 14.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 18px;
+    width: 100%;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 16px rgba(245, 88, 37, 0.25);
+    &:hover {
+      background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 88, 37, 0.35);
+    }
+  `,
+
   /* AUTO-ROTATING CAROUSEL: ATS RESUME TEMPLATES */
   templatesSection: css`
     width: 100%;
@@ -1356,12 +1608,13 @@ export default function StudentStart() {
   }, [isTestimPaused]);
 
   /* General CTA click handler - ALWAYS OPENS IN NEW TAB */
-  const handleCTAClick = (location, openInNewTab = true) => {
+  const handleCTAClick = (location, openInNewTab = true, destination = '') => {
     try {
       if (window.dataLayer) {
         window.dataLayer.push({
           event: 'cta_click',
-          button_location: location
+          button_location: location,
+          destination: destination || undefined
         });
       }
     } catch (e) {
@@ -1369,7 +1622,9 @@ export default function StudentStart() {
     }
 
     const search = window.location.search;
-    const url = `https://cps.uden.tech/log_in${search}`;
+    const sep = search ? '&' : '?';
+    const destParam = destination ? `${sep}destination=${destination}` : '';
+    const url = `https://cps.uden.tech/log_in${search}${destParam}`;
     if (openInNewTab) {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
@@ -1443,12 +1698,16 @@ export default function StudentStart() {
       a: 'Unlike generic online templates that confuse ATS parsers with multi-column tables and fancy icons, UDEN’s templates are strictly built according to modern corporate ATS standards. You can customize them as you wish, and our AI will rewrite your achievements using the STAR impact method.'
     },
     {
-      q: 'What is Job Agent Pro?',
-      a: 'Job Agent Pro is your autonomous AI placement assistant. Instead of manually searching through dozens of job boards, it monitors verified corporate drives, matches your skill radar with role requirements, and fast-tracks you to recruiters with 48-hour shortlist SLAs.'
+      q: 'What is Job Agent Pro and how does it find matched jobs?',
+      a: 'Job Agent Pro is your autonomous AI role-preparation and job discovery engine. Once you upload your resume, AI calculates your Fit Score across 13,000+ job openings on the platform to find your ideal matches. For any target role, it provides the complete company selection process and round-by-round hiring procedures, authentic previously asked questions (PYQs) from past recruitment drives, and a customized learning path to prepare for that specific role.'
+    },
+    {
+      q: 'How does the AI Interview Bot work?',
+      a: 'The AI Interview Bot lets you request mock interviews tailored to any specific role you target (such as SDE, Cloud Engineer, Data Analyst, etc.). It conducts interactive interview sessions based on authentic previously asked company questions (PYQs), evaluates your answers in real time with scoring, and allows you to clarify any technical or concept doubts instantly.'
     },
     {
       q: 'Can I try an AI Mock Interview?',
-      a: 'AI mock interviews simulate real-world technical and HR rounds with instant voice and response analytics. AI mock interviews are unlocked as part of the ₹200 launch plan.'
+      a: 'AI mock interviews simulate real-world technical and HR rounds with instant evaluation and response analytics. 1 Full AI Mock Interview with an in-depth performance report and PYQ training is included with the ₹200 Student Placement Pass.'
     },
     {
       q: 'Is my resume and personal data safe?',
@@ -1616,7 +1875,7 @@ export default function StudentStart() {
         <ScrollReveal delay={50} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div>
             <div css={styles.badgeTag}>
-              <Zap size={15} /> 70 Free Credits Added on Sign Up • No Card Needed
+              <Zap size={15} /> 13,000+ Job Openings on the Platform • 70 Free Credits Added on Sign Up • No Card Needed
             </div>
             <h1 css={styles.heroTitle}>
               Will Your Resume Pass the <span>ATS Filter</span>?
@@ -1687,7 +1946,7 @@ export default function StudentStart() {
               </div>
               <div>
                 <div style={{ fontSize: '13px', fontWeight: 800 }}>Job Agent Pro Active</div>
-                <div style={{ fontSize: '11.5px', color: '#94A3B8' }}>12 Verified Partner Openings Matched</div>
+                <div style={{ fontSize: '11.5px', color: '#94A3B8' }}>13,000+ Active Job Openings Matched to Fit Score</div>
               </div>
             </div>
           </div>
@@ -1722,8 +1981,8 @@ export default function StudentStart() {
               <ul style={{ margin: 0, paddingLeft: '18px', color: '#14532D', fontSize: '14px', lineHeight: 1.8 }}>
                 <li><strong>Instant ATS Score:</strong> Know exactly where your resume lacks before applying.</li>
                 <li><strong>Custom Templates:</strong> Build clean, recruiter-approved resumes effortlessly.</li>
-                <li><strong>Job Agent Pro:</strong> Automated job discovery matching your exact skills.</li>
-                <li><strong>AI Doubt Solver:</strong> Instant answers to clarify all your technical &amp; interview preparation doubts.</li>
+                <li><strong>Job Agent Pro:</strong> Match your Fit Score across 13,000+ job openings on the platform, view full company selection procedures, PYQs, and create your learning path.</li>
+                <li><strong>AI Interview Bot:</strong> Request role-specific mock interviews and practice with authentic previously asked questions (PYQs) &amp; get instant doubt solving.</li>
               </ul>
             </div>
           </div>
@@ -1802,41 +2061,247 @@ export default function StudentStart() {
                   alt="Job Agent Pro" 
                   className="featureThumbImg"
                 />
-                <span className="featureOverlayBadge">Automated Placement</span>
+                <span className="featureOverlayBadge">Fit Score &amp; Learning Paths</span>
               </div>
               <div css={styles.featureCardBody}>
                 <div>
                   <h4 css={styles.cardTitle}>Job Agent Pro</h4>
                   <p css={styles.cardDesc}>
-                    Your autonomous AI scout that scans 100k+ active tech and corporate openings, connects with 150+ hiring partners, and matches roles directly to your skill radar.
+                    Upload your resume to discover jobs matched to your Fit Score across 13,000+ job openings on the platform. View complete company selection processes, round procedures, and previously asked questions (PYQs)—and create your custom learning path.
                   </p>
                 </div>
-                <div css={styles.costTag}>48-Hour Recruiter SLA</div>
+                <div css={styles.costTag}>Fit Score &amp; Custom Learning Paths</div>
               </div>
             </div>
           </ScrollReveal>
 
-          {/* Card 4: AI Doubt Clarification (Mentorship removed) */}
+          {/* Card 4: AI Interview Bot (Glass with Orange Shade) */}
           <ScrollReveal delay={400} style={{ width: '100%', boxSizing: 'border-box' }}>
             <div css={styles.glassFeatureCard}>
               <div css={styles.glassCardGlow} />
               <div css={styles.featureThumbBox}>
                 <img 
                   src={process.env.PUBLIC_URL + '/assets/tutorials/video_4_interview_coach.png'} 
-                  alt="AI Placement Doubt Clearing" 
+                  alt="AI Interview Bot" 
                   className="featureThumbImg"
                 />
-                <span className="featureOverlayBadge">Instant Doubt Clearing</span>
+                <span className="featureOverlayBadge">Role-Specific Mock Practice</span>
               </div>
               <div css={styles.featureCardBody}>
                 <div>
-                  <h4 css={styles.cardTitle}>AI Doubt Clarification</h4>
+                  <h4 css={styles.cardTitle}>AI Interview Bot</h4>
                   <p css={styles.cardDesc}>
-                    Get instant clarification on your placement and technical doubts. Ask questions about coding problems, core concepts, interview patterns, and resume formatting anytime.
+                    Request mock interviews tailored to any desired role. Practice with an AI interviewer trained on authentic previously asked company questions (PYQs), receive real-time answer scoring, and clarify technical doubts on the spot.
                   </p>
                 </div>
-                <div css={styles.costTag}>Uses 1 Free Point / Question</div>
+                <div css={styles.costTag}>Role-Specific PYQ Mock Practice</div>
               </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* DEDICATED SHOWCASE: JOB AGENT PRO & AI INTERVIEW BOT (ROLE PREPARATION ENGINE) */}
+      <section css={styles.rolePrepSection}>
+        <ScrollReveal delay={50} style={{ width: '100%', boxSizing: 'border-box' }}>
+          <div css={styles.sectionHeading}>
+            <div css={styles.rolePrepHeadingPill}>
+              <Brain size={16} />
+              <span>Role Preparation Engine</span>
+            </div>
+            <h2>Prepare for Your Desired Role with Job Agent Pro &amp; AI Interview Bot</h2>
+            <p>
+              Upload your resume to discover matched roles based on your Fit Score across 13,000+ job openings on the platform. 
+              Unlock company selection procedures, previously asked questions (PYQs), custom learning paths, and request role-specific mock interviews.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div css={styles.rolePrepGrid}>
+          {/* Card A: Job Agent Pro */}
+          <ScrollReveal delay={100} style={{ width: '100%', boxSizing: 'border-box' }}>
+            <div css={styles.rolePrepCard}>
+              <div>
+                <div css={styles.rolePrepCardHeader}>
+                  <div css={styles.rolePrepIconCircle}>
+                    <Briefcase size={26} />
+                  </div>
+                  <div>
+                    <div css={styles.rolePrepFeatureBadge}>
+                      <Target size={12} /> Fit Score Matching Engine
+                    </div>
+                    <h3 css={styles.rolePrepCardTitle}>Job Agent Pro</h3>
+                    <p css={styles.rolePrepCardSubtitle}>
+                      Autonomous AI job matching, company selection procedures &amp; custom learning paths.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Sub-module 1: Resume Upload & Fit Score */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <CheckCircle2 size={16} color="#F55825" />
+                    <span>Resume Upload &amp; Live Fit Score</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#FFFFFF', padding: '10px 14px', borderRadius: '12px', border: '1px solid #E2E8F0', marginBottom: '8px' }}>
+                    <div>
+                      <div style={{ fontSize: '13px', fontWeight: 800, color: '#0F172A' }}>Target: Software Development Engineer (SDE)</div>
+                      <div style={{ fontSize: '11.5px', color: '#16A34A', fontWeight: 700 }}>13,000+ Job Openings on Platform Evaluated</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <span style={{ fontSize: '18px', fontWeight: 900, color: '#F55825' }}>89%</span>
+                      <div style={{ fontSize: '10px', color: '#64748B', fontWeight: 800 }}>FIT SCORE</div>
+                    </div>
+                  </div>
+                  <div style={{ height: '6px', width: '100%', background: '#F1F5F9', borderRadius: '3px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: '89%', background: 'linear-gradient(90deg, #F55825, #EA580C)', borderRadius: '3px' }} />
+                  </div>
+                </div>
+
+                {/* Sub-module 2: Complete Selection Process & Procedure */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <ListChecks size={16} color="#F55825" />
+                    <span>Company Selection Process &amp; Procedures</span>
+                  </div>
+                  <div css={styles.rolePrepRoundItem}>
+                    <span className="roundBadge">Round 1</span>
+                    <div>
+                      <strong>Online Assessment:</strong> Coding problems (DSA), quantitative aptitude &amp; CS core MCQs (60 mins).
+                    </div>
+                  </div>
+                  <div css={styles.rolePrepRoundItem}>
+                    <span className="roundBadge">Round 2</span>
+                    <div>
+                      <strong>Technical Interview:</strong> Data structures, system design, algorithm optimization &amp; live coding.
+                    </div>
+                  </div>
+                  <div css={styles.rolePrepRoundItem}>
+                    <span className="roundBadge">Round 3</span>
+                    <div>
+                      <strong>Techno-Managerial &amp; HR:</strong> Project deep dives, scenario-based questions &amp; culture fitment.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sub-module 3: Previously Asked Questions (PYQs) & Custom Learning Path */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <BookOpen size={16} color="#F55825" />
+                    <span>PYQs &amp; Custom Learning Path</span>
+                  </div>
+                  <div css={styles.rolePrepPyqSnippet}>
+                    <span style={{ fontSize: '11px', fontWeight: 800, color: '#C2410C', textTransform: 'uppercase' }}>PYQ From Top Tech Drive:</span>
+                    <div style={{ fontWeight: 600, marginTop: '2px' }}>"Explain React Virtual DOM vs Real DOM and optimize state re-renders with memoization."</div>
+                  </div>
+                  <div css={styles.rolePrepLearningStep}>
+                    <Compass size={16} className="stepIcon" />
+                    <span><strong>Personalized Roadmap:</strong> AI builds step-by-step sprints bridging your resume skill gaps to reach a 95%+ Fit Score.</span>
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                css={styles.rolePrepCardActionBtn}
+                onClick={() => handleCTAClick('showcase_job_agent_pro', true, 'job_agent_pro')}
+              >
+                <span>Upload Resume &amp; Check Fit Score</span>
+                <ArrowRight size={17} />
+              </button>
+            </div>
+          </ScrollReveal>
+
+          {/* Card B: AI Interview Bot */}
+          <ScrollReveal delay={200} style={{ width: '100%', boxSizing: 'border-box' }}>
+            <div css={styles.rolePrepCard}>
+              <div>
+                <div css={styles.rolePrepCardHeader}>
+                  <div css={styles.rolePrepIconCircle} style={{ background: '#EFF6FF', borderColor: '#DBEAFE', color: '#2563EB' }}>
+                    <Bot size={26} />
+                  </div>
+                  <div>
+                    <div css={styles.rolePrepFeatureBadge} style={{ background: '#EFF6FF', borderColor: '#DBEAFE', color: '#1D4ED8' }}>
+                      <Sparkles size={12} /> On-Demand Role Practice
+                    </div>
+                    <h3 css={styles.rolePrepCardTitle}>AI Interview Bot</h3>
+                    <p css={styles.rolePrepCardSubtitle}>
+                      Request mock interviews for any desired role and practice with authentic PYQs.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Sub-module 1: Request Interview for Desired Role */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <GraduationCap size={16} color="#2563EB" />
+                    <span>Role-Specific Interview Request</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#FFFFFF', padding: '10px 14px', borderRadius: '12px', border: '1px solid #E2E8F0', flexWrap: 'wrap', gap: '8px' }}>
+                    <div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: '#64748B' }}>DESIRED ROLE SELECTED</div>
+                      <div style={{ fontSize: '13.5px', fontWeight: 900, color: '#0F172A' }}>Frontend / Full Stack React Engineer</div>
+                    </div>
+                    <span style={{ fontSize: '11px', background: '#ECFDF5', color: '#059669', border: '1px solid #A7F3D0', padding: '4px 10px', borderRadius: '12px', fontWeight: 800 }}>
+                      ● Mock Session Ready
+                    </span>
+                  </div>
+                </div>
+
+                {/* Sub-module 2: Interactive Mock Interview Simulation (Based on PYQs) */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <MessageSquare size={16} color="#2563EB" />
+                    <span>Live Simulation Based on Previous Questions</span>
+                  </div>
+                  
+                  {/* Bot Question Message */}
+                  <div className="botMsg" css={styles.mockInterviewMessageBubble}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800, fontSize: '11.5px', marginBottom: '4px' }}>
+                      <Bot size={14} /> AI Interviewer (Trained on PYQ Bank):
+                    </div>
+                    "Let's test your problem-solving. A top tech drive previously asked: How do you design an LRU Cache with O(1) time complexity for get and put operations?"
+                  </div>
+
+                  {/* Candidate Answer Message */}
+                  <div className="userMsg" css={styles.mockInterviewMessageBubble}>
+                    <div style={{ fontWeight: 800, fontSize: '11.5px', color: '#64748B', marginBottom: '4px' }}>
+                      Candidate Response:
+                    </div>
+                    "I combine a Doubly Linked List for O(1) node eviction and insertion with a Hash Map for O(1) key lookups..."
+                  </div>
+
+                  {/* Real-time AI Evaluation */}
+                  <div className="evalMsg" css={styles.mockInterviewMessageBubble}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 900, fontSize: '12px', marginBottom: '4px' }}>
+                      <span>✓ AI Score: 9.2 / 10</span>
+                      <span style={{ fontSize: '11px' }}>Real-Time Assessment</span>
+                    </div>
+                    <div style={{ fontSize: '12px', lineHeight: 1.4 }}>
+                      Strong algorithmic justification. Recommendation: Emphasize concurrency handling and null-pointer boundary checks.
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sub-module 3: Instant Technical Doubt Clearing */}
+                <div css={styles.rolePrepHighlightBox}>
+                  <div css={styles.rolePrepSectionTitle}>
+                    <Code size={16} color="#2563EB" />
+                    <span>Instant Technical Doubt Clearing</span>
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: '#334155', lineHeight: 1.5 }}>
+                    Stuck during your prep? Ask the AI bot any technical doubt regarding data structures, code syntax, system design, or interview behavioral answers for immediate clarification.
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                css={styles.rolePrepCardActionBtn}
+                style={{ background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)', boxShadow: '0 4px 16px rgba(37, 99, 235, 0.25)' }}
+                onClick={() => handleCTAClick('showcase_ai_interview_bot', true, 'ai_interview_bot')}
+              >
+                <span>Request AI Mock Interview for Your Role</span>
+                <ArrowRight size={17} />
+              </button>
             </div>
           </ScrollReveal>
         </div>
@@ -1967,7 +2432,7 @@ export default function StudentStart() {
         <ScrollReveal delay={100} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div css={styles.sectionHeading}>
             <h2>Real Stories from UDEN Candidates &amp; Employers</h2>
-            <p>See how candidates and hiring partners achieve guaranteed career outcomes with UDEN.</p>
+            <p>See how candidates leverage 13,000+ job openings on the platform, PYQs, and AI role prep to crack top offers.</p>
           </div>
         </ScrollReveal>
 
@@ -2065,7 +2530,7 @@ export default function StudentStart() {
               <div css={styles.stepNum}>3</div>
               <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Practice &amp; Get Hired</h4>
               <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-                Clarify technical doubts with the AI assistant, take an AI mock interview, and let Job Agent Pro find verified openings.
+                Request role-specific mock interviews with the AI Interview Bot using real PYQs, follow your custom learning path, and apply to 13,000+ job openings matched to your Fit Score.
               </p>
             </div>
           </ScrollReveal>
@@ -2121,11 +2586,11 @@ export default function StudentStart() {
                 ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>1 Full AI Mock Interview</strong> + Report</li>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong></li>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> AI Resume Builder &amp; Cover Letter Creator</li>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Job Agent Pro Automated Matching</li>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Personalized Learning Path Generator</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>1 Full Role-Specific AI Mock Interview</strong> + Report</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong> for Scans &amp; Doubt Clearing</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> AI Resume Builder &amp; ATS Templates</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Job Agent Pro: Fit Score Matching across 13,000+ Openings</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Complete Selection Procedures, PYQs &amp; Learning Paths</li>
               </ul>
               <button 
                 css={styles.primaryBtn} 
