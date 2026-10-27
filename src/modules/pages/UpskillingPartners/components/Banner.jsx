@@ -225,7 +225,7 @@ const UpskillingBanner = () => {
             Master In-Demand Skills with <span>Trusted Partner Academies</span>
           </h1>
           <p css={styles.subtitle}>
-            UDEN collaborates with accredited training partners to close skill gaps and guarantee candidate placement for high-growth tech roles.
+            UDEN collaborates with accredited training partners to close skill gaps and accelerate candidate placement for high-growth tech roles.
           </p>
 
           <form onSubmit={handleSearch} css={styles.searchBox}>

@@ -166,7 +166,7 @@ const scopedSchemas = {
           "name": "Is UDEN free for students?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, UDEN offers 100% free registration, AI mock interviews, resume scoring, and campus placement access for college students."
+            "text": "UDEN offers free registration with 70 starter points for ATS resume scoring, with premium AI mock interviews available on the Student Placement Pass."
           }
         },
         {
@@ -242,7 +242,7 @@ const scopedSchemas = {
           "name": "Is there any cost for jobseekers to use UDEN?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, UDEN is 100% free for jobseekers to create profiles, take AI mock interviews, and apply for jobs."
+            "text": "UDEN is free to create profiles, scan resumes with 70 starter points, and apply for jobs. Advanced mock interviews are accessible via the placement pass."
           }
         }
       ]
@@ -1152,7 +1152,7 @@ const corePages = [
     route: '/faq',
     canonical: 'https://uden.tech/faq',
     title: 'Frequently Asked Questions | UDEN AI Career Platform',
-    description: 'Find answers to common questions about UDEN AI mock interviews, student placement guarantee, TPO campus software, and employer hiring.',
+    description: 'Find answers to common questions about UDEN AI mock interviews, student placement preparation & AI tools, TPO campus software, and employer hiring.',
     keywords: 'UDEN FAQ, campus placement questions, AI mock interview faq, hire students india faq',
     renderContent: () => `
       <main style="max-width: 1000px; margin: 0 auto; padding: 40px 24px;">
@@ -1165,7 +1165,7 @@ const corePages = [
           <dd style="color: #475569; margin: 8px 0 24px;">UDEN provides TPOs with a Campus Placement System (CPS) that automates recruitment drives, generates 1-click NAAC & NBA accreditation audit reports, and connects students directly to 150+ corporate hiring partners.</dd>
 
           <dt style="font-size: 18px; font-weight: 700; color: #0F172A;">Is UDEN free for students?</dt>
-          <dd style="color: #475569; margin: 8px 0 24px;">Yes, student registration, AI mock practice, resume scoring, and job applications are 100% free.</dd>
+          <dd style="color: #475569; margin: 8px 0 24px;">Student registration, ATS resume analysis, and starter AI preparation are free with 70 starter points. Comprehensive mock interviews and Job Agent Pro role matching are available via the Student Placement Pass (starting at ₹200/month).</dd>
 
           <dt style="font-size: 18px; font-weight: 700; color: #0F172A;">How quickly can companies hire talent through UDEN?</dt>
           <dd style="color: #475569; margin: 8px 0 24px;">Employers receive pre-assessed candidate shortlists backed by verified AI skill radar scores within 48 hours.</dd>

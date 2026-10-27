@@ -129,7 +129,7 @@ const courses = [
     duration: '12 Weeks',
     partner: 'UDEN Code Academy',
     skills: ['React 18', 'Next.js', 'Node.js', 'PostgreSQL', 'Docker'],
-    guarantee: 'Placement Guarantee'
+    guarantee: 'Placement Support'
   },
   {
     badge: '⚡ FAST TRACK',
@@ -145,7 +145,7 @@ const courses = [
     duration: '14 Weeks',
     partner: 'AI Data Institute',
     skills: ['Python', 'PyTorch', 'LangChain', 'FastAPI', 'Vector DBs'],
-    guarantee: 'Placement Guarantee'
+    guarantee: 'Placement Support'
   }
 ];
 
@@ -156,7 +156,7 @@ const CourseRadar = () => {
     <div css={styles.section}>
       <div css={styles.header}>
         <h2>Featured Accredited Upskilling Tracks</h2>
-        <p>Curated programs designed to close skill gaps and guarantee direct interview shortlists.</p>
+        <p>Curated programs designed to close skill gaps and maximize direct interview shortlists.</p>
       </div>
 
       <div css={styles.grid}>

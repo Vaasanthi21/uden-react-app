@@ -101,7 +101,7 @@ const partnerBenefits = [
     icon: <Award size={26} />
   },
   {
-    title: 'Guaranteed Candidate Placements',
+    title: 'Direct Candidate Placements',
     desc: 'Directly connect your graduating student cohorts to UDEN’s network of 150+ corporate hiring partners for immediate interviews.',
     bullets: ['Direct Recruiter Shortlists', 'Higher CTC Opportunities', 'Zero Placement Friction'],
     icon: <Users size={26} />

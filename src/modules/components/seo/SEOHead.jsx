@@ -100,7 +100,7 @@ const routeMetadata = {
   },
   '/faq': {
     title: 'Frequently Asked Questions | UDEN AI Career Platform',
-    description: 'Find answers to common questions about UDEN AI mock interviews, student placement guarantee, TPO campus software, and employer hiring.'
+    description: 'Find answers to common questions about UDEN AI mock interviews, student placement preparation & AI tools, TPO campus software, and employer hiring.'
   }
 };
 

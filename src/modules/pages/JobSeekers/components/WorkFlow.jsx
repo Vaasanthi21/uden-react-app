@@ -142,7 +142,7 @@ const JobSeekerWorkFlow = (props) => {
       </div>
       <h2 css={styles.heading}>How UDEN Accelerates Your Career</h2>
       <p css={styles.subtitle}>
-        A guided 4-step path from baseline skill assessment to guaranteed job interviews.
+        A guided 4-step path from baseline skill assessment to direct recruiter interviews.
       </p>
 
       <div css={styles.grid}>
