@@ -411,7 +411,7 @@ const Tutorials = () => {
                 }}
               >
                 <Bot size={16} />
-                Ask ChatGPT Pro
+                Ask UDEN AI Assistant
               </button>
             </div>
           </div>

@@ -473,7 +473,7 @@ export default function FindOpportunityPage() {
               </h2>
 
               <p css={styles.heroSub}>
-                Tell us where you are in your career journey. Our AI Matching Engine analyzes your profile to unlock 100,000+ pre-vetted job openings, curated upskilling paths, and direct corporate interview drives.
+                Tell us where you are in your career journey. Our AI Matching Engine analyzes your profile to unlock 13,000+ pre-vetted job openings, curated upskilling paths, and direct corporate interview drives.
               </p>
 
               {/* 3-Step Guided Storytelling Journey */}

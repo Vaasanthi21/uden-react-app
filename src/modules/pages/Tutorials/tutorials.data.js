@@ -64,15 +64,15 @@ export const TUTORIAL_MODULES = [
     summary: "Why UDEN exists, the tools it puts in one place, how subscriptions and points work, and where to find every major feature.",
     about: [
       "UDEN brings career preparation and job search into one place. This opening video is a guided tour of the platform: you sign in, land on the main dashboard, and see how the navigation is organised around the tools you will use most.",
-      "Along the way the video visits the Upgrade to Pro page and shows the three subscription options — Monthly, 6-Month, and 1-Year. A subscription is what gives you points, and points are what you spend when you use features such as Resume Analysis, AI Interview Coach and ChatGPT Pro.",
-      "The tour then moves quickly through every major area — Profile, Resume Builder, Resume Analysis, AI Interview Coach, ChatGPT Pro, Job Agent Pro, AI Job Matcher and Referral. Each one gets a short introduction here; the full workflow for each is covered in the later videos of this series."
+      "Along the way the video visits the Upgrade to Pro page and shows the three subscription options — Monthly, 6-Month, and 1-Year. A subscription is what gives you points, and points are what you spend when you use features such as Resume Analysis, AI Interview Coach and UDEN AI Assistant.",
+      "The tour then moves quickly through every major area — Profile, Resume Builder, Resume Analysis, AI Interview Coach, UDEN AI Assistant, Job Agent Pro, AI Job Matcher and Referral. Each one gets a short introduction here; the full workflow for each is covered in the later videos of this series."
     ],
     covers: [
       "Log in or sign up and enter the UDEN platform",
       "Tour the main dashboard and navigation",
       "Open the Upgrade to Pro page and compare Monthly, 6-Month and 1-Year plans",
       "See the points each plan gives you",
-      "Jump through Profile, Resume Builder, Resume Analysis, AI Interview Coach, ChatGPT Pro, Job Agent Pro, AI Job Matcher and Referral"
+      "Jump through Profile, Resume Builder, Resume Analysis, AI Interview Coach, UDEN AI Assistant, Job Agent Pro, AI Job Matcher and Referral"
     ],
     takeaways: [
       "UDEN provides multiple tools for career preparation and job search in one place.",
@@ -82,7 +82,7 @@ export const TUTORIAL_MODULES = [
     faqs: [
       {
         question: "What do I get from a subscription?",
-        answer: "A subscription provides a package of platform points valid for your subscription duration. You use these points to access AI-powered features like Resume Analysis, AI Interview practice, and ChatGPT Pro assistance."
+        answer: "A subscription provides a package of platform points valid for your subscription duration. You use these points to access AI-powered features like Resume Analysis, AI Interview practice, and UDEN AI Assistant assistance."
       },
       {
         question: "Which subscription options are available?",
@@ -143,31 +143,31 @@ export const TUTORIAL_MODULES = [
   {
     id: 3,
     number: "VIDEO 3 OF 8",
-    title: "Resume Analysis & ChatGPT Pro",
+    title: "Resume Analysis & UDEN AI Assistant",
     shortTitle: "Resume Analysis & ChatGP...",
     level: "Intermediate",
     duration: "1:30 mins",
     image: video3Img,
     videoUrl: video3Url,
     fallbackVideoUrl: '/assets/tutorials/ResumeAnalysis.mp4',
-    summary: "Show how users can improve their resume and use ChatGPT Pro to clarify doubts.",
+    summary: "Show how users can improve their resume and use UDEN AI Assistant to clarify doubts.",
     about: [
       "Resume Analysis helps you understand the objective quality of your resume through the eyes of modern ATS and recruiters. In this video, we upload a resume and trigger the analysis to uncover the estimated hiring probability.",
       "We walk through the comprehensive evaluation metrics: structure, impact metrics, action verbs, and missing industry keywords. You'll see specific recommendations on how to revise weak bullet points to boost your hiring chances.",
-      "Next, we open ChatGPT Pro — your 24/7 in-platform career mentor. We demonstrate asking questions about specific interview hurdles, tricky resume phrasing, and learning paths, showing how conversational follow-ups can help clarify any doubt."
+      "Next, we open UDEN AI Assistant — your 24/7 in-platform career mentor. We demonstrate asking questions about specific interview hurdles, tricky resume phrasing, and learning paths, showing how conversational follow-ups can help clarify any doubt."
     ],
     covers: [
       "Open Resume Analysis and upload your resume",
       "Start the analysis and view hiring probability score",
       "Show the complete analysis and areas for improvement",
       "Show actionable recommendations for making the resume better",
-      "Open ChatGPT Pro from the navigation",
+      "Open UDEN AI Assistant from the navigation",
       "Ask a practical question/doubt and show the response and follow-up conversation"
     ],
     takeaways: [
       "Resume Analysis helps users understand the quality and hiring probability of their resume.",
       "Users can use the recommendations to make their resume stronger.",
-      "ChatGPT Pro can be used to clarify doubts and get assistance within UDEN, including career, resume, interview, learning, or general questions."
+      "UDEN AI Assistant can be used to clarify doubts and get assistance within UDEN, including career, resume, interview, learning, or general questions."
     ],
     faqs: [
       {
@@ -175,8 +175,8 @@ export const TUTORIAL_MODULES = [
         answer: "Each full resume scan costs 5 points and generates an exhaustive analysis report with hiring probability."
       },
       {
-        question: "How does ChatGPT Pro deduct points?",
-        answer: "ChatGPT Pro deducts 1 point per conversational query/response interaction."
+        question: "How does UDEN AI Assistant deduct points?",
+        answer: "UDEN AI Assistant deducts 1 point per conversational query/response interaction."
       },
       {
         question: "What file formats does Resume Analysis support?",
@@ -242,12 +242,12 @@ export const TUTORIAL_MODULES = [
     summary: "Make the points system and referral rewards transparent so users understand how points are used and earned.",
     about: [
       "Transparency around points and rewards is essential for maximizing your value on UDEN. This video demonstrates exactly how points are consumed, where to track them, and how to earn both points and cash rewards through our referral program.",
-      "We show live transactions: ChatGPT Pro deducting 1 point, Resume Analysis deducting 5 points, and AI Interview booking consuming 150 points. You'll see where to audit every credit and debit inside My Profile's Transaction History.",
+      "We show live transactions: UDEN AI Assistant deducting 1 point, Resume Analysis deducting 5 points, and AI Interview booking consuming 150 points. You'll see where to audit every credit and debit inside My Profile's Transaction History.",
       "Finally, we walk through the Referral dashboard. You will learn how inviting friends rewards both of you upon signup (20 points each), and how upgrading friends generates up to ₹500 in direct cash rewards plus 500 points for you."
     ],
     covers: [
       "Show the user's current points balance in the platform header",
-      "Demonstrate one ChatGPT Pro conversation and show 1 point deduction",
+      "Demonstrate one UDEN AI Assistant conversation and show 1 point deduction",
       "Demonstrate Resume Analysis and show 5 points deduction",
       "Demonstrate AI Interview booking and show 150 points deduction",
       "Briefly explain that Job Agent Pro has its own point-deduction system",
@@ -255,7 +255,7 @@ export const TUTORIAL_MODULES = [
       "Open Referral and show referral code, link sharing, and cash reward structure"
     ],
     takeaways: [
-      "ChatGPT Pro: 1 point is deducted per conversation. Resume Analysis: 5 points deducted. AI Interview: 150 points deducted.",
+      "UDEN AI Assistant: 1 point is deducted per conversation. Resume Analysis: 5 points deducted. AI Interview: 150 points deducted.",
       "Job Agent Pro uses its own point-deduction system.",
       "Users can check their full point transaction history from My Profile.",
       "Referrals give: 20 pts on signup, ₹50 cash + 50 pts on 1-month sub, ₹300 cash + 300 pts on 6-month sub, ₹500 cash + 500 pts on 1-year sub."
