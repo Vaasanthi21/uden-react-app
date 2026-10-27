@@ -407,7 +407,7 @@ const Tutorials = () => {
               <button 
                 css={styles.aiBtn}
                 onClick={() => {
-                  window.open('https://cps.uden.tech/log_in', '_blank', 'noopener,noreferrer');
+                  const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer');
                 }}
               >
                 <Bot size={16} />

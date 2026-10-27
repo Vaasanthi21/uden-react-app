@@ -78,7 +78,7 @@ const DesktopHeader = ({ ...props }) => {
 
       <Button
         sx={{ display: { xs: 'none', md: 'flex' } }}
-        onClick={() => { window.open('https://cps.uden.tech/log_in', '_blank', 'noopener,noreferrer'); }}
+        onClick={() => { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); }}
         variant="contained"
         css={styles.signupButtonDesktop}
       >

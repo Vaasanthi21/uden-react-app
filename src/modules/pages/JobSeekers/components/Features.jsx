@@ -3,7 +3,7 @@ import React from 'react';
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/react';
 import { ArrowRight, Download, Award, Palette, BrainCircuit, FileText } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
 
 let StudentRoadmapImage, CandidateNetworkImage, AiRobotTeamImage, FaqSupportDeskImage;
@@ -206,6 +206,10 @@ const marqueeItems = [...suiteFeatures, ...suiteFeatures];
 
 const JobSeekersFeature = (props) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
+  const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
+  const handleCardClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   return (
     <div css={styles.sectionOuter} {...props}>
@@ -223,7 +227,7 @@ const JobSeekersFeature = (props) => {
             <div 
               key={idx} 
               css={styles.cardItem}
-              onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+              onClick={handleCardClick}
             >
               <div>
                 <div css={styles.previewImgBox}>

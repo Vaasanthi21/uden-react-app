@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import { Briefcase, Star, Sparkles, ArrowRight, CheckCircle2, Award, Users, Bot, BookOpen, ShieldCheck, ZoomIn, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
 
 import JobSeekerBanner from './components/Banner';
@@ -566,6 +566,10 @@ const JobSeekers = () => {
   const [isZoomOpen, setIsZoomOpen] = useState(false);
   const [zoomScale, setZoomScale] = useState(1);
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
+  const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
+  const handleApplyClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   const filteredJobs = jobRecommendations.filter(
     (j) => filter === 'all' || j.status.toLowerCase().includes(filter.toLowerCase())
@@ -764,7 +768,7 @@ const JobSeekers = () => {
                   </div>
                 </div>
 
-                <button css={styles.applyBtn} onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}>
+                <button css={styles.applyBtn} onClick={handleApplyClick}>
                   Prepare &amp; Apply Now
                   <ArrowRight size={16} />
                 </button>

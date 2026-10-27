@@ -3,7 +3,7 @@ import React from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import { ArrowRight, Zap } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
 
 const styles = {
@@ -85,6 +85,10 @@ const styles = {
 
 const JobSeekersKnowMore = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
+  const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
+  const handleCtaClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   return (
     <div css={styles.container}>
@@ -102,7 +106,7 @@ const JobSeekersKnowMore = () => {
 
         <button 
           css={styles.ctaBtn}
-          onClick={() => navigate(AppRoutes.FIND_OPPORTUNITY)}
+          onClick={handleCtaClick}
         >
           Explore Opportunities Now
           <ArrowRight size={18} />

@@ -301,11 +301,11 @@ const JobSeekerBanner = () => {
   const subtitleText = isStudents ? (
     'UDEN offers 24x7 AI mock interviews, resume optimization, and skill assessment for Tier 2/3 college students, with ₹20,000–₹50,000 referral rewards.'
   ) : (
-    'UDEN provides AI-matched career guidance, fitment scoring across 100,000+ job openings, and 1-click off-campus applications for first-time jobseekers, with ₹20,000–₹50,000 candidate referral rewards.'
+    'UDEN provides AI-matched career guidance, fitment scoring across 13,000+ job openings, and 1-click off-campus applications for first-time jobseekers, with ₹20,000–₹50,000 candidate referral rewards.'
   );
 
-  const primaryBtnText = isStudents ? 'Start Free AI Mock Interview' : 'Search 100,000+ Jobs';
-  const primaryBtnAction = () => navigate('/find-opportunity');
+  const primaryBtnText = isStudents ? 'Start Free AI Mock Interview' : 'Search 13,000+ Jobs';
+  const primaryBtnAction = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate('/find-opportunity'); } };
 
   const secondaryBtnText = isStudents ? 'Explore 2026 Placement Report' : 'AI Student Career Prep';
   const secondaryBtnAction = () => navigate(isStudents ? '/reports/tier-2-3-placement-report-2026' : '/students');

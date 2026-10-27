@@ -362,7 +362,7 @@ const MultiJobSearch = () => {
               AI CAREER COMPANION & ROADMAP
             </div>
             <h2>
-              Search <span>100,000+ Jobs</span> & Save 20 Days Manually
+              Search <span>13,000+ Jobs</span> & Save 20 Days Manually
             </h2>
             <p>
               UDEN’s AI companion understands your profile to eliminate manual job searching. Plus, get paid cash rewards while searching by referring friends!
