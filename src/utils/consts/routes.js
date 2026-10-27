@@ -15,6 +15,7 @@ const ABOUT_US = "/about";
 const COTACT_US = "/contact-us";
 const TERMS = "/terms-and-conditions";
 const PRIVACY = "/privacy-policy";
+const REFUND = "/refund-policy";
 const SITE_MAP = "/sitemap.xml";
 const CAREERS = "#";
 const COMMUNITY_FORUM = "#";
@@ -61,6 +62,7 @@ export const AppRoutes = {
     APP,
     TERMS,
     PRIVACY,
+    REFUND,
     SITE_MAP,
     CAREERS,
     COMMUNITY_FORUM,

@@ -122,6 +122,54 @@ const styles = {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   `,
 
+  inAppNoticeBanner: css`
+    background: #0F172A;
+    color: #F8FAFC;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    z-index: 1002;
+    @media (max-width: 768px) {
+      padding: 9px 14px;
+      font-size: 11.5px;
+    }
+  `,
+
+  inAppChromeBtn: css`
+    background: #F55825;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+    &:hover {
+      background: #EA580C;
+    }
+  `,
+
+  inAppCloseBtn: css`
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 6px;
+    &:hover {
+      color: #FFFFFF;
+    }
+  `,
+
   /* EXPANDED PROMINENT HEADER BANNER WITH ILLUSTRATION */
   topBanner: css`
     background: linear-gradient(90deg, #F55825 0%, #EA580C 35%, #D94616 70%, #F55825 100%);
@@ -1485,9 +1533,40 @@ const styles = {
   `
 };
 
+/* 14 NOV OFFER AUTO-SWITCH DEADLINE (23:59:59 IST = UTC+05:30) */
+const LAUNCH_OFFER_DEADLINE = new Date('2026-11-14T23:59:59+05:30').getTime();
+
+/* TOGGLE FOR TESTIMONIALS (HIDDEN ON /start UNTIL UDEN GIVES WRITTEN SIGN-OFF) */
+const SHOW_TESTIMONIALS = false;
+
 export default function StudentStart() {
   const [openFaq, setOpenFaq] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isOfferActive, setIsOfferActive] = useState(() => Date.now() <= LAUNCH_OFFER_DEADLINE);
+  const [showInAppBanner, setShowInAppBanner] = useState(true);
+
+  /* Detect in-app browsers (Instagram, Facebook, Messenger, TikTok) */
+  const [inAppInfo, setInAppInfo] = useState({ isInApp: false, isAndroid: false, isIOS: false });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.navigator) {
+      const ua = window.navigator.userAgent || '';
+      const isInApp = /FBAN|FBAV|Instagram|Messenger|Line|musical_ly|BytedanceWebview/i.test(ua);
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua);
+      setInAppInfo({ isInApp, isAndroid, isIOS });
+    }
+  }, []);
+
+  /* Check offer expiry every 30s so page auto-switches smoothly on 14 Nov 23:59:59 IST */
+  useEffect(() => {
+    const checkOffer = () => {
+      setIsOfferActive(Date.now() <= LAUNCH_OFFER_DEADLINE);
+    };
+    checkOffer();
+    const interval = setInterval(checkOffer, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   /* Carousel State: Templates */
   const [templateIndex, setTemplateIndex] = useState(0);
@@ -1607,7 +1686,7 @@ export default function StudentStart() {
     return () => clearInterval(timer);
   }, [isTestimPaused]);
 
-  /* General CTA click handler - ALWAYS OPENS IN NEW TAB */
+  /* General CTA click handler - ALWAYS OPENS IN NEW TAB (OR DIRECT CHROME INTENT IN META IN-APP BROWSER) */
   const handleCTAClick = (location, openInNewTab = true, destination = '') => {
     try {
       if (window.dataLayer) {
@@ -1625,6 +1704,15 @@ export default function StudentStart() {
     const sep = search ? '&' : '?';
     const destParam = destination ? `${sep}destination=${destination}` : '';
     const url = `https://cps.uden.tech/log_in${search}${destParam}`;
+
+    // If viewing inside Meta in-app browser on Android, trigger direct Chrome intent to prevent Google 403 disallowed_useragent
+    if (inAppInfo.isInApp && inAppInfo.isAndroid) {
+      const rawUrl = url.replace(/^https?:\/\//, '');
+      const chromeIntent = `intent://${rawUrl}#Intent;scheme=https;package=com.android.chrome;end`;
+      window.location.href = chromeIntent;
+      return;
+    }
+
     if (openInNewTab) {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
@@ -1650,7 +1738,21 @@ export default function StudentStart() {
     const search = window.location.search;
     const sep = search ? '&' : '?';
     const targetUrl = `https://cps.uden.tech/log_in${search}${sep}destination=resume_builder&template_id=${templateId}`;
+
+    if (inAppInfo.isInApp && inAppInfo.isAndroid) {
+      const rawUrl = targetUrl.replace(/^https?:\/\//, '');
+      const chromeIntent = `intent://${rawUrl}#Intent;scheme=https;package=com.android.chrome;end`;
+      window.location.href = chromeIntent;
+      return;
+    }
+
     window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  /* Open current page in external Chrome if user is on Android inside in-app browser */
+  const openInExternalChrome = () => {
+    const rawUrl = window.location.href.replace(/^https?:\/\//, '');
+    window.location.href = `intent://${rawUrl}#Intent;scheme=https;package=com.android.chrome;end`;
   };
 
   /* TESTIMONIALS DATA (OFFICIAL UDEN LANDING PAGE CANDIDATES & EMPLOYERS) */
@@ -1687,11 +1789,13 @@ export default function StudentStart() {
   const faqs = [
     {
       q: 'Is it really free to start?',
-      a: 'Yes, 100%! When you sign in with Google or LinkedIn, your account immediately receives 70 free starter points. You can use these to run multiple ATS resume checks and clarify placement doubts without entering any credit card.'
+      a: 'Yes, 100%! When you sign in with Google or LinkedIn, your account immediately receives 70 free starter points. You can use these to run multiple ATS resume checks and chat with the UDEN AI Assistant without entering any credit card.'
     },
     {
       q: 'What happens when my free points finish?',
-      a: 'Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ₹200/month launch plan for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.'
+      a: isOfferActive 
+        ? 'Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ₹200/month launch plan for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.'
+        : 'Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ₹500/month Student Placement Pass for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.'
     },
     {
       q: 'What makes UDEN’s Resume Builder & Templates different?',
@@ -1703,7 +1807,7 @@ export default function StudentStart() {
     },
     {
       q: 'How does the AI Interview Bot work?',
-      a: 'The AI Interview Bot lets you request mock interviews tailored to any specific role you target (such as SDE, Cloud Engineer, Data Analyst, etc.). It conducts interactive interview sessions based on authentic previously asked company questions (PYQs), evaluates your answers in real time with scoring, and allows you to clarify any technical or concept doubts instantly.'
+      a: 'The AI Interview Bot lets you request mock interviews tailored to any specific role you target (such as SDE, Cloud Engineer, Data Analyst, etc.). It conducts interactive interview sessions based on authentic previously asked company questions (PYQs), evaluates your answers in real time with scoring, and allows you to clarify any technical concept with the UDEN AI Assistant instantly.'
     },
     {
       q: 'Can I try an AI Mock Interview?',
@@ -1840,19 +1944,36 @@ export default function StudentStart() {
               </svg>
             </div>
             <div css={styles.bannerTextGroup}>
-              <div css={styles.bannerHeadline}>
-                <span css={styles.animatedSparkleIcon}>
-                  <Sparkles size={16} />
-                </span>
-                <span>Special Student Launch Offer: Get <strong>70 Free Starter Credits</strong> on Sign-Up!</span>
-              </div>
-              <div css={styles.bannerOfferPill}>
-                <Zap size={13} fill="#FEF08A" />
-                <span>₹200/mo Plan (60% OFF) Ends 14 Nov!</span>
-              </div>
+              {isOfferActive ? (
+                <>
+                  <div css={styles.bannerHeadline}>
+                    <span css={styles.animatedSparkleIcon}>
+                      <Sparkles size={16} />
+                    </span>
+                    <span>Special Student Launch Offer: Get <strong>70 Free Starter Points</strong> on Sign-Up!</span>
+                  </div>
+                  <div css={styles.bannerOfferPill}>
+                    <Zap size={13} fill="#FEF08A" />
+                    <span>₹200/mo Plan (60% OFF) Ends 14 Nov!</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div css={styles.bannerHeadline}>
+                    <span css={styles.animatedSparkleIcon}>
+                      <Sparkles size={16} />
+                    </span>
+                    <span>Student Placement Pass: Get <strong>70 Free Starter Points</strong> on Sign-Up!</span>
+                  </div>
+                  <div css={styles.bannerOfferPill}>
+                    <Zap size={13} fill="#FEF08A" />
+                    <span>₹500/mo Plan &bull; Full AI Mock Interviews &amp; Job Agent Pro</span>
+                  </div>
+                </>
+              )}
             </div>
             <button css={styles.bannerCtaBtn} onClick={() => handleCTAClick('top_banner_cta', true)}>
-              <span>Claim 70 Credits</span>
+              <span>Claim 70 Points</span>
               <ArrowRight size={14} />
             </button>
           </div>
@@ -1875,7 +1996,7 @@ export default function StudentStart() {
         <ScrollReveal delay={50} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div>
             <div css={styles.badgeTag}>
-              <Zap size={15} /> 13,000+ Job Openings on the Platform • 70 Free Credits Added on Sign Up • No Card Needed
+              <Zap size={15} /> 13,000+ Job Openings on the Platform • 70 Free Starter Points on Sign Up • No Card Needed
             </div>
             <h1 css={styles.heroTitle}>
               Will Your Resume Pass the <span>ATS Filter</span>?
@@ -2286,10 +2407,10 @@ export default function StudentStart() {
                 <div css={styles.rolePrepHighlightBox}>
                   <div css={styles.rolePrepSectionTitle}>
                     <Code size={16} color="#2563EB" />
-                    <span>Instant Technical Doubt Clearing</span>
+                    <span>UDEN AI Assistant: Instant Technical Clarifications</span>
                   </div>
                   <div style={{ fontSize: '12.5px', color: '#334155', lineHeight: 1.5 }}>
-                    Stuck during your prep? Ask the AI bot any technical doubt regarding data structures, code syntax, system design, or interview behavioral answers for immediate clarification.
+                    Stuck during your prep? Ask the UDEN AI Assistant any technical question regarding data structures, code syntax, system design, or interview behavioral answers for immediate clarification.
                   </div>
                 </div>
               </div>
@@ -2427,8 +2548,9 @@ export default function StudentStart() {
         </div>
       </section>
 
-      {/* AUTO-ROTATING TESTIMONIALS CAROUSEL & PLACEMENT PROOF */}
-      <section css={styles.testimonialsSection}>
+      {/* AUTO-ROTATING TESTIMONIALS CAROUSEL & PLACEMENT PROOF (CONDITIONALLY HIDDEN UNTIL UDEN SIGNS OFF) */}
+      {SHOW_TESTIMONIALS && (
+        <section css={styles.testimonialsSection}>
         <ScrollReveal delay={100} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div css={styles.sectionHeading}>
             <h2>Real Stories from UDEN Candidates &amp; Employers</h2>
@@ -2493,7 +2615,8 @@ export default function StudentStart() {
             </div>
           </div>
         </ScrollReveal>
-      </section>
+        </section>
+      )}
 
       {/* HOW IT WORKS IN 3 SIMPLE STEPS WITH SCROLL REVEAL */}
       <div css={styles.howItWorksBox}>
@@ -2512,7 +2635,7 @@ export default function StudentStart() {
               <div css={styles.stepNum}>1</div>
               <h4 style={{ fontSize: '17px', fontWeight: 800, margin: '0 0 8px', color: '#0F172A' }}>Sign in with Google</h4>
               <p style={{ fontSize: '14px', color: '#64748B', margin: 0, lineHeight: 1.55 }}>
-                Your account instantly starts with <strong>70 free credits</strong>. No payment details required.
+                Your account instantly starts with <strong>70 free starter points</strong>. No payment details required.
               </p>
             </div>
           </ScrollReveal>
@@ -2559,7 +2682,7 @@ export default function StudentStart() {
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 Free Starter Points</li>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Up to 14 ATS Resume Scans</li>
-                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 AI Doubt &amp; Query Clarifications</li>
+                <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 70 Queries with UDEN AI Assistant</li>
                 <li><CheckCircle2 size={16} color="#10B981" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Valid for 30 Days</li>
               </ul>
               <button 
@@ -2572,22 +2695,30 @@ export default function StudentStart() {
             </div>
           </ScrollReveal>
 
-          {/* Launch Offer Tier */}
+          {/* Paid Plan Tier (Auto switches ₹200 vs ₹500 on 14 Nov 23:59:59 IST) */}
           <ScrollReveal delay={200} style={{ width: '100%', boxSizing: 'border-box' }}>
             <div css={styles.pricingCard(true)}>
-              <div css={styles.popularRibbon}>Launch Offer: 60% OFF</div>
+              <div css={styles.popularRibbon}>
+                {isOfferActive ? 'Launch Offer: 60% OFF' : 'Recommended Plan'}
+              </div>
               <div style={{ fontSize: '13px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase' }}>
                 Student Placement Pass
               </div>
               <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 4px' }}>
-                ₹200 <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
+                {isOfferActive ? '₹200' : '₹500'} <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
               </div>
-              <div style={{ fontSize: '12.5px', color: '#DC2626', fontWeight: 800, marginBottom: '16px' }}>
-                ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
-              </div>
+              {isOfferActive ? (
+                <div style={{ fontSize: '12.5px', color: '#DC2626', fontWeight: 800, marginBottom: '16px' }}>
+                  ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
+                </div>
+              ) : (
+                <div style={{ fontSize: '12.5px', color: '#16A34A', fontWeight: 800, marginBottom: '16px' }}>
+                  ✓ Complete AI Interview &amp; Role Preparation Suite
+                </div>
+              )}
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', fontSize: '14px', lineHeight: 2.2 }}>
                 <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>1 Full Role-Specific AI Mock Interview</strong> + Report</li>
-                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong> for Scans &amp; Doubt Clearing</li>
+                <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> <strong>500 Bonus Points</strong> for Scans &amp; UDEN AI Assistant</li>
                 <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> AI Resume Builder &amp; ATS Templates</li>
                 <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Job Agent Pro: Fit Score Matching across 13,000+ Openings</li>
                 <li><CheckCircle2 size={16} color="#F55825" style={{ verticalAlign: 'middle', marginRight: '8px' }} /> Complete Selection Procedures, PYQs &amp; Learning Paths</li>
@@ -2597,7 +2728,7 @@ export default function StudentStart() {
                 style={{ width: '100%' }}
                 onClick={() => handleCTAClick('pricing_paid', true)}
               >
-                Start for ₹200 Today
+                {isOfferActive ? 'Start for ₹200 Today' : 'Get Placement Pass'}
                 <ArrowRight size={19} />
               </button>
             </div>
@@ -2637,7 +2768,7 @@ export default function StudentStart() {
       {/* STICKY BOTTOM BAR ON MOBILE */}
       <div css={styles.stickyMobileCta}>
         <div>
-          <div style={{ fontSize: '13px', fontWeight: 900, color: '#0F172A' }}>70 Free Credits</div>
+          <div style={{ fontSize: '13px', fontWeight: 900, color: '#0F172A' }}>70 Free Points</div>
           <div style={{ fontSize: '11px', color: '#16A34A', fontWeight: 700 }}>No card needed</div>
         </div>
         <button 
@@ -2662,6 +2793,8 @@ export default function StudentStart() {
           <Link to={AppRoutes.PRIVACY}>Privacy Policy</Link>
           <span>•</span>
           <Link to={AppRoutes.TERMS}>Terms &amp; Conditions</Link>
+          <span>•</span>
+          <Link to={AppRoutes.REFUND}>Refund &amp; Cancellation</Link>
           <span>•</span>
           <Link to="/contact-us">Contact Support</Link>
         </div>

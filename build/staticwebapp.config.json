@@ -4,7 +4,8 @@
       "route": "/start",
       "rewrite": "/index.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {
@@ -16,35 +17,40 @@
       "route": "/about",
       "rewrite": "/about.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {
       "route": "/students",
       "rewrite": "/students.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {
       "route": "/jobseekers",
       "rewrite": "/jobseekers.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {
       "route": "/colleges",
       "rewrite": "/colleges.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {
       "route": "/recruiters",
       "rewrite": "/recruiters.html",
       "headers": {
-        "cache-control": "no-cache, no-store, must-revalidate"
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
       }
     },
     {

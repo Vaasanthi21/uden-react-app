@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "route": "/start",
+      "rewrite": "/index.html",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "X-Robots-Tag": "noindex, nofollow"
+      }
+    },
+    {
       "route": "/about-us",
       "redirect": "/about",
       "statusCode": 301

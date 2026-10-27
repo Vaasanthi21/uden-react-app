@@ -20,6 +20,7 @@ const CampusPartnerFormPage = React.lazy(() => import('./modules/pages/KnowMoreF
 const HRServicesJoinPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/HRServicesJoinPage'));
 const GovernmentPartnerFormPage = React.lazy(() => import('./modules/pages/KnowMoreForm/components/GovernmentPartnerFormPage'));
 const PrivacyPolicy = React.lazy(() => import('./modules/pages/PrivacyPolicy/PrivacyPolicy'));
+const RefundPolicy = React.lazy(() => import('./modules/pages/RefundPolicy/RefundPolicy'));
 const TermsAndConditions = React.lazy(() => import('./modules/pages/TermsAndConditions/TermsAndConditions'));
 const HRServices = React.lazy(() => import('./modules/pages/HRServices/HRServices'));
 const Blogs = React.lazy(() => import('./modules/pages/Blogs/Blogs'));
@@ -120,6 +121,9 @@ function App() {
             <Route path={AppRoutes.FOR_STUDENTS} element={<JobSeekers />} />
             <Route path={AppRoutes.COTACT_US} element={<ContactUs />} />
             <Route path={AppRoutes.PRIVACY} element={<PrivacyPolicy />} />
+          <Route path={AppRoutes.REFUND} element={<RefundPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/refund-and-cancellation" element={<RefundPolicy />} />
             <Route path={AppRoutes.TERMS} element={<TermsAndConditions />} />
 
             {/* Persona Lead Generation Forms */}
