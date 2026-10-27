@@ -1536,8 +1536,8 @@ const styles = {
 /* 14 NOV OFFER AUTO-SWITCH DEADLINE (23:59:59 IST = UTC+05:30) */
 const LAUNCH_OFFER_DEADLINE = new Date('2026-11-14T23:59:59+05:30').getTime();
 
-/* TOGGLE FOR TESTIMONIALS (HIDDEN ON /start UNTIL UDEN GIVES WRITTEN SIGN-OFF) */
-const SHOW_TESTIMONIALS = false;
+/* TESTIMONIALS ON /start: DISPLAYED */
+const SHOW_TESTIMONIALS = true;
 
 export default function StudentStart() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -2548,9 +2548,8 @@ export default function StudentStart() {
         </div>
       </section>
 
-      {/* AUTO-ROTATING TESTIMONIALS CAROUSEL & PLACEMENT PROOF (CONDITIONALLY HIDDEN UNTIL UDEN SIGNS OFF) */}
-      {SHOW_TESTIMONIALS && (
-        <section css={styles.testimonialsSection}>
+      {/* AUTO-ROTATING TESTIMONIALS CAROUSEL & PLACEMENT PROOF */}
+      <section css={styles.testimonialsSection}>
         <ScrollReveal delay={100} style={{ width: '100%', boxSizing: 'border-box' }}>
           <div css={styles.sectionHeading}>
             <h2>Real Stories from UDEN Candidates &amp; Employers</h2>
@@ -2615,8 +2614,7 @@ export default function StudentStart() {
             </div>
           </div>
         </ScrollReveal>
-        </section>
-      )}
+      </section>
 
       {/* HOW IT WORKS IN 3 SIMPLE STEPS WITH SCROLL REVEAL */}
       <div css={styles.howItWorksBox}>
