@@ -6,6 +6,7 @@ import { ShieldCheck, Sparkles, CheckCircle2, ArrowRight, AlertCircle, RefreshCw
 import Logo from '../../../components/logo/Logo';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { buildBubbleLoginUrl } from 'utils/bubbleAuth';
 
 let FindOpportunityImage;
 try {
@@ -535,7 +536,7 @@ export default function FindOpportunityPage() {
 
             <div css={styles.signInPrompt}>
               Already have an account?{' '}
-              <a href={`https://cps.uden.tech/log_in${typeof window !== 'undefined' ? window.location.search : ''}`} target="_blank" rel="noopener noreferrer">
+              <a href={buildBubbleLoginUrl()} target="_blank" rel="noopener noreferrer">
                 Sign In to Portal
               </a>
             </div>

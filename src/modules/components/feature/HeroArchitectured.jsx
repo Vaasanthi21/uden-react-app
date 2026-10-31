@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
+import { openBubbleLogin } from '../../../utils/bubbleAuth';
 import { useFormModal } from '../modal/FormModalContext';
 
 const floatAnim = keyframes`
@@ -547,7 +548,18 @@ export default function HeroArchitectured() {
             <div css={styles.ctaRow}>
               <button 
                 css={styles.primaryBtn}
-                onClick={() => openModal('getStarted')}
+                onClick={() => {
+                  try {
+                    if (window.dataLayer) {
+                      window.dataLayer.push({
+                        event: "cta_click",
+                        button_text: "Get Started Free",
+                        button_location: "hero_landing_page"
+                      });
+                    }
+                  } catch (e) {}
+                  openBubbleLogin();
+                }}
                 className="uden-pulse-btn"
               >
                 Get Started Free

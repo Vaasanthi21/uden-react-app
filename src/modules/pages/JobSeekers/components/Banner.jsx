@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { Sparkles, ArrowRight, CheckCircle2, Star, ShieldCheck, UserCheck, TrendingUp, Building } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { openBubbleLogin } from 'utils/bubbleAuth';
 
 let JobTeamImage;
 try {
@@ -305,7 +306,7 @@ const JobSeekerBanner = () => {
   );
 
   const primaryBtnText = isStudents ? 'Start Free AI Mock Interview' : 'Search 13,000+ Jobs';
-  const primaryBtnAction = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate('/find-opportunity'); } };
+  const primaryBtnAction = () => { if (isStudents) { openBubbleLogin(); } else { navigate('/find-opportunity'); } };
 
   const secondaryBtnText = isStudents ? 'Explore 2026 Placement Report' : 'AI Student Career Prep';
   const secondaryBtnAction = () => navigate(isStudents ? '/reports/tier-2-3-placement-report-2026' : '/students');

@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { openBubbleLogin } from 'utils/bubbleAuth';
 
 const styles = {
   container: css`
@@ -88,7 +89,7 @@ const JobSeekersKnowMore = () => {
   const location = useLocation();
   const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
   const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
-  const handleCtaClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
+  const handleCtaClick = () => { if (isStudents) { openBubbleLogin(); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   return (
     <div css={styles.container}>

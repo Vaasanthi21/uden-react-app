@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import './App.css';
 import { AppRoutes } from './utils/consts/routes';
+import { captureTrackingParams } from './utils/bubbleAuth';
 import Layout from './modules/components/layout/Layout';
 import Home from './modules/pages/Home/Home';
 
@@ -69,6 +70,9 @@ class ErrorBoundary extends Component {
 }
 
 function App() {
+  React.useEffect(() => {
+    captureTrackingParams();
+  }, []);
   return (
     <ErrorBoundary>
       <div className="App">

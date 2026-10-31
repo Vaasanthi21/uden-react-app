@@ -13,6 +13,7 @@ import Logo from '../../../logo/Logo';
 import { HeaderStyles as styles } from '../styles/Header.Style';
 import { HeaderConst } from '../header.const';
 import { AppRoutes } from '../../../../../utils/consts/routes';
+import { openBubbleLogin } from '../../../../../utils/bubbleAuth';
 
 const DesktopHeader = ({ ...props }) => {
   const navigate = useNavigate();
@@ -78,7 +79,18 @@ const DesktopHeader = ({ ...props }) => {
 
       <Button
         sx={{ display: { xs: 'none', md: 'flex' } }}
-        onClick={() => { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); }}
+        onClick={() => {
+          try {
+            if (window.dataLayer) {
+              window.dataLayer.push({
+                event: 'cta_click',
+                button_text: data.ButtonStrings.SIGNUP_SIGNIN,
+                button_location: 'header_desktop'
+              });
+            }
+          } catch (e) {}
+          openBubbleLogin();
+        }}
         variant="contained"
         css={styles.signupButtonDesktop}
       >

@@ -5,6 +5,7 @@ import { jsx, css } from '@emotion/react';
 import { Briefcase, Star, Sparkles, ArrowRight, CheckCircle2, Award, Users, Bot, BookOpen, ShieldCheck, ZoomIn, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { openBubbleLogin } from 'utils/bubbleAuth';
 
 import JobSeekerBanner from './components/Banner';
 import JobSeekerDualInfographic from './components/JobSeekerDualInfographic';
@@ -569,7 +570,7 @@ const JobSeekers = () => {
   const location = useLocation();
   const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
   const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
-  const handleApplyClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
+  const handleApplyClick = () => { if (isStudents) { openBubbleLogin(); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   const filteredJobs = jobRecommendations.filter(
     (j) => filter === 'all' || j.status.toLowerCase().includes(filter.toLowerCase())

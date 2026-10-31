@@ -19,6 +19,7 @@ import { TUTORIAL_HERO_DATA, TUTORIAL_MODULES } from './tutorials.data';
 import { styles } from './Tutorials.style';
 import SEOHead from '../../components/seo/SEOHead';
 import { useFormModal } from '../../components/modal/FormModalContext';
+import { openBubbleLogin } from 'utils/bubbleAuth';
 
 const Tutorials = () => {
   const [activeModuleId, setActiveModuleId] = useState(1);
@@ -407,7 +408,7 @@ const Tutorials = () => {
               <button 
                 css={styles.aiBtn}
                 onClick={() => {
-                  const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer');
+                  openBubbleLogin();
                 }}
               >
                 <Bot size={16} />

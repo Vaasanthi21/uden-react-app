@@ -44,6 +44,7 @@ import Logo from '../../components/logo/Logo';
 import ScrollReveal from '../../components/layout/ScrollReveal';
 import { AppRoutes } from '../../../utils/consts/routes';
 import { AppAssets } from '../../../utils/consts/app_assets';
+import { buildBubbleLoginUrl } from '../../../utils/bubbleAuth';
 
 /* KEYFRAME ANIMATIONS FOR SMOOTH TRANSITIONS & HOVER EFFECTS */
 const floatSlow = keyframes`
@@ -1703,7 +1704,7 @@ export default function StudentStart() {
     const search = window.location.search;
     const sep = search ? '&' : '?';
     const destParam = destination ? `${sep}destination=${destination}` : '';
-    const url = `https://cps.uden.tech/log_in${search}${destParam}`;
+    const url = buildBubbleLoginUrl(destination ? { destination } : {});
 
     // If viewing inside Meta in-app browser on Android, trigger direct Chrome intent to prevent Google 403 disallowed_useragent
     if (inAppInfo.isInApp && inAppInfo.isAndroid) {
@@ -1737,7 +1738,7 @@ export default function StudentStart() {
 
     const search = window.location.search;
     const sep = search ? '&' : '?';
-    const targetUrl = `https://cps.uden.tech/log_in${search}${sep}destination=resume_builder&template_id=${templateId}`;
+    const targetUrl = buildBubbleLoginUrl({ destination: 'resume_builder', template_id: templateId });
 
     if (inAppInfo.isInApp && inAppInfo.isAndroid) {
       const rawUrl = targetUrl.replace(/^https?:\/\//, '');

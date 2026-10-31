@@ -5,6 +5,7 @@ import { jsx, css, keyframes } from '@emotion/react';
 import { ArrowRight, Download, Award, Palette, BrainCircuit, FileText } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AppRoutes } from 'utils/consts/routes';
+import { openBubbleLogin } from 'utils/bubbleAuth';
 
 let StudentRoadmapImage, CandidateNetworkImage, AiRobotTeamImage, FaqSupportDeskImage;
 try {
@@ -209,7 +210,7 @@ const JobSeekersFeature = (props) => {
   const location = useLocation();
   const path = (location?.pathname || (typeof window !== 'undefined' ? window.location.pathname : '')).toLowerCase();
   const isStudents = path.includes('/students') || path.includes('/benefits') || path.includes('/for-students');
-  const handleCardClick = () => { if (isStudents) { const q = typeof window !== 'undefined' ? window.location.search : ''; window.open(`https://cps.uden.tech/log_in${q}`, '_blank', 'noopener,noreferrer'); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
+  const handleCardClick = () => { if (isStudents) { openBubbleLogin(); } else { navigate(AppRoutes.FIND_OPPORTUNITY); } };
 
   return (
     <div css={styles.sectionOuter} {...props}>

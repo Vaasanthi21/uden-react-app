@@ -22,6 +22,7 @@ import { HeaderConst } from '../header.const';
 import { HeaderStyles as styles } from '../styles/Header.Style';
 import { Button, ListItemIcon, Collapse } from '@mui/material';
 import { AppRoutes } from '../../../../../utils/consts/routes';
+import { buildBubbleLoginUrl } from '../../../../../utils/bubbleAuth';
 import Spacer from '../../../Spacer';
 
 const Drawer = ({ props }) => {
@@ -82,7 +83,7 @@ const Drawer = ({ props }) => {
                     </List>
 
                     <Spacer height />
-                    <Button href={`https://cps.uden.tech/log_in${typeof window !== 'undefined' ? window.location.search : ''}`} target="_blank" rel="noopener noreferrer" onClick={props.closeDrawer} variant="contained" css={styles.signupButtonMobile} size="large">
+                    <Button href={buildBubbleLoginUrl()} target="_blank" rel="noopener noreferrer" onClick={() => { try { if (window.dataLayer) { window.dataLayer.push({ event: 'cta_click', button_text: data.ButtonStrings.SIGNUP_SIGNIN, button_location: 'header_mobile_drawer' }); } } catch (err) {} props.closeDrawer(); }} variant="contained" css={styles.signupButtonMobile} size="large">
                         {data.ButtonStrings.SIGNUP_SIGNIN}
                     </Button>
 
