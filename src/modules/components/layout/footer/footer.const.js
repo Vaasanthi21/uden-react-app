@@ -39,6 +39,11 @@ export const FooterConst = {
                 isDisabled:false,
             },
             {
+                NAME:"Refund & Cancellation",
+                LINK:AppRoutes.REFUND,
+                isDisabled:false,
+            },
+            {
                 NAME:"Contact Us",
                 LINK:AppRoutes.COTACT_US,
                 isDisabled:false,
@@ -87,6 +92,10 @@ export const FooterConst = {
         {
             NAME:"Privacy Policy",
             LINK:AppRoutes.PRIVACY,
+        },
+        {
+            NAME:"Refund & Cancellation",
+            LINK:AppRoutes.REFUND,
         }
 
     ],

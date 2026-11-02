@@ -419,6 +419,7 @@ export default function FindOpportunityPage() {
       try {
         if (window._hsq) {
           const params = new URLSearchParams(window.location.search);
+          const getVal = (k) => params.get(k) || (typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(`uden_${k}`) : '') || '';
           window._hsq.push(["identify", {
             email: formData.workEmail,
             firstname: formData.fullName.split(' ')[0] || formData.fullName,
@@ -426,12 +427,12 @@ export default function FindOpportunityPage() {
             phone: formData.phone,
             country: formData.country,
             experience: formData.experience,
-            referral_source: formData.referralSource || params.get('utm_source') || '',
-            utm_source: params.get('utm_source') || '',
-            utm_medium: params.get('utm_medium') || '',
-            utm_campaign: params.get('utm_campaign') || '',
-            utm_content: params.get('utm_content') || '',
-            utm_term: params.get('utm_term') || ''
+            referral_source: formData.referralSource || getVal('utm_source') || '',
+            utm_source: getVal('utm_source'),
+            utm_medium: getVal('utm_medium'),
+            utm_campaign: getVal('utm_campaign'),
+            utm_content: getVal('utm_content'),
+            utm_term: getVal('utm_term')
           }]);
           window._hsq.push(["trackEvent", { id: "Candidate Blueprint Opportunity Submission" }]);
         }
