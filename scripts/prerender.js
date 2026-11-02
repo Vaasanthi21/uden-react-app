@@ -38,7 +38,7 @@ const renderHeader = () => `
       <nav style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
         <a href="https://uden.tech/companies" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">Hire from us</a>
         <a href="https://uden.tech/jobseekers" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">Jobseekers</a>
-        <a href="https://uden.tech/hr-services" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">HR Services <span style="background: #F55825; color: #FFF; font-size: 10px; padding: 2px 6px; border-radius: 8px; margin-left: 4px; font-weight: 800;">New</span></a>
+        <a href="https://uden.tech/hr-services" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">HR Services</a>
         <a href="https://uden.tech/campus-placements" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">Campus Placements</a>
         <a href="https://uden.tech/government" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">Government</a>
         <a href="https://uden.tech/about" style="color: #334155; text-decoration: none; font-size: 14.5px; font-weight: 700;">About Us</a>

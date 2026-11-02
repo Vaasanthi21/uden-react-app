@@ -44,7 +44,7 @@ const Icons = [
     <ContactPage key="about" />
 ];
 
-const Badge = [null, null, "New", null, null, null];
+const Badge = [null, null, null, null, null, null];
 
 const Tabs = {
     Routes,
