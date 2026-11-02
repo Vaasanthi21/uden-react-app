@@ -144,7 +144,7 @@ export const TUTORIAL_MODULES = [
     id: 3,
     number: "VIDEO 3 OF 8",
     title: "Resume Analysis & UDEN AI Assistant",
-    shortTitle: "Resume Analysis & ChatGP...",
+    shortTitle: "Resume Analysis & UDEN AI...",
     level: "Intermediate",
     duration: "1:30 mins",
     image: video3Img,

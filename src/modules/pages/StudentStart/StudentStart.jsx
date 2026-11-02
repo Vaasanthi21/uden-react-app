@@ -45,6 +45,7 @@ import ScrollReveal from '../../components/layout/ScrollReveal';
 import { AppRoutes } from '../../../utils/consts/routes';
 import { AppAssets } from '../../../utils/consts/app_assets';
 import { buildBubbleLoginUrl } from '../../../utils/bubbleAuth';
+import { getOfferConfig } from '../../../config/launchOffer.config';
 
 /* KEYFRAME ANIMATIONS FOR SMOOTH TRANSITIONS & HOVER EFFECTS */
 const floatSlow = keyframes`
@@ -1534,8 +1535,7 @@ const styles = {
   `
 };
 
-/* 14 NOV OFFER AUTO-SWITCH DEADLINE (23:59:59 IST = UTC+05:30) */
-const LAUNCH_OFFER_DEADLINE = new Date('2026-11-14T23:59:59+05:30').getTime();
+/* LAUNCH OFFER AUTO-SWITCH: Driven by ONE central config date in src/config/launchOffer.config.js */
 
 /* TESTIMONIALS ON /start: DISPLAYED */
 const SHOW_TESTIMONIALS = true;
@@ -1543,7 +1543,8 @@ const SHOW_TESTIMONIALS = true;
 export default function StudentStart() {
   const [openFaq, setOpenFaq] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isOfferActive, setIsOfferActive] = useState(() => Date.now() <= LAUNCH_OFFER_DEADLINE);
+  const [offerConfig, setOfferConfig] = useState(() => getOfferConfig());
+  const isOfferActive = offerConfig.isOfferActive;
   const [showInAppBanner, setShowInAppBanner] = useState(true);
 
   /* Detect in-app browsers (Instagram, Facebook, Messenger, TikTok) */
@@ -1559,10 +1560,10 @@ export default function StudentStart() {
     }
   }, []);
 
-  /* Check offer expiry every 30s so page auto-switches smoothly on 14 Nov 23:59:59 IST */
+  /* Check offer expiry every 30s so page auto-switches smoothly using the central config */
   useEffect(() => {
     const checkOffer = () => {
-      setIsOfferActive(Date.now() <= LAUNCH_OFFER_DEADLINE);
+      setOfferConfig(getOfferConfig());
     };
     checkOffer();
     const interval = setInterval(checkOffer, 30000);
@@ -1795,8 +1796,8 @@ export default function StudentStart() {
     {
       q: 'What happens when my free points finish?',
       a: isOfferActive 
-        ? 'Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ₹200/month launch plan for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.'
-        : 'Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ₹500/month Student Placement Pass for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.'
+        ? `Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ${offerConfig.offerPrice}/month launch plan for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.`
+        : `Free points give you full access to diagnose your resume and explore features. When they finish, you can upgrade to the ${offerConfig.standardPrice}/month Student Placement Pass for full AI mock interviews, unlimited resume template exports, and Job Agent Pro matching.`
     },
     {
       q: 'What makes UDEN’s Resume Builder & Templates different?',
@@ -1812,7 +1813,7 @@ export default function StudentStart() {
     },
     {
       q: 'Can I try an AI Mock Interview?',
-      a: 'AI mock interviews simulate real-world technical and HR rounds with instant evaluation and response analytics. 1 Full AI Mock Interview with an in-depth performance report and PYQ training is included with the ₹200 Student Placement Pass.'
+      a: `AI mock interviews simulate real-world technical and HR rounds with instant evaluation and response analytics. 1 Full AI Mock Interview with an in-depth performance report and PYQ training is included with the ${offerConfig.currentPrice} Student Placement Pass.`
     },
     {
       q: 'Is my resume and personal data safe?',
@@ -1955,7 +1956,7 @@ export default function StudentStart() {
                   </div>
                   <div css={styles.bannerOfferPill}>
                     <Zap size={13} fill="#FEF08A" />
-                    <span>₹200/mo Plan (60% OFF) Ends 14 Nov!</span>
+                    <span>{offerConfig.bannerOfferText}</span>
                   </div>
                 </>
               ) : (
@@ -2698,17 +2699,17 @@ export default function StudentStart() {
           <ScrollReveal delay={200} style={{ width: '100%', boxSizing: 'border-box' }}>
             <div css={styles.pricingCard(true)}>
               <div css={styles.popularRibbon}>
-                {isOfferActive ? 'Launch Offer: 60% OFF' : 'Recommended Plan'}
+                {offerConfig.popularRibbonText}
               </div>
               <div style={{ fontSize: '13px', fontWeight: 800, color: '#F55825', textTransform: 'uppercase' }}>
                 Student Placement Pass
               </div>
               <div style={{ fontSize: '38px', fontWeight: 900, color: '#0F172A', margin: '8px 0 4px' }}>
-                {isOfferActive ? '₹200' : '₹500'} <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
+                {offerConfig.currentPrice} <span style={{ fontSize: '14px', color: '#64748B', fontWeight: 600 }}>/ month</span>
               </div>
               {isOfferActive ? (
                 <div style={{ fontSize: '12.5px', color: '#DC2626', fontWeight: 800, marginBottom: '16px' }}>
-                  ⏰ Offer ends 14 Nov. Switches to ₹500 on 15 Nov!
+                  {offerConfig.pricingSwitchText}
                 </div>
               ) : (
                 <div style={{ fontSize: '12.5px', color: '#16A34A', fontWeight: 800, marginBottom: '16px' }}>
@@ -2727,7 +2728,7 @@ export default function StudentStart() {
                 style={{ width: '100%' }}
                 onClick={() => handleCTAClick('pricing_paid', true)}
               >
-                {isOfferActive ? 'Start for ₹200 Today' : 'Get Placement Pass'}
+                {offerConfig.currentCtaText}
                 <ArrowRight size={19} />
               </button>
             </div>
