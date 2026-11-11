@@ -221,7 +221,7 @@ const DualValueProposition = () => {
   const [expandedCompany, setExpandedCompany] = React.useState(false);
 
   return (
-    <div css={styles.sectionOuter} id="how-it-works">
+    <div css={styles.sectionOuter} id="dual-value-prop">
       <div css={styles.container}>
         
         {/* HEADER */}

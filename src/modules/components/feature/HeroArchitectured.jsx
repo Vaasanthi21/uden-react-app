@@ -696,11 +696,11 @@ export default function HeroArchitectured() {
                 css={styles.seeHowLink}
                 onClick={(e) => {
                   e.preventDefault();
-                  const target = document.getElementById('placement-comparison') || document.querySelector('[data-section="how-it-works"]');
+                  const target = document.getElementById('how-it-works');
                   if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    openModal('demo');
+                    const yOffset = -80;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
               >

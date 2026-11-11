@@ -222,7 +222,7 @@ export default function PlacementComparisonTable() {
   const { openModal } = useFormModal();
 
   return (
-    <div css={styles.wrapper}>
+    <div css={styles.wrapper} id="placement-comparison">
       <div css={styles.header}>
         <div css={styles.badge}>
           <Sparkles size={13} color="#F55825" />
