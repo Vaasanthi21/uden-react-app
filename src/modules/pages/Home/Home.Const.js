@@ -4,47 +4,47 @@ import { AppRoutes } from "utils/consts/routes";
 const SliderItems = [
     {
         id: 1,
-        title:"Find The Talent You Need",
-        subtitle:"From The Global Pool",
-        points:["Ai Powered","Pre Assessed","Curated Programs"],
-        action:{
-            name:"Find Talent",
-            href:AppRoutes.FIND_TALENT
+        title: "Hire pre-assessed graduates from the talent pool",
+        subtitle: "For recruiters: shortlists in 48 hours",
+        points: ["AI Screening", "48-Hour Shortlists", "Pre-Assessed Talent"],
+        action: {
+            name: "Find Talent",
+            href: AppRoutes.FIND_TALENT
         },
-        image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_FIND_TALENT
+        image: AppAssets.HomeAssets.SLIDER.HOMESLIDER_FIND_TALENT
     },
     {
         id: 2,
-        title:"Get Access To Global Companies",
-        subtitle:"To Realize Your Dream",
-        points:["Get Up-Skilled","Mentored","Enhanced Resume"],
-        action:{
-            name:"Find Opportunities",
-            href:AppRoutes.FIND_OPPORTUNITY
+        title: "Land top campus offers with AI mock interviews",
+        subtitle: "For students & graduates: practice 24x7, fix skill gaps, and get shortlisted",
+        points: ["24x7 AI Interviews", "ATS Resume Score", "Direct Shortlists"],
+        action: {
+            name: "Find Opportunities",
+            href: AppRoutes.FIND_OPPORTUNITY
         },
-        image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_GET_ACCESS
+        image: AppAssets.HomeAssets.SLIDER.HOMESLIDER_GET_ACCESS
     },
     {
         id: 3,
-        title:"Up-Skill Talent And Bring To Them A World",
-        subtitle:"Of Opportunities With Global Companies",
-        points:["Up-Skill","Mentorship","Talent Readiness"],
-        action:{
-            name:"Become A Partner",
-            href:AppRoutes.BECOME_PARTNER
+        title: "Automate campus placement drives & student readiness",
+        subtitle: "For colleges: end-to-end drive scheduling & verified student shortlists",
+        points: ["Drive Scheduling", "Batch Analytics", "150+ Hiring Tie-ups"],
+        action: {
+            name: "Become A Partner",
+            href: AppRoutes.BECOME_PARTNER
         },
-        image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_UPSKILL
+        image: AppAssets.HomeAssets.SLIDER.HOMESLIDER_UPSKILL
     },
     {
         id: 4,
-        title:"Get HR Service",
-        subtitle:"Make your Company best place to work",
-        points:["Customized solutions","Expert guidance","Comprehensive services"],
-        action:{
-            name:"Join HR Services",
-            href:AppRoutes.HR_SERVICE_JOIN
+        title: "End-to-End HR Operations & Talent Acquisition",
+        subtitle: "Make your company the best place to work with customized HR solutions",
+        points: ["AI Sourcing", "Labor Compliance", "Seamless Onboarding"],
+        action: {
+            name: "Join HR Services",
+            href: AppRoutes.HR_SERVICE_JOIN
         },
-        image:AppAssets.HomeAssets.SLIDER.HOMESLIDER_HR_SERVICE
+        image: AppAssets.HomeAssets.SLIDER.HOMESLIDER_HR_SERVICE
     }
 ];
 

@@ -162,20 +162,136 @@ const styles = {
       }
     }
   `,
+  seeHowLink: css`
+    background: transparent;
+    color: #475569;
+    border: none;
+    padding: 12px 14px;
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #F55825;
+      text-decoration: underline;
+    }
+  `,
+  proofBlock: css`
+    margin-bottom: 32px;
+  `,
   trustSubline: css`
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
     color: #64748B;
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 32px;
+    gap: 8px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 
-    span {
-      color: #1E293B;
+    span strong {
+      color: #0F172A;
       font-weight: 800;
     }
+  `,
+  ratingBadge: css`
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    padding: 2px 8px;
+    border-radius: 12px;
+  `,
+  stars: css`
+    color: #F59E0B;
+    font-size: 12px;
+    letter-spacing: 1px;
+  `,
+  ratingScore: css`
+    font-size: 12px;
+    font-weight: 800;
+    color: #92400E;
+  `,
+  dotSeparator: css`
+    color: #CBD5E1;
+  `,
+  alumniBar: css`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  `,
+  alumniLabel: css`
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  `,
+  alumniTags: css`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  `,
+  alumniTag: css`
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    padding: 2px 8px;
+    border-radius: 6px;
+  `,
+  mobileStickyBar: css`
+    display: none;
+    @media (max-width: 768px) {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #E2E8F0;
+      z-index: 9999;
+      gap: 10px;
+      align-items: center;
+    }
+  `,
+  mobileStickyPrimary: css`
+    flex: 1.3;
+    background: #F55825;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(245, 88, 37, 0.3);
+    text-align: center;
+  `,
+  mobileStickySecondary: css`
+    flex: 1;
+    background: #FFFFFF;
+    color: #0F172A;
+    border: 1.5px solid #CBD5E1;
+    padding: 11px 12px;
+    border-radius: 25px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
   `,
 
   /* 3 STAKEHOLDER CARDS GRID */
@@ -575,6 +691,22 @@ export default function HeroArchitectured() {
                 <ArrowRight size={18} />
               </button>
 
+              <a 
+                href="#how-it-works"
+                css={styles.seeHowLink}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById('placement-comparison') || document.querySelector('[data-section="how-it-works"]');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    openModal('demo');
+                  }
+                }}
+              >
+                See how it works →
+              </a>
+
               <button 
                 css={styles.secondaryBtn}
                 onClick={() => {
@@ -595,9 +727,28 @@ export default function HeroArchitectured() {
               </button>
             </div>
 
-            <div css={styles.trustSubline}>
-              <ShieldCheck size={16} color="#10B981" />
-              <span>Trusted by 100+ Colleges</span> • <span>70+ Recruiters</span> • <span>Thousands of Students</span>
+            <div css={styles.proofBlock}>
+              <div css={styles.trustSubline}>
+                <div css={styles.ratingBadge}>
+                  <span css={styles.stars}>★★★★★</span>
+                  <span css={styles.ratingScore}>4.9/5</span>
+                </div>
+                <span css={styles.dotSeparator}>•</span>
+                <span><strong>2,500+</strong> Placed</span>
+                <span css={styles.dotSeparator}>•</span>
+                <span><strong>150+</strong> Recruiters</span>
+                <span css={styles.dotSeparator}>•</span>
+                <span><strong>100+</strong> Colleges</span>
+              </div>
+              <div css={styles.alumniBar}>
+                <span css={styles.alumniLabel}>Alumni hired at</span>
+                <div css={styles.alumniTags}>
+                  <span css={styles.alumniTag}>Deloitte</span>
+                  <span css={styles.alumniTag}>TCS</span>
+                  <span css={styles.alumniTag}>Cognizant</span>
+                  <span css={styles.alumniTag}>Infosys</span>
+                </div>
+              </div>
             </div>
 
             {/* Triad Grid: For Students, For Colleges, For Recruiters */}
@@ -855,6 +1006,34 @@ export default function HeroArchitectured() {
         </div>
 
       </div>
+
+      {/* Mobile Sticky Action Bar (Item 5 CRO) */}
+      <div css={styles.mobileStickyBar}>
+        <button 
+          css={styles.mobileStickyPrimary}
+          onClick={() => {
+            try {
+              if (window.dataLayer) {
+                window.dataLayer.push({
+                  event: 'cta_click',
+                  button_text: 'Get Started Free',
+                  button_location: 'mobile_sticky_bar'
+                });
+              }
+            } catch (e) {}
+            openBubbleLogin();
+          }}
+        >
+          Get Started Free →
+        </button>
+        <button 
+          css={styles.mobileStickySecondary}
+          onClick={() => openModal('demo')}
+        >
+          Book a Demo
+        </button>
+      </div>
+
     </div>
   );
 }

@@ -176,9 +176,31 @@ const styles = {
     gap: 24px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
   `,
+  expandBtn: (isCompany) => css`
+    width: 100%;
+    margin-top: 16px;
+    background: transparent;
+    border: 1.5px dashed ${isCompany ? '#C084FC' : '#FDBA74'};
+    color: ${isCompany ? '#7E22CE' : '#C2410C'};
+    padding: 10px 18px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: ${isCompany ? '#F3E8FF' : '#FFEDD5'};
+      border-color: ${isCompany ? '#7E22CE' : '#EA580C'};
+    }
+  `,
   metricBox: css`
     text-align: center;
-    h4 {
+    .metric-val {
       font-size: 28px;
       font-weight: 800;
       color: #F55825;
@@ -189,13 +211,17 @@ const styles = {
       font-weight: 700;
       color: #64748B;
       text-transform: uppercase;
+      margin: 0;
     }
   `
 };
 
 const DualValueProposition = () => {
+  const [expandedSeeker, setExpandedSeeker] = React.useState(false);
+  const [expandedCompany, setExpandedCompany] = React.useState(false);
+
   return (
-    <div css={styles.sectionOuter}>
+    <div css={styles.sectionOuter} id="how-it-works">
       <div css={styles.container}>
         
         {/* HEADER */}
@@ -236,59 +262,70 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>2</div>
                 <div css={styles.stepText}>
-                  <h4>Personalized AI Learning Path</h4>
-                  <p>Curated micro-courses tailored to high-demand corporate job roles.</p>
+                  <h4>24x7 AI Mock Interviews &amp; Resume Score</h4>
+                  <p>Practice live video mock interviews with real-time feedback and fix ATS resume bottlenecks.</p>
                 </div>
               </div>
 
               <div css={styles.stepItem(false)}>
                 <div css={styles.stepNum(false)}>3</div>
                 <div css={styles.stepText}>
-                  <h4>Skill Building &amp; Real Projects</h4>
-                  <p>Build industry-grade projects verified by recruiter neural networks.</p>
+                  <h4>AI Fitment, Direct Matching &amp; Referral Rewards</h4>
+                  <p>Matched directly to partner openings saving 20+ days of searching, plus ₹20,000–₹50,000 referral cash prizes.</p>
                 </div>
               </div>
 
-              <div css={styles.stepItem(false)}>
-                <div css={styles.stepNum(false)}>4</div>
-                <div css={styles.stepText}>
-                  <h4>AI Mock Interviews &amp; Resume Score</h4>
-                  <p>Practice live video mock interviews and fix ATS resume bottlenecks.</p>
-                </div>
-              </div>
+              {expandedSeeker && (
+                <>
+                  <div css={styles.stepItem(false)}>
+                    <div css={styles.stepNum(false)}>4</div>
+                    <div css={styles.stepText}>
+                      <h4>Personalized AI Learning Path</h4>
+                      <p>Curated micro-courses tailored to high-demand corporate job roles.</p>
+                    </div>
+                  </div>
 
-              <div css={styles.stepItem(false)}>
-                <div css={styles.stepNum(false)}>5</div>
-                <div css={styles.stepText}>
-                  <h4>Certifications &amp; Skill Badging</h4>
-                  <p>Earn verified credentials recognized by 150+ corporate hiring partners.</p>
-                </div>
-              </div>
+                  <div css={styles.stepItem(false)}>
+                    <div css={styles.stepNum(false)}>5</div>
+                    <div css={styles.stepText}>
+                      <h4>Skill Building &amp; Real Projects</h4>
+                      <p>Build industry-grade projects verified by recruiter neural networks.</p>
+                    </div>
+                  </div>
 
-              <div css={styles.stepItem(false)}>
-                <div css={styles.stepNum(false)}>6</div>
-                <div css={styles.stepText}>
-                  <h4>AI Fitment &amp; Direct Job Matching</h4>
-                  <p>Matched directly to partner openings saving 20+ days of manual searching.</p>
-                </div>
-              </div>
+                  <div css={styles.stepItem(false)}>
+                    <div css={styles.stepNum(false)}>6</div>
+                    <div css={styles.stepText}>
+                      <h4>Certifications &amp; Skill Badging</h4>
+                      <p>Earn verified credentials recognized by 150+ corporate hiring partners.</p>
+                    </div>
+                  </div>
 
-              <div css={styles.stepItem(false)}>
-                <div css={styles.stepNum(false)}>7</div>
-                <div css={styles.stepText}>
-                  <h4>Apply &amp; Get Hired</h4>
-                  <p>1-click application submission with instant recruiter notifications.</p>
-                </div>
-              </div>
+                  <div css={styles.stepItem(false)}>
+                    <div css={styles.stepNum(false)}>7</div>
+                    <div css={styles.stepText}>
+                      <h4>1-Click Apply &amp; Fast Placement</h4>
+                      <p>1-click application submission with instant recruiter notifications.</p>
+                    </div>
+                  </div>
 
-              <div css={styles.stepItem(false)}>
-                <div css={styles.stepNum(false)}>8</div>
-                <div css={styles.stepText}>
-                  <h4>Referral Cash Earnings (₹20,000 – ₹50,000 Cash Prize)</h4>
-                  <p>Refer friends to UDEN and earn <strong>₹20,000 – ₹50,000 cash prize</strong> per successful referral placement.</p>
-                </div>
-              </div>
+                  <div css={styles.stepItem(false)}>
+                    <div css={styles.stepNum(false)}>8</div>
+                    <div css={styles.stepText}>
+                      <h4>Referral Cash Earnings (₹20,000 – ₹50,000 Cash Prize)</h4>
+                      <p>Refer friends to UDEN and earn <strong>₹20,000 – ₹50,000 cash prize</strong> per successful referral placement.</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
+
+            <button 
+              css={styles.expandBtn(false)}
+              onClick={() => setExpandedSeeker(!expandedSeeker)}
+            >
+              {expandedSeeker ? 'Show 3-stage summary ↑' : 'View full 8-step roadmap (8 steps) ↓'}
+            </button>
           </div>
 
           {/* RIGHT: COMPANIES (PURPLE THEME) */}
@@ -313,16 +350,8 @@ const DualValueProposition = () => {
               <div css={styles.stepItem(true)}>
                 <div css={styles.stepNum(true)}>2</div>
                 <div css={styles.stepText}>
-                  <h4>Automated Fitment Score Analysis</h4>
+                  <h4>Automated Fitment Score &amp; 48-Hour Shortlists</h4>
                   <p>Save 100+ hours of manual screening with algorithmic candidate rankings.</p>
-                </div>
-              </div>
-
-              <div css={styles.stepItem(true)}>
-                <div css={styles.stepNum(true)}>3</div>
-                <div css={styles.stepText}>
-                  <h4>Hire with Confidence</h4>
-                  <p>Conduct 1-click interview drives with zero placement commissions.</p>
                 </div>
               </div>
 
@@ -335,14 +364,33 @@ const DualValueProposition = () => {
                 </div>
               </div>
 
-              <div css={styles.stepItem(true)}>
-                <div css={styles.stepNum(true)}>5</div>
-                <div css={styles.stepText}>
-                  <h4>Grow High-Performing Teams</h4>
-                  <p>Accelerate time-to-productivity with pre-aligned engineering talent.</p>
-                </div>
-              </div>
+              {expandedCompany && (
+                <>
+                  <div css={styles.stepItem(true)}>
+                    <div css={styles.stepNum(true)}>4</div>
+                    <div css={styles.stepText}>
+                      <h4>Hire with Confidence</h4>
+                      <p>Conduct 1-click interview drives with zero placement commissions.</p>
+                    </div>
+                  </div>
+
+                  <div css={styles.stepItem(true)}>
+                    <div css={styles.stepNum(true)}>5</div>
+                    <div css={styles.stepText}>
+                      <h4>Grow High-Performing Teams</h4>
+                      <p>Accelerate time-to-productivity with pre-aligned engineering talent.</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
+
+            <button 
+              css={styles.expandBtn(true)}
+              onClick={() => setExpandedCompany(!expandedCompany)}
+            >
+              {expandedCompany ? 'Show summary ↑' : 'View full company hiring process ↓'}
+            </button>
           </div>
 
         </div>
@@ -350,19 +398,19 @@ const DualValueProposition = () => {
         {/* BOTTOM METRICS TICKER BAR */}
         <div css={styles.metricsBar}>
           <div css={styles.metricBox}>
-            <h4>1 Lakh+</h4>
+            <div className="metric-val">1 Lakh+</div>
             <p>Jobs Analyzed Daily</p>
           </div>
           <div css={styles.metricBox}>
-            <h4>10,000+</h4>
+            <div className="metric-val">10,000+</div>
             <p>Verified Candidates</p>
           </div>
           <div css={styles.metricBox}>
-            <h4>150+</h4>
+            <div className="metric-val">150+</div>
             <p>Hiring Enterprise Partners</p>
           </div>
           <div css={styles.metricBox}>
-            <h4>100+ Hrs</h4>
+            <div className="metric-val">100+ Hrs</div>
             <p>Recruiter Time Saved</p>
           </div>
         </div>
