@@ -107,18 +107,18 @@ const RefundPolicy = () => {
         <div css={styles.section}>
           <h3>2. Free Tier &amp; Starter Points</h3>
           <p>
-            Every new student user receives 70 free starter points upon account creation. No payment information is required to access these starter credits, enabling users to thoroughly test and evaluate UDEN&apos;s ATS resume analysis and AI career tools before making any purchase.
+            Every new student user receives 100 free starter points upon account creation (70 usable for AI resume diagnostics and mock interviews, and 30 for Job Agent Pro). No payment information is required to access these starter points, enabling users to thoroughly test and evaluate UDEN&apos;s ATS resume analysis and AI career tools before making any purchase.
           </p>
         </div>
 
         <div css={styles.section}>
-          <h3>3. Paid Subscriptions &amp; Placement Passes</h3>
+          <h3>3. Paid Plans &amp; One-Time Purchases</h3>
           <p>
-            For premium offerings (such as the Student Placement Pass):
+            For premium offerings and digital career tools:
           </p>
           <ul>
             <li>
-              <strong>Cancellation:</strong> You may cancel recurring subscription plans at any time directly through your account settings or by emailing our support team. Upon cancellation, your access will remain active until the end of your current billing cycle.
+              <strong>One-Time Plans:</strong> All paid packages and point top-ups are one-time purchases with nothing to cancel. They do not automatically renew, and there are no recurring subscription fees.
             </li>
             <li>
               <strong>Refund Eligibility:</strong> If you experience technical defects preventing the delivery of your AI mock interview report or purchased services, please contact us within 7 days of the transaction for a resolution or prorated refund.
@@ -130,9 +130,9 @@ const RefundPolicy = () => {
         </div>
 
         <div css={styles.section}>
-          <h3>4. How to Request a Cancellation or Refund</h3>
+          <h3>4. How to Request a Refund</h3>
           <p>
-            To submit a cancellation or refund inquiry, please reach out with your registered email address and transaction ID:
+            To submit a refund inquiry, please reach out with your registered email address and transaction ID:
           </p>
           <div css={styles.contactBox}>
             <Mail size={22} color="#F55825" style={{ flexShrink: 0, marginTop: '2px' }} />

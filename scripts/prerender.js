@@ -739,12 +739,12 @@ const corePages = [
     canonical: 'https://uden.tech/refund-policy',
     title: 'Refund & Cancellation Policy | UDEN',
     description: 'Refund & Cancellation Policy for UDEN (Unified Development and Employment Network) operated by Digverve Solutions Pvt. Ltd.',
-    keywords: 'refund policy, cancellation, UDEN billing, student placement pass',
+    keywords: 'refund policy, cancellation, UDEN billing, one-time payment, starter points',
     renderContent: () => `
       <main style="max-width: 900px; margin: 0 auto; padding: 40px 24px; line-height: 1.6; color: #334155;">
         <h1 style="color: #0F172A; font-size: 34px;">Refund & Cancellation Policy</h1>
         <p>Last updated: October 27, 2026. Operated by Digverve Solutions Pvt. Ltd.</p>
-        <p>UDEN provides digital career preparation services. New accounts receive 70 free starter points without requiring payment details. Paid placement passes may be cancelled anytime with access active through the billing period.</p>
+        <p>UDEN provides digital career preparation services. New accounts receive 100 free starter points (70 usable for AI resume diagnostics and mock interviews, and 30 for Job Agent Pro) without requiring payment details. All paid plans and point purchases are one-time payments with nothing to cancel.</p>
       </main>
     `
   },
