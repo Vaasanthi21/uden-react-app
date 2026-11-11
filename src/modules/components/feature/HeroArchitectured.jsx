@@ -136,23 +136,30 @@ const styles = {
   `,
   secondaryBtn: css`
     background: transparent;
-    color: #475569;
-    border: 1.5px solid #E2E8F0;
-    padding: 13px 24px;
-    border-radius: 30px;
-    font-size: 14.5px;
+    color: #0F172A;
+    border: none;
+    padding: 12px 16px;
+    font-size: 15px;
     font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
     transition: all 0.2s ease;
 
+    svg {
+      color: #0F172A;
+      transition: color 0.2s ease;
+    }
+
     &:hover {
-      border-color: #F55825;
       color: #F55825;
-      background: #FFF7ED;
-      transform: translateY(-1px);
+      text-decoration: underline;
+
+      svg {
+        color: #F55825;
+      }
     }
   `,
   trustSubline: css`
@@ -570,9 +577,20 @@ export default function HeroArchitectured() {
 
               <button 
                 css={styles.secondaryBtn}
-                onClick={() => openModal('demo')}
+                onClick={() => {
+                  try {
+                    if (window.dataLayer) {
+                      window.dataLayer.push({
+                        event: "cta_click",
+                        button_location: "hero_triad",
+                        button_text: "Book a Demo"
+                      });
+                    }
+                  } catch (e) {}
+                  openModal("demo");
+                }}
               >
-                <Calendar size={16} color="#F55825" />
+                <Calendar size={18} />
                 Book a Demo
               </button>
             </div>
