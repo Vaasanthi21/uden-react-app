@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from '../../../utils/consts/routes';
 import { openBubbleLogin } from '../../../utils/bubbleAuth';
 import { useFormModal } from '../modal/FormModalContext';
+import PlacementComparisonTable from './PlacementComparisonTable';
 
 const floatAnim = keyframes`
   0% { transform: translateY(0px); }
@@ -134,23 +135,24 @@ const styles = {
     }
   `,
   secondaryBtn: css`
-    background: #FFFFFF;
-    color: #1E293B;
-    border: 1.5px solid #CBD5E1;
-    padding: 15px 28px;
+    background: transparent;
+    color: #475569;
+    border: 1.5px solid #E2E8F0;
+    padding: 13px 24px;
     border-radius: 30px;
-    font-size: 15px;
-    font-weight: 800;
+    font-size: 14.5px;
+    font-weight: 700;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    transition: all 0.25s ease;
+    gap: 8px;
+    transition: all 0.2s ease;
 
     &:hover {
       border-color: #F55825;
       color: #F55825;
-      transform: translateY(-2px);
+      background: #FFF7ED;
+      transform: translateY(-1px);
     }
   `,
   trustSubline: css`
@@ -538,7 +540,7 @@ export default function HeroArchitectured() {
             </div>
 
             <h1 css={styles.title}>
-              AI-Powered Career Transformation <span>Platform</span>
+              Get placed faster with <span>AI mock interviews</span> and campus hiring
             </h1>
 
             <p css={styles.subtitle}>
@@ -736,6 +738,9 @@ export default function HeroArchitectured() {
           </div>
 
         </div>
+
+        {/* Manual placements vs UDEN Comparison Table (CRO Experiment) */}
+        <PlacementComparisonTable />
 
         {/* Horizontal Core Platform Feature Modules Bar */}
         <div css={styles.modulesStrip}>
