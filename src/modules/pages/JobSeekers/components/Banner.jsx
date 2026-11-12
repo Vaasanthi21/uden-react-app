@@ -835,7 +835,7 @@ const JobSeekerBanner = () => {
                   <Info size={11} />
                   AVAILABLE - 259 | CONSUMED - 141
                 </div>
-                <div css={styles.userAvatarCircle}>V</div>
+                <div css={styles.userAvatarCircle}>A</div>
               </div>
             </div>
 
@@ -873,7 +873,7 @@ const JobSeekerBanner = () => {
 
                 <div css={styles.profileDetails}>
                   <div css={styles.candidateNameText}>
-                    VasanthiBojjagani
+                    AnanyaVerma
                     <span css={styles.checkBadgeBlue}>
                       <Check size={9} strokeWidth={3} />
                     </span>
@@ -914,7 +914,7 @@ const JobSeekerBanner = () => {
                       <FileText size={18} />
                     </div>
                     <div>
-                      <div css={styles.resumeFileName}>VASANTHI BOJJAGANI.docx</div>
+                      <div css={styles.resumeFileName}>ANANYA VERMA.docx</div>
                       <div css={styles.resumeFileMeta}>16.0 KB • Ready</div>
                     </div>
                   </div>
