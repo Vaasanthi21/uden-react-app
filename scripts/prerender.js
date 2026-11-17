@@ -17,13 +17,19 @@ if (/<meta\s+charset=[^>]+>/i.test(rawBaseTemplate)) {
   rawBaseTemplate = rawBaseTemplate.replace(/<head[^>]*>/i, '$&\n    <meta charset="utf-8">');
 }
 
-// Clean any previous prerender injections from baseTemplate
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?BreadcrumbList[\s\S]*?<\/script>/gi, '');
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?BlogPosting[\s\S]*?<\/script>/gi, '');
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?Service[\s\S]*?<\/script>/gi, '');
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?FAQPage[\s\S]*?<\/script>/gi, '');
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?EducationalOrganization[\s\S]*?<\/script>/gi, '');
-rawBaseTemplate = rawBaseTemplate.replace(/<script type="application\/ld\+json">[\s\S]*?JobPosting[\s\S]*?<\/script>/gi, '');
+// Helper to safely strip specific JSON-LD schemas without crossing </script> tags
+function stripLdJsonSchema(content, keyword) {
+  const regex = new RegExp('<script type="application\\\\/ld\\\\+json">(?:(?!<\\\\/script>)[\\\\s\\\\S])*?' + keyword + '(?:(?!<\\\\/script>)[\\\\s\\\\S])*?<\\\\/script>', 'gi');
+  return content.replace(regex, '');
+}
+
+// Clean any previous prerender injections from baseTemplate safely
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'BreadcrumbList');
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'BlogPosting');
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'Service');
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'FAQPage');
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'EducationalOrganization');
+rawBaseTemplate = stripLdJsonSchema(rawBaseTemplate, 'JobPosting');
 rawBaseTemplate = rawBaseTemplate.replace(/<div\s+id="root">[\s\S]*?<\/div>/i, '<div id="root"></div>');
 
 const baseTemplate = rawBaseTemplate;
@@ -1335,15 +1341,15 @@ function generatePage({ route, canonical, title, description, keywords, ogType =
   // Strip JobPosting schema from base template on all pages
   html = html.replace(/\{\s*"@type":\s*"JobPosting"[\s\S]*?\},\s*/g, '');
   html = html.replace(/,\s*\{\s*"@type":\s*"JobPosting"[\s\S]*?\}/g, '');
-  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?JobPosting[\s\S]*?<\/script>/gi, '');
+  html = stripLdJsonSchema(html, 'JobPosting');
 
   // Strip EducationalOrganization from base template if route is not /colleges
   if (route !== '/colleges') {
-    html = html.replace(/<script type="application\/ld\+json">[\s\S]*?EducationalOrganization[\s\S]*?<\/script>/gi, '');
+    html = stripLdJsonSchema(html, 'EducationalOrganization');
   }
 
   // Strip generic FAQPage from base template (scoped FAQPage is injected specifically via pageSchemas)
-  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?FAQPage[\s\S]*?<\/script>/gi, '');
+  html = stripLdJsonSchema(html, 'FAQPage');
 
   // 0. Ensure explicit <meta charset="utf-8"> is the first tag in <head>
   if (/<meta\s+charset=[^>]+>/i.test(html)) {
