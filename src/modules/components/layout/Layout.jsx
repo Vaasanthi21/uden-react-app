@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 import AppHeader from './header/Header';
 import AppFooter from './footer/AppFooter';
+import IntercomLauncher from '../IntercomLauncher';
 import { FormModalProvider } from '../modal/FormModalContext';
 import FormModal from '../modal/FormModal';
 import SEOHead from '../seo/SEOHead';
@@ -18,6 +19,7 @@ const Layout = () => {
           <Outlet/>
         </main>
         <AppFooter/>
+        <IntercomLauncher />
         <FormModal />
       </Box>
     </FormModalProvider>

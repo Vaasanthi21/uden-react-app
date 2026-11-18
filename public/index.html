@@ -142,6 +142,61 @@
         opacity: 0 !important;
         pointer-events: none !important;
       }
+      /* Custom Robot Launcher Button for Intercom */
+      #intercom-custom-launcher {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #DA532C;
+        color: #FFFFFF;
+        border: none;
+        box-shadow: 0 10px 25px rgba(218, 83, 44, 0.45);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+        outline: none;
+        padding: 0;
+      }
+      #intercom-custom-launcher:hover {
+        transform: scale(1.08);
+        background: #C0392B;
+        box-shadow: 0 14px 28px rgba(218, 83, 44, 0.55);
+      }
+      #intercom-custom-launcher:active {
+        transform: scale(0.96);
+      }
+      @media (max-width: 639px) {
+        #intercom-custom-launcher {
+          bottom: 20px;
+          right: 20px;
+          width: 54px;
+          height: 54px;
+        }
+      }
+      /* Hide Intercom Fin default collapsed search bar / pill */
+      div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
+      #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
+      #intercom-container .intercom-lightweight-app-launcher,
+      .intercom-launcher-frame,
+      iframe[name="intercom-launcher-frame"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      /* When Intercom messenger is open (visible), hide the custom robot launcher so it doesn't overlap */
+      body:has(div[data-testid="fin-floating-frame"][data-visibility-state="visible"]) #intercom-custom-launcher,
+      body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-custom-launcher {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
       /* Dock Intercom Fin Messenger and Floating Frame in Bottom-Right Corner */
       @media (min-width: 640px) {
         #intercom-container div[data-testid="fin-floating-frame"],
@@ -261,7 +316,8 @@
         platform: 'website',
         alignment: 'right',
         horizontal_padding: 20,
-        vertical_padding: 20
+        vertical_padding: 20,
+        custom_launcher_selector: '#intercom-custom-launcher'
       };
       (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/xred4bsv';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
     </script>
@@ -275,7 +331,8 @@
               platform: 'website',
               alignment: 'right',
               horizontal_padding: 20,
-              vertical_padding: 20
+              vertical_padding: 20,
+              custom_launcher_selector: '#intercom-custom-launcher'
             });
           }
         } catch (e) {}
