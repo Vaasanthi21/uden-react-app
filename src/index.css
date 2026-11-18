@@ -128,8 +128,8 @@ div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] iframe,
 #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] iframe {
   position: absolute !important;
   bottom: 0 !important;
-  right: 0 !important;
-  left: auto !important;
+  left: -148px !important;
+  right: auto !important;
   top: auto !important;
   width: 356px !important;
   height: 571px !important;
@@ -190,5 +190,9 @@ body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-c
     width: 100% !important;
     height: 100% !important;
     position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
   }
 }

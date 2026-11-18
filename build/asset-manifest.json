@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.0de3c8cf.css",
+    "main.css": "/static/css/main.30c9f74b.css",
     "main.js": "/static/js/main.3b200194.js",
     "static/js/236.6c1530c6.chunk.js": "/static/js/236.6c1530c6.chunk.js",
     "static/js/127.70a9b611.chunk.js": "/static/js/127.70a9b611.chunk.js",
@@ -126,14 +126,14 @@
     "static/media/seeker-3.png": "/static/media/seeker-3.eba0901a46f9e12f0020.png",
     "static/media/home_first.png": "/static/media/home_first.8ac6ba298cb0ff5d203c.png",
     "static/media/Microsoft.webp": "/static/media/Microsoft.01ee1dcf49c6490384dc.webp",
-    "static/media/seeker-2.png": "/static/media/seeker-2.54672fce5c5225cce740.png",
     "index.html": "/index.html",
+    "static/media/seeker-2.png": "/static/media/seeker-2.54672fce5c5225cce740.png",
     "static/media/career-growth.webp": "/static/media/career-growth.7e26adfdb36f1aa40da4.webp",
     "static/media/company-banner.png": "/static/media/company-banner.dc63fc2b3ba4246d08c9.png",
     "static/media/talent-banner.png": "/static/media/talent-banner.50fa55989738795c23bd.png",
     "static/media/home_second.png": "/static/media/home_second.a917094b9c9f751ece33.png",
     "static/media/contact-banner.png": "/static/media/contact-banner.48b694310cc507c8bcb3.png",
-    "main.0de3c8cf.css.map": "/static/css/main.0de3c8cf.css.map",
+    "main.30c9f74b.css.map": "/static/css/main.30c9f74b.css.map",
     "main.3b200194.js.map": "/static/js/main.3b200194.js.map",
     "236.6c1530c6.chunk.js.map": "/static/js/236.6c1530c6.chunk.js.map",
     "127.70a9b611.chunk.js.map": "/static/js/127.70a9b611.chunk.js.map",
@@ -169,7 +169,7 @@
     "807.355d70eb.chunk.js.map": "/static/js/807.355d70eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0de3c8cf.css",
+    "static/css/main.30c9f74b.css",
     "static/js/main.3b200194.js"
   ]
 }
