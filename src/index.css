@@ -100,60 +100,20 @@ iframe[id^="hubspot-messages"],
   }
 }
 
-/* Position shrinked Fin frame as an invisible, clickable overlay directly over the robot button */
-div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
-#intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 0.001 !important;
-  pointer-events: auto !important;
-  position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  left: auto !important;
-  top: auto !important;
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  z-index: 100000 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] iframe,
-#intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] iframe {
-  position: absolute !important;
-  bottom: -5px !important;
-  right: -148px !important;
-  left: auto !important;
-  top: auto !important;
-  width: 356px !important;
-  height: 571px !important;
-  pointer-events: auto !important;
-}
-
-@media (max-width: 639px) {
-  div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
-  #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] {
-    bottom: 20px !important;
-    right: 20px !important;
-    width: 54px !important;
-    height: 54px !important;
-  }
-}
-
-/* Hide standard launcher elements if present */
+/* Hide default launcher bubbles or shrinked Fin search bar if present */
 #intercom-container .intercom-lightweight-app-launcher,
 .intercom-launcher-frame,
-iframe[name="intercom-launcher-frame"] {
+iframe[name="intercom-launcher-frame"],
+body:not(.intercom-open) div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
+body:not(.intercom-open) #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-/* When Intercom messenger is open (visible), hide the custom robot launcher so it doesn't overlap */
+/* Hide custom launcher button when Intercom messenger is open */
+body.intercom-open #intercom-custom-launcher,
 body:has(div[data-testid="fin-floating-frame"][data-visibility-state="visible"]) #intercom-custom-launcher,
 body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-custom-launcher {
   display: none !important;
@@ -161,38 +121,53 @@ body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-c
   pointer-events: none !important;
 }
 
-/* Dock Intercom Fin Messenger when visible to Bottom-Right Corner */
+/* Dock Intercom Messenger to Bottom-Right Corner (Desktop) */
 @media (min-width: 640px) {
-  #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="visible"],
-  div[data-testid="fin-floating-frame"][data-visibility-state="visible"],
-  .intercom-messenger-frame[data-testid="fin-floating-frame"][data-visibility-state="visible"],
-  div[class*="intercom-messenger-frame"][data-visibility-state="visible"] {
+  #intercom-container div[data-testid="fin-floating-frame"],
+  div[data-testid="fin-floating-frame"],
+  .intercom-messenger-frame[data-testid="fin-floating-frame"],
+  div[class*="intercom-messenger-frame"],
+  .intercom-messenger-frame,
+  body.intercom-open div[data-testid="fin-floating-frame"],
+  body.intercom-open .intercom-messenger-frame {
+    position: fixed !important;
     left: auto !important;
     right: 20px !important;
     bottom: 20px !important;
-    width: 592px !important;
-    height: 571px !important;
-    max-width: calc(100vw - 40px) !important;
-    max-height: calc(100vh - 40px) !important;
-    opacity: 1 !important;
-    border-radius: 16px !important;
-    overflow: visible !important;
+    top: auto !important;
     transform: none !important;
     margin-inline: 0 !important;
     margin-left: auto !important;
     margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     inset-inline-start: auto !important;
     inset-inline-end: 20px !important;
+    border-radius: 16px !important;
     z-index: 2147483647 !important;
   }
-  div[data-testid="fin-floating-frame"][data-visibility-state="visible"] iframe,
-  #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="visible"] iframe {
+
+  body.intercom-open div[data-testid="fin-floating-frame"],
+  body.intercom-open .intercom-messenger-frame,
+  div[data-testid="fin-floating-frame"][data-visibility-state="visible"],
+  .intercom-messenger-frame[data-visibility-state="visible"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 592px !important;
+    height: 571px !important;
+    max-width: calc(100vw - 40px) !important;
+    max-height: calc(100vh - 40px) !important;
+    pointer-events: auto !important;
+    overflow: visible !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  body.intercom-open div[data-testid="fin-floating-frame"] iframe,
+  div[data-testid="fin-floating-frame"][data-visibility-state="visible"] iframe {
+    position: static !important;
     width: 100% !important;
     height: 100% !important;
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    top: auto !important;
+    pointer-events: auto !important;
   }
 }

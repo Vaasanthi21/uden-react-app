@@ -5,32 +5,53 @@ const IntercomLauncher = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleShow = () => setIsOpen(true);
-    const handleHide = () => setIsOpen(false);
+    const handleShow = () => {
+      setIsOpen(true);
+      if (typeof document !== 'undefined') {
+        document.body.classList.add('intercom-open');
+      }
+    };
+
+    const handleHide = () => {
+      setIsOpen(false);
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('intercom-open');
+      }
+    };
 
     const attachIntercomListeners = () => {
       if (typeof window !== 'undefined' && window.Intercom) {
         window.Intercom('onShow', handleShow);
         window.Intercom('onHide', handleHide);
+        try {
+          window.Intercom('reattach_activator');
+        } catch (e) {}
       }
     };
 
     attachIntercomListeners();
     window.addEventListener('load', attachIntercomListeners);
 
-    // Observer to watch for Intercom messenger visibility state changes
+    // Observer to watch for Intercom messenger visibility changes in DOM
     let observer = null;
     const setupObserver = () => {
       const intercomContainer = document.getElementById('intercom-container');
       if (intercomContainer && !observer) {
         observer = new MutationObserver(() => {
-          const frame = document.querySelector('div[data-testid="fin-floating-frame"], .intercom-messenger-frame');
-          if (frame) {
-            const vis = frame.getAttribute('data-visibility-state');
-            if (vis === 'visible') {
+          const messengerFrame = document.querySelector(
+            'div[data-testid="fin-floating-frame"], .intercom-messenger-frame, iframe[name="intercom-messenger-frame"]'
+          );
+          if (messengerFrame) {
+            const vis = messengerFrame.getAttribute('data-visibility-state');
+            const style = window.getComputedStyle(messengerFrame);
+            if (vis === 'visible' || (style.display !== 'none' && style.visibility !== 'hidden' && parseFloat(style.opacity) > 0.5 && messengerFrame.offsetHeight > 200)) {
               setIsOpen(true);
-            } else if (vis === 'shrinked') {
-              setIsOpen(false);
+              document.body.classList.add('intercom-open');
+            } else if (vis === 'shrinked' || messengerFrame.offsetHeight <= 100) {
+              if (vis === 'shrinked') {
+                setIsOpen(false);
+                document.body.classList.remove('intercom-open');
+              }
             }
           }
         });
@@ -58,15 +79,25 @@ const IntercomLauncher = () => {
     e.preventDefault();
     if (typeof window !== 'undefined') {
       if (window.Intercom) {
-        window.Intercom('show');
+        if (isOpen) {
+          window.Intercom('hide');
+          setIsOpen(false);
+          document.body.classList.remove('intercom-open');
+        } else {
+          window.Intercom('show');
+          setIsOpen(true);
+          document.body.classList.add('intercom-open');
+        }
       } else {
-        const interval = setInterval(() => {
+        const checkInterval = setInterval(() => {
           if (window.Intercom) {
             window.Intercom('show');
-            clearInterval(interval);
+            setIsOpen(true);
+            document.body.classList.add('intercom-open');
+            clearInterval(checkInterval);
           }
         }, 100);
-        setTimeout(() => clearInterval(interval), 4000);
+        setTimeout(() => clearInterval(checkInterval), 4000);
       }
     }
   };
