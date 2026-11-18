@@ -126,7 +126,12 @@
         padding: 0;
         overflow-x: hidden;
       }
-      /* Hide external smatbot chat widgets */
+      /* Hide external chat widgets overlapping with Intercom */
+      #hubspot-messages-iframe-container,
+      .hs-shadow-container,
+      #hubspot-conversations-inline-parent,
+      iframe[data-test-id="chat-widget-iframe"],
+      iframe[id^="hubspot-messages"],
       #smatbot_icon,
       #smatbot-chatbot,
       #smatbot_plugin_container,
