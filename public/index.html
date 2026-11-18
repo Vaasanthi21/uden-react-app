@@ -59,6 +59,11 @@
     <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/android-chrome-512x512.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <!-- Preconnect for Instant Intercom Chat Widget Loading -->
+    <link rel="preconnect" href="https://widget.intercom.io">
+    <link rel="preconnect" href="https://js.intercomcdn.com">
+    <link rel="preconnect" href="https://api-iam.intercom.io">
+
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,7 +131,7 @@
         padding: 0;
         overflow-x: hidden;
       }
-      /* Hide external chat widgets overlapping with Intercom */
+      /* Hide external chat widgets and native Intercom launcher */
       #hubspot-messages-iframe-container,
       .hs-shadow-container,
       #hubspot-conversations-inline-parent,
@@ -136,18 +141,17 @@
       #smatbot-chatbot,
       #smatbot_plugin_container,
       .smatbot-chat-icon,
-      .smatbot-widget-button {
+      .smatbot-widget-button,
+      #intercom-container .intercom-lightweight-app-launcher,
+      .intercom-lightweight-app-launcher {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         pointer-events: none !important;
       }
-      /* Style Intercom's native launcher button as the circular robot icon */
-      #intercom-container .intercom-lightweight-app-launcher,
-      .intercom-lightweight-app-launcher {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+
+      /* Custom Robot Launcher Button for Intercom */
+      #intercom-custom-launcher {
         position: fixed !important;
         bottom: 24px !important;
         right: 24px !important;
@@ -157,29 +161,31 @@
         height: 60px !important;
         border-radius: 50% !important;
         background: #DA532C !important;
+        color: #FFFFFF !important;
+        border: none !important;
         box-shadow: 0 10px 25px rgba(218, 83, 44, 0.45) !important;
         cursor: pointer !important;
-        z-index: 2147483646 !important;
+        display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        z-index: 2147483646 !important;
         transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease !important;
+        outline: none !important;
+        padding: 0 !important;
       }
 
-      #intercom-container .intercom-lightweight-app-launcher:hover,
-      .intercom-lightweight-app-launcher:hover {
+      #intercom-custom-launcher:hover {
         transform: scale(1.08) !important;
         background: #C0392B !important;
         box-shadow: 0 14px 28px rgba(218, 83, 44, 0.55) !important;
       }
 
-      #intercom-container .intercom-lightweight-app-launcher:active,
-      .intercom-lightweight-app-launcher:active {
+      #intercom-custom-launcher:active {
         transform: scale(0.96) !important;
       }
 
       @media (max-width: 639px) {
-        #intercom-container .intercom-lightweight-app-launcher,
-        .intercom-lightweight-app-launcher {
+        #intercom-custom-launcher {
           bottom: 20px !important;
           right: 20px !important;
           width: 54px !important;
@@ -187,20 +193,12 @@
         }
       }
 
-      /* Replace default Intercom icon inside the launcher with the white robot icon */
-      #intercom-container .intercom-lightweight-app-launcher-icon-open svg,
-      .intercom-lightweight-app-launcher-icon-open svg {
+      /* Hide custom launcher when Intercom messenger is actively open */
+      body:has(div[data-testid="fin-floating-frame"][data-visibility-state="visible"]) #intercom-custom-launcher,
+      body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-custom-launcher {
         display: none !important;
-      }
-
-      #intercom-container .intercom-lightweight-app-launcher-icon-open,
-      .intercom-lightweight-app-launcher-icon-open {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E") !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
-        background-size: 30px 30px !important;
-        width: 100% !important;
-        height: 100% !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
 
       /* Hide Fin AI search pill if it renders */
@@ -339,23 +337,32 @@
         horizontal_padding: 20,
         vertical_padding: 20
       };
-      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/xred4bsv';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-    </script>
-    <script>
-      window.addEventListener('load', function () {
-        try {
-          if (window.Intercom) {
-            Intercom('boot', {
-              api_base: 'https://api-iam.intercom.io',
-              app_id: 'xred4bsv',
-              platform: 'website',
-              alignment: 'right',
-              horizontal_padding: 20,
-              vertical_padding: 20
-            });
-          }
-        } catch (e) {}
-      });
+      (function(){
+        var w=window;
+        var ic=w.Intercom;
+        if(typeof ic==="function"){
+          ic('reattach_activator');
+          ic('update',w.intercomSettings);
+        } else {
+          var d=document;
+          var i=function(){i.c(arguments);};
+          i.q=[];
+          i.c=function(args){i.q.push(args);};
+          w.Intercom=i;
+          var l=function(){
+            var s=d.createElement('script');
+            s.type='text/javascript';
+            s.async=true;
+            s.src='https://widget.intercom.io/widget/xred4bsv';
+            var x=d.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s,x);
+          };
+          l();
+        }
+      })();
+      try {
+        window.Intercom('boot', window.intercomSettings);
+      } catch (e) {}
     </script>
   </body>
 </html>
