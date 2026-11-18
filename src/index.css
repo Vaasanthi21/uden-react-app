@@ -59,64 +59,72 @@ iframe[id^="hubspot-messages"],
   pointer-events: none !important;
 }
 
-/* Custom Robot Launcher Button for Intercom */
-#intercom-custom-launcher {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #DA532C;
-  color: #FFFFFF;
-  border: none;
-  box-shadow: 0 10px 25px rgba(218, 83, 44, 0.45);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
-  outline: none;
-  padding: 0;
+/* Style Intercom's native launcher button as the circular robot icon */
+#intercom-container .intercom-lightweight-app-launcher,
+.intercom-lightweight-app-launcher {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  left: auto !important;
+  top: auto !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  background: #DA532C !important;
+  box-shadow: 0 10px 25px rgba(218, 83, 44, 0.45) !important;
+  cursor: pointer !important;
+  z-index: 2147483646 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-#intercom-custom-launcher:hover {
-  transform: scale(1.08);
-  background: #C0392B;
-  box-shadow: 0 14px 28px rgba(218, 83, 44, 0.55);
+#intercom-container .intercom-lightweight-app-launcher:hover,
+.intercom-lightweight-app-launcher:hover {
+  transform: scale(1.08) !important;
+  background: #C0392B !important;
+  box-shadow: 0 14px 28px rgba(218, 83, 44, 0.55) !important;
 }
 
-#intercom-custom-launcher:active {
-  transform: scale(0.96);
+#intercom-container .intercom-lightweight-app-launcher:active,
+.intercom-lightweight-app-launcher:active {
+  transform: scale(0.96) !important;
 }
 
 @media (max-width: 639px) {
-  #intercom-custom-launcher {
-    bottom: 20px;
-    right: 20px;
-    width: 54px;
-    height: 54px;
+  #intercom-container .intercom-lightweight-app-launcher,
+  .intercom-lightweight-app-launcher {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 54px !important;
+    height: 54px !important;
   }
 }
 
-/* Hide default launcher bubbles or shrinked Fin search bar if present */
-#intercom-container .intercom-lightweight-app-launcher,
-.intercom-launcher-frame,
-iframe[name="intercom-launcher-frame"],
-body:not(.intercom-open) div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
-body:not(.intercom-open) #intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] {
+/* Replace default Intercom icon inside the launcher with the white robot icon */
+#intercom-container .intercom-lightweight-app-launcher-icon-open svg,
+.intercom-lightweight-app-launcher-icon-open svg {
   display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
 }
 
-/* Hide custom launcher button when Intercom messenger is open */
-body.intercom-open #intercom-custom-launcher,
-body:has(div[data-testid="fin-floating-frame"][data-visibility-state="visible"]) #intercom-custom-launcher,
-body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-custom-launcher {
+#intercom-container .intercom-lightweight-app-launcher-icon-open,
+.intercom-lightweight-app-launcher-icon-open {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 8V4H8'/%3E%3Crect width='16' height='12' x='4' y='8' rx='2'/%3E%3Cpath d='M2 14h2'/%3E%3Cpath d='M20 14h2'/%3E%3Cpath d='M15 13v2'/%3E%3Cpath d='M9 13v2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 30px 30px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hide Fin AI search pill if it renders */
+div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"],
+#intercom-container div[data-testid="fin-floating-frame"][data-visibility-state="shrinked"] {
   display: none !important;
+  visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
 }
@@ -127,9 +135,7 @@ body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-c
   div[data-testid="fin-floating-frame"],
   .intercom-messenger-frame[data-testid="fin-floating-frame"],
   div[class*="intercom-messenger-frame"],
-  .intercom-messenger-frame,
-  body.intercom-open div[data-testid="fin-floating-frame"],
-  body.intercom-open .intercom-messenger-frame {
+  .intercom-messenger-frame {
     position: fixed !important;
     left: auto !important;
     right: 20px !important;
@@ -145,29 +151,5 @@ body:has(.intercom-messenger-frame[data-visibility-state="visible"]) #intercom-c
     inset-inline-end: 20px !important;
     border-radius: 16px !important;
     z-index: 2147483647 !important;
-  }
-
-  body.intercom-open div[data-testid="fin-floating-frame"],
-  body.intercom-open .intercom-messenger-frame,
-  div[data-testid="fin-floating-frame"][data-visibility-state="visible"],
-  .intercom-messenger-frame[data-visibility-state="visible"] {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 592px !important;
-    height: 571px !important;
-    max-width: calc(100vw - 40px) !important;
-    max-height: calc(100vh - 40px) !important;
-    pointer-events: auto !important;
-    overflow: visible !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  body.intercom-open div[data-testid="fin-floating-frame"] iframe,
-  div[data-testid="fin-floating-frame"][data-visibility-state="visible"] iframe {
-    position: static !important;
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: auto !important;
   }
 }
