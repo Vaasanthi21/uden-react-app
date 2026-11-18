@@ -58,3 +58,22 @@ iframe[id^="hubspot-messages"],
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* Dock Intercom Fin Messenger and Floating Frame in Bottom-Right Corner */
+@media (min-width: 640px) {
+  #intercom-container div[data-testid="fin-floating-frame"],
+  div[data-testid="fin-floating-frame"],
+  .intercom-messenger-frame[data-testid="fin-floating-frame"],
+  div[class*="intercom-messenger-frame"],
+  .intercom-messenger-frame {
+    left: auto !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    transform: none !important;
+    margin-inline: 0 !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: 20px !important;
+  }
+}

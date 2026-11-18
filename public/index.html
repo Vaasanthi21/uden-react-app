@@ -142,6 +142,24 @@
         opacity: 0 !important;
         pointer-events: none !important;
       }
+      /* Dock Intercom Fin Messenger and Floating Frame in Bottom-Right Corner */
+      @media (min-width: 640px) {
+        #intercom-container div[data-testid="fin-floating-frame"],
+        div[data-testid="fin-floating-frame"],
+        .intercom-messenger-frame[data-testid="fin-floating-frame"],
+        div[class*="intercom-messenger-frame"],
+        .intercom-messenger-frame {
+          left: auto !important;
+          right: 20px !important;
+          bottom: 20px !important;
+          transform: none !important;
+          margin-inline: 0 !important;
+          margin-left: auto !important;
+          margin-right: 0 !important;
+          inset-inline-start: auto !important;
+          inset-inline-end: 20px !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -237,6 +255,14 @@
 
     <!-- Intercom Chat Widget for uden.tech -->
     <script>
+      window.intercomSettings = {
+        api_base: 'https://api-iam.intercom.io',
+        app_id: 'xred4bsv',
+        platform: 'website',
+        alignment: 'right',
+        horizontal_padding: 20,
+        vertical_padding: 20
+      };
       (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/xred4bsv';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
     </script>
     <script>
@@ -246,7 +272,10 @@
             Intercom('boot', {
               api_base: 'https://api-iam.intercom.io',
               app_id: 'xred4bsv',
-              platform: 'website'
+              platform: 'website',
+              alignment: 'right',
+              horizontal_padding: 20,
+              vertical_padding: 20
             });
           }
         } catch (e) {}
